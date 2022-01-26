@@ -14,8 +14,9 @@ from pathlib import Path
 import os
 from unittest.mock import patch
 import dj_database_url
-if os.patch.isfile('env.py'):
+if os.path.isfile('env.py'):
     import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
