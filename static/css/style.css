@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 :root {
   --yellow-color: #eea300;
@@ -23,18 +23,18 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Architects Daughter', cursive;
+  font-family: "Architects Daughter", cursive;
   letter-spacing: 2px;
 }
 
 a {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-decoration: none;
   letter-spacing: 2px;
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   letter-spacing: 1px;
 }
 
@@ -96,13 +96,12 @@ li {
   transition-duration: 0.4s;
 }
 
-
 .button a {
   height: 100%;
   width: 100%;
   padding-top: 23px;
   transition-duration: 0.3s;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-decoration: none;
   letter-spacing: 2px;
   color: var(--black-color);
@@ -115,7 +114,6 @@ li {
   box-shadow: 0 10px 10px -10px rgb(0 0 0 / 50%);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-  
 }
 
 .button a:hover {
@@ -125,7 +123,6 @@ li {
 .button span {
   margin-left: 10px;
 }
-
 
 /*----------------- navbar */
 #header {
@@ -140,7 +137,6 @@ li {
 #header.scrolled {
   background: var(--white-color);
   box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 15px;
-
 }
 
 .wrapper-menu {
@@ -171,7 +167,7 @@ li {
   margin-right: 20px;
   margin-top: 10px;
   transition-duration: 0.2s;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-decoration: none;
   font-size: 17px;
   color: var(--black-color);
@@ -287,7 +283,6 @@ li {
   top: 0;
 }
 
-
 /* -------------------footer */
 #footer {
   background: url(/media/footer.jpg) no-repeat center center/cover;
@@ -322,7 +317,7 @@ li {
 }
 
 .footer-box h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 25px;
   margin-bottom: 25px;
   margin-top: 30px;
@@ -337,7 +332,7 @@ li {
   line-height: 41px;
   font-size: 16px;
   letter-spacing: 1px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .footer-box a {
@@ -391,8 +386,160 @@ li {
   height: 100%;
 }
 
+/* --------- media queries */
+@media screen and (max-width: 1600px) {
+  .home-bg-shape-2 {
+    display: none;
+  }
+}
 
+@media screen and (max-width: 1300px) {
+  @media screen and (max-height: 800px) {
+    .home-bg-shape-1 {
+      left: -25%;
+    }
 
+    .small-mark {
+      height: 120px;
+      top: 15%;
+    }
 
+    .big-mark {
+      height: 240px;
+      top: 0;
+    }
 
+    .main-txt {
+      height: 82%;
+    }
+  }
+}
 
+@media screen and (max-width: 1150px) {
+  /* hamburger icon code from https://codepen.io/JoseRosario/pen/BWqMwK*/
+  .wrapper-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out;
+    position: absolute;
+    right: 5%;
+  }
+
+  .nav-list a.active {
+    color: var(--white-color);
+  }
+
+  .wrapper-menu.open {
+    transform: rotate(-45deg);
+  }
+
+  .line-menu {
+    background-color: var(--black-color);
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+  }
+
+  .line-menu.half {
+    width: 50%;
+  }
+
+  .line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+  }
+
+  .open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+  }
+
+  .line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+  }
+
+  .open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+  }
+
+  /* my code start here */
+  .sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--yellow-color);
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: rgb(0 0 0 / 35%) 0px -10px 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .nav-list li {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .half-home-bg {
+    display: none;
+  }
+
+  .home-dog-img {
+    display: none;
+  }
+
+  .home-bg-shape-1 {
+    display: none;
+  }
+
+  #home-section {
+    background: url(/media/footer.jpg) no-repeat center center/cover;
+  }
+
+  #footer-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+  }
+
+  .footer-box {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
+
+  .footer-box h3 {
+    font-size: 25px;
+  }
+
+  .box-logo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main-txt {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+}
+
+@media screen and (max-width: 380px) {
+}
