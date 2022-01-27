@@ -63,7 +63,7 @@ function toggleHamburgerIcon() {
     });
   }
   
-  
+
   // Change navbar background color on scrolling
   window.addEventListener('scroll', () => {
     let header = document.querySelector('header');
