@@ -1,0 +1,45 @@
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% block content %}
+    <!-- hero section -->
+    <main id="home-section" class="section">
+        <div class="home-bg-shape-1"></div>
+        <div class="home-bg-shape-2"></div>
+        <div class="container">
+          <div class="half-home-bg">
+            <img
+              src="/media/q-mark.png"
+              class="mark-img small-mark small-mark-left"
+              alt="A question mark-img"
+            />
+            <img
+              src="/media/q-mark.png"
+              class="mark-img big-mark"
+              alt="A question mark"
+            />
+            <img
+              src="/media/q-mark.png"
+              class="mark-img small-mark small-mark-right"
+              alt="A question mark-img"
+            />
+          </div>
+          <div class="main-image image-shadow">
+            <img src="/media/dog1.png" class="home-dog-img" alt="A dog" />
+          </div>
+          <div class="home-txt center">
+            <div class="main-txt center">
+              <h1>ARE YOU LOOKING FOR PROFESSIONAL PET SITTER OR DOG WALKER?</h1>
+              <p>Find one with us !</p>
+            </div>
+            <div class="button button-bright center home-button">
+              <a href="#searching-section">
+                SEARCH
+                <span><i class="fas fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+    {% endblock %}
