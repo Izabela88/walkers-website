@@ -20,7 +20,7 @@
     <!-- header -->
     <header id="header">
       <div class="logo">
-        <a class="close-sidebar" href="#"
+        <a class="close-sidebar" href="{% url 'home' %}"
           ><img src="/media/logo.gif" alt="Logo"
         /></a>
       </div>
@@ -48,7 +48,7 @@
     <!-- footer -->
     <footer id="footer">
         <div class="box-logo">
-          <a class="scroll" href="#home-section">
+          <a class="scroll" href="{% url 'home' %}">
             <img src="/media/logo.gif" alt="Logo" />
           </a>
         </div>
@@ -92,7 +92,7 @@
           <div class="footer-box">
             <h3>Quick links</h3>
             <ul>
-              <li><a class="scroll" href="#home-section">Home</a></li>
+              <li><a class="scroll" href="{% url 'home' %}">Home</a></li>
               <li><a class="scroll" href="#join-section">Join</a></li>
               <li><a class="scroll" href="{% url 'about' %}">About</a></li>
               <li><a class="scroll" href="#">Register</a></li>

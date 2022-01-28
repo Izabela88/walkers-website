@@ -404,7 +404,7 @@ li {
 
 .about-txt h1 {
   font-size: 45px;
-  margin-bottom: 15px;
+  margin-top: 50px;
 }
 
 .about-txt h2 {
@@ -590,6 +590,23 @@ li {
     .join-instructions {
       height: 30%;
     }
+
+    .paw-1, .paw-2 {
+      right: 0;
+    }
+
+    .about-txt p {
+      margin-top: 0;
+      line-height: 25px;
+    }
+
+    .about-dog-img {
+      right: 75%;
+    }
+
+    .about-bg-shape {
+      left: -34%;
+    }
   }
 }
 
@@ -664,6 +681,8 @@ li {
 
   .nav-list {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-list li {
@@ -701,6 +720,22 @@ li {
 
   .join-txt {
     width: 65%;
+  }
+
+  #about-section {
+    height: unset;
+  }
+
+  .about-dog-img {
+    display: none;
+  }
+
+  .half-about-bg {
+    display: none;
+  }
+
+  .about-bg-shape {
+    display: none;
   }
 
   #footer-container {
@@ -744,7 +779,7 @@ li {
   }
 
   .main-txt {
-    width: 70%;
+    width: 90%;
   }
 }
 
