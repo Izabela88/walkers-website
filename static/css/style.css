@@ -174,11 +174,11 @@ li {
 }
 
 .nav-list a:hover {
-  color: var(--yellow-color);
+  color: rgb(255, 60, 0);
 }
 
 .nav-list a.active {
-  color: var(--yellow-color);
+  color: rgb(255, 60, 0);
 }
 
 .logo {
@@ -381,7 +381,6 @@ li {
   height: 100vh;
 }
 
-
 .half-about-bg {
   height: 100%;
   width: 30%;
@@ -398,7 +397,7 @@ li {
 
 .about-txt {
   width: 70%;
-  height:100%;
+  height: 100%;
   padding: 30px;
 }
 
@@ -446,7 +445,6 @@ li {
   margin-right: 4%;
   margin-left: 4%;
 }
-
 
 /* -------------------footer */
 #footer {
@@ -591,7 +589,8 @@ li {
       height: 30%;
     }
 
-    .paw-1, .paw-2 {
+    .paw-1,
+    .paw-2 {
       right: 0;
     }
 
@@ -625,6 +624,10 @@ li {
   }
 
   .nav-list a.active {
+    color: var(--white-color);
+  }
+
+  .nav-list a:hover {
     color: var(--white-color);
   }
 
