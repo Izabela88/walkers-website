@@ -127,7 +127,7 @@ li {
 /*----------------- navbar */
 #header {
   width: 100%;
-  height: 120px;
+  height: 80px;
   position: fixed;
   z-index: 1000;
   padding: 10px;
@@ -158,7 +158,7 @@ li {
   align-items: center;
   font-weight: bold;
   flex-direction: row;
-  height: 100px;
+  height: 60px;
 }
 
 .nav-list a {
@@ -718,13 +718,13 @@ li {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   width: 40%;
-  height: 60%;
+  height: 80%;
 }
 
 .signup {
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
 }
 
 .signup input {
@@ -822,6 +822,12 @@ li {
   margin-bottom: 10px;
 }
 
+.login-form-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  width: 40%;
+  height: 55%;
+}
 
 .login input::placeholder {
   font-family: 'Lato', sans-serif;
@@ -832,7 +838,6 @@ li {
 
 .login .errorlist  {
   font-size: 15px;
-  margin-left: 3%;
   font-family: 'Lato', sans-serif;
   color: rgb(255, 60, 0);
 }

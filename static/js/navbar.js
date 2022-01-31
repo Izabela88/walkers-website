@@ -97,10 +97,18 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", function() {
   let about = document.querySelector('#about')
   let home = document.querySelector('#home-link')
+  let login = document.querySelector('#login-link')
+  let register = document.querySelector('#register-link')
   
+  home.classList.add("active")
+
   if (about.classList.contains("active")) {
     home.classList.remove("active")
-  } else {
-    home.classList.add("active")
+  } 
+  if (login.classList.contains("active")) {
+    home.classList.remove("active")
+  } 
+  if (register.classList.contains("active")) {
+    home.classList.remove("active")
   }
 })
