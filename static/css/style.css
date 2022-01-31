@@ -174,11 +174,11 @@ li {
 }
 
 .nav-list a:hover {
-  color: var(--yellow-color);
+  color: rgb(255, 60, 0);
 }
 
 .nav-list a.active {
-  color: var(--yellow-color);
+  color: rgb(255, 60, 0);
 }
 
 .logo {
@@ -320,6 +320,7 @@ li {
   width: 100%;
   height: 30%;
   margin-top: 20px;
+  align-items: center;
 }
 
 .step {
@@ -372,6 +373,77 @@ li {
 .paw-2 {
   bottom: 10%;
   right: -5%;
+}
+
+/* --------------------about section */
+#about-section {
+  position: relative;
+  height: 100vh;
+}
+
+.half-about-bg {
+  height: 100%;
+  width: 30%;
+}
+
+.about-bg-shape {
+  background: url(/media/circle1.png) no-repeat center center/cover;
+  position: absolute;
+  height: 900px;
+  width: 900px;
+  left: -15%;
+  top: 0;
+}
+
+.about-txt {
+  width: 70%;
+  height: 100%;
+  padding: 30px;
+}
+
+.about-txt h1 {
+  font-size: 45px;
+  margin-top: 50px;
+}
+
+.about-txt h2 {
+  font-size: 35px;
+}
+
+.about-txt p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.about-box {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.about-dog-img {
+  position: absolute;
+  height: 120%;
+  bottom: -29%;
+  right: 80%;
+}
+
+.safety-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.safety-icon {
+  font-size: 30px;
+  color: #18d777;
+  margin-right: 4%;
+  margin-left: 4%;
 }
 
 /* -------------------footer */
@@ -516,6 +588,24 @@ li {
     .join-instructions {
       height: 30%;
     }
+
+    .paw-1,
+    .paw-2 {
+      right: 0;
+    }
+
+    .about-txt p {
+      margin-top: 0;
+      line-height: 25px;
+    }
+
+    .about-dog-img {
+      right: 75%;
+    }
+
+    .about-bg-shape {
+      left: -34%;
+    }
   }
 }
 
@@ -534,6 +624,10 @@ li {
   }
 
   .nav-list a.active {
+    color: var(--white-color);
+  }
+
+  .nav-list a:hover {
     color: var(--white-color);
   }
 
@@ -590,6 +684,8 @@ li {
 
   .nav-list {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-list li {
@@ -627,6 +723,22 @@ li {
 
   .join-txt {
     width: 65%;
+  }
+
+  #about-section {
+    height: unset;
+  }
+
+  .about-dog-img {
+    display: none;
+  }
+
+  .half-about-bg {
+    display: none;
+  }
+
+  .about-bg-shape {
+    display: none;
   }
 
   #footer-container {
@@ -670,7 +782,7 @@ li {
   }
 
   .main-txt {
-    width: 70%;
+    width: 90%;
   }
 }
 
