@@ -283,6 +283,113 @@ li {
   top: 0;
 }
 
+/* search section */
+#searching-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.searching-bg-shape {
+  background: url(/media/circle2.png) no-repeat center center/cover;
+  position: absolute;
+  height: 800px;
+  width: 800px;
+  right: -5%;
+  bottom: 0;
+}
+
+.search-form {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+}
+
+.search-form h2 {
+  font-size: 35px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.search-form p {
+  margin-bottom: 40px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#form-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 30%;
+  width: 100%;
+}
+
+
+.form-input label {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-input input, select {
+  height: 40px;
+  width: 85%;
+  outline: none;
+  border: 1px solid rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+
+.send-btn {
+  width: 94%;
+  height: 40px;
+  outline: none;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.send-btn:hover {
+  color: var(--white-color);
+}
+
+.search-dog-img {
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  bottom: 0;
+}
+
+.search-dog-image {
+  position: absolute;
+  bottom: 0;
+  right: -70%;
+  filter: drop-shadow(3px 1px 10px rgb(0 0 0 / 90%));
+}
+
+.search-section-box {
+  height: 100%;
+  width: 40%;
+}
+
+.heart-1 {
+  position: relative;
+  top: 22%;
+}
+
+.heart-2 {
+  position: relative;
+  top: 8%;
+  transform: rotate(49deg);
+}
+
 /*-------------------- join section */
 #join-section {
   position: relative;
@@ -709,6 +816,18 @@ li {
     background: url(/media/footer.jpg) no-repeat center center/cover;
   }
 
+  .search-dog-img {
+    display: none;
+  }
+
+  .search-section-box {
+    display: none;
+  }
+
+  .searching-bg-shape {
+    display: none;
+  }
+
   .paws-img {
     display: none;
   }
@@ -765,6 +884,14 @@ li {
 }
 
 @media screen and (max-width: 800px) {
+  .search-form {
+    width: 80%;
+  }
+
+  .search-form h2 {
+    font-size: 30px;
+  }
+
   .join-bg-shape {
     display: none;
   }
