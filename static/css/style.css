@@ -339,13 +339,14 @@ li {
   text-align: left;
 }
 
-.form-input input {
+.form-input input, select {
   height: 40px;
   width: 85%;
   outline: none;
   border: 1px solid rgb(0 0 0 / 20%);
   cursor: pointer;
 }
+
 
 .send-btn {
   width: 94%;
@@ -815,6 +816,18 @@ li {
     background: url(/media/footer.jpg) no-repeat center center/cover;
   }
 
+  .search-dog-img {
+    display: none;
+  }
+
+  .search-section-box {
+    display: none;
+  }
+
+  .searching-bg-shape {
+    display: none;
+  }
+
   .paws-img {
     display: none;
   }
@@ -871,6 +884,14 @@ li {
 }
 
 @media screen and (max-width: 800px) {
+  .search-form {
+    width: 80%;
+  }
+
+  .search-form h2 {
+    font-size: 30px;
+  }
+
   .join-bg-shape {
     display: none;
   }

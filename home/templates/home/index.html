@@ -54,23 +54,21 @@
           <input type="text" id="post-code" />
         </div>
         <div class="form-input center">
-          <label for="care-type">Care Type</label>
-          <input list="care-type" />
-          <datalist id="care-type">
-            <option value="Boarding in the sitter home"></option>
-            <option value="House sitting in your home"></option>
-            <option value="Walking in your neighbourhood"></option>
-          </datalist>
+          <label for="care-type">Care Type:</label>
+          <select id="care-type" name="care-type">
+            <option value="Boarding in the sitter home" selected>Boarding in the sitter home</option>
+            <option value="House sitting in your home">House sitting in your home</option>
+            <option value="Walking in your neighbourhood">Walking in your neighbourhood</option>
+          </select>
         </div>
         <div class="form-input center">
-          <label for="dog-size">My Dog Size</label>
-          <input list="dog-size" />
-          <datalist id="dog-size">
-            <option value="0-7 kg"></option>
-            <option value="7-18 kg"></option>
-            <option value="18-45 kg"></option>
-            <option value="> 45kg"></option>
-          </datalist>
+          <label for="dog-size">My Dog Size:</label>
+          <select id="dog-size" name="dog-size">
+            <option value="0-7 kg" selected>0-7 kg</option>
+            <option value="7-18 kg">7-18 kg</option>
+            <option value="18-45 kg">18-45 kg</option>
+            <option value="> 45kg">> 45kg</option>
+          </select>
         </div>
         <div class="form-input center">
           <label for="time">Start date</label>
