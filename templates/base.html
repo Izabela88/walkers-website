@@ -1,6 +1,4 @@
 {% load static %}
-{% load active_link_tags %}
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +40,13 @@
               {% endif %}
               class="close-sidebar" href="{% url 'about' %}">About</a></li>
             <li><a class="close-sidebar" href="#">Contact</a></li>
-            <li><a class="close-sidebar" href="#">Register</a></li>
-            <li><a class="close-sidebar" href="#">Log In</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="close-sidebar" href="{% url 'account_logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a class="close-sidebar" href="{% url 'account_signup' %}">Register</a></li>
+            <li><a class="close-sidebar" href="{% url 'account_login' %}">Log In</a></li>
+            {% endif %}
+
           </ul>
         </div>
       </nav>
