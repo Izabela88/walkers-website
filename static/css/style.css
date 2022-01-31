@@ -656,6 +656,133 @@ li {
   height: 100%;
 }
 
+
+/* --------register page */
+#register {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.puppy-dog-img {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  height: 100%;
+}
+
+.register-bg-shape {
+  background: url(/media/circle2.png) no-repeat center center/cover;
+  position: absolute;
+  height: 900px;
+  width: 900px;
+  left: 0;
+  top: 0;
+  z-index: -20;
+}
+
+.half-bg {
+  height: 100%;
+  width: 60%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.heading a {
+  color: var(--yellow-color);
+}
+
+.fb-button {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #475993;
+ 
+}
+
+.fb-button a {
+  color: var(--white-color);
+}
+
+
+.form-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  width: 40%;
+  height: 60%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: [col] 1fr [col] 1fr ;
+  grid-template-rows: [row] auto [row] auto [row] ;
+  gap: 5px;
+}
+
+.form-grid-input input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.form-grid-input input::placeholder {
+  font-family: 'Lato', sans-serif;
+  color: var(--black-color);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.choose-input {
+  font-family: 'Lato', sans-serif;
+  height: 40px;
+  margin-top: 10px;
+}
+
+
+.e-input {
+  grid-column: col / span 2;
+  grid-row: row 2;
+}
+
+.p-input {
+  grid-column: col / span 2;
+  grid-row: row 3;
+}
+
+.r-input {
+  grid-column: col / span 2;
+  grid-row: row 5;
+}
+
+.r-input p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.register-input {
+  cursor: pointer;
+}
+
+
+/* ------------login page */
+#login {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
 /* --------- media queries */
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {

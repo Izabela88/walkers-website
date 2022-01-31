@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<section id="login">
+    <div class="main-image image-shadow">
+      <img src="/media/puppy.png" class="puppy-dog-img" alt="">
+    </div>
+    <div class="register-bg-shape"></div>
+      <div class="container">
+          <div class="half-bg"></div>
+          <div class="form-grid-container">
+              <div class="heading">
+                  <h2>Log in into your account!</h2>
+                  <p>Don't have account yet? <a href="{{ signup_url }}">REGISTER</a></p> 
+                  <div class="fb-button button center">
+                      <a href="#"><i class="fab fa-facebook-square"></i> Join via Facebook</a>
+                  </div>
+              </div>     
+              <form id="login-form-box" class="login form-grid"  method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                  <div class="form-grid-input form-input center e-input">
+                    <input type="email" id="email-input" placeholder="Email"/>
+                  </div>
+                  <div class="form-grid-input form-input center p-input">
+                    <input type="password" id="password-input" placeholder="Password" />
+                  </div>
+                  <div class="form-grid-input form-input r-input">
+                    <input class="button button-bright register-input" type="submit" value="LOGIN">
+                    <p>By loging, you agree to the Terms and Privacy Policy</p>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </section>
+{% endblock %}
+
