@@ -29,16 +29,6 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <div class="radio-box">
-            <div class="form-grid-input choose-input">
-              <input type="radio" id="looking-walker" name="walker" value="looking-walker"/>
-              <label for="looking-walker">I'm looking for a dog walker</label>
-            </div>
-            <div class="form-grid-input choose-input">
-              <input type="radio" id="dog-walker" name="walker" value="dog-walker"/>
-              <label for="dog-walker">I'm a dog walker</label>
-            </div>
-        </div>
         <div class="form-grid-input form-input r-input">
           <button class="button button-bright register-input" type="submit">{% trans "REGISTER" %} &raquo;</button>
           <p>By joining, you agree to the Terms and Privacy Policy</p>

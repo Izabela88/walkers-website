@@ -748,40 +748,14 @@ li {
   color: rgb(255, 60, 0);
 }
 
-.radio-box {
-  display: flex;
-  justify-content: space-evenly;
-  font-family: 'Lato', sans-serif;
-  margin-bottom: 10px;
-}
 
-.choose-input {
-  font-family: 'Lato', sans-serif;
+#id_is_petsitter {
   height: 30px;
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+    margin-top: 8px;
+    margin-left: -226px;
+    margin-bottom: 9px;
 }
 
-.choose-input input {
-  height: 20px;
-  width: 20px;
-  margin-top: 20px;
-  margin-right: 10px;
-}
-
-
-.e-input {
-  grid-column: col / span 2;
-  grid-row: row 2;
-}
-
-.p-input {
-  grid-column: col / span 2;
-  grid-row: row 3;
-}
 
 .r-input {
   grid-column: col / span 2;
@@ -843,9 +817,9 @@ li {
 }
 
 #id_remember {
-  height: 20px;
+  height: 30px;
   margin-top: 24px;
-  margin-left: -226px;
+  margin-left: -220px;
   margin-bottom: 20px;
 }
 
