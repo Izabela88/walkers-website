@@ -35,33 +35,35 @@
             <li><a id="home-link" class="close-sidebar nav-link" href="{% url 'home' %}#home-section">Home</a></li>
             <li><a class="close-sidebar nav-link" href="{% url 'home' %}#join-section">Join Us</a></li>
             <li><a id="about"
-              {% if request.path == '/about/' %}
-                class="active"
-              {% endif %}
+              {% if request.path == '/about/' %}class="active"{% endif %}
               class="close-sidebar" href="{% url 'about' %}">About</a></li>
             <li><a class="close-sidebar" href="#">Contact</a></li>
             {% if user.is_authenticated %}
+
             <li><a class="close-sidebar" href="{% url 'account_logout' %}">Log Out</a></li>
+
             {% else %}
+
             <li><a id="register-link"
-              {% if request.path == '/accounts/signup/' %}
-                class="active"
-              {% endif %}
+              {% if request.path == '/accounts/signup/' %}class="active"{% endif %}
               class="close-sidebar" href="{% url 'account_signup' %}">Register</a></li>
             <li><a id="login-link"
-              {% if request.path == '/accounts/login/' %}
-                class="active"
-              {% endif %}
+              {% if request.path == '/accounts/login/' %}class="active"{% endif %}
               class="close-sidebar" href="{% url 'account_login' %}">Log In</a></li>
+
             {% endif %}
 
           </ul>
         </div>
       </nav>
     </header>
+
         {% block content %}
+
         <!-- Content Goes here -->
+
         {% endblock content %}
+
     <!-- footer -->
     <footer id="footer">
         <div class="box-logo">
@@ -112,8 +114,8 @@
               <li><a class="scroll" href="{% url 'home' %}#home-section">Home</a></li>
               <li><a class="scroll" href="{% url 'home' %}#join-section">Join</a></li>
               <li><a class="scroll" href="{% url 'about' %}">About</a></li>
-              <li><a class="scroll" href="#">Register</a></li>
-              <li><a class="scroll" href="#">Login</a></li>
+              <li><a class="scroll" href="/accounts/signup/">Register</a></li>
+              <li><a class="scroll" href="/accounts/login/">Login</a></li>
             </ul>
           </div>
           <div class="footer-box">
@@ -144,6 +146,7 @@
     <script src="/static/js/navbar.js"></script>
 
     {% block extra_js %}
+
     {% endblock %}
     
   </body>

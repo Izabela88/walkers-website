@@ -1,3 +1,4 @@
+from email.policy import default
 from allauth.account.forms import SignupForm
 from django import forms
 from user.models import WalkerProfile
