@@ -823,6 +823,40 @@ li {
   margin-bottom: 20px;
 }
 
+/* -------------logout */
+.logout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.logout-heading {
+  height: 20%;
+  width: 100%;
+}
+
+.buttons-box {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logout-heading h2 {
+  font-size: 40px;
+}
+
+
+.logout-heading p {
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+.back-button {
+  padding-top: 22px;
+  color: var(--black-color);
+}
+
 /* --------- media queries */
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {
