@@ -29,21 +29,13 @@
     </div>
 
     {% if user.is_authenticated and is_petsitter %}
-
     <div class="home-txt center">
       <div class="main-txt center">
-        <h1>ARE YOU PROFESSIONAL PET SITTER OR DOG WALKER?</h1>
-        <p>Join Us Today!</p>
-      </div>
-      <div class="button button-bright center home-button">
-        <a href="#join-section">
-          JOIN NOW
-        </a>
+        <h1>LOOKING FOR THE BEST PLATFORM FOR ADVERTISING YOUR SERVICES ?</h1>
+        <p>Well, you got it! We empower pet sitters and dog walkers around the UK to offer their own services on Walkers by giving them the tools to succeed !</p>
       </div>
     </div>
-
     {% else %}
-
     <div class="home-txt center">
       <div class="main-txt center">
         <h1>ARE YOU LOOKING FOR PROFESSIONAL PET SITTER OR DOG WALKER?</h1>
@@ -56,9 +48,7 @@
         </a>
       </div>
     </div>
-
     {% endif %}
-
   </div>
 </main>
 
@@ -117,11 +107,7 @@
     </div>
   </div>
 </section>
-
 {% endif %}
-
-
-{% if not is_petsitter %}
 
 <section id="join-section" class="section">
   <div class="join-bg-shape"></div>
@@ -165,56 +151,6 @@
     </div>
   </div>
 </section>
-{% endif %}
-
-{% if user.is_authenticated and is_petsitter %}
-
-<!-- join section -->
-<section id="join-section" class="section">
-  <div class="join-bg-shape"></div>
-  <div class="container">
-    <div class="half-join-bg"></div>
-    <div class="paws-img paw-1 image-shadow-2"></div>
-    <div class="paws-img paw-2 image-shadow-2"></div>
-    <div class="main-image image-shadow">
-      <img src="/media/dog3.png" class="home-dog-img" alt="A dog" />
-    </div>
-    <div class="join-txt center">
-      <div class="main-txt center">
-        <h1>GET PAID TO PLAY WITH PETS !</h1>
-        <p>
-          Walkers makes it easy and promotes you to the UK's largest network of
-          pet parents!
-        </p>
-        <h2>
-          How it works ? <br />
-          It's simple !
-        </h2>
-        <div class="join-instructions">
-          <div class="step">
-            <div class="step-no center">1</div>
-            <div class="step-txt"><p>Create Your Profile</p></div>
-          </div>
-          <div class="step">
-            <div class="step-no center">2</div>
-            <div class="step-txt"><p>Accept Requests</p></div>
-          </div>
-          <div class="step">
-            <div class="step-no center">3</div>
-            <div class="step-txt"><p>Get Paid</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="button button-bright center join-button">
-        <a href="#">
-          CREATE PROFILE
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% endif %}
 
 
 {% block extra_js %}
