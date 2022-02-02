@@ -13,4 +13,4 @@ def is_petsitter(self):
         return self.walkerprofile.is_petsitter
     return False
 
-User.add_to_class("is_petsitter",is_petsitter)
+User.add_to_class("is_petsitter", is_petsitter)

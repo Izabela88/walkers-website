@@ -34,6 +34,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['walkers88.herokuapp.com', 'localhost', '127.0.0.1']
 
+ROOT_URLCONF = 'walkers.urls'
+
 
 # Application definition
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -57,9 +60,45 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# AUTHENTICATION_BACKENDS = (
+#     'allauth.account.auth_backends.AuthenticationBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+
+# SOCIALACCOUNT_ADAPTER = 'walkers.my_adapter.MySocialAccountAdapter'
+
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# Used to prevent brute force attacks.
+
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'en_US',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+    }
+}
 
 
 MIDDLEWARE = [
@@ -72,7 +111,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'walkers.urls'
 
 TEMPLATES = [
     {
@@ -159,7 +197,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # Forms
 ACCOUNT_FORMS = {'signup': 'user.forms.ExtendedSignupForm'}

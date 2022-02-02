@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Login Cancelled" %}{% endblock %}
+
+{% block content %}
+
+<section class="logout">
+    <div class="container center">    
+            <div class="logout-heading">
+                <h2>{% trans "Login Cancelled" %}</h1>
+            </div>
+            <div class="login-cancelled-box">
+                {% url 'account_login' as login_url %}
+                {% blocktrans %}
+                <p>You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to log in.</p>
+                {% endblocktrans %}
+                <a class="button button-bright back-button" href="{{login_url}}">Log In</a>
+            </div>    
+    </div>
+</section>
+{% endblock %}
+
+
