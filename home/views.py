@@ -14,9 +14,13 @@ def index(request):
     }
     if request.user.is_authenticated:
         try:
+            messages.add_message(request, messages.SUCCESS, '')
             context['is_petsitter'] = request.user.is_petsitter()
         except PetsitterAttrError:
+            messages.error(
+                request, 'Something went wrong!')
             return redirect('/question')
+
 
     return render(request, 'home/index.html', context)
 
