@@ -3,6 +3,9 @@ from django.shortcuts import redirect
 from user.models import PetsitterAttrError
 from django.contrib.auth.decorators import login_required
 from home.forms import PetsitterQuestion, FormValidationError
+from django.contrib import messages
+
+
 
 # Create your views here.
 def index(request):
@@ -17,6 +20,8 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
+
+
 @login_required
 def register_question(request):
     if request.method == "GET":
@@ -29,3 +34,5 @@ def register_question(request):
         except FormValidationError:
             redirect('/question')
         return redirect("/")
+
+

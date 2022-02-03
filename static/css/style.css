@@ -204,6 +204,20 @@ li {
 }
 
 /*------------------- home section */
+.authenticate-msg {
+  position: absolute;
+  z-index: 100;
+  font-size: 22px;
+  font-family: "Architects Daughter", cursive;
+  right: 10px;
+  top: 10%;
+  background-color: rgb(238 163 0 / 55%);  
+  height: 100px;
+  width: 400px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
 #home-section {
   position: relative;
   height: 100vh;
