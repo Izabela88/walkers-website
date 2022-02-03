@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $('.authenticate-msg').delay(2000).fadeOut();
+    $('.authenticate-msg').delay(3500).fadeOut();
   });

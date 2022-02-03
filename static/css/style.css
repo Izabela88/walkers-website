@@ -209,13 +209,13 @@ li {
   z-index: 100;
   font-size: 22px;
   font-family: "Architects Daughter", cursive;
-  right: 10px;
-  top: 10%;
+  top: 5%;
   background-color: rgb(238 163 0 / 55%);  
   height: 100px;
   width: 400px;
   letter-spacing: 2px;
   font-weight: bold;
+  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
 }
 
 #home-section {
@@ -236,6 +236,9 @@ li {
 
 .home-txt p {
   font-size: 25px;
+  font-family: "Architects Daughter", cursive;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .main-txt {
