@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class PetsitterAttrError(Exception):
+    pass
 
 
 class WalkerProfile(models.Model):
@@ -9,8 +11,9 @@ class WalkerProfile(models.Model):
 
 
 def is_petsitter(self):
-    if hasattr(self, 'walkerprofile'):
+    try:
         return self.walkerprofile.is_petsitter
-    return False
+    except AttributeError:
+        raise PetsitterAttrError
 
 User.add_to_class("is_petsitter", is_petsitter)

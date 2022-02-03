@@ -878,6 +878,47 @@ li {
 }
 
 
+/* -----------------question */
+.question-section {
+  height: 100vh;
+}
+
+.question-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  justify-content: space-evenly;
+}
+
+.question-box h2 {
+  font-size: 35px;
+}
+
+.question-form {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-form label {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.question-button {
+  margin-top: 30px;
+}
+
+#id_is_petsitter_social {
+  height: 35px;
+  width: 25px;
+  margin-top: 20px;
+}
+
 /* --------- media queries */
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {
