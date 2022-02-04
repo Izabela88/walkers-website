@@ -16,12 +16,15 @@
       <div class="heading">
         <h2>Register your account!</h2>
         <p>Alredy have account? <a href="{{ login_url }}">LOGIN</a></p>
-        {% load socialaccount %}
-        <div class="fb-button button center">
-          <a href="{% provider_login_url "facebook" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Join via Facebook</a>
-        </div>
-        {% providers_media_js %}
       </div>
+        {% load socialaccount %}
+        {% providers_media_js %}
+        <div class="fb-button button center">
+          <a href="{% provider_login_url "facebook" process="login" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Register via Facebook</a>
+        </div>
+        <div class="google-button button center"> 
+          <a href="{% provider_login_url "google" process="login" %}"><i class="fab fa-google"></i> Register via Google</a>
+        </div>
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %} 
         {{ form.as_p }} 

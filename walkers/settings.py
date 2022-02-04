@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -64,14 +65,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-AUTHENTICATION_BACKENDS = (
-    'allauth.account.auth_backends.AuthenticationBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-
-
-# SOCIALACCOUNT_ADAPTER = 'walkers.my_adapter.MySocialAccountAdapter'
 
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # Used to prevent brute force attacks.
@@ -92,6 +85,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'middle_name',
             'name',
             'name_format',
+            'email',
             'picture',
             'short_name'
         ],
@@ -99,8 +93,26 @@ SOCIALACCOUNT_PROVIDERS = {
         'LOCALE_FUNC': lambda request: 'en_US',
         'VERIFIED_EMAIL': False,
         'VERSION': 'v7.0',
+    },
+
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
     }
 }
+
+
+# Additional allauth configuration settings
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 
 MIDDLEWARE = [
@@ -202,3 +214,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Forms
 ACCOUNT_FORMS = {'signup': 'user.forms.ExtendedSignupForm'}
+
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+

@@ -204,19 +204,24 @@ li {
 }
 
 /*------------------- home section */
+
 .authenticate-msg {
+  font-family: "Architects Daughter", cursive;
+  letter-spacing: 2px;
+  font-weight: bold;
   position: absolute;
   z-index: 100;
   font-size: 22px;
-  font-family: "Architects Daughter", cursive;
-  top: 5%;
-  background-color: rgb(238 163 0 / 55%);  
-  height: 100px;
+  top: 10%;
+  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
+  background-color: rgb(238 163 0 / 70%);
   width: 400px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+  height: fit-content;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -70%);
 }
+
 
 #home-section {
   position: relative;
@@ -733,10 +738,21 @@ li {
   width: 100%;
   margin-top: 15px;
   background-color: #475993;
- 
 }
 
+
 .fb-button a {
+  color: var(--white-color);
+}
+
+.google-button {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #DB4437;
+}
+
+.google-button a {
   color: var(--white-color);
 }
 

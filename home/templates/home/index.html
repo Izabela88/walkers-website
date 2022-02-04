@@ -3,15 +3,18 @@
 {% block content %}
 
 <!-- hero section -->
-
 <main id="home-section" class="section">
-
+{% if messages %}
+  <ul class="authenticate-msg center">
+      {% for message in messages %}
+          <li>{{ message.message }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
   <div class="home-bg-shape-1"></div>
   <div class="home-bg-shape-2"></div>
+  
   <div class="container">
-  {% for message in messages %}
-    <div class="authenticate-msg center">{{message}}</div>
-  {% endfor %}
     <div class="half-home-bg">
       <img
         src="/media/q-mark.png"

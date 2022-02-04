@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class PetsitterAttrError(Exception):
+    """Raise when user is missing user_walkerprofile entry"""
     pass
 
 
