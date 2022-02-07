@@ -1,8 +1,19 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
 <!-- hero section -->
 <main id="home-section" class="section">
+{% if messages %}
+  <ul class="authenticate-msg center">
+      {% for message in messages %}
+          <li>{{ message.message }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
   <div class="home-bg-shape-1"></div>
   <div class="home-bg-shape-2"></div>
+  
   <div class="container">
     <div class="half-home-bg">
       <img
@@ -24,10 +35,19 @@
     <div class="main-image image-shadow">
       <img src="/media/dog1.png" class="home-dog-img" alt="A dog" />
     </div>
+
+    {% if user.is_authenticated and is_petsitter %}
+    <div class="home-txt center">
+      <div class="main-txt center">
+        <h1>LOOKING FOR THE BEST PLATFORM FOR ADVERTISING YOUR SERVICES ?</h1>
+        <p>Well, you got it! We empower pet sitters and dog walkers around the UK to offer their own services on Walkers by giving them the tools to succeed !</p>
+      </div>
+    </div>
+    {% else %}
     <div class="home-txt center">
       <div class="main-txt center">
         <h1>ARE YOU LOOKING FOR PROFESSIONAL PET SITTER OR DOG WALKER?</h1>
-        <p>Find one with us !</p>
+        <p>Find the best one with us !</p>
       </div>
       <div class="button button-bright center home-button">
         <a href="#searching-section">
@@ -36,8 +56,12 @@
         </a>
       </div>
     </div>
+    {% endif %}
   </div>
 </main>
+
+{% if not is_petsitter %}
+
 <!-- search section -->
 <section id="searching-section">
   <div class="searching-bg-shape"></div>
@@ -91,7 +115,8 @@
     </div>
   </div>
 </section>
-<!-- join section -->
+{% endif %}
+
 <section id="join-section" class="section">
   <div class="join-bg-shape"></div>
   <div class="container">
@@ -115,28 +140,29 @@
         <div class="join-instructions">
           <div class="step">
             <div class="step-no center">1</div>
-            <div class="step-txt"><p>Create Your Profile</p></div>
+            <div class="step-txt"><p>Register As Dog Walker</p></div>
           </div>
           <div class="step">
             <div class="step-no center">2</div>
-            <div class="step-txt"><p>Accept Requests</p></div>
+            <div class="step-txt"><p>Create Your Profile</p></div>
           </div>
           <div class="step">
             <div class="step-no center">3</div>
+            <div class="step-txt"><p>Accept Requests</p></div>
+          </div>
+          <div class="step">
+            <div class="step-no center">4</div>
             <div class="step-txt"><p>Get Paid</p></div>
           </div>
         </div>
-      </div>
-      <div class="button button-bright center join-button">
-        <a href="#">
-          REGISTER
-          <span><i class="fas fa-arrow-right"></i></span>
-        </a>
       </div>
     </div>
   </div>
 </section>
 
+
 {% block extra_js %}
 <script src="{% static 'home/js/home.js' %}"></script>
-{% endblock %} {% endblock %}
+{% endblock %}
+ 
+{% endblock %}

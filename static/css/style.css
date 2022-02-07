@@ -127,7 +127,7 @@ li {
 /*----------------- navbar */
 #header {
   width: 100%;
-  height: 120px;
+  height: 80px;
   position: fixed;
   z-index: 1000;
   padding: 10px;
@@ -158,13 +158,13 @@ li {
   align-items: center;
   font-weight: bold;
   flex-direction: row;
-  height: 100px;
+  height: 60px;
 }
 
 .nav-list a {
   text-transform: uppercase;
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-top: 10px;
   transition-duration: 0.2s;
   font-family: "Lato", sans-serif;
@@ -173,12 +173,22 @@ li {
   color: var(--black-color);
 }
 
+.nav-list i {
+  font-size: 25px;
+}
+
 .nav-list a:hover {
   color: rgb(255, 60, 0);
 }
 
 .nav-list a.active {
   color: rgb(255, 60, 0);
+}
+
+.welcome-msg {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  color: #fb7400;
 }
 
 .logo {
@@ -194,6 +204,25 @@ li {
 }
 
 /*------------------- home section */
+
+.authenticate-msg {
+  font-family: "Architects Daughter", cursive;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 100;
+  font-size: 22px;
+  top: 10%;
+  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
+  background-color: rgb(238 163 0 / 70%);
+  width: 400px;
+  height: fit-content;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+
 #home-section {
   position: relative;
   height: 100vh;
@@ -212,14 +241,17 @@ li {
 
 .home-txt p {
   font-size: 25px;
+  font-family: "Architects Daughter", cursive;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .main-txt {
-  height: 70%;
+  height: 77%;
 }
 
 .home-button {
-  margin-top: -25%;
+  margin-top: -30%;
 }
 
 .half-home-bg {
@@ -656,6 +688,307 @@ li {
   height: 100%;
 }
 
+
+/* --------register page */
+#register {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.puppy-dog-img {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  height: 100%;
+}
+
+.register-bg-shape {
+  background: url(/media/circle2.png) no-repeat center center/cover;
+  position: absolute;
+  height: 900px;
+  width: 900px;
+  left: 0;
+  top: 0;
+  z-index: -20;
+}
+
+.half-bg {
+  height: 100%;
+  width: 60%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.heading a {
+  color: var(--yellow-color);
+}
+
+.fb-button {
+  width: 100%;
+  background-color: #475993;
+}
+
+
+.fb-button a {
+  color: var(--white-color);
+}
+
+.google-button {
+  width: 100%;
+  background-color: #DB4437;
+}
+
+.google-button a {
+  color: var(--white-color);
+}
+
+
+.form-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  width: 40%;
+  height: 80%;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45vh;
+}
+
+.signup input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  border: 1px solid rgb(0 0 0 / 28%);
+  margin-bottom: 20px;
+}
+
+
+.signup input::placeholder {
+  font-family: 'Lato', sans-serif;
+  color: var(--black-color);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.signup ul  {
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  color: rgb(255, 60, 0);
+}
+
+
+#id_is_petsitter {
+  height: 30px;
+  margin-top: -3px;
+  position: absolute;
+  left: 585px;
+}
+
+.r-input {
+  grid-column: col / span 2;
+  grid-row: row 5;
+}
+
+.r-input p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.register-input {
+  cursor: pointer;
+  width: 100%;
+}
+
+.sign-in-social-btn {
+  position: absolute;
+  bottom: 30%
+}
+
+
+/* ------------login page */
+#login {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.login input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  border: 1px solid rgb(0 0 0 / 28%);
+  margin-bottom: 10px;
+}
+
+.login-form-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  width: 40%;
+  height: 70%;
+}
+
+.login input::placeholder {
+  font-family: 'Lato', sans-serif;
+  color: var(--black-color);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.login .errorlist  {
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  color: rgb(255, 60, 0);
+}
+
+#id_remember {
+  height: 30px;
+  margin-top: 24px;
+  margin-left: -220px;
+  margin-bottom: 20px;
+}
+
+/* -------------logout page */
+.logout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.logout-heading {
+  height: 20%;
+  width: 100%;
+}
+
+.buttons-box {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logout-heading h2 {
+  font-size: 40px;
+}
+
+
+.logout-heading p {
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+.back-button {
+  padding-top: 22px;
+  color: var(--black-color);
+}
+
+
+.login-cancelled-box {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+/* -----------------question (register  with social media templates)*/
+.question-section {
+  height: 100vh;
+}
+
+.question-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  justify-content: space-evenly;
+}
+
+.question-box h2 {
+  font-size: 35px;
+}
+
+.question-form {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-form label {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.question-button {
+  margin-top: 30px;
+}
+
+#id_is_petsitter_social {
+  height: 35px;
+  width: 25px;
+  margin-top: 20px;
+}
+
+
+/* social section templates */
+.social-section {
+  height: 100vh;
+}
+
+.social-heading {
+  width: 40%;
+}
+
+.social-heading h1, h2 {
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+
+.social-heading p {
+  font-size: 20px;
+}
+
+.social-cancelled-box {
+  width: 40%;
+  margin-top: 35px;
+}
+
+.social-cancelled-box p{
+  font-size: 20px;
+}
+
+.social-button {
+  width: 100%;
+  margin-top: 20px;
+}
+
 /* --------- media queries */
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {
@@ -880,6 +1213,30 @@ li {
 
   .box-logo {
     display: none;
+  }
+
+  .half-bg {
+    display: none;
+  }
+
+  .main-image {
+    display: none;
+  }
+
+  .register-bg-shape {
+    display: none;
+  }
+
+  .login-form-grid-container {
+    width: 60%;
+  }
+
+  .form-grid-container {
+    width: 60%;
+  }
+
+  #id_is_petsitter {
+    left: 28%;
   }
 }
 

@@ -34,6 +34,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['walkers88.herokuapp.com', 'localhost', '127.0.0.1']
 
+ROOT_URLCONF = 'walkers.urls'
+
 
 # Application definition
 
@@ -43,14 +45,75 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'active_link',
     'home',
-    'about',
-   
+    'about', 
+    'user', 
 ]
+
+SITE_ID = 1
+
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# Used to prevent brute force attacks.
+
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'email',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'en_US',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+    },
+
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+
+# Additional allauth configuration settings
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,7 +125,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'walkers.urls'
 
 TEMPLATES = [
     {
@@ -149,3 +211,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Forms
+ACCOUNT_FORMS = {'signup': 'user.forms.ExtendedSignupForm'}
+
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+

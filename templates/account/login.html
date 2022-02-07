@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+  <section id="login">
+    <div class="main-image image-shadow">
+      <img src="/media/puppy.png" class="puppy-dog-img" alt="" />
+    </div>
+    <div class="register-bg-shape"></div>
+    <div class="container">
+      <div class="half-bg"></div>
+      <div class="login-form-grid-container">
+        <div class="heading">
+          <h2>Log In to your account!</h2>
+          <p>Don't have account yet ? <a href="{{ signup_url }}">REGISTER</a></p>
+        </div>
+        {% load socialaccount %}
+        {% providers_media_js %}
+        <div class="fb-button button center">
+          <a href="{% provider_login_url "facebook" process="login" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Login via Facebook</a>
+        </div>
+        <div class="google-button button center"> 
+          <a href="{% provider_login_url "google" process="login" %}"><i class="fab fa-google"></i> Login via Google</a>
+        </div>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %} 
+          {{ form.as_p }} 
+          {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+          <div class="form-grid-input form-input r-input">
+            <button class="button button-bright register-input" type="submit">
+              {% trans "LOG IN" %} &raquo;
+            </button>
+            <p>By joining, you agree to the Terms and Privacy Policy</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+  
