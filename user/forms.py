@@ -5,7 +5,7 @@ from user.models import WalkerProfile
 
 
 class ExtendedSignupForm(SignupForm):
-    is_petsitter = forms.BooleanField(required=False,label='Mark the box below if you are a pet sitter/dog walker')
+    is_petsitter = forms.BooleanField(required=False,label='Mark the box only if you are a pet sitter/dog walker')
     def save(self, request):
         user = super(ExtendedSignupForm, self).save(request)
         user.save()

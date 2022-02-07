@@ -736,7 +736,6 @@ li {
 
 .fb-button {
   width: 100%;
-  margin-top: 15px;
   background-color: #475993;
 }
 
@@ -747,8 +746,6 @@ li {
 
 .google-button {
   width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
   background-color: #DB4437;
 }
 
@@ -767,7 +764,8 @@ li {
 .signup {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  height: 45vh;
 }
 
 .signup input {
@@ -777,6 +775,7 @@ li {
   border: 1px solid rgb(0 0 0 / 28%);
   margin-bottom: 20px;
 }
+
 
 .signup input::placeholder {
   font-family: 'Lato', sans-serif;
@@ -794,11 +793,10 @@ li {
 
 #id_is_petsitter {
   height: 30px;
-    margin-top: 8px;
-    margin-left: -226px;
-    margin-bottom: 9px;
+  margin-top: -3px;
+  position: absolute;
+  left: 585px;
 }
-
 
 .r-input {
   grid-column: col / span 2;
@@ -814,6 +812,11 @@ li {
 .register-input {
   cursor: pointer;
   width: 100%;
+}
+
+.sign-in-social-btn {
+  position: absolute;
+  bottom: 30%
 }
 
 
@@ -843,7 +846,7 @@ li {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   width: 40%;
-  height: 55%;
+  height: 70%;
 }
 
 .login input::placeholder {
@@ -866,7 +869,7 @@ li {
   margin-bottom: 20px;
 }
 
-/* -------------logout */
+/* -------------logout page */
 .logout {
   height: 100vh;
   overflow: hidden;
@@ -911,7 +914,7 @@ li {
 }
 
 
-/* -----------------question */
+/* -----------------question (register  with social media templates)*/
 .question-section {
   height: 100vh;
 }
@@ -949,6 +952,40 @@ li {
 #id_is_petsitter_social {
   height: 35px;
   width: 25px;
+  margin-top: 20px;
+}
+
+
+/* social section templates */
+.social-section {
+  height: 100vh;
+}
+
+.social-heading {
+  width: 40%;
+}
+
+.social-heading h1, h2 {
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+
+.social-heading p {
+  font-size: 20px;
+}
+
+.social-cancelled-box {
+  width: 40%;
+  margin-top: 35px;
+}
+
+.social-cancelled-box p{
+  font-size: 20px;
+}
+
+.social-button {
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -1176,6 +1213,30 @@ li {
 
   .box-logo {
     display: none;
+  }
+
+  .half-bg {
+    display: none;
+  }
+
+  .main-image {
+    display: none;
+  }
+
+  .register-bg-shape {
+    display: none;
+  }
+
+  .login-form-grid-container {
+    width: 60%;
+  }
+
+  .form-grid-container {
+    width: 60%;
+  }
+
+  #id_is_petsitter {
+    left: 28%;
   }
 }
 
