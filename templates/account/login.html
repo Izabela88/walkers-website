@@ -30,16 +30,11 @@
           {% csrf_token %} 
           {{ form.as_p }} 
           {% if redirect_field_value %}
-          <input
-            type="hidden"
-            name="{{ redirect_field_name }}"
-            value="{{ redirect_field_value }}"
-          />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
           {% endif %}
           <div class="form-grid-input form-input r-input">
-            <button class="button button-bright register-input" type="submit">
-              {% trans "LOG IN" %} &raquo;
-            </button>
+            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            <button class="button button-bright register-input" type="submit">{% trans "LOG IN" %} &raquo;</button>
             <p>By joining, you agree to the Terms and Privacy Policy</p>
           </div>
         </form>

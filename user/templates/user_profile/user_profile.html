@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+{% if user.is_petsitter %}
+<section class="walker-profile-section">
+    <div class="bg-shape"></div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tabs-sidebar center">
+              <h2>My Profile</h2>
+              <button class="tabs-button blind-btn"></button>   
+              <button class="tabs-button button">Personal details</button>
+              <button class="tabs-button button"> Edit account</button>
+              <button class="tabs-button button ">Upload Photo</button>     
+              <button class="tabs-button button"> Pet sitter profile</button>           
+             </div>
+             <div class="tabs-content">
+              <div class="main-image center ">
+                <img src="/media/dog-walking.gif" class="profile-dog-img" alt="A dog" />
+              </div>
+             </div>
+             <div class="tabs-content " >
+              <h2>Personal Details</h2>
+              <form class="details-box center" action="post">
+                  <input type="text" placeholder="First Name" />
+                  <input type="text" placeholder="Last Name" />
+                  <input type="text" placeholder="Address Line 1" />
+                  <input type="text" placeholder="Address Line 2" />
+                  <input type="text" placeholder="Town" />
+                  <input type="text" placeholder="Postcode" />
+                  <input type="email" placeholder="Email" />
+                  <input type="text" placeholder="Mobile No" />
+                  <input class="button button-bright" type="submit" value="Save" />
+                </form>
+            </div>
+            <div class="tabs-content">
+              <h2>Edit Account</h2>
+              <div class="edit-box change-password">
+                  <h2>Change password</h2>
+                  <form class="center" action="post">
+                    <input type="text" placeholder="New Password" />
+                    <input class="button button-bright" type="submit" value="Save"/>
+                  </form>
+                </div>
+                <div class="edit-box change-email">
+                  <h2>Change email address</h2>
+                  <form class="center" action="post">
+                    <input type="text" placeholder="New Email Addresss" />
+                    <input class="button button-bright" type="submit" value="Save" />
+                  </form>
+                </div>
+                <div class="edit-box delete-account">
+                  <h2>Delete account</h2>
+                  <input class="button button-bright" type="submit" value="Delete Account" />
+                </div>
+            </div>
+             <div class="tabs-content">
+               <h2>Upload Your Photo</h2>
+              <div class="profile-img">
+                <div class="user-img center"></div>
+                <input class="button button-bright" type="submit" value="Upload" />
+              </div>
+             </div>     
+              <div class="tabs-content ">
+                <h2>Pet sitter profile</h2>
+                <form class="details-box center" action="post">
+                    <input type="text" placeholder="Services I offer" />
+                    <input type="text" placeholder="Price for my services" />
+                    <input type="text" placeholder="Dog size I can take" />
+                    <textarea type="text" placeholder="write something about yourself..."></textarea>
+                    <input class="button button-bright" type="submit" value="Save" />
+                  </form>
+              </div>       
+        </div>      
+    </div>
+  </section>
+  {% else %}
+  <section class="walker-profile-section">
+    <div class="bg-shape"></div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tabs-sidebar center">
+              <h2>My Profile</h2>
+              <button class="tabs-button blind-btn"></button>   
+              <button class="tabs-button button">Personal details</button>
+              <button class="tabs-button button"> Edit account</button>
+              <button class="tabs-button button ">Upload Photo</button>     
+    
+             </div>
+             <div class="tabs-content">
+              <div class="main-image center ">
+                <img src="/media/dog-walking.gif" class="profile-dog-img" alt="A dog" />
+              </div>
+             </div>
+             <div class="tabs-content " >
+              <h2>Personal Details</h2>
+              <form class="details-box center" action="post">
+                  <input type="text" placeholder="First Name" />
+                  <input type="text" placeholder="Last Name" />
+                  <input type="text" placeholder="Address Line 1" />
+                  <input type="text" placeholder="Address Line 2" />
+                  <input type="text" placeholder="Town" />
+                  <input type="text" placeholder="Postcode" />
+                  <input type="email" placeholder="Email" />
+                  <input type="text" placeholder="Mobile No" />
+                  <input class="button button-bright" type="submit" value="Save" />
+                </form>
+            </div>
+            <div class="tabs-content">
+              <h2>Edit Account</h2>
+              <div class="edit-box change-password">
+                  <h2>Change password</h2>
+                  <form class="center" action="post">
+                    <input type="text" placeholder="New Password" />
+                    <input class="button button-bright" type="submit" value="Save"/>
+                  </form>
+                </div>
+                <div class="edit-box change-email">
+                  <h2>Change email address</h2>
+                  <form class="center" action="post">
+                    <input type="text" placeholder="New Email Addresss" />
+                    <input class="button button-bright" type="submit" value="Save" />
+                  </form>
+                </div>
+                <div class="edit-box delete-account">
+                  <h2>Delete account</h2>
+                  <input class="button button-bright" type="submit" value="Delete Account" />
+                </div>
+            </div>
+             <div class="tabs-content">
+               <h2>Upload Your Photo</h2>
+              <div class="profile-img">
+                <div class="user-img center"></div>
+                <input class="button button-bright" type="submit" value="Upload" />
+              </div>
+             </div>     
+        </div>      
+    </div>
+  </section>
+  {% endif %}
+
+{% block extra_js %}
+<script src="{% static 'user/js/user.js' %}"></script>
+{% endblock %}
+ 
+{% endblock %}
