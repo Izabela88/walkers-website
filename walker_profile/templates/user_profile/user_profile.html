@@ -2,7 +2,7 @@
 {% load static %} 
 {% block content %}
 
-{% if user.is_petsitter %}
+{% if walker_profile.is_petsitter %}
 <section class="walker-profile-section">
     <div class="bg-shape"></div>
     <div class="container">
@@ -10,7 +10,7 @@
             <div class="tabs-sidebar center">
               <h2>My Profile</h2>
               <button class="tabs-button blind-btn"></button>   
-              <button class="tabs-button button">Personal details</button>
+              <button class="tabs-button button">Contact details</button>
               <button class="tabs-button button"> Edit account</button>
               <button class="tabs-button button ">Upload Photo</button>     
               <button class="tabs-button button"> Pet sitter profile</button>           
@@ -21,7 +21,7 @@
               </div>
              </div>
              <div class="tabs-content " >
-              <h2>Personal Details</h2>
+              <h2>Contact Details</h2>
               <form class="details-box center" action="post">
                   <input type="text" placeholder="First Name" />
                   <input type="text" placeholder="Last Name" />
@@ -83,7 +83,7 @@
             <div class="tabs-sidebar center">
               <h2>My Profile</h2>
               <button class="tabs-button blind-btn"></button>   
-              <button class="tabs-button button">Personal details</button>
+              <button class="tabs-button button">Contact details</button>
               <button class="tabs-button button"> Edit account</button>
               <button class="tabs-button button ">Upload Photo</button>     
     
@@ -94,7 +94,7 @@
               </div>
              </div>
              <div class="tabs-content " >
-              <h2>Personal Details</h2>
+              <h2>Contact Details</h2>
               <form class="details-box center" action="post">
                   <input type="text" placeholder="First Name" />
                   <input type="text" placeholder="Last Name" />

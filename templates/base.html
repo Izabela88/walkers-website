@@ -35,7 +35,7 @@
             <li><a class="close-sidebar" href="#">Contact</a></li>
             {% if user.is_authenticated %}
             <li class="welcome-msg"><span>Welcome {{user.username}}</span></li>
-            <li><a  id="user-profile-link" {% if request.path == '/user/user_profile/' %}class="active"{% endif %} class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
+            <li><a  id="user-profile-link" class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
             <li><a class="close-sidebar" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
             <li><a {% if request.path == '/accounts/signup/' %}class="active"{% endif %} id="register-link" class="close-sidebar" href="{% url 'account_signup' %}">Register</a></li>

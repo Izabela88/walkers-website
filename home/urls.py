@@ -8,5 +8,5 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="home"),
-    path("question", views.register_question, name="question"),
+    # path("question", views.register_question, name="question"),
 ]
