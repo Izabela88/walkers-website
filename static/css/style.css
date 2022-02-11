@@ -124,6 +124,10 @@ li {
   margin-left: 10px;
 }
 
+.terms-txt {
+  text-align: center;
+}
+
 /*----------------- navbar */
 #header {
   width: 100%;
@@ -364,6 +368,9 @@ li {
   width: 100%;
 }
 
+.form-input {
+  width: 100%;
+}
 
 .form-input label {
   font-family: 'Lato', sans-serif;
@@ -765,6 +772,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: baseline;
   height: 45vh;
 }
 
@@ -773,9 +781,22 @@ li {
   height: 50px;
   padding-left: 10px;
   border: 1px solid rgb(0 0 0 / 28%);
-  margin-bottom: 20px;
 }
 
+
+
+label[for="id_is_petsitter"] {
+  margin-top: 6px;
+  position: relative;
+}
+
+
+.signup input[type='checkbox'] {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+}
 
 .signup input::placeholder {
   font-family: 'Lato', sans-serif;
@@ -784,30 +805,13 @@ li {
   font-weight: bold;
 }
 
-.signup ul  {
-  font-size: 15px;
-  font-family: 'Lato', sans-serif;
-  color: rgb(255, 60, 0);
+
+.signup p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
-
-#id_is_petsitter {
-  height: 30px;
-  margin-top: -3px;
-  position: absolute;
-  left: 585px;
-}
-
-.r-input {
-  grid-column: col / span 2;
-  grid-row: row 5;
-}
-
-.r-input p {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 10px;
-}
 
 .register-input {
   cursor: pointer;
@@ -831,6 +835,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: baseline;
   width: 100%;
 }
 
@@ -839,7 +844,6 @@ li {
   height: 50px;
   padding-left: 10px;
   border: 1px solid rgb(0 0 0 / 28%);
-  margin-bottom: 10px;
 }
 
 .login-form-grid-container {
@@ -847,6 +851,12 @@ li {
   grid-template-columns: repeat(1, 2fr);
   width: 40%;
   height: 70%;
+}
+
+.login p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .login input::placeholder {
@@ -862,12 +872,25 @@ li {
   color: rgb(255, 60, 0);
 }
 
-#id_remember {
-  height: 30px;
-  margin-top: 24px;
-  margin-left: -220px;
-  margin-bottom: 20px;
+.secondaryAction {
+  color: var(--black-color);
+  bottom: 5px;
+  position: relative;
 }
+
+
+label[for="id_remember"] {
+  width: auto;
+  margin-top: 6px;
+  position: absolute;
+}
+
+#id_remember {
+  position: relative;
+  margin-left: -85px;
+  height: 30px;
+}
+
 
 /* -------------logout page */
 .logout {
@@ -929,6 +952,7 @@ li {
 
 .question-box h2 {
   font-size: 35px;
+  margin-bottom: -60px;
 }
 
 .question-form {
@@ -940,19 +964,27 @@ li {
   justify-content: center;
 }
 
+.form {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form input[type='checkbox'] {
+  width: 30px;
+  height: 30px;
+}
+
 .question-form label {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .question-button {
-  margin-top: 30px;
-}
-
-#id_is_petsitter_social {
-  height: 35px;
-  width: 25px;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 

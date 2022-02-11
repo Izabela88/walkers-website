@@ -8,7 +8,9 @@
                 <h2>Are you a dog walker / pet sitter ?</h2>      
             <form class="question-form" method="post">
                 {% csrf_token %}
-                {{form_petsitter}}
+                <div class="form">
+                    {{form_petsitter}}
+                </div>
                 <input class="button button-bright question-button" type="submit" value="SUBMIT">           
             </form>
         </div>
