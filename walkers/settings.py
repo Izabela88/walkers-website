@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'phonenumber_field',
     'home',
     'about', 
     'walker_profile', 
@@ -228,3 +229,5 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTH_USER_MODEL = 'walker_profile.WalkerUser' 
+
+SILENCED_SYSTEM_CHECKS = ["auth.W004"]

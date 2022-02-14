@@ -1,6 +1,6 @@
-from tkinter import Place
 from allauth.account.forms import SignupForm
 from django import forms
+from walker_profile.models import ContactDetails
 
 
 
@@ -11,3 +11,10 @@ class ExtendedSignupForm(SignupForm):
         user.is_petsitter = self.cleaned_data['is_petsitter']        
         user.save()
         return user
+
+
+class ContactDetailsForm(forms.ModelForm):
+
+    class Meta:
+        model = ContactDetails
+        fields = '__all__'
