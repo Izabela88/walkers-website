@@ -1,6 +1,7 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from walker_profile.models import ContactDetails
+from walker_profile.models import WalkerUser
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 
@@ -13,8 +14,19 @@ class ExtendedSignupForm(SignupForm):
         return user
 
 
-class ContactDetailsForm(forms.ModelForm):
+class UpdateWalkerProfile(forms.ModelForm):
+
+    first_name = forms.CharField(max_length=100,
+                               required=True,
+    )
+    last_name = forms.CharField(max_length=100,
+                               required=True,
+    )
+
+    email = forms.EmailField(required=True,
+    )
+
 
     class Meta:
-        model = ContactDetails
-        fields = '__all__'
+        model = WalkerUser
+        fields = ['phone_number', 'email', 'first_name', 'last_name']

@@ -4,28 +4,60 @@
 
 
 <section class="walker-profile-section">
+{% if messages %}
+  <ul class="authenticate-msg center">
+      {% for message in messages %}
+          <li>{{ message.message }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
     <div class="bg-shape"></div>
     <div class="container">
         <div class="tabs">
             <div class="tabs-sidebar center">
               <h2>My Profile</h2>
-              <button class="tabs-button blind-btn"></button>   
-              <button class="tabs-button button">Contact details</button>
+              <button class="tabs-button blind-btn"></button> 
+              <button class="tabs-button button">Update profile</button>
+              <button class="tabs-button button ">Address Details</button>     
               <button class="tabs-button button"> Edit account</button>
-              <button class="tabs-button button ">Upload Photo</button>     
-              <button class="tabs-button button"> Pet sitter profile</button>           
+              <button class="tabs-button button ">Upload Photo</button>
+              {% if is_petsitter %}     
+              <button class="tabs-button button"> Pet sitter profile</button>
+              {% endif %}           
              </div>
              <div class="tabs-content">
               <div class="main-image center ">
                 <img src="/media/dog-walking.gif" class="profile-dog-img" alt="A dog" />
               </div>
              </div>
+
+             <div {% if tab == 'update_profile' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
+              <h2>Update Profile</h2>
+              <form class="details-box center" method="post" action="{% url 'update_walker_profile' %}">
+                {% csrf_token %}         
+                <label class="profile-label">Phone number:</label>
+                {{ profile_form.phone_number }}
+                <label class="profile-label">Email:</label>
+                {{ profile_form.email }}
+                <label class="profile-label">First Name:</label>
+                {{ profile_form.first_name }}
+                <label class="profile-label">Last Name:</label>
+                {{ profile_form.last_name }}
+
+                {% if profile_form.errors %}
+                  {% for field in profile_form %}
+                      {% for error in field.errors %} 
+                            <strong class="error-profile">{{ error|escape }}</strong>                       
+                      {% endfor %}
+                  {% endfor %}
+                {% endif %}
+                <input class="button button-bright update-profil" type="submit" value="Update" />
+              </form>
+            </div>
              <div class="tabs-content" >
-              <h2>Contact Details</h2>
-              <form class="details-box center" method="post" action="{% url 'profile_contact_details' %}">
-                {% csrf_token %}
-                {{contact_details_form}}
-                <input class="button button-bright" type="submit" value="Save" />
+              <h2>Address Details</h2>
+              <form class="details-box center" method="post" action="">
+                <input class="button button-bright" type="submit" value="Update" />
               </form>
             </div>
             <div class="tabs-content">
@@ -35,13 +67,6 @@
                   <form class="center" action="post">
                     <input type="text" placeholder="New Password" />
                     <input class="button button-bright" type="submit" value="Save"/>
-                  </form>
-                </div>
-                <div class="edit-box change-email">
-                  <h2>Change email address</h2>
-                  <form class="center" action="post">
-                    <input type="text" placeholder="New Email Addresss" />
-                    <input class="button button-bright" type="submit" value="Save" />
                   </form>
                 </div>
                 <div class="edit-box delete-account">

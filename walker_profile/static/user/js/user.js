@@ -1,15 +1,19 @@
-
-
 function displayCurrentTab(current) {
   let tabs = document.querySelector(".tabs");
   let tabsContents = tabs.querySelectorAll(".tabs-content");
 
   for (let i = 0; i < tabsContents.length; i++) {
-    tabsContents[i].style.display = current === i ? "flex" : "none";
+    if (current === i) {
+      tabsContents[i].classList.add('display-content')
+    } else {
+      tabsContents[i].classList.remove('display-content')
+    }
   }
 }
 
-displayCurrentTab(0);
+if (!document.querySelector('.display-content')) {
+  displayCurrentTab(0)
+}
 
 
 function swapTabs() {
@@ -21,11 +25,11 @@ function swapTabs() {
       for (let i = 0; i < tabsBtns.length; i++) {
         if (event.target === tabsBtns[i]) {
           displayCurrentTab(i);
-          tabsBtns[i].style.backgroundColor = "#fff"
-          tabsBtns[i].style.color = "#eea300"
+          tabsBtns[i].classList.add('display-tab-white')
+          tabsBtns[i].classList.remove('display-tab-orange')
         } else {
-          tabsBtns[i].style.backgroundColor = "#eea300"
-          tabsBtns[i].style.color = "#fff"
+          tabsBtns[i].classList.add('display-tab-orange')
+          tabsBtns[i].classList.remove('display-tab-white')
         }
   
       }
