@@ -1236,6 +1236,10 @@ label[for="id_remember"] {
   width: 65%;
 }
 
+.error-profile li {
+  margin-bottom: 10px;
+}
+
 /* --------- media queries */
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {

@@ -1,7 +1,7 @@
 from allauth.account.forms import SignupForm
 from django import forms
 from walker_profile.models import WalkerUser
-from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import RegexValidator
 
 
 
@@ -16,15 +16,11 @@ class ExtendedSignupForm(SignupForm):
 
 class UpdateWalkerProfile(forms.ModelForm):
 
-    first_name = forms.CharField(max_length=100,
-                               required=True,
-    )
-    last_name = forms.CharField(max_length=100,
-                               required=True,
-    )
+    only_letters = RegexValidator("^[a-zA-Z ]*$", 'You can use only letters!')
 
-    email = forms.EmailField(required=True,
-    )
+    first_name = forms.CharField(max_length=100, required=True, validators=[only_letters])
+    last_name = forms.CharField(max_length=100, required=True, validators=[only_letters])
+    email = forms.EmailField(required=True)
 
 
     class Meta:

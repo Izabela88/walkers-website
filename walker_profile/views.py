@@ -18,10 +18,11 @@ def user_profile(request):
 
 @login_required
 def update_walker_profile(request):
-    context = {}
+    context = {
+        'is_petsitter': request.user.is_petsitter
+    }
     if request.method == "POST":
         profile_form = UpdateWalkerProfile(request.POST, instance=request.user)
-
         if profile_form.is_valid() and profile_form.has_changed():
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')

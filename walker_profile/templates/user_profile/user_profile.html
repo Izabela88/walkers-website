@@ -17,7 +17,7 @@
             <div class="tabs-sidebar center">
               <h2>My Profile</h2>
               <button class="tabs-button blind-btn"></button> 
-              <button class="tabs-button button">Update profile</button>
+              <button class="tabs-button button" >Update profile</button>
               <button class="tabs-button button ">Address Details</button>     
               <button class="tabs-button button"> Edit account</button>
               <button class="tabs-button button ">Upload Photo</button>
@@ -45,11 +45,9 @@
                 {{ profile_form.last_name }}
 
                 {% if profile_form.errors %}
-                  {% for field in profile_form %}
-                      {% for error in field.errors %} 
-                            <strong class="error-profile">{{ error|escape }}</strong>                       
-                      {% endfor %}
-                  {% endfor %}
+                    <div class="error-profile">
+                      <strong>{{ profile_form.errors }}</strong>
+                    </div>                                     
                 {% endif %}
                 <input class="button button-bright update-profil" type="submit" value="Update" />
               </form>
