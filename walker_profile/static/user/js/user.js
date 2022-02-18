@@ -9,11 +9,13 @@ function displayCurrentTab(current) {
       tabsContents[i].classList.remove('display-content')
     }
   }
+
 }
 
 if (!document.querySelector('.display-content')) {
   displayCurrentTab(0)
 }
+
 
 
 function swapTabs() {
@@ -31,7 +33,6 @@ function swapTabs() {
           tabsBtns[i].classList.add('display-tab-orange')
           tabsBtns[i].classList.remove('display-tab-white')
         }
-  
       }
     }
   });

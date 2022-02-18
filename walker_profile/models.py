@@ -18,19 +18,14 @@ class WalkerUser(AbstractUser):
 
 
 class AddressDetails(models.Model):
-    town = models.CharField(max_length=200, null=True)
-    address_1 = models.CharField(max_length=128)
-    address_2 = models.CharField(max_length=128)
-    postcode = models.CharField(max_length=200, null=True)
+    address = models.CharField(verbose_name='Address', max_length=100, null=True)
+    address_1 = models.CharField(verbose_name='Address 1', max_length=100, null=True)
+    address_2 = models.CharField(verbose_name='Address 2', max_length=100, null=True)
+    town = models.CharField(verbose_name='Town/City', max_length=100, null=True)
+    post_code = models.CharField(verbose_name='Post Code', max_length=8, null=True)
+    county = models.CharField(verbose_name='County', max_length=100, null=True)
+    country = models.CharField(verbose_name='Country', max_length=100, null=True)
+    longtitude = models.CharField(verbose_name='Longtitude', max_length=50, null=True)
+    latitude = models.CharField(verbose_name='Latitude', max_length=50, null=True)
+    
   
-
-
-
-# @receiver(post_save, sender=WalkerUser)
-# def create_profile(sender, instance, created, **kwargs):
-#     if created:
-#         WalkerUser.objects.create(user=instance)
-
-# @receiver(post_save, sender=WalkerUser)
-# def save_profile(sender, instance, **kwargs):
-#     instance.user.save()

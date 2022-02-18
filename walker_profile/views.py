@@ -1,41 +1,55 @@
+
 from django.shortcuts import render
-from walker_profile.forms import UpdateWalkerProfile
+from walker_profile.forms import UpdateWalkerProfile, WalkerAddressForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 
-# Create your views here.
 def user_profile(request):
-    print(" ::: User profile GET method ::: ")
-    context = {}
-    if request.user.is_authenticated:
-        context['is_petsitter'] = request.user.is_petsitter
-    profile_form = UpdateWalkerProfile(instance=request.user)
-    context['profile_form'] = profile_form
-    return render(request, 'user_profile/user_profile.html', context)
-
-
-@login_required
-def update_walker_profile(request):
     context = {
-        'is_petsitter': request.user.is_petsitter
+        "errors": {
+            "profile_form_errors": request.session.pop("profile_form_errors", None),
+            "address_form_errors": request.session.pop("address_form_errors", None),
+        }
     }
-    if request.method == "POST":
-        profile_form = UpdateWalkerProfile(request.POST, instance=request.user)
-        if profile_form.is_valid() and profile_form.has_changed():
-            profile_form.save()
-            messages.success(request, 'Your profile is updated successfully')
-            return redirect('/profile/user_profile')
-        else:
-            print(profile_form.errors)
-            context['profile_form'] = profile_form
-            context['tab'] = "update_profile"
-            return render(request, 'user_profile/user_profile.html', context)
-    else:
+
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            context['is_petsitter'] = request.user.is_petsitter
+        profile_form = UpdateWalkerProfile(instance=request.user)
+        address_form = WalkerAddressForm(instance=request.user.address_details)
+        context['profile_form'] = profile_form
+        context['address_form'] = address_form
+        if "tab" in request.session:
+            context["tab"] =  request.session.pop("tab")
         return render(request, 'user_profile/user_profile.html', context)
 
-# change js to use class instead style
-# create class css
-#     context['tab'] = "update_profile"
-# 
+    if request.method == "POST" and request.user.is_authenticated:
+        
+        if request.POST.get("form_type") == "profile_form":
+            profile_form = UpdateWalkerProfile(instance=request.user, data=request.POST or None)
+            request.session['tab'] = "update_profile"
+            if profile_form.is_valid() and profile_form.has_changed():
+                profile_form.save()
+                messages.success(request, 'Your profile is updated successfully')
+            else:
+                request.session["profile_form_errors"] = profile_form.errors
+                context['profile_form'] = UpdateWalkerProfile(instance=request.user)
+
+        if request.POST.get("form_type") == "address_form":
+            address_form = WalkerAddressForm(instance=request.user.address_details, data=request.POST or None)
+            request.session['tab'] = "address_form"
+            if address_form.is_valid():
+                address_form.save()
+                if request.user.address_details_id != address_form.instance.id:
+                    request.user.address_details_id = address_form.instance.id
+                    request.user.save()
+                messages.success(request, 'Your address is updated successfully')
+            else:
+                request.session["address_form_errors"] = address_form.errors
+                context['address_form'] = WalkerAddressForm(instance=request.user.address_details)
+
+        return HttpResponseRedirect("/profile/user_profile")
+

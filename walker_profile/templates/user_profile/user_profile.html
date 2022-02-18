@@ -17,8 +17,20 @@
             <div class="tabs-sidebar center">
               <h2>My Profile</h2>
               <button class="tabs-button blind-btn"></button> 
-              <button class="tabs-button button" >Update profile</button>
-              <button class="tabs-button button ">Address Details</button>     
+              <button 
+                {% if tab == 'update_profile' %}
+                  class="tabs-button button display-tab-white"
+                {% else %} 
+                  class="tabs-button button"
+                {% endif %}
+               >Update profile</button>
+              <button
+              {% if tab == 'address_form' %}
+                class="tabs-button button display-tab-white"
+              {% else %} 
+                class="tabs-button button"
+              {% endif %}
+              >Address Details</button>     
               <button class="tabs-button button"> Edit account</button>
               <button class="tabs-button button ">Upload Photo</button>
               {% if is_petsitter %}     
@@ -33,31 +45,99 @@
 
              <div {% if tab == 'update_profile' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
               <h2>Update Profile</h2>
-              <form class="details-box center" method="post" action="{% url 'update_walker_profile' %}">
-                {% csrf_token %}         
+              <form class="details-box center" method="post">
+                {% csrf_token %}
+
                 <label class="profile-label">Phone number:</label>
                 {{ profile_form.phone_number }}
+                {% if errors.profile_form_errors and 'phone_number' in errors.profile_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.profile_form_errors.phone_number.0}}</strong>
+                </div>
+                {% endif%}
+
                 <label class="profile-label">Email:</label>
                 {{ profile_form.email }}
+                {% if errors.profile_form_errors and 'email' in errors.profile_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.profile_form_errors.email.0}}</strong>
+                </div>
+                {% endif%}
+
                 <label class="profile-label">First Name:</label>
                 {{ profile_form.first_name }}
+                {% if errors.profile_form_errors and 'first_name' in errors.profile_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.profile_form_errors.first_name.0}}</strong>
+                </div>
+                {% endif%}
+
                 <label class="profile-label">Last Name:</label>
                 {{ profile_form.last_name }}
+                {% if errors.profile_form_errors and 'last_name' in errors.profile_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.profile_form_errors.last_name.0}}</strong>
+                </div>
+                {% endif%}
 
-                {% if profile_form.errors %}
-                    <div class="error-profile">
-                      <strong>{{ profile_form.errors }}</strong>
-                    </div>                                     
-                {% endif %}
+                <input type="hidden" name="form_type" value="profile_form" /> 
                 <input class="button button-bright update-profil" type="submit" value="Update" />
               </form>
             </div>
-             <div class="tabs-content" >
+
+             <div {% if tab == 'address_form' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
               <h2>Address Details</h2>
-              <form class="details-box center" method="post" action="">
+
+              <form class="details-box center" method="post">
+                {% csrf_token %}    
+
+                <label class="profile-label">Address 1:</label>
+                {{ address_form.address_1 }}
+                {% if errors.address_form_errors and 'address_1' in errors.address_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.address_form_errors.address_1.0}}</strong>
+                </div>
+                {% endif%}
+
+                <label class="profile-label">Address 2:</label>
+                {{ address_form.address_2 }}
+                {% if errors.address_form_errors and 'address_2' in errors.address_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.address_form_errors.address_2.0}}</strong>
+                </div>
+                {% endif%}
+
+                <label class="profile-label">Post Code:</label>
+                {{ address_form.post_code }}
+                {% if errors.address_form_errors and 'post_code' in errors.address_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.address_form_errors.post_code.0}}</strong>
+                </div>
+                {% endif%}
+
+                <label class="profile-label">Town:</label>
+                {{ address_form.town }}
+                {% if errors.address_form_errors and 'town' in errors.address_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.address_form_errors.town.0}}</strong>
+                </div>
+                {% endif%}
+
+                <label class="profile-label">County:</label>
+                {{ address_form.county }}
+                {% if errors.address_form_errors and 'county' in errors.address_form_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.address_form_errors.county.0}}</strong>
+                </div>
+                {% endif%}
+
+                
+                <input type="hidden" name="form_type" value="address_form" /> 
                 <input class="button button-bright" type="submit" value="Update" />
               </form>
             </div>
+
+
             <div class="tabs-content">
               <h2>Edit Account</h2>
               <div class="edit-box change-password">

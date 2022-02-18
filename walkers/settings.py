@@ -63,17 +63,30 @@ INSTALLED_APPS = [
 # SITE_ID = 1
 SITE_ID = 2
 
+
+# phonenumber_field
 PHONENUMBER_DEFAULT_REGION = 'GB'
 PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
 
 
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # Used to prevent brute force attacks.
 
+# Additional allauth configuration settings
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -110,18 +123,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
-# Additional allauth configuration settings
-SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 MIDDLEWARE = [
@@ -233,3 +234,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = 'walker_profile.WalkerUser' 
 
 SILENCED_SYSTEM_CHECKS = ["auth.W004"]
+
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
+
+BASE_COUNTRY = 'UK'

@@ -1,6 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from walker_profile.models import WalkerUser
+from walker_profile.models import WalkerUser, AddressDetails
 from django.core.validators import RegexValidator
 
 
@@ -26,3 +26,14 @@ class UpdateWalkerProfile(forms.ModelForm):
     class Meta:
         model = WalkerUser
         fields = ['phone_number', 'email', 'first_name', 'last_name']
+
+
+class WalkerAddressForm(forms.ModelForm):
+    address_1 = forms.CharField(max_length=50, required=True)
+    address_2 = forms.CharField(max_length=100, required=True)
+    town = forms.CharField(max_length=85, required=True)
+    post_code = forms.CharField(max_length=8, required=True)
+    county = forms.CharField(max_length=100, required=True)
+    class Meta:
+        model = AddressDetails
+        fields = ['address_1', 'address_2', 'town', 'post_code', 'county']
