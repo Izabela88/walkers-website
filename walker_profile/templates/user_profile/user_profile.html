@@ -140,13 +140,17 @@
 
             <div class="tabs-content">
               <h2>Edit Account</h2>
+
               <div class="edit-box change-password">
                   <h2>Change password</h2>
                   <form class="center" action="post">
-                    <input type="text" placeholder="New Password" />
-                    <input class="button button-bright" type="submit" value="Save"/>
+                {% csrf_token %}
+                    <p>To change the current password, click on this <a class="password-link" href="{% url 'password_change' %}">link</a> <br>
+                      You can change your password only if you do not have an account registered via social media.
+                    </p>
                   </form>
                 </div>
+
                 <div class="edit-box delete-account">
                   <h2>Delete account</h2>
                   <input class="button button-bright" type="submit" value="Delete Account" />

@@ -5,6 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 
 def user_profile(request):
@@ -53,3 +57,9 @@ def user_profile(request):
 
         return HttpResponseRedirect("/profile/user_profile")
 
+# https://dev.to/earthcomfy/django-update-user-profile-33ho
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'change_password.html'
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('user_profile')

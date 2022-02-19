@@ -42,6 +42,24 @@ li {
   list-style: none;
 }
 
+label {
+  font-family: "Lato", sans-serif;
+
+}
+
+.errorlist {
+  font-size: 15px;
+  font-family: "Lato", sans-serif;
+  color: rgb(255, 60, 0)
+}
+
+.section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  
+}
+
 .container {
   max-width: 1200px;
   height: 100%;
@@ -80,9 +98,10 @@ li {
   transition-property: box-shadow, transform;
   font-weight: bold;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 13px;
   letter-spacing: 1px;
   border: none;
+  text-transform: uppercase;
 }
 
 .button-bright {
@@ -105,8 +124,9 @@ li {
   text-decoration: none;
   letter-spacing: 2px;
   color: var(--black-color);
-  font-size: 17px;
+  font-size: 13px;
   transition-duration: 0.4s !important;
+  text-transform: uppercase;
 }
 
 .button:hover {
@@ -815,11 +835,7 @@ label[for="id_is_petsitter"] {
 }
 
 /* ------------login page */
-#login {
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
+
 
 .login {
   display: flex;
@@ -1153,6 +1169,10 @@ h2 {
   width: 70%;
 }
 
+.edit-box p {
+  font-size: 20px;
+}
+
 .edit-box h2 {
   margin-bottom: 20px;
   text-align: center;
@@ -1217,6 +1237,45 @@ h2 {
 
 .error-profile li {
   margin-bottom: 10px;
+}
+
+
+/* --------------change password section */
+.change-password-form {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.change-password-form p {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 35%;
+}
+
+.change-password-form input {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 25px;
+  border: 1px solid rgb(0 0 0 / 12%);
+  padding: 10px;
+}
+
+.change-password-form ul {
+  display: none;
+}
+
+.change-password-form li {
+  font-family: "Lato", sans-serif;
+}
+
+.password-link {
+  color: var(--yellow-color);
+  font-weight: bold;
 }
 
 /* --------- media queries */
