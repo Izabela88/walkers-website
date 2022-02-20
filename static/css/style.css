@@ -996,8 +996,7 @@ label[for="id_remember"] {
   width: 40%;
 }
 
-.social-heading h1,
-h2 {
+.social-heading h1 h2 {
   font-size: 35px;
   margin-bottom: 25px;
 }
@@ -1104,14 +1103,29 @@ h2 {
   text-transform: uppercase;
 }
 
-.profile-img {
+.profile-img-form {
   display: flex;
   align-items: center;
   width: 400px;
-  height: 400px;
+  height: 550px;
   justify-content: space-evenly;
   flex-direction: column;
 }
+
+label[for="id_avatar"] {
+  display: none;
+}
+
+
+.profile-img-form input[type=file] {
+  font-family: "Architects Daughter", cursive;
+  text-transform: uppercase;
+  margin-left: 118px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+ 
 
 .upload-btn {
   border: none;
@@ -1121,12 +1135,28 @@ h2 {
   color: var(--white-color);
 }
 
-.user-img {
-  width: 100%;
-  height: 100%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  margin-bottom: 40px;
+
+.no-user-img {
+  width: 250px;
+  height:250px; 
+  background: url(/media/user.png) no-repeat center center/cover;
+  border-radius: 50%;
 }
+
+.user-img {
+  width: 250px;
+  height:250px;
+  border-radius: 50%;
+}
+
+
+.img-box {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
 
 .details-box {
   width: 100%;

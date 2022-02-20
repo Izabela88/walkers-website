@@ -25,7 +25,7 @@ class UpdateWalkerProfile(forms.ModelForm):
 
     class Meta:
         model = WalkerUser
-        fields = ['phone_number', 'email', 'first_name', 'last_name']
+        fields = ['phone_number', 'email', 'first_name', 'last_name', 'email',]
 
 
 class WalkerAddressForm(forms.ModelForm):
@@ -37,3 +37,11 @@ class WalkerAddressForm(forms.ModelForm):
     class Meta:
         model = AddressDetails
         fields = ['address_1', 'address_2', 'town', 'post_code', 'county']
+
+
+class WalkerUserAvatar(forms.ModelForm):
+     avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+
+     class Meta:
+        model = WalkerUser
+        fields = ['avatar']

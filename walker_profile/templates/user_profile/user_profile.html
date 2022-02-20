@@ -130,7 +130,6 @@
                   <strong>{{errors.address_form_errors.county.0}}</strong>
                 </div>
                 {% endif%}
-
                 
                 <input type="hidden" name="form_type" value="address_form" /> 
                 <input class="button button-bright" type="submit" value="Update" />
@@ -156,13 +155,33 @@
                   <input class="button button-bright" type="submit" value="Delete Account" />
                 </div>
             </div>
-             <div class="tabs-content">
+
+             <div {% if tab == 'avatar' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
                <h2>Upload Your Photo</h2>
-              <div class="profile-img">
-                <div class="user-img center"></div>
+              <form class="profile-img-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if errors.avatar_errors in errors.avatar_errors %}
+                <div class="error-profile">
+                  <strong>{{errors.avatar_errors.0}}</strong>
+                </div>
+                {% endif %}
+                {% if user.avatar %}           
+                  <div class="img-box center">
+                    <div class="user-img center" style="background: url('{{request.user.avatar.url}}') no-repeat center center/cover"></div>
+                  </div>                        
+                {% else %}
+                  <div class="img-box center">
+                    <div class="no-user-img"></div>
+                  </div>
+                 {% endif %}
+                 <div class="avatar-txt">
+                   {{avatar}}
+                 </div>             
+                <input type="hidden" name="form_type" value="avatar" /> 
                 <input class="button button-bright" type="submit" value="Upload" />
-              </div>
+              </form>
              </div>
+
              {% if is_petsitter %}     
               <div class="tabs-content ">
                 <h2>Pet sitter profile</h2>

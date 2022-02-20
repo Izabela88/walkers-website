@@ -1,14 +1,12 @@
 
 from django.shortcuts import render
-from walker_profile.forms import UpdateWalkerProfile, WalkerAddressForm
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from walker_profile.forms import UpdateWalkerProfile, WalkerAddressForm, WalkerUserAvatar
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
-
+from .models import WalkerUser
 
 
 def user_profile(request):
@@ -16,6 +14,7 @@ def user_profile(request):
         "errors": {
             "profile_form_errors": request.session.pop("profile_form_errors", None),
             "address_form_errors": request.session.pop("address_form_errors", None),
+            "avatar_errors": request.session.pop("avatar_errors", None),
         }
     }
 
@@ -24,14 +23,15 @@ def user_profile(request):
             context['is_petsitter'] = request.user.is_petsitter
         profile_form = UpdateWalkerProfile(instance=request.user)
         address_form = WalkerAddressForm(instance=request.user.address_details)
+        avatar = WalkerUserAvatar(instance=request.user)
         context['profile_form'] = profile_form
         context['address_form'] = address_form
+        context['avatar'] = avatar
         if "tab" in request.session:
             context["tab"] =  request.session.pop("tab")
         return render(request, 'user_profile/user_profile.html', context)
 
     if request.method == "POST" and request.user.is_authenticated:
-        
         if request.POST.get("form_type") == "profile_form":
             profile_form = UpdateWalkerProfile(instance=request.user, data=request.POST or None)
             request.session['tab'] = "update_profile"
@@ -54,6 +54,16 @@ def user_profile(request):
             else:
                 request.session["address_form_errors"] = address_form.errors
                 context['address_form'] = WalkerAddressForm(instance=request.user.address_details)
+            
+        if request.POST.get("form_type") == "avatar":
+            avatar = WalkerUserAvatar(request.POST or None, request.FILES, instance=request.user)
+            request.session['tab'] = "avatar"
+            if avatar.is_valid():
+                avatar.save()
+                messages.success(request, 'Your avatar is updated successfully')
+            else:
+                request.session["avatar_errors"] = avatar.errors
+                context['avatar'] = WalkerUserAvatar(instance=request.user)
 
         return HttpResponseRedirect("/profile/user_profile")
 

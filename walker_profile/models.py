@@ -1,6 +1,8 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
+from PIL import Image
 
 
 # from django.db.models.signals import post_save
@@ -12,6 +14,8 @@ class WalkerUser(AbstractUser):
     is_petsitter = models.BooleanField(null=True)
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
+    avatar = models.ImageField(null=True, blank=True)
+
 
     def __str__(self):
         return str(self.username)
