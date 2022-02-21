@@ -6,7 +6,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
-from .models import WalkerUser
+from django.contrib.auth import get_user_model
+from django.views.generic.edit import DeleteView
+from django.urls import reverse
+
 
 
 def user_profile(request):
@@ -73,3 +76,15 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('user_profile')
+
+
+User = get_user_model()
+
+class WalkerUserDelete(DeleteView):
+    model = User
+    template_name = 'user_confirm_delete.html'
+
+    def get_success_url(self):
+        messages.success(self.request, "Your account has been deleted successfully.")
+        return reverse('home')
+

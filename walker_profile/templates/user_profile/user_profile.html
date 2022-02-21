@@ -150,9 +150,11 @@
                   </form>
                 </div>
 
-                <div class="edit-box delete-account">
+                <div class="edit-box center">
                   <h2>Delete account</h2>
-                  <input class="button button-bright" type="submit" value="Delete Account" />
+                  <div class="button button-bright center">
+                    <a href="{% url 'user_confirm_delete' user.id %}">Delete account</a>
+                  </div>
                 </div>
             </div>
 

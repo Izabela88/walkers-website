@@ -1,8 +1,8 @@
-from email.policy import default
+from urllib import request
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
-from PIL import Image
+from django.contrib import messages
 
 
 # from django.db.models.signals import post_save
@@ -15,6 +15,12 @@ class WalkerUser(AbstractUser):
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
     avatar = models.ImageField(null=True, blank=True)
+
+    def delete(self, *args, **kwargs):
+        if self.avatar:         
+            storage, path = self.avatar.storage, self.avatar.path     
+            storage.delete(path)    
+        super(WalkerUser, self).delete(*args, **kwargs)
 
 
     def __str__(self):
