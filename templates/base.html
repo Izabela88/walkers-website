@@ -36,7 +36,7 @@
             <li><a {% if request.path == '/about/' %}class="active"{% endif %} id="about" class="close-sidebar" href="{% url 'about' %}">About</a></li>
             <li><a class="close-sidebar" href="#">Contact</a></li>
             {% if user.is_authenticated %}
-            <li class="welcome-msg"><span>Welcome {{user.username}}</span></li>
+            <li class="welcome-msg"><span>Welcome {{user.username}} !</span></li>
             <li><a  id="user-profile-link" class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
             <li><a class="close-sidebar" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}

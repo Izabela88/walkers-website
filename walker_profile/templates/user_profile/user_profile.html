@@ -32,9 +32,21 @@
               {% endif %}
               >Address Details</button>     
               <button class="tabs-button button"> Edit account</button>
-              <button class="tabs-button button ">Upload Photo</button>
+              <button
+              {% if tab == 'avatar' %}
+              class="tabs-button button display-tab-white"
+              {% else %} 
+                class="tabs-button button"
+              {% endif %}
+              class="tabs-button button ">Upload Photo</button>
               {% if is_petsitter %}     
-              <button class="tabs-button button"> Pet sitter profile</button>
+              <button
+              {% if tab == 'description' %}
+              class="tabs-button button display-tab-white"
+              {% else %} 
+                class="tabs-button button"
+              {% endif %}
+              class="tabs-button button"> Pet sitter profile</button>
               {% endif %}           
              </div>
              <div class="tabs-content">
@@ -184,17 +196,27 @@
               </form>
              </div>
 
-             {% if is_petsitter %}     
-              <div class="tabs-content ">
+             {% if is_petsitter %}
+
+              <div {% if tab == 'description' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %}>
                 <h2>Pet sitter profile</h2>
-                <form class="details-box center" action="post">
-                    <input type="text" placeholder="Services I offer" />
+                <form class="details-box center" method="post">
+                  {% csrf_token %}
+                  {{description}}
+                  {% if errors.description_errors in errors.description_errors %}
+                  <div class="error-profile">
+                    <strong>{{errors.description_errors.0}}</strong>
+                  </div>
+                  {% endif %}
+                    <!-- <input type="text" placeholder="Services I offer" />
                     <input type="text" placeholder="Price for my services" />
                     <input type="text" placeholder="Dog size I can take" />
-                    <textarea type="text" placeholder="write something about yourself..."></textarea>
+                    <textarea type="text" placeholder="write something about yourself..."></textarea> -->
+                    <input type="hidden" name="form_type" value="description" />
                     <input class="button button-bright" type="submit" value="Save" />
                   </form>
               </div>
+              
               {% endif %}     
         </div>      
     </div>

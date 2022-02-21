@@ -11,6 +11,7 @@ from django.contrib import messages
 
 class WalkerUser(AbstractUser):
     address_details = models.OneToOneField('AddressDetails', null=True, on_delete=models.CASCADE)
+    petsitter_details = models.OneToOneField('PetsitterDetails', null=True, on_delete=models.CASCADE)
     is_petsitter = models.BooleanField(null=True)
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
@@ -39,3 +40,5 @@ class AddressDetails(models.Model):
     latitude = models.CharField(verbose_name='Latitude', max_length=50, null=True)
     
   
+class PetsitterDetails(models.Model):
+    description = models.TextField()
