@@ -1071,7 +1071,7 @@ label[for="id_remember"] {
 }
 
 .tabs-sidebar {
-  width: 40%;
+  width: 35%;
   height: 75%;
   border-radius: 25px;
 }
@@ -1094,7 +1094,8 @@ label[for="id_remember"] {
 
 .tabs-button {
   height: 85px;
-  width: 88%;
+  padding: 14px;
+  width: 75%;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
@@ -1121,13 +1122,17 @@ label[for="id_remember"] {
   width: 60%;
   flex-direction: column;
   align-items: center;
-  height: 80%;
+  height: 100%;
   justify-content: space-evenly;
   animation: fadeEffect 1s;
 }
 
 .tabs-content h2 {
   text-transform: uppercase;
+    margin-bottom: 67px;
+    color: #ee4200;
+    margin-top: 40px;
+    font-size: 25px;
 }
 
 .profile-img-form {
@@ -1187,11 +1192,11 @@ label[for="id_avatar"] {
 
 .details-box {
   width: 100%;
-  height: 100%;
+  height: 55%;
 }
 
 label[for="id_description"] {
-  margin-bottom: 10px;
+ display: none;
 }
 
 .details-box input {
@@ -1215,8 +1220,8 @@ label[for="id_description"] {
 }
 
 .details-box textarea {
-  height: 20%;
-  width: 65%;
+  height: 50%;
+  width: 100%;
   margin-bottom: 25px;
   border: 1px solid rgb(0 0 0 / 12%);
   font-family: "Lato", sans-serif;
@@ -1374,7 +1379,275 @@ label[for="id_description"] {
   font-weight: bold;
 }
 
+/* ------------petsitter profile form*/
+/* https://codepen.io/EightArmsHQ/pen/rNBZKNZ */
 
+.petsitter-layout {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.petsitter-layout label {
+  user-select: none;
+    text-decoration: none;
+    color: inherit;
+    transition: border 0.2s;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.petsitter-layout input[type=radio] {
+  display: none;
+}
+
+.petsitter-layout label.service-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-bottom: 2px solid var(--yellow-color);
+  background: var(--white-color);
+  user-select: none;
+  transition: background 0.4s, padding-left 0.2s;
+  padding-left: 0;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.petsitter-layout input[type=radio]:checked + .page + label.service-type {
+  background: var(--yellow-color);
+  color: #ffffff;
+}
+
+.form-title {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+}
+
+.petsitter-layout input[type=radio]:checked + .page + label.service-type svg {
+  opacity: 1;
+}
+
+
+.petsitter-layout label.service-type span {
+  padding-left: 0px;
+  position: relative;
+}
+
+.page {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-column-end: span 4;
+  padding: 0px 20px;
+}
+
+.page-contents > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.page-contents > *:nth-child(1) {
+  transition-delay: 0.4s;
+}
+.page-contents > *:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.page-contents > *:nth-child(3) {
+  transition-delay: 0.8s;
+}
+.page-contents > *:nth-child(4) {
+  transition-delay: 1s;
+}
+.page-contents > *:nth-child(5) {
+  transition-delay: 1.2s;
+}
+.page-contents > *:nth-child(6) {
+  transition-delay: 1.4s;
+}
+.page-contents > *:nth-child(7) {
+  transition-delay: 1.6s;
+}
+.page-contents > *:nth-child(8) {
+  transition-delay: 1.8s;
+}
+.page-contents > *:nth-child(9) {
+  transition-delay: 2s;
+}
+.page-contents > *:nth-child(10) {
+  transition-delay: 2.2s;
+}
+.page-contents > *:nth-child(11) {
+  transition-delay: 2.4s;
+}
+.page-contents > *:nth-child(12) {
+  transition-delay: 2.6s;
+}
+.page-contents > *:nth-child(13) {
+  transition-delay: 2.8s;
+}
+.page-contents > *:nth-child(14) {
+  transition-delay: 3s;
+}
+.page-contents > *:nth-child(15) {
+  transition-delay: 3.2s;
+}
+.page-contents > *:nth-child(16) {
+  transition-delay: 3.4s;
+}
+.page-contents > *:nth-child(17) {
+  transition-delay: 3.6s;
+}
+.page-contents > *:nth-child(18) {
+  transition-delay: 3.8s;
+}
+.page-contents > *:nth-child(19) {
+  transition-delay: 4s;
+}
+.page-contents > *:nth-child(20) {
+  transition-delay: 4.2s;
+}
+
+.petsitter-layout input[type=radio] + .page {
+  transition: transform 0.2s;
+  transform: translateX(100%);
+}
+
+.petsitter-layout input[type=radio]:checked + .page {
+  transform: translateX(0%);
+}
+
+.petsitter-layout input[type=radio]:checked + .page .page-contents > * {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.page-contents {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+
+.page-contents p {
+  font-size: 17px;
+  margin-bottom: -23%;
+}
+
+.page-heading {
+  width: 100%;
+  text-align: center;
+ 
+}
+
+.page-btn {
+  height: 40px;
+  position: relative;
+  margin: 15px 235px;
+}
+
+.page-heading h2 {
+  font-size: 18px;
+    font-family: "Lato", sans-serif;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    color: var(--yellow-color);
+}
+
+.form-info {
+  width: 100%;
+  height: 20%;
+  margin-left: 10%;
+}
+
+.petsitter-form input[type=text] {
+  width: 75px;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.petsitter-form input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--yellow-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--yellow-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 
 /* --------- media queries */

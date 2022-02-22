@@ -1,3 +1,4 @@
+from statistics import mode
 from urllib import request
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -42,3 +43,27 @@ class AddressDetails(models.Model):
   
 class PetsitterDetails(models.Model):
     description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
+
+class ServiceTypes(models.Model):
+    types = models.CharField(max_length=100, null=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
+
+
+class ServiceDetails(models.Model):
+    petsitter_details = models.ForeignKey(PetsitterDetails, on_delete=models.CASCADE, null=True)
+    service_type = models.ForeignKey(ServiceTypes, on_delete=models.CASCADE, null=True)
+    is_active = models.BooleanField(null=True)
+    is_small_dog = models.BooleanField(null=True)
+    s_price_hour = models.CharField(max_length=10, null=True)
+    s_price_day = models.CharField(max_length=10, null=True)
+    is_medium_dog = models.BooleanField(null=True)
+    m_price_hour = models.CharField(max_length=10, null=True)
+    m_price_day = models.CharField(max_length=10, null=True)
+    is_big_dog = models.BooleanField(null=True)
+    b_price_hour = models.CharField(max_length=10, null=True)
+    b_price_day = models.CharField(max_length=10, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+

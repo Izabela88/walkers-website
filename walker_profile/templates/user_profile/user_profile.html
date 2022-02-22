@@ -15,7 +15,6 @@
     <div class="container">
         <div class="tabs">
             <div class="tabs-sidebar center">
-              <h2>My Profile</h2>
               <button class="tabs-button blind-btn"></button> 
               <button 
                 {% if tab == 'update_profile' %}
@@ -23,7 +22,7 @@
                 {% else %} 
                   class="tabs-button button"
                 {% endif %}
-               >Update profile</button>
+               >Personal Informations</button>
               <button
               {% if tab == 'address_form' %}
                 class="tabs-button button display-tab-white"
@@ -56,7 +55,7 @@
              </div>
 
              <div {% if tab == 'update_profile' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
-              <h2>Update Profile</h2>
+              <h2>Personal Informations</h2>
               <form class="details-box center" method="post">
                 {% csrf_token %}
 
@@ -200,21 +199,159 @@
 
               <div {% if tab == 'description' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %}>
                 <h2>Pet sitter profile</h2>
-                <form class="details-box center" method="post">
-                  {% csrf_token %}
-                  {{description}}
-                  {% if errors.description_errors in errors.description_errors %}
-                  <div class="error-profile">
-                    <strong>{{errors.description_errors.0}}</strong>
+
+                <div class="petsitter-layout">
+                  <input name="service-type" type="radio" class="service-type walk-radio" id="walk" checked="checked" />
+                  <div class="page walk-page">
+                    <div class="page-contents">
+                      
+                      <form class="petsitter-form" method="post">
+
+                        <label class="form-title">Mark the size of the dog you can look after:</label>
+                        <input type="checkbox" id="small_dog" name="small_dog" value="Small">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="checkbox" id="medium_dog" name="medium_dog" value="Medium">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="checkbox" id="big_dog" name="big_dog" value="Big">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                    
+                        <label  class="form-title">Enter what amount you expect for your services:</label>                
+                        <input type="text" id="small_dog" name="small_dog" value="£ per hour">
+                        <input type="text" id="small_dog" name="small_dog" value="£ per day">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per hour">
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per day">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="text" id="big_dog" name="big_dog" value="£ per hour">
+                        <input type="text" id="big_dog" name="big_dog" value="£ per day">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                        
+                        <label class="form-title">Display all informations in the advertisement</label>
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+
+                        <input type="hidden" name="form_type" value="walking" />
+                        <input class="button button-bright page-btn" type="submit" value="Save" />
+                      </form>
+                    </div>
                   </div>
-                  {% endif %}
-                    <!-- <input type="text" placeholder="Services I offer" />
-                    <input type="text" placeholder="Price for my services" />
-                    <input type="text" placeholder="Dog size I can take" />
-                    <textarea type="text" placeholder="write something about yourself..."></textarea> -->
-                    <input type="hidden" name="form_type" value="description" />
-                    <input class="button button-bright" type="submit" value="Save" />
-                  </form>
+                  <label class="service-type" for="walk">
+                    <span>
+                      Walking
+                    </span>
+                  </label>
+                
+                  <input name="service-type" type="radio" class="boarding-petsitter-home-radio" id="boarding-petsitter-home" />
+                  <div class="page boarding-petsitter-home-page">
+                    <div class="page-contents">
+                     
+                      
+                      <form class="petsitter-form" method="post">
+                        <label class="form-title">Mark the size of the dog you can look after:</label>
+                        <input type="checkbox" id="small_dog" name="small_dog" value="Small">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="checkbox" id="medium_dog" name="medium_dog" value="Medium">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="checkbox" id="big_dog" name="big_dog" value="Big">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                    
+                        <label  class="form-title">Enter what amount you expect for your services:</label>                 
+                        <input type="text" id="small_dog" name="small_dog" value="£ per hour">
+                        <input type="text" id="small_dog" name="small_dog" value="£ per day">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per hour">
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per day">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="text" id="big_dog" name="big_dog" value="£ per hour">
+                        <input type="text" id="big_dog" name="big_dog" value="£ per day">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+
+                        <label class="form-title">Display all informations in the advertisement</label>
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+
+                        <input type="hidden" name="form_type" value="boarding-petsitter-home" />
+                        <input class="button button-bright page-btn" type="submit" value="Save" />
+                      </form>
+                    </div>
+                  </div>
+                  <label class="service-type" for="boarding-petsitter-home">
+                    <span>   
+                    Boarding at petsitter home
+                      </span>
+                    </label>
+                
+                  <input name="service-type" type="radio" class="boarding-client-home-radio" id="boarding-client-home" />
+                  <div class="page boarding-client-home-page">
+                    <div class="page-contents">
+                     
+                      <form class="petsitter-form" method="post">
+                        <label class="form-title">Mark the size of the dog you can look after:</label>
+                        <input type="checkbox" id="small_dog" name="small_dog" value="Small">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="checkbox" id="medium_dog" name="medium_dog" value="Medium">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="checkbox" id="big_dog" name="big_dog" value="Big">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                    
+                        <label  class="form-title">Enter what amount you expect for your services:</label>                 
+                        <input type="text" id="small_dog" name="small_dog" value="£ per hour">
+                        <input type="text" id="small_dog" name="small_dog" value="£ per day">
+                        <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per hour">
+                        <input type="text" id="medium_dog" name="medium_dog" value="£ per day">
+                        <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                        <input type="text" id="big_dog" name="big_dog" value="£ per hour">
+                        <input type="text" id="big_dog" name="big_dog" value="£ per day">
+                        <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+
+                        <label class="form-title">Display all informations in the advertisement</label>
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+
+                        <input type="hidden" name="form_type" value="boarding-client-home" />
+                        <input class="button button-bright page-btn" type="submit" value="Save" />
+                      </form>
+                    </div>
+                  </div>
+                  <label class="service-type" for="boarding-client-home">
+                    <span>                   
+                    Boarding at client home
+                      </span>                   
+                  </label>
+
+                  <input name="service-type" type="radio" class="description-radio" id="description" />
+                  <div class="page description-page">
+                    <div class="page-contents">
+                      
+                      <p>Describe yourself:</p>
+                      <form class="details-box center" method="post">
+                        {% csrf_token %}
+                        {{description}}
+                        {% if errors.description_errors in errors.description_errors %}
+                        <div class="error-profile">
+                          <strong>{{errors.description_errors.0}}</strong>
+                        </div>
+                        {% endif %}
+                          <input type="hidden" name="form_type" value="description" />
+                          <input class="button button-bright page-btn" type="submit" value="Save" />
+                        </form>
+                    </div>
+                  </div>
+                  <label class="service-type" for="description">
+                    <span>                   
+                    Description
+                      </span>                   
+                  </label>
+                  
+                </div>
+               
               </div>
               
               {% endif %}     
