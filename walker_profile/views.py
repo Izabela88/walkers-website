@@ -11,7 +11,6 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse
 
 
-
 def user_profile(request):
     context = {
         "profile_form_errors": request.session.pop("profile_form_errors", None),
@@ -101,4 +100,3 @@ class WalkerUserDelete(DeleteView):
     def get_success_url(self):
         messages.success(self.request, "Your account has been deleted successfully.")
         return reverse('home')
-
