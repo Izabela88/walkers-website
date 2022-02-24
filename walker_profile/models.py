@@ -42,7 +42,7 @@ class AddressDetails(models.Model):
     
   
 class PetsitterDetails(models.Model):
-    description = models.TextField()
+    description = models.TextField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True, null=False)
 
 class ServiceTypes(models.Model):
@@ -51,8 +51,8 @@ class ServiceTypes(models.Model):
 
 
 class ServiceDetails(models.Model):
-    petsitter_details = models.ForeignKey(PetsitterDetails, on_delete=models.CASCADE, null=True)
-    service_type = models.ForeignKey(ServiceTypes, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(WalkerUser, on_delete=models.CASCADE, null=False)
+    service_type = models.ForeignKey(ServiceTypes, on_delete=models.CASCADE, null=False)
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
     s_price_hour = models.CharField(max_length=10, null=True)

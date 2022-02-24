@@ -44,20 +44,18 @@ li {
 
 label {
   font-family: "Lato", sans-serif;
-
 }
 
 .errorlist {
   font-size: 15px;
   font-family: "Lato", sans-serif;
-  color: rgb(255, 60, 0)
+  color: rgb(255, 60, 0);
 }
 
 .section {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  
 }
 
 .container {
@@ -557,34 +555,31 @@ select {
   width: 30%;
 }
 
-
-
 .heart-about-1 {
   top: 4%;
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    left: 9%;
-    transform: rotate(37deg);
-
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 9%;
+  transform: rotate(37deg);
 }
 
 .heart-about-2 {
   top: 19%;
-    position: absolute;
-    height: 150px;
-    width: 150px;
-    left: 6%;
-    transform: rotate(41deg);
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  left: 6%;
+  transform: rotate(41deg);
 }
 
 .heart-about-3 {
   top: 14%;
-    position: absolute;
-    height: 120px;
-    width: 120px;
-    left: -4%;
-    transform: rotate(340deg);
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  left: -4%;
+  transform: rotate(340deg);
 }
 
 .about-txt {
@@ -863,7 +858,6 @@ label[for="id_is_petsitter"] {
 
 /* ------------login page */
 
-
 .login {
   display: flex;
   flex-direction: column;
@@ -1129,10 +1123,10 @@ label[for="id_remember"] {
 
 .tabs-content h2 {
   text-transform: uppercase;
-    margin-bottom: 67px;
-    color: #ee4200;
-    margin-top: 40px;
-    font-size: 25px;
+  margin-bottom: 67px;
+  color: #ee4200;
+  margin-top: 40px;
+  font-size: 25px;
 }
 
 .profile-img-form {
@@ -1148,8 +1142,7 @@ label[for="id_avatar"] {
   display: none;
 }
 
-
-.profile-img-form input[type=file] {
+.profile-img-form input[type="file"] {
   font-family: "Architects Daughter", cursive;
   text-transform: uppercase;
   margin-left: 118px;
@@ -1157,7 +1150,6 @@ label[for="id_avatar"] {
   letter-spacing: 1px;
   font-weight: bold;
 }
- 
 
 .upload-btn {
   border: none;
@@ -1167,20 +1159,18 @@ label[for="id_avatar"] {
   color: var(--white-color);
 }
 
-
 .no-user-img {
   width: 250px;
-  height:250px; 
+  height: 250px;
   background: url(/media/user.png) no-repeat center center/cover;
   border-radius: 50%;
 }
 
 .user-img {
   width: 250px;
-  height:250px;
+  height: 250px;
   border-radius: 50%;
 }
-
 
 .img-box {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -1189,14 +1179,13 @@ label[for="id_avatar"] {
   border-radius: 50%;
 }
 
-
 .details-box {
   width: 100%;
   height: 55%;
 }
 
 label[for="id_description"] {
- display: none;
+  display: none;
 }
 
 .details-box input {
@@ -1323,7 +1312,7 @@ label[for="id_description"] {
   font-size: 35px;
 }
 
-.delete-heading p{
+.delete-heading p {
   font-size: 20px;
 }
 
@@ -1334,7 +1323,6 @@ label[for="id_description"] {
   justify-content: space-evenly;
   width: 100%;
 }
-
 
 /* --------------change password section */
 .change-password-box h2 {
@@ -1351,11 +1339,11 @@ label[for="id_description"] {
 }
 
 .change-password-form p {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
 }
 
 .change-password-form input {
@@ -1393,16 +1381,14 @@ label[for="id_description"] {
 
 .petsitter-layout label {
   user-select: none;
-    text-decoration: none;
-    color: inherit;
-    transition: border 0.2s;
-    font-size: 16px;
-    letter-spacing: 1px;
-    text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: border 0.2s;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
-
-.petsitter-layout input[type=radio] {
+.petsitter-layout input[type="radio"] {
   display: none;
 }
 
@@ -1421,8 +1407,7 @@ label[for="id_description"] {
   margin-right: 5px;
 }
 
-
-.petsitter-layout input[type=radio]:checked + .page + label.service-type {
+.petsitter-layout input[type="radio"]:checked + .page + label.service-type {
   background: var(--yellow-color);
   color: #ffffff;
 }
@@ -1431,17 +1416,18 @@ label[for="id_description"] {
   display: flex;
   margin-bottom: 20px;
   margin-top: 10px;
-
 }
 
-.petsitter-layout input[type=radio]:checked + .page + label.service-type svg {
+.petsitter-layout input[type="radio"]:checked + .page + label.service-type svg {
   opacity: 1;
 }
-
 
 .petsitter-layout label.service-type span {
   padding-left: 0px;
   position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .page {
@@ -1517,16 +1503,16 @@ label[for="id_description"] {
   transition-delay: 4.2s;
 }
 
-.petsitter-layout input[type=radio] + .page {
+.petsitter-layout input[type="radio"] + .page {
   transition: transform 0.2s;
   transform: translateX(100%);
 }
 
-.petsitter-layout input[type=radio]:checked + .page {
+.petsitter-layout input[type="radio"]:checked + .page {
   transform: translateX(0%);
 }
 
-.petsitter-layout input[type=radio]:checked + .page .page-contents > * {
+.petsitter-layout input[type="radio"]:checked + .page .page-contents > * {
   opacity: 1;
   transform: translateY(0px);
 }
@@ -1549,7 +1535,6 @@ label[for="id_description"] {
 .page-heading {
   width: 100%;
   text-align: center;
- 
 }
 
 .page-btn {
@@ -1560,10 +1545,10 @@ label[for="id_description"] {
 
 .page-heading h2 {
   font-size: 18px;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 10px;
-    margin-top: 25px;
-    color: var(--yellow-color);
+  font-family: "Lato", sans-serif;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  color: var(--yellow-color);
 }
 
 .form-info {
@@ -1572,7 +1557,7 @@ label[for="id_description"] {
   margin-left: 10%;
 }
 
-.petsitter-form input[type=text] {
+.petsitter-form input[type="text"] {
   width: 75px;
   height: 30px;
   margin-bottom: 10px;
@@ -1580,75 +1565,164 @@ label[for="id_description"] {
   padding: 5px;
 }
 
-.petsitter-form input[type=checkbox] {
+.petsitter-form input[name="is_small_dog"] {
   width: 20px;
   height: 20px;
-  margin-top: 10px;
+  position: relative;
+  top: 6px;
 }
 
-/* The switch - the box around the slider */
+.petsitter-form input[name="is_medium_dog"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 6px;
+}
+
+.petsitter-form input[name="is_big_dog"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 6px;
+}
+
+label[for="small_dog"] {
+  position: relative;
+  margin-left: 30px;
+}
+
+label[for="medium_dog"] {
+  position: relative;
+  margin-left: 30px;
+}
+
+label[for="big_dog"] {
+  position: relative;
+  margin-left: 30px;
+}
+
+/* https://www.htmllion.com/css3-toggle-switch-button.html */
 .switch {
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
+  display: block;
+  width: 100px;
+  height: 30px;
+  padding: 3px;
+  margin: 0 10px 10px 0;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff 25px);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff 25px);
+  border-radius: 18px;
+  box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+}
+
+.switch-input {
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  opacity: 0;
 }
 
-.slider:before {
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.switch-label:before,
+.switch-label:after {
   position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+
+}
+
+.switch-label:before {
+  content: attr(data-off);
+  right: 11px;
+  color: #aaaaaa;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+
+}
+
+.switch-label:after {
+  content: attr(data-on);
+  left: 11px;
+  color: #ffffff;
+  opacity: 0;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+
+}
+
+.switch-input:checked ~ .switch-label {
+  background: var(--yellow-color);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 4px;
   left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to bottom, #ffffff 40%, #f0f0f0);
+  background-image: -webkit-linear-gradient(top, #ffffff 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-input:checked + .slider {
-  background-color: var(--yellow-color);
+.switch-handle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff);
+  border-radius: 6px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--yellow-color);
+.switch-input:checked ~ .switch-handle {
+  left: 74px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+/* Transition
+    ========================== */
+.switch-label,
+.switch-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
 }
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
 
 /* --------- media queries */
 @media screen and (max-width: 1600px) {

@@ -1,7 +1,7 @@
 from dataclasses import fields
 from allauth.account.forms import SignupForm
 from django import forms
-from walker_profile.models import WalkerUser, AddressDetails, PetsitterDetails
+from walker_profile.models import WalkerUser, AddressDetails, PetsitterDetails, ServiceDetails
 from django.core.validators import RegexValidator
 
 
@@ -15,7 +15,7 @@ class ExtendedSignupForm(SignupForm):
         return user
 
 
-class UpdateWalkerProfile(forms.ModelForm):
+class UpdateWalkerProfileForm(forms.ModelForm):
 
     only_letters = RegexValidator("^[a-zA-Z ]*$", 'You can use only letters!')
 
@@ -40,7 +40,7 @@ class WalkerAddressForm(forms.ModelForm):
         fields = ['address_1', 'address_2', 'town', 'post_code', 'county']
 
 
-class WalkerUserAvatar(forms.ModelForm):
+class WalkerUserAvatarForm(forms.ModelForm):
     avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
 
     class Meta:
@@ -48,9 +48,27 @@ class WalkerUserAvatar(forms.ModelForm):
         fields = ['avatar']
 
 
-class PetsitterDescription(forms.ModelForm):
-    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'maxlength': '500','style':'resize:none;'}))
+class PetsitterDescriptionForm(forms.ModelForm):
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'maxlength': '500','style':'resize:none'}))
 
     class Meta:
         model = PetsitterDetails
         fields = ['description']
+
+
+class ServiceDetailsForm(forms.ModelForm):
+    is_active = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'switch-input',}))
+    is_small_dog = forms.BooleanField(required=False, label='Small Dog (< 10kg)')
+    is_medium_dog = forms.BooleanField(required=False, label='Medium Dog (10-20 kg)')
+    is_big_dog = forms.BooleanField(required=False, label='Big Dog (> 20kg)')
+    s_price_hour = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per hour'}))
+    s_price_day = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per day'}))
+    m_price_hour = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per hour'}))
+    m_price_day = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per day'}))
+    b_price_hour = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per hour'}))
+    b_price_day = forms.CharField(required=True, widget=forms.TextInput(attrs={'maxlength': '10','placeholder':'£ per day'}))
+
+
+    class Meta:
+        model = ServiceDetails
+        fields = ['is_active','is_small_dog','is_big_dog','is_medium_dog','s_price_hour','s_price_day','m_price_hour','m_price_day','b_price_hour','b_price_day']
