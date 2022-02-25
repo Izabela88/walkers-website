@@ -13,12 +13,14 @@ from walker_profile.models import ServiceTypes, ServiceDetails
 from walker_profile import utility
 
 
+
 class UserProfileView(View):
     template_name = 'user_profile.html'
 
     def get(self, request):
         if not request.user.is_authenticated:
-            return HttpResponse('Unauthorized', status=401)
+           return render(request, '401.html')
+
         context = {
             "profile_form_errors": request.session.pop("profile_form_errors", None),
             "address_form_errors": request.session.pop("address_form_errors", None),
@@ -27,39 +29,40 @@ class UserProfileView(View):
             "description_errors": request.session.pop("description_errors", None),
             "service_details_errors": request.session.pop("service_details_errors", None),
         }
-        if request.user.is_authenticated:
-            context['is_petsitter'] = request.user.is_petsitter
-            profile_form = UpdateWalkerProfileForm(instance=request.user)
-            address_form = WalkerAddressForm(instance=request.user.address_details)
-            avatar_form = WalkerUserAvatarForm(instance=request.user)
-            description_form = PetsitterDescriptionForm(instance=request.user.petsitter_details)
-            context['profile_form'] = profile_form
-            context['address_form'] = address_form
-            context['avatar_form'] = avatar_form
-            context['description_form'] = description_form
-            context['service_details_forms'] = {}
-            user_service_details = ServiceDetails.objects.filter(user_id=request.user.id).all()
-            service_types = ServiceTypes.objects.all()
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        context['is_petsitter'] = request.user.is_petsitter
+        profile_form = UpdateWalkerProfileForm(instance=request.user)
+        address_form = WalkerAddressForm(instance=request.user.address_details)
+        avatar_form = WalkerUserAvatarForm(instance=request.user)
+        description_form = PetsitterDescriptionForm(instance=request.user.petsitter_details)
+        context['profile_form'] = profile_form
+        context['address_form'] = address_form
+        context['avatar_form'] = avatar_form
+        context['description_form'] = description_form
+        context['service_details_forms'] = {}
+        user_service_details = ServiceDetails.objects.filter(user_id=request.user.id).all()
+        service_types = ServiceTypes.objects.all()
 
-            # Iterate on user service details and create mapping with service types and form with user detail instance
-            for i in user_service_details:
-                service_detail_form = ServiceDetailsForm(instance=i)
-                formatted_type = i.service_type.types.replace("_", " ").capitalize()
-                context['service_details_forms'][i.service_type.id] = (i.service_type.types, formatted_type, service_detail_form)
+        # Iterate on user service details and create mapping with service types and form with user detail instance
+        for i in user_service_details:
+            service_detail_form = ServiceDetailsForm(instance=i)
+            formatted_type = i.service_type.types.replace("_", " ").capitalize()
+            context['service_details_forms'][i.service_type.id] = (i.service_type.types, formatted_type, service_detail_form)
 
-            # Check if any kind of form was not initiated with user data. If not create one with types fields and empty form
-            for i in service_types:
-                if i.id not in context['service_details_forms']:
-                    formatted_type = i.types.replace("_", " ").capitalize()
-                    context['service_details_forms'][i.id] = (i.types, formatted_type, ServiceDetailsForm())
+        # Check if any kind of form was not initiated with user data. If not create one with types fields and empty form
+        for i in service_types:
+            if i.id not in context['service_details_forms']:
+                formatted_type = i.types.replace("_", " ").capitalize()
+                context['service_details_forms'][i.id] = (i.types, formatted_type, ServiceDetailsForm())
 
-            if "tab" in request.session:
-                context["tab"] =  request.session.pop("tab")
-            return render(request, 'user_profile/user_profile.html', context)
+        if "tab" in request.session:
+            context["tab"] =  request.session.pop("tab")
+        return render(request, 'user_profile/user_profile.html', context)
 
     def post(self, request):
         if not request.user.is_authenticated:
-            return HttpResponse('Unauthorized', status=401)
+            return render(request, '401.html')
         context = {}
 
         form_mapping = {

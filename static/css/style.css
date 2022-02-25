@@ -1017,7 +1017,7 @@ label[for="id_remember"] {
   width: 40%;
 }
 
-.social-heading h1 h2 {
+.social-heading h1 {
   font-size: 35px;
   margin-bottom: 25px;
 }
@@ -1722,6 +1722,35 @@ label[for="big_dog"] {
   -webkit-transition: All 0.3s ease;
   -moz-transition: All 0.3s ease;
   -o-transition: All 0.3s ease;
+}
+
+/* --------------------------errors */
+.error-box {
+  width: 50%;
+  height: 50%;
+}
+
+
+.error-box h2 {
+  text-transform: uppercase;
+}
+
+.error-img {
+  background: url(/media/error401.gif) no-repeat center center/cover;
+  width: 500px;
+  height: 500px;
+}
+
+.error-img-404 {
+  background: url(/media/error404.gif) no-repeat center center/cover;
+  width: 500px;
+  height: 500px;
+}
+
+.error-img-500 {
+  background: url(/media/server-error.gif) no-repeat center center/cover;
+  width: 500px;
+  height: 500px;
 }
 
 /* --------- media queries */
