@@ -6,7 +6,7 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-  <section id="login">
+  <section id="login" class="section">
     <div class="main-image image-shadow">
       <img src="/media/puppy.png" class="puppy-dog-img" alt="" />
     </div>
@@ -30,17 +30,12 @@
           {% csrf_token %} 
           {{ form.as_p }} 
           {% if redirect_field_value %}
-          <input
-            type="hidden"
-            name="{{ redirect_field_name }}"
-            value="{{ redirect_field_value }}"
-          />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
           {% endif %}
-          <div class="form-grid-input form-input r-input">
-            <button class="button button-bright register-input" type="submit">
-              {% trans "LOG IN" %} &raquo;
-            </button>
-            <p>By joining, you agree to the Terms and Privacy Policy</p>
+          <div class="form-grid-input form-input">
+            <a class="secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            <button class="button button-bright register-input" type="submit">{% trans "LOG IN" %} &raquo;</button>
+            <p class="terms-txt">By joining, you agree to the Terms and Privacy Policy</p>
           </div>
         </form>
       </div>

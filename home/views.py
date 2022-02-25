@@ -1,22 +1,17 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from user.models import PetsitterAttrError
 from django.contrib.auth.decorators import login_required
 from home.forms import PetsitterQuestion, FormValidationError
-from django.contrib import messages
 
 
 
 # Create your views here.
 def index(request):
-    context = {
-        'is_petsitter': False
-    }
+    context = {}
     if request.user.is_authenticated:
-        try:
-            context['is_petsitter'] = request.user.is_petsitter()
-        except PetsitterAttrError:
-            return redirect('/question')
+        if request.user.is_petsitter is None:
+            return redirect('/question') 
+        context['is_petsitter'] = request.user.is_petsitter
     return render(request, 'home/index.html', context)
 
 

@@ -39,8 +39,14 @@
     {% if user.is_authenticated and is_petsitter %}
     <div class="home-txt center">
       <div class="main-txt center">
-        <h1>LOOKING FOR THE BEST PLATFORM FOR ADVERTISING YOUR SERVICES ?</h1>
-        <p>Well, you got it! We empower pet sitters and dog walkers around the UK to offer their own services on Walkers by giving them the tools to succeed !</p>
+        <h1>ARE YOU LOOKING FOR THE BEST PLATFORM FOR ADVERTISING YOUR SERVICES ?</h1>
+        <p>Well, you just found it! :-) We empower pet sitters and dog walkers around the UK to offer their own services on Walkers by giving them the tools to succeed !</p>
+        <div class="button button-bright center home-button-petsitter">
+          <a href="{% url 'user_profile' %}">
+            Complete your profile
+            <span><i class="fas fa-arrow-right"></i></span>
+          </a>
+        </div>
       </div>
     </div>
     {% else %}

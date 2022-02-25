@@ -105,11 +105,14 @@ document.addEventListener("DOMContentLoaded", function() {
   if (about.classList.contains("active")) {
     home.classList.remove("active")
   } 
+
   if (login.classList.contains("active")) {
     home.classList.remove("active")
   } 
+  
   if (register.classList.contains("active")) {
     home.classList.remove("active")
   }
+
 })
 

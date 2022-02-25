@@ -28,12 +28,12 @@
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %} 
         {{ form.as_p }} 
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% if redirect_field_value %}     
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>   
         {% endif %}
-        <div class="form-grid-input form-input r-input">
+        <div class="form-grid-input form-input">
           <button class="button button-bright register-input" type="submit">{% trans "REGISTER" %} &raquo;</button>
-          <p>By joining, you agree to the Terms and Privacy Policy</p>
+          <p class="terms-txt">By joining, you agree to the Terms and Privacy Policy</p>
         </div>
       </form>
     </div>
