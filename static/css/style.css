@@ -368,7 +368,7 @@ label {
 
 .search-form {
   width: 50%;
-  height: 100%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -385,7 +385,7 @@ label {
 }
 
 .search-form p {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
   margin-top: 20px;
   font-size: 20px;
   padding-left: 50px;
@@ -393,9 +393,11 @@ label {
 }
 
 #form-box {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 30%;
+  display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-evenly;
+  height: 60%;
   width: 100%;
 }
 
@@ -405,35 +407,22 @@ label {
 
 .form-input label {
   font-family: "Lato", sans-serif;
-  margin-bottom: 20px;
-  text-align: left;
+    margin-bottom: 8px;
+    margin-top: 10px;
+   
 }
 
-.form-input input,
-select {
+.form-input input, select {
   height: 40px;
   width: 85%;
   outline: none;
   border: 1px solid rgb(0 0 0 / 20%);
   cursor: pointer;
+  text-transform: uppercase;
+ text-align: center;
+ letter-spacing: 1px;
 }
 
-.send-btn {
-  width: 94%;
-  height: 40px;
-  outline: none;
-  border: none;
-  transition-duration: 0.3s;
- 
-}
-
-.send-btn a {
-  padding: 10px;
-}
-
-.send-btn:hover {
-  color: var(--white-color);
-}
 
 .search-dog-img {
   height: 100%;
@@ -1766,6 +1755,17 @@ label[for="big_dog"] {
   height: 500px;
 }
 
+.not-found {
+  background: url(/media/not-found.gif) no-repeat center center/cover;
+  width: 500px;
+  height: 500px;
+}
+
+
+.not-found-button {
+  margin-bottom: 100px;
+  margin-top: 60px;
+}
 
 /* -------------------Petsitters list */
 .petsitters-section {
@@ -1786,8 +1786,12 @@ label[for="big_dog"] {
 }
 
 .petsitters-heading {
-  margin-top: 9%;
+  margin-top: 8%;
   position: relative;
+}
+
+.petsitters-heading h2 {
+  font-size: 35px;
 }
 
 
@@ -1797,17 +1801,26 @@ label[for="big_dog"] {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 360px;
+  height: 380px;
+}
+
+.no-petsitter-image {
+  background: url(/media//user.png) no-repeat center center/cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .petsitter-image {
-  background: url(/media/logo.gif) no-repeat center center/cover;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .petsitter-text h4 {
-  font-size: 20px
+  font-size: 25px
 }
 
 .profile-link {
@@ -1823,6 +1836,11 @@ label[for="big_dog"] {
 
 .stars-list {
   display: flex;
+}
+
+.stars-list li {
+  font-size: 20px;
+  letter-spacing: 5px;
 }
 
 /* --------- media queries */

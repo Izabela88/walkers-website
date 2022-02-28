@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<section class="petsitters-section">
+    <div class="section-heading petsitters-heading center">
+        <h2>
+        {% if search_results %}
+            Looks like you've found petsitter(s) ! :-D
+        {% else %}
+            It seems there are no results for your criteria... :-( <br>
+            Maybe change something and try again.
+        {% endif %}
+        </h2>
+    </div>
+    <div class="container">
+        {% if search_results %}
+        <div class="petsitters-list-container">
+                {% for i in search_results %}
+                <div class="petsitter-card">
+                    {% if i.avatar %}                 
+                    <div class="petsitter-image" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
+                    {% else %}
+                    <div class="center">
+                      <div class="no-petsitter-image"></div>
+                    </div>
+                    {% endif %}
+                    <div class="petsitter-text center">
+                        <h4>{{i.username}}</h4>
+                        <a href="#">3 reviews</a>
+                        <div class="center">
+                            <ul class="stars-list">
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>
+                                <li>☆</li>                          
+                            </ul>
+                        </div>
+                        <div class="button button-bright center profile-link"><a href="#">See profile</a></div>
+                    </div>
+                </div>
+                {% endfor %}               
+            {% else %}
+            <div class="center">
+                <div class="not-found center"></div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="center">
+        <div class="button button-bright center not-found-button"><a href="{% url 'home' %}#searching-section">Back to searching</a></div>
+    </div>
+</section>
+
+
+{% block extra_js %}
+<script src="{% static 'home/js/home.js' %}"></script>
+{% endblock %}
+ 
+{% endblock %}

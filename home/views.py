@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from home.forms import PetsitterQuestion, FormValidationError
+from search.forms import SearchForm
+
 
 
 
@@ -12,6 +14,10 @@ def index(request):
         if request.user.is_petsitter is None:
             return redirect('/question') 
         context['is_petsitter'] = request.user.is_petsitter
+      
+    search_form = SearchForm()
+    context['search_form'] = search_form
+
     return render(request, 'home/index.html', context)
 
 

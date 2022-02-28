@@ -76,38 +76,32 @@
       <h2>LET'S FIND THE PERSON WHO WILL TAKE THE BEST CARE OF YOUR DOG!</h2>
       <p>
         Please enter below information about you and your dog and start
-        searching!
+        searching! <br> If you have more than one dog, please send this information directly to petsitter!
       </p>
-      <form id="form-box">
+      <form id="form-box" method="post" action="{% url 'search' %}">
+        {% csrf_token %}
         <div class="form-input center">
           <label for="post-code">My Post Code</label>
-          <input type="text" id="post-code" />
+         {{search_form.post_code}}
+        </div>
+        <div class="form-input center">
+          <label for="dog-size">Location:</label>
+        {{search_form.area}}
         </div>
         <div class="form-input center">
           <label for="care-type">Care Type:</label>
-          <select id="care-type" name="care-type">
-            <option value="Boarding in the sitter home" selected>Boarding in the sitter home</option>
-            <option value="House sitting in your home">House sitting in your home</option>
-            <option value="Walking in your neighbourhood">Walking in your neighbourhood</option>
-          </select>
+          {{search_form.care_type}}
         </div>
         <div class="form-input center">
           <label for="dog-size">My Dog Size:</label>
-          <select id="dog-size" name="dog-size">
-            <option value="0-7 kg" selected>0-7 kg</option>
-            <option value="7-18 kg">7-18 kg</option>
-            <option value="18-45 kg">18-45 kg</option>
-            <option value="> 45kg">> 45kg</option>
-          </select>
+       {{search_form.dog_size}}
         </div>
+        
         <div class="form-input center">
-          <label for="time">Start date</label>
-          <input type="date" />
+          <input class="button button-bright center" type="submit" value="Search">
         </div>
+           
       </form>
-      <div class="send-btn button button-bright center">
-        <a href="{% url 'petsitters_list' %}" id="send-button">SEARCH</a>
-      </div>
     </div>
     <div class="search-dog-img">
       <img src="/media/dog2.png" class="search-dog-image" alt="A dog" />
