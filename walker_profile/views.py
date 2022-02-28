@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from walker_profile.forms import UpdateWalkerProfileForm, WalkerAddressForm, WalkerUserAvatarForm, PetsitterDescriptionForm, ServiceDetailsForm
 from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin

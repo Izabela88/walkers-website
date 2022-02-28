@@ -30,3 +30,6 @@ def register_question(request):
         return redirect("/")
 
 
+@login_required
+def petsitters_list(request):
+    return render(request, 'home/petsitters_list.html')

@@ -105,12 +105,9 @@
           <input type="date" />
         </div>
       </form>
-      <input
-        id="send-button"
-        class="send-btn button button-bright"
-        type="submit"
-        value="SEARCH"
-      />
+      <div class="send-btn button button-bright center">
+        <a href="{% url 'petsitters_list' %}" id="send-button">SEARCH</a>
+      </div>
     </div>
     <div class="search-dog-img">
       <img src="/media/dog2.png" class="search-dog-image" alt="A dog" />

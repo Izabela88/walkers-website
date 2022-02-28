@@ -85,8 +85,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {

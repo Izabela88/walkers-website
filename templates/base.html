@@ -10,9 +10,9 @@
     {% endblock %}
 
     {% block corecss %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- https://cdnjs.com/libraries/toastr.js/latest -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 
     <title>Walkers</title>
@@ -37,7 +37,7 @@
             <li><a class="close-sidebar" href="#">Contact</a></li>
             {% if user.is_authenticated %}
             <li class="welcome-msg"><span>Welcome {{user.username}} !</span></li>
-            <li><a  id="user-profile-link" class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
+            <li><a id="user-profile-link" class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
             <li><a class="close-sidebar" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
             <li><a {% if request.path == '/accounts/signup/' %}class="active"{% endif %} id="register-link" class="close-sidebar" href="{% url 'account_signup' %}">Register</a></li>
@@ -129,17 +129,10 @@
         </div>
         <p>Walkers &copy; 2021, All Rights Reserved</p>
       </footer>
-    <script
-      src="https://kit.fontawesome.com/111b3a0b11.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <!--visit https://code.jquery.com/ for jquery script-->
-    <script type="text/javascript" 
-    src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/111b3a0b11.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/static/js/jquery/jquery.js"></script>
     <script src="/static/js/navbar.js"></script>
-    <script src="/static/js/jquery/jquery.js"></script>
     
     {% block extra_js %}
     {% endblock %}
