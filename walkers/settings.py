@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'home',
     'about', 
-    'walker_profile', 
+    'walker_profile',
+    'search',
 ]
 
 # SITE_ID = 1
