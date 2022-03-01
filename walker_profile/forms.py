@@ -3,6 +3,8 @@ from allauth.account.forms import SignupForm
 from django import forms
 from walker_profile.models import WalkerUser, AddressDetails, PetsitterDetails, ServiceDetails
 from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
+
 
 
 
@@ -41,6 +43,7 @@ class WalkerAddressForm(forms.ModelForm):
 
 
 class WalkerUserAvatarForm(forms.ModelForm):
+    
     avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
 
     class Meta:

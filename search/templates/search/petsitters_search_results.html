@@ -14,44 +14,54 @@
     </div>
     <div class="container">
         {% if search_results %}
-        <div class="petsitters-list-container">
-                {% for i in search_results %}
-                <div class="petsitter-card">
-                    {% if i.avatar %}                 
-                    <div class="petsitter-image" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
+            {% for i in search_results %}
+            <ul class="cards">
+                <li>
+                  <a href="#" class="card">
+                    {% if i.avatar %} 
+                        <div class="card__image" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
                     {% else %}
-                    <div class="center">
-                      <div class="no-petsitter-image"></div>
-                    </div>
+                    <div class="card__image center">
+                        <div class="no-avatar " style="background: url('/media//user.png') no-repeat center center/cover"></div>
+                    </div>                        
                     {% endif %}
-                    <div class="petsitter-text center">
-                        <h4>{{i.username}}</h4>
-                        <a href="#">3 reviews</a>
-                        <div class="center">
-                            <ul class="stars-list">
-                                <li>☆</li>
-                                <li>☆</li>
-                                <li>☆</li>
-                                <li>☆</li>
-                                <li>☆</li>                          
-                            </ul>
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        {% if i.avatar %}
+                        <div class="card__thumb" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
+                        {% else %}
+                            <div class="card__thumb" style="background: url('/media//user.png') no-repeat center center/cover"></div>    
+                        {% endif %}
+                        <div class="card__header-text">
+                          <h3 class="card__title">{{i.username}}</h3>            
+                          <span class="card__status"> 3 reviews
+                                <ul class="stars-list">
+                                    <li>☆</li>
+                                    <li>☆</li>
+                                    <li>☆</li>
+                                    <li>☆</li>
+                                    <li>☆</li>                          
+                                </ul>
+                          </span>
                         </div>
-                        <div class="button button-bright center profile-link"><a href="#">See profile</a></div>
+                      </div>
+                      <p class="card__description center">click the card to see the profile</p>
                     </div>
-                </div>
-                {% endfor %}               
+                  </a>      
+                </li>  
+              </ul>
+            {% endfor %}
+    
             {% else %}
             <div class="center">
                 <div class="not-found center"></div>
             </div>
             {% endif %}
         </div>
-    </div>
-    <div class="center">
-        <div class="button button-bright center not-found-button"><a href="{% url 'home' %}#searching-section">Back to searching</a></div>
-    </div>
+        <div class="center">
+            <div class="button button-bright center not-found-button"><a href="{% url 'home' %}#searching-section">Back to searching</a></div>
+        </div>
 </section>
-
 
 {% block extra_js %}
 <script src="{% static 'home/js/home.js' %}"></script>

@@ -49,7 +49,8 @@
               {% endif %}           
              </div>
              <div class="tabs-content">
-              <div class="main-image center ">
+               <div class="main-image center ">
+                <h3>Complete the entire profile in detail. This inspires more trust among users!</h3>
                 <img src="/media/dog-love.gif" class="profile-dog-img" alt="A dog" />
               </div>
              </div>
@@ -60,32 +61,33 @@
                 {% csrf_token %}
                 <label class="profile-label">Phone number:</label>
                 {{ profile_form.phone_number }}
-                {% if errors.profile_form_errors and 'phone_number' in errors.profile_form_errors %}
+                
+                {% if profile_form_errors and 'phone_number' in profile_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.profile_form_errors.phone_number.0}}</strong>
+                    <strong>{{profile_form_errors.phone_number.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
                 <label class="profile-label">Email:</label>
                 {{ profile_form.email }}
-                  {% if errors.profile_form_errors and 'email' in errors.profile_form_errors %}
+                  {% if profile_form_errors and 'email' in profile_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.profile_form_errors.email.0}}</strong>
+                    <strong>{{profile_form_errors.email.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
                 <label class="profile-label">First Name:</label>
                 {{ profile_form.first_name }}
-                {% if errors.profile_form_errors and 'first_name' in errors.profile_form_errors %}
+                {% if profile_form_errors and 'first_name' in profile_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.profile_form_errors.first_name.0}}</strong>
+                    <strong>{{profile_form_errors.first_name.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
                 <label class="profile-label">Last Name:</label>
                 {{ profile_form.last_name }}
-                {% if errors.profile_form_errors and 'last_name' in errors.profile_form_errors %}
+                {% if profile_form_errors and 'last_name' in profile_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.profile_form_errors.last_name.0}}</strong>
+                    <strong>{{profile_form_errors.last_name.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
                 <input type="hidden" name="form_type" value="profile_form" /> 
                 <input class="button button-bright update-profil" type="submit" value="Update" />
               </form>
@@ -99,43 +101,43 @@
 
                 <label class="profile-label">Address 1:</label>
                 {{ address_form.address_1 }}
-                {% if errors.address_form_errors and 'address_1' in errors.address_form_errors %}
+                {% if address_form_errors and 'address_1' in address_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.address_form_errors.address_1.0}}</strong>
+                    <strong>{{address_form_errors.address_1.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
 
                 <label class="profile-label">Address 2:</label>
                 {{ address_form.address_2 }}
-                {% if errors.address_form_errors and 'address_2' in errors.address_form_errors %}
+                {% if address_form_errors and 'address_2' in address_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.address_form_errors.address_2.0}}</strong>
+                    <strong>{{address_form_errors.address_2.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
 
                 <label class="profile-label">Post Code:</label>
                 {{ address_form.post_code }}
-                {% if errors.address_form_errors and 'post_code' in errors.address_form_errors %}
+                {% if address_form_errors and 'post_code' in address_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.address_form_errors.post_code.0}}</strong>
+                    <strong>{{address_form_errors.post_code.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
 
                 <label class="profile-label">Town:</label>
                 {{ address_form.town }}
-                {% if errors.address_form_errors and 'town' in errors.address_form_errors %}
+                {% if address_form_errors and 'town' in address_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.address_form_errors.town.0}}</strong>
+                    <strong>{{address_form_errors.town.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
 
                 <label class="profile-label">County:</label>
                 {{ address_form.county }}
-                {% if errors.address_form_errors and 'county' in errors.address_form_errors %}
+                {% if address_form_errors and 'county' in address_form_errors %}
                   <div class="error-profile">
-                    <strong>{{errors.address_form_errors.county.0}}</strong>
+                    <strong>{{address_form_errors.county.0}}</strong>
                   </div>
-                {% endif%}
+                {% endif %}
                 
                 <input type="hidden" name="form_type" value="address_form" /> 
                 <input class="button button-bright" type="submit" value="Update" />
@@ -162,25 +164,34 @@
             </div>
              <div {% if tab == 'upload_photo' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
                <h2>Upload Your Photo</h2>
+
               <form class="profile-img-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {% if errors.avatar_errors in errors.avatar_errors %}
-                  <div class="error-profile">
-                    <strong>{{errors.avatar_errors.0}}</strong>
-                  </div>
-                {% endif %}
                 {% if user.avatar %}           
-                    <div class="img-box center">
-                      <div class="user-img center" style="background: url('{{request.user.avatar.url}}') no-repeat center center/cover"></div>
-                    </div>                        
+                <div class="img-box center">
+                  <div class="user-img center" style="background: url('{{request.user.avatar.url}}') no-repeat center center/cover"></div>
+                </div>                        
                 {% else %}
-                    <div class="img-box center">
-                      <div class="no-user-img"></div>
-                    </div>
-                 {% endif %}
-                 <div class="avatar-txt">
-                   {{avatar_form}}
-                 </div>             
+                <div class="img-box center">
+                  <div class="no-user-img"></div>
+                </div>
+                {% endif %}
+                <div class="avatar-txt">
+                  {{avatar_form}}
+                </div>
+
+                {% for key, value in avatar_form_errors.items %}
+                <div class="error-profile center">
+                  <strong>{{value.0}}</strong>
+                </div>
+                {% endfor %}
+<!-- 
+                {% if avatar_form_errors %}
+                <div class="error-profile">
+                  <strong>{{avatar_form_errors}}</strong>
+                </div>
+                {% endif %} -->
+
                 <input type="hidden" name="form_type" value="avatar_form" /> 
                 <input class="button button-bright" type="submit" value="Upload" />
               </form>
@@ -190,9 +201,9 @@
               <div {% if tab == 'petsitter_profile' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %}>
                 <h2>Petsitter profile</h2>
                 <div class="petsitter-layout">
-                  {% if errors.service_details_errors in errors.service_details_errors %}
+                  {% if service_details_errors in service_details_errors %}
                       <div class="error-profile">
-                        <strong>{{errors.service_details_errors.0}}</strong>
+                        <strong>{{service_details_errors.0}}</strong>
                       </div>
                   {% endif %}
                 {% for key, value in service_details_forms.items %}                 
@@ -242,9 +253,9 @@
                       <form class="details-box center" method="post">
                         {% csrf_token %}
                         {{description_form}}
-                        {% if errors.description_errors in errors.description_errors %}
+                        {% if description_errors in description_errors %}
                           <div class="error-profile">
-                            <strong>{{errors.description_errors.0}}</strong>
+                            <strong>{{description_errors.0}}</strong>
                           </div>
                         {% endif %}
                           <input type="hidden" name="form_type" value="description_form" />

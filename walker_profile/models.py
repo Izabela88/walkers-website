@@ -4,19 +4,23 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib import messages
-
-
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
+from django.core.exceptions import ValidationError
 
 
 class WalkerUser(AbstractUser):
+    # https://stackoverflow.com/questions/6195478/max-image-size-on-file-upload
+    def validate_image(fieldfile_obj):
+        filesize = fieldfile_obj.file.size
+        megabyte_limit = 0.4
+        if filesize > megabyte_limit*1024*1024:
+            raise ValidationError("Image is too big. Max file size is %sMB" % str(megabyte_limit))
+
     address_details = models.OneToOneField('AddressDetails', null=True, on_delete=models.CASCADE)
     petsitter_details = models.OneToOneField('PetsitterDetails', null=True, on_delete=models.CASCADE)
     is_petsitter = models.BooleanField(null=True)
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
-    avatar = models.ImageField(null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatar_images/', null=True, blank=True, validators=[validate_image])
 
     def delete(self, *args, **kwargs):
         if self.avatar:         

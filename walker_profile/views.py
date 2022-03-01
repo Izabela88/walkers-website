@@ -24,11 +24,12 @@ class UserProfileView(View):
         context = {
             "profile_form_errors": request.session.pop("profile_form_errors", None),
             "address_form_errors": request.session.pop("address_form_errors", None),
-            "avatar_errors": request.session.pop("avatar_errors", None),
+            "avatar_form_errors": request.session.pop("avatar_form_errors", None),
             "description_errors": request.session.pop("description_errors", None),
             "description_errors": request.session.pop("description_errors", None),
             "service_details_errors": request.session.pop("service_details_errors", None),
         }
+  
         if not request.user.is_authenticated:
             return render(request, '401.html')
         context['is_petsitter'] = request.user.is_petsitter

@@ -6,6 +6,8 @@
   --light-yellow-color: #ffeb96;
   --white-color: #ffffff;
   --black-color: #000000;
+  --surface-color: #fff;
+  --curve: 40;
 }
 
 html {
@@ -1131,6 +1133,11 @@ label[for="id_remember"] {
   font-size: 25px;
 }
 
+.tabs-content h3 {
+  width: 50%;
+  margin-top: 15%
+}
+
 .profile-img-form {
   display: flex;
   align-items: center;
@@ -1296,6 +1303,16 @@ label[for="id_description"] {
   letter-spacing: 1px;
   width: 65%;
 }
+
+.avatar-error {
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  top: 10%;
+  background-color: #18d777;
+}
+
+
 
 .error-profile li {
   margin-bottom: 10px;
@@ -1768,22 +1785,120 @@ label[for="big_dog"] {
 }
 
 /* -------------------Petsitters list */
+/* https://codepen.io/seyedi/pen/zYoeLEv */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 10px;
+  margin: 40px 25px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.card__image {      
+  width: 100%;
+  height: 400px;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+      
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: var(--black-color);
+  font-size: 20px;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "Architects Daughter", cursive;  
+  font-size: .8em; 
+  color: var(--black-color);  
+}
+
+.card__status {
+  font-size: .8em;
+  color: var(--black-color);
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: var(--black-color);  
+  font-family: "Architects Daughter", cursive;   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}    
+
+
 .petsitters-section {
   position: relative;
   overflow: hidden;
 }
 
-.petsitters-list-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 30px;
-  width: 80%;
-  gap: 20px;
-  height:100%;
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
 .petsitters-heading {
   margin-top: 8%;
@@ -1794,45 +1909,12 @@ label[for="big_dog"] {
   font-size: 35px;
 }
 
-
-.petsitter-card {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 380px;
+.no-avatar {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 45%;
 }
 
-.no-petsitter-image {
-  background: url(/media//user.png) no-repeat center center/cover;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.petsitter-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.petsitter-text h4 {
-  font-size: 25px
-}
-
-.profile-link {
-  height: 43px;
-  width: 130px;
-  margin-top: 16px;
-
-}
-
-.profile-link a {
-  padding: 13px;
-}
 
 .stars-list {
   display: flex;

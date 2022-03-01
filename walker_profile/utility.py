@@ -11,6 +11,7 @@ def _handle_profile_form(request, context, *args):
         profile_form.save()
         messages.success(request, 'Your profile is updated successfully')
     else:
+        print(profile_form.errors)
         request.session["profile_form_errors"] = profile_form.errors
         context['profile_form'] = UpdateWalkerProfileForm(instance=request.user)
     return context
@@ -26,6 +27,7 @@ def _handle_address_form(request, context, *arg):
             request.user.save()
         messages.success(request, 'Your address is updated successfully')
     else:
+        print(address_form.errors)
         request.session["address_form_errors"] = address_form.errors
         context['address_form'] = WalkerAddressForm(instance=request.user.address_details)
     return context
@@ -38,7 +40,8 @@ def _handle_avatar_form(request, context, *arg):
         avatar_form.save()
         messages.success(request, 'Your avatar is updated successfully')
     else:
-        request.session["avatar_errors"] = avatar_form.errors
+        print(avatar_form.errors)
+        request.session["avatar_form_errors"] = avatar_form.errors
         context['avatar_form'] = WalkerUserAvatarForm(instance=request.user)
     return context
 
