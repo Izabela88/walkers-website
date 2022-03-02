@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="profile-wrap">
+      <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
+      <h2>{{user.username}}</h2>
+      <ul class="stars-list">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>                          
+      </ul>
+      <div class="contact-info center">
+        <p>Email address: {{user.email}}<br>Mobile no: <br>
+          {% if user.phone_number %}
+          <p>{{user.phone_number}}</p>
+          {% else %}
+          <p>-ˏˋ no mobile no yet ˊˎ</p>
+          {% endif %} 
+      </div>
+      <div class="button button-bright center profile-link"><a href="{% url 'home' %}#searching-section"">Back to searching</a></div>
+    </div>
+    <div class="details-wrap">
+      <div class="details-container">
+        <div class="services-container">
+          <div class="services-part">
+            <h3>Services</h3>
+            <div class="services-box">
+              <p>BOARDING in the sitter home</p>
+              <div class="pricebox">
+                <p>£10 / h</p>
+                <p>£10 / day</p>
+              </div>
+            </div>
+            <div class="services-box">
+              <p>HOUSE SITTING in your home</p>
+              <div class="pricebox">
+                <p>£10 / h</p>
+                <p>£10 / day</p>
+              </div>
+            </div>
+            <div class="services-box">
+              <p>WALKING in your neighbourhood</p>
+              <div class="pricebox">
+                <p>£10 / h</p>
+                <p>£10 / day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="host-container">
+          <div class="host-part">
+            <h3>{{user.username}} can host</h3>
+            <div class="host-box">
+              <p>small dog</p>
+            </div>
+            <div class="host-box">
+              <p>medium dog</p>
+            </div>
+            <div class="host-box">
+              <p>big dog</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="description-container">
+        <div class="description-part">
+          <h3>About {{user.username}}</h3>
+          {% if user.petsitter_details %}
+          <p>{{user.petsitter_details.description}}</p>
+          {% else %}
+          <p>-ˏˋ {{user.username}} doesn't write a description yet... ˊˎ</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="reviews-container">
+        <h3>Reviews</h3>
+
+        <span class="next"><i class="fas fa-arrow-right"></i></span>
+        <span class="prev"><i class="fas fa-arrow-left"></i></span>
+        <div class="slider-container">
+          <div class="slider">
+            <div class="review-box ">
+              <h4>Anthony</h4>
+              <ul class="stars-list">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>                          
+              </ul>
+              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
+                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
+                as a member of their own family.
+              </p>
+            </div>
+            <div class="review-box ">
+              <h4>Mark</h4>
+              <ul class="stars-list">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>                          
+              </ul>
+              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
+                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
+                as a member of their own family.
+              </p>
+            </div>
+            <div class="review-box ">
+              <h4>Anna</h4>
+              <ul class="stars-list">
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>                          
+              </ul>
+              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
+                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
+                as a member of their own family.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+{% block extra_js %}
+
+<script src="{% static 'js/profile.js' %}"></script>
+
+{% endblock %}
+{% endblock %}

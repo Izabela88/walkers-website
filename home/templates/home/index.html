@@ -78,7 +78,7 @@
         Please enter below information about you and your dog and start
         searching! <br> If you have more than one dog, please send this information directly to petsitter!
       </p>
-      <form id="form-box" method="post" action="{% url 'search' %}">
+      <form id="form-box" method="post" action="{% url 'petsitters_list' %}">
         {% csrf_token %}
         <div class="form-input center">
           <label for="post-code">My Post Code</label>

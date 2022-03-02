@@ -17,7 +17,7 @@
             {% for i in search_results %}
             <ul class="cards">
                 <li>
-                  <a href="#" class="card">
+                  <a href="{% url 'petsitter_profile' i.id %}" class="card">
                     {% if i.avatar %} 
                         <div class="card__image" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
                     {% else %}
@@ -45,7 +45,7 @@
                           </span>
                         </div>
                       </div>
-                      <p class="card__description center">click the card to see the profile</p>
+                      <p class="card__description center">click on the card to see {{i.username}}'s profile</p>
                     </div>
                   </a>      
                 </li>  

@@ -1,12 +1,13 @@
-from django.shortcuts import render
+from pyexpat import model
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from walker_profile.models import WalkerUser
 from search.forms import SearchForm
 from django.db.models import Q
 
 
+
 class SearchView(View):
-    # template_name = 'petsitters_search_results.html'
 
     def post(self, request): 
         context = {}
@@ -30,3 +31,17 @@ class SearchView(View):
             pass
 
         return render(request, 'search/petsitters_search_results.html', context)
+        
+
+class PetsitterProfile(View):
+    
+
+    def get(self, request, id):
+        if not request.user.is_authenticated:
+           return render(request, '401.html')
+        context = {}
+        user = get_object_or_404(WalkerUser, id=id)
+        context['user'] = user
+        return render(request, 'search/petsitter_profile.html', context)
+        
+        
