@@ -23,49 +23,10 @@
       </div>
       <div class="button button-bright center profile-link"><a href="{% url 'home' %}#searching-section"">Back to searching</a></div>
     </div>
-    <div class="details-wrap">
-      <div class="details-container">
-        <div class="services-container">
+      <div class="details-wrap">  
           <div class="services-part">
-            <h3>Services</h3>
-            <div class="services-box">
-              <p>BOARDING in the sitter home</p>
-              <div class="pricebox">
-                <p>£10 / h</p>
-                <p>£10 / day</p>
-              </div>
-            </div>
-            <div class="services-box">
-              <p>HOUSE SITTING in your home</p>
-              <div class="pricebox">
-                <p>£10 / h</p>
-                <p>£10 / day</p>
-              </div>
-            </div>
-            <div class="services-box">
-              <p>WALKING in your neighbourhood</p>
-              <div class="pricebox">
-                <p>£10 / h</p>
-                <p>£10 / day</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="host-container">
-          <div class="host-part">
-            <h3>{{user.username}} can host</h3>
-            <div class="host-box">
-              <p>small dog</p>
-            </div>
-            <div class="host-box">
-              <p>medium dog</p>
-            </div>
-            <div class="host-box">
-              <p>big dog</p>
-            </div>
-          </div>
-        </div>
-      </div>
+            <button id="open-prices" class="button button-bright">Check prices</button>
+          </div>       
       <div class="description-container">
         <div class="description-part">
           <h3>About {{user.username}}</h3>
@@ -76,10 +37,8 @@
           {% endif %}
         </div>
       </div>
-
       <div class="reviews-container">
         <h3>Reviews</h3>
-
         <span class="next"><i class="fas fa-arrow-right"></i></span>
         <span class="prev"><i class="fas fa-arrow-left"></i></span>
         <div class="slider-container">
@@ -128,12 +87,57 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
   </div>
 </section>
+<!----------------- Prices modal-------------- -->
+<div class="prices-wrapper">
+  <div class="card-content">
+    <div class="close-prices">
+      <i class="far fa-times-circle"></i>
+    </div>    
+    <h1>prices</h1>
+    <p>Prices are for one dog. Prices are subject to change in case of exceptional circumstances, which should be discussed with the petsitter.</p>    
+    <div class="prices-container group">
+      {% for i in services %}
+        <div class="grid-1-5">
+          <h2>
+            {% if i.type == 'walk' %}
+              Walking in your neighborhood
+            {% elif i.type == 'boarding_at_petsitter_home' %}
+              Boarding at petsitter home
+            {% else %}
+              Boarding at client home
+            {% endif %}
+          </h2>
+          {% for k, v in i.dog_sizes.items %}
+            <h3>
+              <span class="uppercase">
+                {% if k == 'small' %}
+                  small dog (> 10kg)
+                {% elif k == 'medium' %}
+                  medium dog (10-20 kg)
+                {% else %}
+                  big dog (< 20kg)
+                {% endif %}
+              </span>
+            </h3>
+            <ul>
+              {% if v.price_hour and v.price_hour != '0' %}
+                <li>£ {{v.price_hour}} / h </li>
+              {% endif %}
+              {% if v.price_day and v.price_day != '0' %}
+                <li>£ {{v.price_day}} / day</li>
+              {% endif %}             
+            </ul>
+          {% endfor %}         
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+</div>
 
 {% block extra_js %}
 

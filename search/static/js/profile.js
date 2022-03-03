@@ -30,3 +30,15 @@ prev.addEventListener("click", () => {
     imageSlider[slidCount].style.animationName = "secondPrev"
     
 })
+
+const openPricesButton = document.querySelector('#open-prices');
+const closePrices = document.querySelector('.close-prices');
+const formPrices = document.querySelector('#prices-form');
+// / Function opens Prices
+function openPrices() {
+  let showPricesWindow = document.querySelector('.prices-wrapper');
+  showPricesWindow.classList.toggle('show-prices');
+}
+
+openPricesButton.addEventListener('click', openPrices);
+closePrices.addEventListener('click', openPrices);

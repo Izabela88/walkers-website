@@ -9,7 +9,9 @@ from search.forms import SearchForm
 
 # Create your views here.
 def index(request):
-    context = {}
+    context = {
+        "petsitter_search_form_errors": request.session.pop("petsitter_search_form_errors", None),
+    }
     if request.user.is_authenticated:
         if request.user.is_petsitter is None:
             return redirect('/question') 

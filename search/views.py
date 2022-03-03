@@ -1,10 +1,10 @@
 from pyexpat import model
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from walker_profile.models import WalkerUser
 from search.forms import SearchForm
 from django.db.models import Q
-
+from django.urls import reverse
 
 
 class SearchView(View):
@@ -12,29 +12,27 @@ class SearchView(View):
     def post(self, request): 
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
-    
         if petsitter_search_form.is_valid():
             post_code = petsitter_search_form.cleaned_data['post_code']
             care_type = petsitter_search_form.cleaned_data['care_type']
             dog_size = petsitter_search_form.cleaned_data['dog_size']
             
             if dog_size == "small":
-                size_query = Q(servicedetails__is_small_dog=True)
+                size_query = Q(service_details__is_small_dog=True)
             elif dog_size == "medium":
-                size_query = Q(servicedetails__is_medium_dog=True)
+                size_query = Q(service_details__is_medium_dog=True)
             elif dog_size == "big":
-                size_query = Q(servicedetails__is_big_dog=True)
-            query = Q(is_petsitter=True,servicedetails__service_type__types=care_type , servicedetails__is_active=True)
+                size_query = Q(service_details__is_big_dog=True)
+            query = Q(is_petsitter=True,service_details__service_type__types=care_type , service_details__is_active=True)
             context['search_results'] = WalkerUser.objects.filter(query & size_query).all()
         else:
-            # TODO: Handle if form is not valid
-            pass
-
+            request.session["petsitter_search_form_errors"] = petsitter_search_form.errors
+            petsitter_search_form = SearchForm(data=request.POST or None)
+            return redirect(reverse('home') + '#searching-section')
         return render(request, 'search/petsitters_search_results.html', context)
         
 
-class PetsitterProfile(View):
-    
+class PetsitterProfile(View):  
 
     def get(self, request, id):
         if not request.user.is_authenticated:
@@ -42,6 +40,30 @@ class PetsitterProfile(View):
         context = {}
         user = get_object_or_404(WalkerUser, id=id)
         context['user'] = user
+        context['services'] = []
+        for i in user.service_details.all():
+            if i.is_active:
+                service = {
+                    'type': i.service_type.types,
+                    'dog_sizes': {}
+                }
+                if i.is_small_dog:
+                    service['dog_sizes']['small'] = {
+                        'price_hour': i.s_price_hour,
+                        'price_day': i.s_price_day,
+                    }
+                if i.is_medium_dog:
+                    service['dog_sizes']['medium'] = {
+                        'price_hour': i.m_price_hour,
+                        'price_day': i.m_price_day,
+                    }
+                if i.is_big_dog:
+                    service['dog_sizes']['big'] = {
+                        'price_hour': i.b_price_hour,
+                        'price_day': i.b_price_day,
+                    }
+
+                context['services'].append(service)
         return render(request, 'search/petsitter_profile.html', context)
         
         

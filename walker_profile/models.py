@@ -55,7 +55,7 @@ class ServiceTypes(models.Model):
 
 
 class ServiceDetails(models.Model):
-    user = models.ForeignKey(WalkerUser, on_delete=models.CASCADE, null=False)
+    user = models.ForeignKey(WalkerUser, on_delete=models.CASCADE, null=False, related_name="service_details")
     service_type = models.ForeignKey(ServiceTypes, on_delete=models.CASCADE, null=False)
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
