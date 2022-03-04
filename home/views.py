@@ -7,6 +7,7 @@ from search.forms import SearchForm
 
 
 
+
 # Create your views here.
 def index(request):
     context = {
@@ -18,8 +19,7 @@ def index(request):
         context['is_petsitter'] = request.user.is_petsitter
       
     search_form = SearchForm()
-    context['search_form'] = search_form
-
+    context['search_form'] = search_form 
     return render(request, 'home/index.html', context)
 
 

@@ -1,7 +1,11 @@
 """Utility functions"""
+from email import message
 from django.contrib import messages
+from django.shortcuts import redirect
 from walker_profile.forms import UpdateWalkerProfileForm, WalkerAddressForm, WalkerUserAvatarForm, PetsitterDescriptionForm, ServiceDetailsForm
 from .models import ServiceDetails
+import requests
+from django.http import HttpResponseRedirect
 
 
 def _handle_profile_form(request, context, *args):
@@ -19,8 +23,16 @@ def _handle_profile_form(request, context, *args):
 
 def _handle_address_form(request, context, *arg):
     address_form = WalkerAddressForm(instance=request.user.address_details, data=request.POST or None)
-    request.session['tab'] = "address_details"
+    request.session['tab'] = "address_details" 
     if address_form.is_valid() and address_form.has_changed():
+        try:
+            long, lat = get_postcode_coordinates(address_form.cleaned_data["post_code"])
+        except GeoCodeError:
+            messages.error(request, "Invalid postcode!")
+            return HttpResponseRedirect("/profile/user_profile")
+         
+        address_form.instance.longitude = long      
+        address_form.instance.latitude = lat
         address_form.save()
         if request.user.address_details_id != address_form.instance.id:
             request.user.address_details_id = address_form.instance.id
@@ -76,3 +88,19 @@ def _handle_service_details_forms(request,context, service_type_id):
             request.session["service_details_errors"] = service_details_form.errors
             context['service_details_forms'] = ServiceDetailsForm(instance=service_detail)
     return context
+
+
+
+class GeoCodeError(Exception):
+    pass
+
+
+def get_postcode_coordinates(postcode):
+    r = requests.get(f'https://api.postcodes.io/postcodes/{postcode}')
+    if r.ok:
+        geocode_data = r.json()
+        try:
+           return geocode_data['result']['longitude'], geocode_data['result']['latitude']
+        except KeyError:
+            raise GeoCodeError
+    raise GeoCodeError

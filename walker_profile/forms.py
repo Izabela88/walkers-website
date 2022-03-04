@@ -3,8 +3,7 @@ from allauth.account.forms import SignupForm
 from django import forms
 from walker_profile.models import WalkerUser, AddressDetails, PetsitterDetails, ServiceDetails
 from django.core.validators import RegexValidator
-from django.core.exceptions import ValidationError
-
+import requests
 
 
 
@@ -37,6 +36,7 @@ class WalkerAddressForm(forms.ModelForm):
     town = forms.CharField(max_length=85, required=True)
     post_code = forms.CharField(max_length=8, required=True)
     county = forms.CharField(max_length=100, required=True)
+    
     class Meta:
         model = AddressDetails
         fields = ['address_1', 'address_2', 'town', 'post_code', 'county']

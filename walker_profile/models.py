@@ -3,7 +3,6 @@ from urllib import request
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib import messages
 from django.core.exceptions import ValidationError
 
 
@@ -41,10 +40,10 @@ class AddressDetails(models.Model):
     post_code = models.CharField(verbose_name='Post Code', max_length=8, null=True)
     county = models.CharField(verbose_name='County', max_length=100, null=True)
     country = models.CharField(verbose_name='Country', max_length=100, null=True)
-    longtitude = models.CharField(verbose_name='Longtitude', max_length=50, null=True)
-    latitude = models.CharField(verbose_name='Latitude', max_length=50, null=True)
-    
-  
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+
+
 class PetsitterDetails(models.Model):
     description = models.TextField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True, null=False)
