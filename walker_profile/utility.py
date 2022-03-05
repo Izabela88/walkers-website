@@ -28,6 +28,7 @@ def _handle_address_form(request, context, *arg):
         try:
             long, lat = get_postcode_coordinates(address_form.cleaned_data["post_code"])
         except GeoCodeError:
+            breakpoint()
             messages.error(request, "Invalid postcode!")
             return HttpResponseRedirect("/profile/user_profile")
          

@@ -27,6 +27,14 @@ class WalkerUser(AbstractUser):
             storage.delete(path)    
         super(WalkerUser, self).delete(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        try:
+            this = WalkerUser.objects.get(id=self.id)
+            if this.avatar != self.avatar:
+                this.avatar.delete(save=False)
+        except:
+            pass
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return str(self.username)

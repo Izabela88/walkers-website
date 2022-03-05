@@ -52,7 +52,7 @@ class WalkerUserAvatarForm(forms.ModelForm):
 
 
 class PetsitterDescriptionForm(forms.ModelForm):
-    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'maxlength': '500','style':'resize:none'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'maxlength': '800','style':'resize:none'}))
 
     class Meta:
         model = PetsitterDetails

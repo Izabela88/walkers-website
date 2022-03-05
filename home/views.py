@@ -5,9 +5,6 @@ from home.forms import PetsitterQuestion, FormValidationError
 from search.forms import SearchForm
 
 
-
-
-
 # Create your views here.
 def index(request):
     context = {

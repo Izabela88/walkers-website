@@ -50,13 +50,13 @@
     </div>
     <div class="tabs-content">
       <div class="main-image center ">
-        <h3>Complete the entire profile in detail. This inspires more trust among users! ♡</h3>
+        <h3>If you fill out the entire profile, you will gain more trust among users ! ♡</h3>
         <img src="/media/dog-love.gif" class="profile-dog-img" alt="A dog" />
     </div>
     </div>
     <!-- ---------PERSONAL INFORMATION------------------- -->
     <div {% if tab == 'personal_information' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
-    <h2>Personal Information</h2>
+    <h2 class="personal-heading">Personal Information</h2>
     <form class="details-box center" method="post">
       {% csrf_token %}
       <label class="profile-label">Phone number:</label>
@@ -94,11 +94,9 @@
   </div>
   <!-- ---------ADDRESS DETAILS------------------- -->
     <div {% if tab == 'address_details' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
-    <h2>Address Details</h2>
-
+    <h2 class="address-heading">Address Details</h2>
     <form class="details-box center" method="post">
       {% csrf_token %}
-
       <label class="profile-label">Address 1:</label>
       {{ address_form.address_1 }}
       {% if address_form_errors and 'address_1' in address_form_errors %}
@@ -114,15 +112,14 @@
           <strong>{{address_form_errors.address_2.0}}</strong>
         </div>
       {% endif %}
-
       <label class="profile-label">Post Code:</label>
       {{ address_form.post_code }}
+      <p>{{address_form_errors.post_code.0}}</p>
       {% if address_form_errors and 'post_code' in address_form_errors %}
         <div class="error-profile">
           <strong>{{address_form_errors.post_code.0}}</strong>
         </div>
       {% endif %}
-
       <label class="profile-label">Town:</label>
       {{ address_form.town }}
       {% if address_form_errors and 'town' in address_form_errors %}
@@ -130,21 +127,19 @@
           <strong>{{address_form_errors.town.0}}</strong>
         </div>
       {% endif %}
-
       <label class="profile-label">County:</label>
       {{ address_form.county }}
       {% if address_form_errors and 'county' in address_form_errors %}
         <div class="error-profile">
           <strong>{{address_form_errors.county.0}}</strong>
         </div>
-      {% endif %}
-      
+      {% endif %}     
       <input type="hidden" name="form_type" value="address_form" /> 
       <input class="button button-bright" type="submit" value="Update" />
     </form>
   </div>
   <!-- ---------EDIT ACCOUNT------------------- -->
-  <div class="tabs-content">
+  <div class="tabs-content edit-content">
     <h2>Edit Account</h2>
     <div class="edit-box change-password">
       <h2>Change password</h2>
@@ -162,9 +157,9 @@
       </div>
     </div>
   </div>
+  <!-- ---------UPLOAD PHOTO------------------- -->
     <div {% if tab == 'upload_photo' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
-      <h2>Upload Your Photo</h2>
-
+      <h2 class="upload-heading">Upload Your Photo</h2>
     <form class="profile-img-form" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% if user.avatar %}           
@@ -179,7 +174,6 @@
         <div class="avatar-txt">
           {{avatar_form}}
         </div>
-
       {% for key, value in avatar_form_errors.items %}
         <div class="error-profile center">
           <strong>{{value.0}}</strong>
@@ -242,7 +236,7 @@
         <input name="service-type" type="radio" class="description-radio" id="description" />
         <div class="page description-page">
           <div class="page-contents">                     
-            <p>Describe yourself:</p>
+            <p>Describe yourself (max 800 characters):</p>
             <form class="details-box center" method="post">
               {% csrf_token %}
               {{description_form}}
