@@ -5,7 +5,6 @@ from django.conf import settings
 from walker_profile.views import ChangePasswordView, WalkerUserDelete
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
@@ -15,6 +14,4 @@ urlpatterns = [
     path('password_change/', ChangePasswordView.as_view(), name='password_change'),
     path('<int:pk>/delete', WalkerUserDelete.as_view(), name='user_confirm_delete'),
     path('search/', include('search.urls')),
-
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

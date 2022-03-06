@@ -64,7 +64,7 @@ for (const button of closeButtons) {
 }
 
 // Change navbar background color on scrolling
-window.addEventListener("scroll", () => {
+ window.addEventListener("scroll", () => {
   let header = document.querySelector("header");
 
   if (window.pageYOffset > 100 && window.innerWidth > 1150) {
@@ -74,8 +74,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Hide and show navbar on scrolling
 
+// Hide and show navbar on scrolling
 // Variable which stores position of page
 let previousPosition;
 window.addEventListener("scroll", () => {
@@ -95,23 +95,15 @@ window.addEventListener("scroll", () => {
 
 // Control active class
 document.addEventListener("DOMContentLoaded", function() {
-  let about = document.querySelector('#about')
   let home = document.querySelector('#home-link')
-  let login = document.querySelector('#login-link')
-  let register = document.querySelector('#register-link')
-  
+  let navLinks = document.querySelectorAll('.nav-link')
+
   home.classList.add("active")
 
-  if (about.classList.contains("active")) {
-    home.classList.remove("active")
-  } 
-
-  if (login.classList.contains("active")) {
-    home.classList.remove("active")
-  } 
-  
-  if (register.classList.contains("active")) {
-    home.classList.remove("active")
+  for (const link of navLinks) {
+    if (link.classList.contains("active")) {
+      home.classList.remove("active")
+    } 
   }
 
 })

@@ -17,11 +17,15 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='addressdetails',
             name='longitude',
-            field=models.DecimalField(blank=True, decimal_places=6, max_digits=9, null=True),
+            field=models.DecimalField(
+                blank=True, decimal_places=6, max_digits=9, null=True
+            ),
         ),
         migrations.AlterField(
             model_name='addressdetails',
             name='latitude',
-            field=models.DecimalField(blank=True, decimal_places=6, max_digits=9, null=True),
+            field=models.DecimalField(
+                blank=True, decimal_places=6, max_digits=9, null=True
+            ),
         ),
     ]

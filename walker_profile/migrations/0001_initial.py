@@ -20,19 +20,78 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='WalkerUser',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
-                ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
-                ('first_name', models.CharField(blank=True, max_length=150, verbose_name='first name')),
-                ('last_name', models.CharField(blank=True, max_length=150, verbose_name='last name')),
-                ('email', models.EmailField(blank=True, max_length=254, verbose_name='email address')),
-                ('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
-                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
-                ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
+                (
+                    'last_login',
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name='last login'
+                    ),
+                ),
+                (
+                    'is_superuser',
+                    models.BooleanField(
+                        default=False,
+                        help_text='Designates that this user has all permissions without explicitly assigning them.',
+                        verbose_name='superuser status',
+                    ),
+                ),
+                (
+                    'first_name',
+                    models.CharField(
+                        blank=True, max_length=150, verbose_name='first name'
+                    ),
+                ),
+                (
+                    'last_name',
+                    models.CharField(
+                        blank=True, max_length=150, verbose_name='last name'
+                    ),
+                ),
+                (
+                    'email',
+                    models.EmailField(
+                        blank=True, max_length=254, verbose_name='email address'
+                    ),
+                ),
+                (
+                    'is_staff',
+                    models.BooleanField(
+                        default=False,
+                        help_text='Designates whether the user can log into this admin site.',
+                        verbose_name='staff status',
+                    ),
+                ),
+                (
+                    'is_active',
+                    models.BooleanField(
+                        default=True,
+                        help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.',
+                        verbose_name='active',
+                    ),
+                ),
+                (
+                    'date_joined',
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name='date joined'
+                    ),
+                ),
                 ('is_petsitter', models.BooleanField(null=True)),
                 ('username', models.CharField(max_length=150, null=True)),
-                ('phone_number', phonenumber_field.modelfields.PhoneNumberField(max_length=128, null=True, region=None, unique=True)),
+                (
+                    'phone_number',
+                    phonenumber_field.modelfields.PhoneNumberField(
+                        max_length=128, null=True, region=None, unique=True
+                    ),
+                ),
                 ('avatar', models.ImageField(blank=True, null=True, upload_to='')),
             ],
             options={
@@ -47,22 +106,73 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AddressDetails',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address', models.CharField(max_length=100, null=True, verbose_name='Address')),
-                ('address_1', models.CharField(max_length=100, null=True, verbose_name='Address 1')),
-                ('address_2', models.CharField(max_length=100, null=True, verbose_name='Address 2')),
-                ('town', models.CharField(max_length=100, null=True, verbose_name='Town/City')),
-                ('post_code', models.CharField(max_length=8, null=True, verbose_name='Post Code')),
-                ('county', models.CharField(max_length=100, null=True, verbose_name='County')),
-                ('country', models.CharField(max_length=100, null=True, verbose_name='Country')),
-                ('longtitude', models.CharField(max_length=50, null=True, verbose_name='Longtitude')),
-                ('latitude', models.CharField(max_length=50, null=True, verbose_name='Latitude')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'address',
+                    models.CharField(max_length=100, null=True, verbose_name='Address'),
+                ),
+                (
+                    'address_1',
+                    models.CharField(
+                        max_length=100, null=True, verbose_name='Address 1'
+                    ),
+                ),
+                (
+                    'address_2',
+                    models.CharField(
+                        max_length=100, null=True, verbose_name='Address 2'
+                    ),
+                ),
+                (
+                    'town',
+                    models.CharField(
+                        max_length=100, null=True, verbose_name='Town/City'
+                    ),
+                ),
+                (
+                    'postcode',
+                    models.CharField(max_length=8, null=True, verbose_name='Post Code'),
+                ),
+                (
+                    'county',
+                    models.CharField(max_length=100, null=True, verbose_name='County'),
+                ),
+                (
+                    'country',
+                    models.CharField(max_length=100, null=True, verbose_name='Country'),
+                ),
+                (
+                    'longtitude',
+                    models.CharField(
+                        max_length=50, null=True, verbose_name='Longtitude'
+                    ),
+                ),
+                (
+                    'latitude',
+                    models.CharField(max_length=50, null=True, verbose_name='Latitude'),
+                ),
             ],
         ),
         migrations.CreateModel(
             name='PetsitterDetails',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('description', models.TextField(max_length=500)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
@@ -70,7 +180,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ServiceTypes',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('types', models.CharField(max_length=100)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
@@ -78,7 +196,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ServiceDetails',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('is_active', models.BooleanField(null=True)),
                 ('is_small_dog', models.BooleanField(null=True)),
                 ('s_price_hour', models.CharField(max_length=10, null=True)),
@@ -91,28 +217,62 @@ class Migration(migrations.Migration):
                 ('b_price_day', models.CharField(max_length=10, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
-                ('service_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='walker_profile.servicetypes')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    'service_type',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='walker_profile.servicetypes',
+                    ),
+                ),
+                (
+                    'user',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
             model_name='walkeruser',
             name='address_details',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to='walker_profile.addressdetails'),
+            field=models.OneToOneField(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='walker_profile.addressdetails',
+            ),
         ),
         migrations.AddField(
             model_name='walkeruser',
             name='groups',
-            field=models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups'),
+            field=models.ManyToManyField(
+                blank=True,
+                help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+                related_name='user_set',
+                related_query_name='user',
+                to='auth.Group',
+                verbose_name='groups',
+            ),
         ),
         migrations.AddField(
             model_name='walkeruser',
             name='petsitter_details',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to='walker_profile.petsitterdetails'),
+            field=models.OneToOneField(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='walker_profile.petsitterdetails',
+            ),
         ),
         migrations.AddField(
             model_name='walkeruser',
             name='user_permissions',
-            field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions'),
+            field=models.ManyToManyField(
+                blank=True,
+                help_text='Specific permissions for this user.',
+                related_name='user_set',
+                related_query_name='user',
+                to='auth.Permission',
+                verbose_name='user permissions',
+            ),
         ),
     ]

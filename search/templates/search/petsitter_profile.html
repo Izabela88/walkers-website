@@ -5,7 +5,7 @@
   <div class="container">
     <div class="profile-wrap">
       <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
-      <h2>{{user.username}}</h2>
+      <h2>{{user.first_name}}</h2>
       <ul class="stars-list">
         <li>☆</li>
         <li>☆</li>
@@ -29,11 +29,11 @@
           </div>       
       <div class="description-container">
         <div class="description-part">
-          <h3>About {{user.username}}</h3>
+          <h3>About {{user.first_name}}</h3>
           {% if user.petsitter_details %}
           <p>{{user.petsitter_details.description}}</p>
           {% else %}
-          <p>-ˏˋ {{user.username}} doesn't write a description yet... ˊˎ</p>
+          <p>-ˏˋ {{user.first_name}} doesn't write a description yet... ˊˎ</p>
           {% endif %}
         </div>
       </div>
@@ -99,17 +99,17 @@
       <i class="far fa-times-circle"></i>
     </div>    
     <h1>prices</h1>
-    <p>Prices are for one dog. Prices are subject to change in case of exceptional circumstances, which should be discussed with the petsitter.</p>    
+    <p>Prices are for one dog. Prices are subject to change in case of exceptional circumstances, which should be discussed with the pet sitter.</p>    
     <div class="prices-container group">
       {% for i in services %}
         <div class="grid-1-5">
           <h2>
             {% if i.type == 'walk' %}
-              Walking in your neighborhood
-            {% elif i.type == 'boarding_at_petsitter_home' %}
+              Walking in client neighborhood
+            {% elif i.type == 'boarding_at_pet_sitter_home' %}
               Boarding at petsitter home
             {% else %}
-              Boarding at client home
+              Day care at client home
             {% endif %}
           </h2>
           {% for k, v in i.dog_sizes.items %}

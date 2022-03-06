@@ -2,7 +2,7 @@
 {% load static %} 
 {% block content %}
 
-<!-------------------------- hero section ----------------------------->
+<!-------------------------- HERO SECTION ----------------------------->
 <main id="home-section" class="section">
 {% if messages %}
   <ul class="authenticate-msg center">
@@ -66,15 +66,22 @@
 </main>
 
 {% if not is_petsitter %}
-<!-------------------- search section------------------- -->
+<!-------------------- SEARCH SECTION------------------- -->
 <section id="searching-section">
+  {% if messages %}
+  <ul class="authenticate-msg center">
+      {% for message in messages %}
+          <li>{{ message.message }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
 <div class="searching-bg-shape"></div>
 <div class="container">
   <div class="search-form">
     <h2>LET'S FIND THE PERSON WHO WILL TAKE THE BEST CARE OF YOUR DOG!</h2>
     <p>
-      Please enter below information about you and your dog and start
-      searching! <br> If you have more than one dog, please send this information directly to petsitter!
+      Please enter the information about you and your dog and start searching ! <br>
+      If you have more than one dog, please contact directly to the pet sitter.
     </p>
 
     <form id="form-box" method="post" action="{% url 'petsitters_list' %}">
@@ -86,18 +93,18 @@
       {% endfor %}
       <div class="form-input center">
         <label for="post-code">My Post Code</label>
-        {{search_form.post_code}}
+        {{search_form.postcode}}
       </div>
       <div class="form-input center">
-        <label for="dog-size">Location:</label>
+        <label for="dog-size">Petsitter Location</label>
         {{search_form.area}}
       </div>
       <div class="form-input center">
-        <label for="care-type">Care Type:</label>
+        <label for="care-type">Care Type</label>
         {{search_form.care_type}}
       </div>
       <div class="form-input center">
-        <label for="dog-size">My Dog Size:</label>
+        <label for="dog-size">My Dog Size</label>
         {{search_form.dog_size}}
       </div>     
       <div class="form-input center">
@@ -117,7 +124,7 @@
 </div>
 </section>
 {% endif %}
-
+<!-------------------- JOIN SECTION------------------- -->
 <section id="join-section" class="section">
 <div class="join-bg-shape"></div>
 <div class="container">

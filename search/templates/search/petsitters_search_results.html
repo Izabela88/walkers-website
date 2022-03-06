@@ -14,8 +14,8 @@
     </div>
     <div class="container">
         {% if search_results %}
-            {% for i in search_results %}
-            <ul class="cards">
+        <ul class="cards">
+              {% for i in search_results %}
                 <li>
                   <a href="{% url 'petsitter_profile' i.id %}" class="card">
                     {% if i.avatar %} 
@@ -33,7 +33,7 @@
                             <div class="card__thumb" style="background: url('/media//user.png') no-repeat center center/cover"></div>    
                         {% endif %}
                         <div class="card__header-text">
-                          <h3 class="card__title">{{i.username}}</h3>            
+                          <h3 class="card__title">{{i.first_name}}</h3>            
                           <span class="card__status"> 3 reviews
                                 <ul class="stars-list">
                                     <li>☆</li>
@@ -45,12 +45,12 @@
                           </span>
                         </div>
                       </div>
-                      <p class="card__description center">click on the card to see {{i.username}}'s profile</p>
+                      <p class="card__description center">click on the card to see {{i.first_name}}'s profile</p>
                     </div>
                   </a>      
                 </li>  
+                {% endfor %}
               </ul>
-            {% endfor %}
     
             {% else %}
             <div class="center">

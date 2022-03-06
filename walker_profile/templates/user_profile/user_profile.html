@@ -59,7 +59,7 @@
     <h2 class="personal-heading">Personal Information</h2>
     <form class="details-box center" method="post">
       {% csrf_token %}
-      <label class="profile-label">Phone number:</label>
+      <label class="profile-label">Phone number</label>
       {{ profile_form.phone_number }}
       
       {% if profile_form_errors and 'phone_number' in profile_form_errors %}
@@ -67,21 +67,21 @@
           <strong>{{profile_form_errors.phone_number.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">Email:</label>
+      <label class="profile-label">Email</label>
       {{ profile_form.email }}
         {% if profile_form_errors and 'email' in profile_form_errors %}
         <div class="error-profile">
           <strong>{{profile_form_errors.email.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">First Name:</label>
+      <label class="profile-label">First Name</label>
       {{ profile_form.first_name }}
       {% if profile_form_errors and 'first_name' in profile_form_errors %}
         <div class="error-profile">
           <strong>{{profile_form_errors.first_name.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">Last Name:</label>
+      <label class="profile-label">Last Name</label>
       {{ profile_form.last_name }}
       {% if profile_form_errors and 'last_name' in profile_form_errors %}
         <div class="error-profile">
@@ -97,7 +97,7 @@
     <h2 class="address-heading">Address Details</h2>
     <form class="details-box center" method="post">
       {% csrf_token %}
-      <label class="profile-label">Address 1:</label>
+      <label class="profile-label">Address line 1</label>
       {{ address_form.address_1 }}
       {% if address_form_errors and 'address_1' in address_form_errors %}
         <div class="error-profile">
@@ -105,29 +105,29 @@
         </div>
       {% endif %}
 
-      <label class="profile-label">Address 2:</label>
+      <label class="profile-label">Address line 2</label>
       {{ address_form.address_2 }}
       {% if address_form_errors and 'address_2' in address_form_errors %}
         <div class="error-profile">
           <strong>{{address_form_errors.address_2.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">Post Code:</label>
-      {{ address_form.post_code }}
-      <p>{{address_form_errors.post_code.0}}</p>
-      {% if address_form_errors and 'post_code' in address_form_errors %}
+      <label class="profile-label">Post Code</label>
+      {{ address_form.postcode }}
+      <p>{{address_form_errors.postcode.0}}</p>
+      {% if address_form_errors and 'postcode' in address_form_errors %}
         <div class="error-profile">
-          <strong>{{address_form_errors.post_code.0}}</strong>
+          <strong>{{address_form_errors.postcode.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">Town:</label>
+      <label class="profile-label">Town / City</label>
       {{ address_form.town }}
       {% if address_form_errors and 'town' in address_form_errors %}
         <div class="error-profile">
           <strong>{{address_form_errors.town.0}}</strong>
         </div>
       {% endif %}
-      <label class="profile-label">County:</label>
+      <label class="profile-label">County</label>
       {{ address_form.county }}
       {% if address_form_errors and 'county' in address_form_errors %}
         <div class="error-profile">
@@ -194,9 +194,12 @@
             </div>
         {% endif %}
       {% for key, value in service_details_forms.items %}                 
-        <input name="service-type" type="radio" class="service-type" id={{value.0}} checked="checked" />
+        <input name="service-type" type="radio" class="service-type" id={{value.0}} checked="checked" />    
           <div class="page walk-page">
             <div class="page-contents">
+              <h4>
+                {{value.1}}
+              </h4>
               <form class="petsitter-form" method="post">
                 {% csrf_token %}
                 <label class="form-title">Mark the size of the dog you can look after:</label>
@@ -216,7 +219,7 @@
                 {{value.2.b_price_hour}}
                 {{value.2.b_price_day}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                         
-                <label class="form-title">Display the informations in my ad:</label>
+                <label class="form-title">Display the above information in my ad:</label>
                 <label class="switch">
                   {{value.2.is_active}}
                   <span class="switch-label" data-on="Yes" data-off="No"></span> 
@@ -235,8 +238,9 @@
       {% endfor %}                 
         <input name="service-type" type="radio" class="description-radio" id="description" />
         <div class="page description-page">
-          <div class="page-contents">                     
-            <p>Describe yourself (max 800 characters):</p>
+          <div class="page-contents">
+            <h4>Description</h4>                    
+            <p>Describe yourself (max 1500 characters):</p>
             <form class="details-box center" method="post">
               {% csrf_token %}
               {{description_form}}

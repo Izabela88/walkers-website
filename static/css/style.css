@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 
 :root {
   --yellow-color: #eea300;
@@ -30,13 +31,13 @@ h4 {
 }
 
 a {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   text-decoration: none;
   letter-spacing: 2px;
 }
 
 p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   letter-spacing: 1px;
 }
 
@@ -45,12 +46,13 @@ li {
 }
 
 label {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 }
+
 
 .errorlist {
   font-size: 15px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   color: rgb(255, 60, 0);
 }
 
@@ -106,10 +108,12 @@ label {
   transition-property: box-shadow, transform;
   font-weight: bold;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 1px;
   border: none;
   text-transform: uppercase;
+  border-radius: 25px;
+  font-family: 'Hubballi', cursive;
 }
 
 .button-bright {
@@ -128,11 +132,11 @@ label {
   width: 100%;
   padding-top: 23px;
   transition-duration: 0.3s;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   text-decoration: none;
   letter-spacing: 2px;
   color: var(--black-color);
-  font-size: 13px;
+  font-size: 16px;
   transition-duration: 0.4s !important;
   text-transform: uppercase;
 }
@@ -199,7 +203,7 @@ label {
   margin-right: 15px;
   margin-top: 10px;
   transition-duration: 0.2s;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   text-decoration: none;
   font-size: 17px;
   color: var(--black-color);
@@ -218,7 +222,7 @@ label {
 }
 
 .welcome-msg {
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Hubballi', cursive;
   text-transform: lowercase;
   color: #fb7400;
   letter-spacing: 1px;
@@ -239,7 +243,7 @@ label {
 /*------------------- home section */
 
 .authenticate-msg {
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Hubballi', cursive;
   letter-spacing: 2px;
   font-weight: bold;
   position: absolute;
@@ -248,11 +252,13 @@ label {
   top: 10%;
   box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
   background-color: rgb(238 163 0 / 70%);
+  border-radius: 10px;
   width: 400px;
   height: fit-content;
   top: 12%;
   left: 50%;
   transform: translate(-50%, -70%);
+  padding: 10px;
 }
 
 #home-section {
@@ -276,6 +282,7 @@ label {
   font-family: "Architects Daughter", cursive;
   font-weight: bold;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .main-txt {
@@ -389,9 +396,10 @@ label {
 .search-form p {
   margin-bottom: 15px;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 25px;
   padding-left: 50px;
   padding-right: 50px;
+  font-family: 'Hubballi', cursive;
 }
 
 #form-box {
@@ -405,12 +413,16 @@ label {
 
 .form-input {
   width: 100%;
+  
 }
 
 .form-input label {
-  font-family: "Lato", sans-serif;
-    margin-bottom: 8px;
-    margin-top: 10px;
+  font-family: "Architects Daughter", cursive;;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
    
 }
 
@@ -418,11 +430,16 @@ label {
   height: 40px;
   width: 85%;
   outline: none;
-  border: 1px solid rgb(0 0 0 / 20%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   cursor: pointer;
   text-transform: uppercase;
- text-align: center;
- letter-spacing: 1px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: 'Hubballi', cursive;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 
@@ -484,7 +501,8 @@ label {
 }
 
 .join-txt p {
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Hubballi', cursive;
 }
 
 .join-instructions {
@@ -602,11 +620,12 @@ label {
 }
 
 .about-txt p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
   text-align: center;
   line-height: 30px;
+  font-weight: bold;
 }
 
 .about-box {
@@ -671,7 +690,7 @@ label {
 }
 
 .footer-box h3 {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   font-size: 25px;
   margin-bottom: 25px;
   margin-top: 30px;
@@ -686,7 +705,7 @@ label {
   line-height: 41px;
   font-size: 16px;
   letter-spacing: 1px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 }
 
 .footer-box a {
@@ -822,7 +841,24 @@ label {
   width: 100%;
   height: 50px;
   padding-left: 10px;
-  border: 1px solid rgb(0 0 0 / 28%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+}
+
+
+#id_password1::placeholder {
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.50);
+}
+
+#id_password2::placeholder {
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.50);
+}
+
+#id_email::placeholder {
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.50);
 }
 
 label[for="id_is_petsitter"] {
@@ -835,10 +871,13 @@ label[for="id_is_petsitter"] {
   height: 30px;
   position: absolute;
   right: 0;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  border: none;
+  
 }
 
 .signup input::placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
@@ -874,7 +913,22 @@ label[for="id_is_petsitter"] {
   width: 100%;
   height: 50px;
   padding-left: 10px;
-  border: 1px solid rgb(0 0 0 / 28%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+}
+
+#id_login::placeholder {
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.50);
+}
+
+#id_password::placeholder {
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.50);
+}
+
+#id_remember {
+  box-shadow: none;
 }
 
 .login-form-grid-container {
@@ -891,7 +945,7 @@ label[for="id_is_petsitter"] {
 }
 
 .login input::placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
@@ -899,12 +953,12 @@ label[for="id_is_petsitter"] {
 
 .login .errorlist {
   font-size: 15px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   color: rgb(255, 60, 0);
 }
 
 .secondaryAction {
-  color: var(--black-color);
+  color: rgb(255, 60, 0);
   bottom: 5px;
   position: relative;
 }
@@ -949,7 +1003,7 @@ label[for="id_remember"] {
 }
 
 .back-button {
-  padding-top: 22px;
+  padding-top: 25px;
   color: var(--black-color);
 }
 
@@ -1003,7 +1057,7 @@ label[for="id_remember"] {
 }
 
 .question-form label {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   font-size: 20px;
   letter-spacing: 1px;
 }
@@ -1103,7 +1157,7 @@ label[for="id_remember"] {
   transition-duration: 0.4s;
   font-family: "Architects Daughter", cursive;
   letter-spacing: 2px;
-  font-size: 20px;
+  font-size: 18px;
   background-color: #eea300;
   color: var(--white-color);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
@@ -1128,7 +1182,7 @@ label[for="id_remember"] {
 .tabs-content h2 {
   text-transform: uppercase;
   margin-bottom: 67px;
-  color: #ee4200;
+  color: var(--yellow-color);
   margin-top: 40px;
   font-size: 25px;
 }
@@ -1156,7 +1210,7 @@ label[for="id_avatar"] {
 }
 
 .profile-img-form input[type="file"] {
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Hubballi', cursive;
   text-transform: uppercase;
   margin-left: 118px;
   font-size: 18px;
@@ -1206,29 +1260,33 @@ label[for="id_description"] {
   height: 40px;
   width: 65%;
   margin-bottom: 25px;
-  border: 1px solid rgb(0 0 0 / 12%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  text-align: center;
+  border-radius: 25px;
   padding: 10px;
+  font-family: 'Hubballi', cursive;
+  font-size: 18px;
 }
 
-.details-box textarea {
-  padding: 10px;
-}
 
 .details-box input::placeholder {
   text-transform: lowercase;
   color: var(--black-color);
   padding: 10px;
   letter-spacing: 1px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 }
 
 .details-box textarea {
-  height: 50%;
+  height: 80%;
   width: 100%;
   margin-bottom: 25px;
   border: 1px solid rgb(0 0 0 / 12%);
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   overflow: overlay;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .details-box textarea::placeholder {
@@ -1256,7 +1314,8 @@ label[for="id_description"] {
   height: 40px;
   width: 100%;
   margin-bottom: 10px;
-  border: 1px solid rgb(0 0 0 / 12%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
 }
 
 .edit-box input::placeholder {
@@ -1264,12 +1323,16 @@ label[for="id_description"] {
   color: var(--black-color);
   padding: 10px;
   letter-spacing: 1px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 }
 
 .profile-label {
-  font-family: "Lato", sans-serif;
-  margin-bottom: 10px;
+  font-family: "Architects Daughter", cursive;;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .update-profil {
@@ -1299,7 +1362,7 @@ label[for="id_description"] {
 }
 
 .error-profile {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   color: #db4437;
   margin-bottom: 10px;
   margin-top: -15px;
@@ -1374,7 +1437,8 @@ label[for="id_description"] {
   height: 40px;
   width: 100%;
   margin-bottom: 25px;
-  border: 1px solid rgb(0 0 0 / 12%);
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   padding: 10px;
 }
 
@@ -1383,7 +1447,7 @@ label[for="id_description"] {
 }
 
 .change-password-form li {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 }
 
 .password-link {
@@ -1410,6 +1474,7 @@ label[for="id_description"] {
   transition: border 0.2s;
   font-size: 16px;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .petsitter-layout input[type="radio"] {
@@ -1421,7 +1486,7 @@ label[for="id_description"] {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-bottom: 2px solid var(--yellow-color);
+  border-bottom: 1px solid var(--yellow-color);
   background: var(--white-color);
   user-select: none;
   transition: background 0.4s, padding-left 0.2s;
@@ -1429,6 +1494,9 @@ label[for="id_description"] {
   font-size: 16px;
   margin-left: 5px;
   margin-right: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
 }
 
 .petsitter-layout input[type="radio"]:checked + .page + label.service-type {
@@ -1451,7 +1519,7 @@ label[for="id_description"] {
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .page {
@@ -1551,9 +1619,18 @@ label[for="id_description"] {
   justify-content: space-evenly;
 }
 
+.page-contents h4 {
+  text-transform: uppercase;
+    color: var(--black-color);
+    position: relative;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--yellow-color);
+    font-size: 17px;
+}
+
 .page-contents p {
   font-size: 17px;
-  margin-bottom: -23%;
+  margin-bottom: -60px;
 }
 
 .page-heading {
@@ -1569,7 +1646,7 @@ label[for="id_description"] {
 
 .page-heading h2 {
   font-size: 18px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   margin-bottom: 10px;
   margin-top: 25px;
   color: var(--yellow-color);
@@ -1587,7 +1664,10 @@ label[for="id_description"] {
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 5px;
+  font-family: 'Hubballi', cursive;
+  font-weight: bold;
 }
+
 
 .petsitter-form input[name="is_small_dog"] {
   width: 20px;
@@ -1678,7 +1758,7 @@ label[for="big_dog"] {
   color: #aaaaaa;
   font-weight: bold;
   font-size: 14px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 
 }
 
@@ -1689,7 +1769,7 @@ label[for="big_dog"] {
   opacity: 0;
   font-size: 14px;
   font-weight: bold;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
 
 }
 
@@ -1798,6 +1878,7 @@ label[for="big_dog"] {
   margin: 40px 25px;
   padding: 0;
   list-style-type: none;
+  width: 80%;
 }
 
 .card {
@@ -1977,7 +2058,7 @@ label[for="big_dog"] {
 
 
 .description-container {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   display: flex;
   height: 285px;
   width: 100%;
@@ -2002,7 +2083,7 @@ label[for="big_dog"] {
 
 
 .reviews-container {
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   display: flex;
   width: 80%;
   align-items: center;
@@ -2161,7 +2242,7 @@ label[for="big_dog"] {
   background-image: -webkit-radial-gradient(top, circle, #53455b 0%, #201e22 70%);
   background-image: radial-gradient(circle at top, #53455b 0%, #201e22 70%);
   color: #fff;
-  font-family: "Lato", sans-serif;
+  font-family: 'Hubballi', cursive;
   font-size: 100%;
   min-height: 100%;
   line-height: 1.5;
@@ -2197,7 +2278,7 @@ label[for="big_dog"] {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  width: 45%;
+  width: 50%;
 }
 
 .prices-container {
@@ -2288,6 +2369,7 @@ label[for="big_dog"] {
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 20px;
+  font-size: 23px;
 }
 
 sup,

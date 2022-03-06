@@ -14,6 +14,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='walkeruser',
             name='avatar',
-            field=models.ImageField(blank=True, null=True, upload_to='', validators=[walker_profile.models.WalkerUser.validate_image]),
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to='',
+                validators=[walker_profile.models.WalkerUser.validate_image],
+            ),
         ),
     ]

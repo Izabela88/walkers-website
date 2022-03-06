@@ -20,8 +20,7 @@
     <!-- header -->
     <header id="header">
       <div class="logo"><a href="{% url 'home' %}#home-section"><img src="/media/logo.gif" alt="Logo"/></a></div>
-      <nav id="nav">
-     
+      <nav id="nav">    
         <div class="wrapper-menu">
           <div class="line-menu half start"></div>
           <div class="line-menu"></div>
@@ -31,15 +30,15 @@
           <ul class="nav-list">
             <li><a id="home-link" class="close-sidebar nav-link" href="{% url 'home' %}#home-section">Home</a></li>          
             <li><a class="close-sidebar nav-link" href="{% url 'home' %}#join-section">Join Us</a></li>       
-            <li><a {% if request.path == '/about/' %}class="active"{% endif %} id="about" class="close-sidebar" href="{% url 'about' %}">About</a></li>
-            <li><a class="close-sidebar" href="#">Contact</a></li>
+            <li><a {% if request.path == '/about/' %}class="active"{% endif %} id="about" class="close-sidebar nav-link" href="{% url 'about' %}">About</a></li>
+            <li><a class="close-sidebar nav-link" href="#">Contact</a></li>
             {% if user.is_authenticated %}
             <li class="welcome-msg"><span>Welcome {{user.username}} !</span></li>
-            <li><a id="user-profile-link" class="close-sidebar" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
-            <li><a class="close-sidebar" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li><a  {% if request.path == '/profile/user_profile' %}class="active"{% endif %} id="user-profile-link" class="close-sidebar nav-link" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
+            <li><a class="close-sidebar nav-link" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}
-            <li><a {% if request.path == '/accounts/signup/' %}class="active"{% endif %} id="register-link" class="close-sidebar" href="{% url 'account_signup' %}">Register</a></li>
-            <li><a {% if request.path == '/accounts/login/' %}class="active"{% endif %} id="login-link" class="close-sidebar" href="{% url 'account_login' %}">Log In</a></li>
+            <li><a {% if request.path == '/accounts/signup/' %}class="active"{% endif %} id="register-link" class="close-sidebar nav-link" href="{% url 'account_signup' %}">Register</a></li>
+            <li><a {% if request.path == '/accounts/login/' %}class="active"{% endif %} id="login-link" class="close-sidebar nav-link" href="{% url 'account_login' %}">Log In</a></li>
             {% endif %}
           </ul>
         </div>
