@@ -2439,6 +2439,13 @@ sup,
   font-size: 0.6125em;
 }
 
+/* ------------------reviews */
+.reviews-button a {
+  font-family: "Architects Daughter", cursive;
+  font-size: 18px;
+  color: var(--white-color);
+  padding-top: 18px;
+}
 
 /* --------- media queries */
 @media screen and (min-width: 700px) {

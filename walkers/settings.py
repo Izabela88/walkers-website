@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'about',
     'walker_profile',
     'search',
+    'reviews',
 ]
 
 # SITE_ID = 1
