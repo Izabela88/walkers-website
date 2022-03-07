@@ -3,8 +3,29 @@
 {% block content %}
 
 <section class="section">
-
-    <h2>Hello</h2>
+   <div class="container">
+    <div class="rev-container center">
+        <h2>Your opinion is extremely important! It's increases credibility among users!</h2>
+        <form class="rev-form" method="post">   
+            <p>how many star you want give to {{user.first_name}}?</p>          
+            <div class="rating">
+                <input type="radio" name="rating" id="r1">
+                <label for="r1"></label>            
+                <input type="radio" name="rating" id="r2">
+                <label for="r2"></label>              
+                <input type="radio" name="rating" id="r3">
+                <label for="r3"></label>              
+                <input type="radio" name="rating" id="r4">
+                <label for="r4"></label>             
+                <input type="radio" name="rating" id="r5">
+                <label for="r5"></label>             
+               </div>
+               <label>please explain your rating</label>
+               <textarea class="rev-description" name="" id="" cols="30" rows="10"></textarea>
+               <input type="submit" class="button button-bright">
+        </form>
+    </div>
+   </div>
 </section>
 
 {% block extra_js %}

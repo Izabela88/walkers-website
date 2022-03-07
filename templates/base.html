@@ -33,7 +33,7 @@
             <li><a {% if request.path == '/about/' %}class="active"{% endif %} id="about" class="close-sidebar nav-link" href="{% url 'about' %}">About</a></li>
             <li><a class="close-sidebar nav-link" href="#">Contact</a></li>
             {% if user.is_authenticated %}
-            <li class="welcome-msg"><span>Welcome {{user.username}} !</span></li>
+            <li class="welcome-msg"><span>Welcome {{request.user.first_name}} !</span></li>
             <li><a  {% if request.path == '/profile/user_profile' %}class="active"{% endif %} id="user-profile-link" class="close-sidebar nav-link" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
             <li><a class="close-sidebar nav-link" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
             {% else %}

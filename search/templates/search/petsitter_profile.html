@@ -37,12 +37,14 @@
         {% endif %} 
       </p>
       </div>
-      <div class="button button-bright center profile-link"><a href="{% url 'home' %}#searching-section"">Back to searching</a></div>
+      <div class="button button-bright center reviews-button">
+        <a href="{% url 'reviews' user.id %}">write review</a>
+      </div>
     </div>
-      <div class="details-wrap">  
+      <div class="details-wrap">      
           <div class="services-part">
             <button id="open-prices" class="button button-bright">Check prices</button>
-          </div>       
+          </div>
       <div class="description-container">
         <div class="description-part">
           <h3>About {{user.first_name}}</h3>
@@ -87,21 +89,7 @@
                 as a member of their own family.
               </p>
             </div>
-            <div class="review-box ">
-              <h4>Anna</h4>
-              <ul class="stars-list">
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>                          
-              </ul>
-              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
-                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
-                as a member of their own family.
-              </p>
-            </div>
-          </div>
+          </div>  
         </div>
       </div>
     </div>

@@ -84,7 +84,7 @@
       If you have more than one dog, please contact directly to the pet sitter.
     </p>
 
-    <form id="form-box" method="post" action="{% url 'petsitters_list' %}">
+    <form id="form-box" method="post" action="{% url 'petsitter_profiles' %}">
       {% csrf_token %}
       {% for key, value in petsitter_search_form_errors.items %}
         <div class="error-profile center">

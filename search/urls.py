@@ -3,10 +3,11 @@ from search.views import SearchView, PetsitterProfile
 
 
 urlpatterns = [
-    path('petsitters_list', SearchView.as_view(), name='petsitters_list'),
+    path('petsitter_profiles', SearchView.as_view(), name='petsitter_profiles'),
     path(
-        'petsitter_profile/<int:id>',
+        'petsitter_profiles/<int:id>',
         PetsitterProfile.as_view(),
         name='petsitter_profile',
     ),
+    
 ]
