@@ -25,7 +25,8 @@ html {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-family: "Architects Daughter", cursive;
   letter-spacing: 2px;
 }
@@ -205,7 +206,7 @@ label {
   transition-duration: 0.2s;
   font-family: 'Hubballi', cursive;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
   color: var(--black-color);
 }
 
@@ -702,8 +703,8 @@ label {
 
 .footer-box li {
   list-style: none;
-  line-height: 41px;
-  font-size: 16px;
+  line-height: 35px;
+  font-size: 18px;
   letter-spacing: 1px;
   font-family: 'Hubballi', cursive;
 }
@@ -802,6 +803,8 @@ label {
 
 .heading a {
   color: var(--yellow-color);
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .fb-button {
@@ -843,6 +846,7 @@ label {
   padding-left: 10px;
   border: none;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  border-radius: 20px;
 }
 
 
@@ -862,8 +866,33 @@ label {
 }
 
 label[for="id_is_petsitter"] {
-  margin-top: 6px;
   position: relative;
+  font-size: 18px;
+  top: 6px;
+  font-weight: bold;
+}
+
+
+label[for="id_email"] {
+  font-size: 20px;
+    position: relative;
+    left: 8px;
+    bottom: 5px;
+}
+
+
+label[for="id_password1"] {
+  font-size: 20px;
+    position: relative;
+    left: 8px;
+    bottom: 5px;
+}
+
+label[for="id_password2"] {
+  font-size: 20px;
+    position: relative;
+    left: 8px;
+    bottom: 5px;
 }
 
 .signup input[type="checkbox"] {
@@ -915,6 +944,7 @@ label[for="id_is_petsitter"] {
   padding-left: 10px;
   border: none;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  border-radius: 20px;
 }
 
 #id_login::placeholder {
@@ -961,12 +991,28 @@ label[for="id_is_petsitter"] {
   color: rgb(255, 60, 0);
   bottom: 5px;
   position: relative;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 label[for="id_remember"] {
   width: auto;
   margin-top: 6px;
   position: absolute;
+  font-size: 18px;
+}
+
+label[for="id_login"] {
+  position: relative;
+  font-size: 18px;
+  top: -6px;
+}
+
+
+label[for="id_password"] {
+  position: relative;
+  font-size: 18px;
+  top: -6px;
 }
 
 #id_remember {
@@ -2015,13 +2061,14 @@ label[for="big_dog"] {
 .profile-wrap {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 75%;
   align-items: center;
   justify-content: space-evenly;
 }
 
 .profile-wrap h2 {
   margin-top: 35px;
+  font-size: 30px;
 }
 
 
@@ -2034,9 +2081,23 @@ label[for="big_dog"] {
   margin-top: 10%;
 }
 
+.details-no-avatar {
+  width: 200px;
+  height: 200px;
+  opacity: 0.5;
+}
+
 .contact-info {
-  height: 15%;
+  height: 25%;
   line-height: 30px;
+}
+
+.contact-info h5 {
+  font-size: 18px;
+}
+
+.contact-info p {
+  font-size: 18px;
 }
 
 .details-wrap {
@@ -2079,6 +2140,7 @@ label[for="big_dog"] {
 
 .description-part p {
  line-height: 23px;
+ font-size: 20px;
 }
 
 
@@ -2272,7 +2334,7 @@ label[for="big_dog"] {
 }
 
 .card-content p {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 0px;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -2655,7 +2717,7 @@ sup,
   }
 
   #id_is_petsitter {
-    left: 28%;
+    left: 76%;
   }
 }
 

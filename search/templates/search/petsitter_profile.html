@@ -4,7 +4,13 @@
 <section class="section">
   <div class="container">
     <div class="profile-wrap">
+      {% if user.avatar %} 
       <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
+      {% else %}
+      <div class="details-image center">
+          <div class="details-no-avatar " style="background: url('/media//user.png') no-repeat center center/cover"></div>
+      </div>                        
+      {% endif %} 
       <h2>{{user.first_name}}</h2>
       <ul class="stars-list">
         <li>☆</li>
@@ -14,12 +20,22 @@
         <li>☆</li>                          
       </ul>
       <div class="contact-info center">
-        <p>Email address: {{user.email}}<br>Mobile no: <br>
-          {% if user.phone_number %}
-          <p>{{user.phone_number}}</p>
-          {% else %}
-          <p>-ˏˋ no mobile no yet ˊˎ</p>
-          {% endif %} 
+      <h5>Email address</h5>
+      <p>
+        {% if user.email %}
+        {{user.email}}
+        {% else %}
+        -ˏˋ no email address yet ˊˎ
+        {% endif %} 
+      </p>
+      <h5>Phone number</h5>
+      <p>
+        {% if user.phone_number %}
+        {{user.phone_number}}
+        {% else %}
+        -ˏˋ no phone number yet ˊˎ
+        {% endif %} 
+      </p>
       </div>
       <div class="button button-bright center profile-link"><a href="{% url 'home' %}#searching-section"">Back to searching</a></div>
     </div>
@@ -92,7 +108,7 @@
   </div>
   </div>
 </section>
-<!----------------- Prices modal-------------- -->
+<!----------------- PRICES MODAL-------------- -->
 <div class="prices-wrapper">
   <div class="card-content">
     <div class="close-prices">
