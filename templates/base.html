@@ -10,6 +10,8 @@
     {% endblock %}
 
     {% block corecss %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 
@@ -17,9 +19,17 @@
   </head>
 
   <body>
-    <!-- header -->
+    <!---------------HEADER--------------->
     <header id="header">
-      <div class="logo"><a href="{% url 'home' %}#home-section"><img src="/media/logo.gif" alt="Logo"/></a></div>
+      {% url 'home' as url %}
+      <div class="logo 
+        {% if request.path == url %}
+        active
+        {% endif %}">
+        <a href="{{ url }}">
+          <img src="/media/logo.gif" alt="Logo"/>
+        </a>
+      </div>
       <nav id="nav">    
         <div class="wrapper-menu">
           <div class="line-menu half start"></div>
@@ -27,18 +37,61 @@
           <div class="line-menu half end"></div>
         </div>
         <div id="my-sidebar" class="sidebar">
-          <ul class="nav-list">
-            <li><a id="home-link" class="close-sidebar nav-link" href="{% url 'home' %}#home-section">Home</a></li>          
-            <li><a class="close-sidebar nav-link" href="{% url 'home' %}#join-section">Join Us</a></li>       
-            <li><a {% if request.path == '/about/' %}class="active"{% endif %} id="about" class="close-sidebar nav-link" href="{% url 'about' %}">About</a></li>
-            <li><a class="close-sidebar nav-link" href="#">Contact</a></li>
+          <ul id="menu-list" class="nav-list">
+            {% url 'home' as url %}
+            <li 
+            class="{% if request.path == url %}
+            active
+            {% endif %}">
+              <a
+              class="close-sidebar" 
+              href="{{ url }}"
+              >Home
+              </a>
+            </li>          
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'home' %}#join-section">Join Us
+              </a>
+            </li>       
+            <li><a  
+              class="close-sidebar" 
+              href="{% url 'about' %}">About
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="#">Contact</a>
+            </li>
             {% if user.is_authenticated %}
-            <li class="welcome-msg"><span>Welcome {{request.user.first_name}} !</span></li>
-            <li><a  {% if request.path == '/profile/user_profile' %}class="active"{% endif %} id="user-profile-link" class="close-sidebar nav-link" href="{% url 'user_profile' %}"><i class="fas fa-user-circle"></i></a></li>
-            <li><a class="close-sidebar nav-link" href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li 
+            class="welcome-msg">
+              <span>Welcome {{request.user.first_name}} !</span>
+            </li>
+            <li><a 
+              id="user-profile-link" 
+              class="close-sidebar" 
+              href="{% url 'user_profile' %}">
+              <i class="fas fa-user-circle"></i>
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_logout' %}">
+              <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </li>
             {% else %}
-            <li><a {% if request.path == '/accounts/signup/' %}class="active"{% endif %} id="register-link" class="close-sidebar nav-link" href="{% url 'account_signup' %}">Register</a></li>
-            <li><a {% if request.path == '/accounts/login/' %}class="active"{% endif %} id="login-link" class="close-sidebar nav-link" href="{% url 'account_login' %}">Log In</a></li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_signup' %}">Register
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_login' %}">Log In
+              </a>
+            </li>
             {% endif %}
           </ul>
         </div>
@@ -47,14 +100,14 @@
 
         {% block content %}
 
-        <!-- Content Goes here -->
+    <!------------CONTENT GOES HERE------------------>
 
         {% endblock content %}
 
-    <!-- footer -->
+    <!------------------FOOTER--------------------->
     <footer id="footer">
         <div class="box-logo">
-          <a class="scroll" href="{% url 'home' %}#home-section">
+          <a href="{% url 'home' %}#home-section">
             <img src="/media/logo.gif" alt="Logo" />
           </a>
         </div>
@@ -98,11 +151,11 @@
           <div class="footer-box">
             <h3>Quick links</h3>
             <ul>
-              <li><a class="scroll" href="{% url 'home' %}#home-section">Home</a></li>
-              <li><a class="scroll" href="{% url 'home' %}#join-section">Join</a></li>
-              <li><a class="scroll" href="{% url 'about' %}">About</a></li>
-              <li><a class="scroll" href="/accounts/signup/">Register</a></li>
-              <li><a class="scroll" href="/accounts/login/">Login</a></li>
+              <li><a href="{% url 'home' %}#home-section">Home</a></li>
+              <li><a href="{% url 'home' %}#join-section">Join</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="/accounts/signup/">Register</a></li>
+              <li><a href="/accounts/login/">Login</a></li>
             </ul>
           </div>
           <div class="footer-box">
@@ -124,7 +177,7 @@
             </ul>
           </div>
         </div>
-        <p>Walkers &copy; 2021, All Rights Reserved</p>
+        <p>Walkers &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
       </footer>
     <script src="https://kit.fontawesome.com/111b3a0b11.js" crossorigin="anonymous"></script>
     <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

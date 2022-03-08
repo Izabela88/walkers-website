@@ -218,9 +218,11 @@ label {
   color: rgb(255, 60, 0);
 }
 
-.nav-list a.active {
+#menu-list li a.active {
   color: rgb(255, 60, 0);
 }
+
+
 
 .welcome-msg {
   font-family: 'Hubballi', cursive;
@@ -2675,7 +2677,7 @@ sup,
     right: 5%;
   }
 
-  .nav-list a.active {
+  .nav-list li a.active {
     color: var(--white-color);
   }
 

@@ -94,17 +94,20 @@ window.addEventListener("scroll", () => {
 
 
 // Control active class
-document.addEventListener("DOMContentLoaded", function() {
-  let home = document.querySelector('#home-link')
-  let navLinks = document.querySelectorAll('.nav-link')
 
-  home.classList.add("active")
+function controlActiveClass() {
+  let currentLocation = window.location.href
+  let menuItem = document.querySelectorAll('#menu-list li a')
+  let menuLength = menuItem.length
 
-  for (const link of navLinks) {
-    if (link.classList.contains("active")) {
-      home.classList.remove("active")
-    } 
+  for (let i = 0; i < menuLength; i++) {  
+    if (menuItem[i].href === currentLocation) {
+      menuItem[i].classList.add('active')
+    } else {
+      menuItem[i].classList.remove('active')
+    }
   }
+}
 
-})
+controlActiveClass()
 
