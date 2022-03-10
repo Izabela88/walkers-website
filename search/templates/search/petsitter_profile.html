@@ -2,6 +2,13 @@
 {% load static %}
 {% block content %}
 <section class="section">
+{% if messages %}
+      <ul class="authenticate-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
   <div class="container">
     <div class="profile-wrap">
       {% if user.avatar %} 
@@ -61,34 +68,27 @@
         <span class="prev"><i class="fas fa-arrow-left"></i></span>
         <div class="slider-container">
           <div class="slider">
+            {% if reviews %}
+              {% for i in reviews %}
+              <div class="review-box ">
+                <h4>{{i.reviewer.first_name}}</h4>
+                <ul class="stars-list">
+                  <li>☆</li>
+                  <li>☆</li>
+                  <li>☆</li>
+                  <li>☆</li>
+                  <li>☆</li>                          
+                </ul>
+                <p>
+                  {{i.description}}
+                </p>
+              </div>
+              {% endfor %}
+            {% else %}
             <div class="review-box ">
-              <h4>Anthony</h4>
-              <ul class="stars-list">
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>                          
-              </ul>
-              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
-                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
-                as a member of their own family.
-              </p>
+              <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
             </div>
-            <div class="review-box ">
-              <h4>Mark</h4>
-              <ul class="stars-list">
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>                          
-              </ul>
-              <p>Mary got Hugo settled in straight away and made him feel comfortable, kept me updated during his stay
-                to put my mind at ease as it was his first stay away from us, highly recommended as they treat your pet
-                as a member of their own family.
-              </p>
-            </div>
+            {% endif %}
           </div>  
         </div>
       </div>
@@ -106,14 +106,14 @@
     <p>Prices are for one dog. Prices are subject to change in case of exceptional circumstances, which should be discussed with the pet sitter.</p>    
     <div class="prices-container group">
       {% for i in services %}
-        <div class="grid-1-5">
+        <div class="prices_box">
           <h2>
             {% if i.type == 'walk' %}
-              Walking in client neighborhood
+              Walk in the client neighborhood
             {% elif i.type == 'boarding_at_pet_sitter_home' %}
-              Boarding at petsitter home
+              Boarding at the pet sitter home
             {% else %}
-              Day care at client home
+              Day care at the client home
             {% endif %}
           </h2>
           {% for k, v in i.dog_sizes.items %}

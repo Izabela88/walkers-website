@@ -8,6 +8,7 @@ from django.urls import reverse
 from walker_profile import utility
 from django.http import HttpResponseRedirect
 from walker_profile.utility import GeoCodeError
+from reviews.models import PetsitterReview
 
 
 class SearchView(View):
@@ -81,4 +82,11 @@ class PetsitterProfile(View):
                     }
 
                 context['services'].append(service)
+        context['reviews'] = PetsitterReview.objects.filter(
+            user_id=id, is_admin_approved=True,is_visible=True
+        ).all()
+
+        
+
+
         return render(request, 'search/petsitter_profile.html', context)

@@ -1,34 +1,32 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
-
 <section class="section">
+    {% if messages %}
+        <ul class="authenticate-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
    <div class="container">
     <div class="rev-container center">
         <h2>Your opinion is extremely important! It's increases credibility among users!</h2>
-        <form class="rev-form" method="post">   
-            <p>how many star you want give to {{user.first_name}}?</p>          
-            <div class="rating">
-                <input type="radio" name="rating" id="r1">
-                <label for="r1"></label>            
-                <input type="radio" name="rating" id="r2">
-                <label for="r2"></label>              
-                <input type="radio" name="rating" id="r3">
-                <label for="r3"></label>              
-                <input type="radio" name="rating" id="r4">
-                <label for="r4"></label>             
-                <input type="radio" name="rating" id="r5">
-                <label for="r5"></label>             
-               </div>
-               <label>please explain your rating</label>
-               <textarea class="rev-description" name="" id="" cols="30" rows="10"></textarea>
-               <input type="submit" class="button button-bright">
+        <form class="rate-form rev-form" method="post"> 
+            {% csrf_token %} 
+            <label class="lab">How many stars do you want to give {{user.first_name}}?</label>          
+                <div class="stars">
+                    {{review_description_form.stars}}
+                </div>    
+            <label class="lab">you can explain your rating below:</label>
+            {{review_description_form.description}}
+            <input type="submit" class="button button-bright">
         </form>
     </div>
    </div>
 </section>
+{% endblock %}
 
 {% block extra_js %}
-{% endblock %}
- 
+<script src="{% static 'js/review.js' %}"></script>
 {% endblock %}

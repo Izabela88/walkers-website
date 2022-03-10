@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 
 :root {
   --yellow-color: #eea300;
@@ -9,6 +9,7 @@
   --black-color: #000000;
   --surface-color: #fff;
   --curve: 40;
+
 }
 
 html {
@@ -32,28 +33,28 @@ h5 {
 }
 
 a {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   text-decoration: none;
   letter-spacing: 2px;
 }
 
 p {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   letter-spacing: 1px;
 }
 
 li {
   list-style: none;
+  font-family: "Hubballi", cursive;
 }
 
 label {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
-
 
 .errorlist {
   font-size: 15px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   color: rgb(255, 60, 0);
 }
 
@@ -68,7 +69,6 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .container {
@@ -114,7 +114,7 @@ label {
   border: none;
   text-transform: uppercase;
   border-radius: 25px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .button-bright {
@@ -133,7 +133,7 @@ label {
   width: 100%;
   padding-top: 23px;
   transition-duration: 0.3s;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   text-decoration: none;
   letter-spacing: 2px;
   color: var(--black-color);
@@ -204,9 +204,9 @@ label {
   margin-right: 15px;
   margin-top: 10px;
   transition-duration: 0.2s;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 19px;
   color: var(--black-color);
 }
 
@@ -222,12 +222,10 @@ label {
   color: rgb(255, 60, 0);
 }
 
-
-
 .welcome-msg {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   text-transform: lowercase;
-  color: #fb7400;
+  color: var(--black-color);
   letter-spacing: 1px;
 }
 
@@ -246,7 +244,7 @@ label {
 /*------------------- home section */
 
 .authenticate-msg {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   letter-spacing: 2px;
   font-weight: bold;
   position: absolute;
@@ -402,34 +400,33 @@ label {
   font-size: 25px;
   padding-left: 50px;
   padding-right: 50px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 #form-box {
   display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   height: 60%;
   width: 100%;
 }
 
 .form-input {
   width: 100%;
-  
 }
 
 .form-input label {
-  font-family: "Architects Daughter", cursive;;
+  font-family: "Architects Daughter", cursive;
   margin-bottom: 10px;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: bold;
-   
 }
 
-.form-input input, select {
+.form-input input,
+select {
   height: 40px;
   width: 85%;
   outline: none;
@@ -440,11 +437,10 @@ label {
   text-align: center;
   letter-spacing: 1px;
   border-radius: 10px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
 }
-
 
 .search-dog-img {
   height: 100%;
@@ -505,7 +501,7 @@ label {
 
 .join-txt p {
   font-size: 25px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .join-instructions {
@@ -613,13 +609,8 @@ label {
   padding: 30px;
 }
 
-.about-txt h1 {
-  font-size: 45px;
-  margin-top: 50px;
-}
-
 .about-txt h2 {
-  font-size: 35px;
+  font-size: 32px;
 }
 
 .about-txt p {
@@ -693,7 +684,7 @@ label {
 }
 
 .footer-box h3 {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 25px;
   margin-bottom: 25px;
   margin-top: 30px;
@@ -708,7 +699,7 @@ label {
   line-height: 35px;
   font-size: 18px;
   letter-spacing: 1px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .footer-box a {
@@ -851,20 +842,19 @@ label {
   border-radius: 20px;
 }
 
-
 #id_password1::placeholder {
   text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #id_password2::placeholder {
   text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #id_email::placeholder {
   text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 label[for="id_is_petsitter"] {
@@ -874,27 +864,25 @@ label[for="id_is_petsitter"] {
   font-weight: bold;
 }
 
-
 label[for="id_email"] {
   font-size: 20px;
-    position: relative;
-    left: 8px;
-    bottom: 5px;
+  position: relative;
+  left: 8px;
+  bottom: 5px;
 }
-
 
 label[for="id_password1"] {
   font-size: 20px;
-    position: relative;
-    left: 8px;
-    bottom: 5px;
+  position: relative;
+  left: 8px;
+  bottom: 5px;
 }
 
 label[for="id_password2"] {
   font-size: 20px;
-    position: relative;
-    left: 8px;
-    bottom: 5px;
+  position: relative;
+  left: 8px;
+  bottom: 5px;
 }
 
 .signup input[type="checkbox"] {
@@ -904,11 +892,10 @@ label[for="id_password2"] {
   right: 0;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   border: none;
-  
 }
 
 .signup input::placeholder {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
@@ -951,12 +938,12 @@ label[for="id_password2"] {
 
 #id_login::placeholder {
   text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #id_password::placeholder {
   text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.50);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #id_remember {
@@ -977,7 +964,7 @@ label[for="id_password2"] {
 }
 
 .login input::placeholder {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
@@ -985,7 +972,7 @@ label[for="id_password2"] {
 
 .login .errorlist {
   font-size: 15px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   color: rgb(255, 60, 0);
 }
 
@@ -1009,7 +996,6 @@ label[for="id_login"] {
   font-size: 18px;
   top: -6px;
 }
-
 
 label[for="id_password"] {
   position: relative;
@@ -1105,7 +1091,7 @@ label[for="id_password"] {
 }
 
 .question-form label {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 20px;
   letter-spacing: 1px;
 }
@@ -1235,14 +1221,12 @@ label[for="id_password"] {
   font-size: 25px;
 }
 
-
 .tabs-content h3 {
   width: 70%;
   margin-top: 15%;
   font-size: 24px;
   text-transform: uppercase;
 }
-
 
 .profile-img-form {
   display: flex;
@@ -1258,7 +1242,7 @@ label[for="id_avatar"] {
 }
 
 .profile-img-form input[type="file"] {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   text-transform: uppercase;
   margin-left: 118px;
   font-size: 18px;
@@ -1299,7 +1283,6 @@ label[for="id_avatar"] {
   height: 55%;
 }
 
-
 label[for="id_description"] {
   display: none;
 }
@@ -1313,17 +1296,16 @@ label[for="id_description"] {
   text-align: center;
   border-radius: 25px;
   padding: 10px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 18px;
 }
-
 
 .details-box input::placeholder {
   text-transform: lowercase;
   color: var(--black-color);
   padding: 10px;
   letter-spacing: 1px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .details-box textarea {
@@ -1331,7 +1313,7 @@ label[for="id_description"] {
   width: 100%;
   margin-bottom: 25px;
   border: none;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   overflow: overlay;
   padding: 10px;
   font-size: 20px;
@@ -1372,16 +1354,16 @@ label[for="id_description"] {
   color: var(--black-color);
   padding: 10px;
   letter-spacing: 1px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .profile-label {
-  font-family: "Architects Daughter", cursive;;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: bold;
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .update-profil {
@@ -1411,7 +1393,7 @@ label[for="id_description"] {
 }
 
 .error-profile {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   color: #db4437;
   margin-bottom: 10px;
   margin-top: -15px;
@@ -1428,8 +1410,6 @@ label[for="id_description"] {
   top: 10%;
   background-color: #18d777;
 }
-
-
 
 .error-profile li {
   margin-bottom: 10px;
@@ -1496,7 +1476,7 @@ label[for="id_description"] {
 }
 
 .change-password-form li {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
 }
 
 .password-link {
@@ -1670,11 +1650,11 @@ label[for="id_description"] {
 
 .page-contents h4 {
   text-transform: uppercase;
-    color: var(--black-color);
-    position: relative;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--yellow-color);
-    font-size: 17px;
+  color: var(--black-color);
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--yellow-color);
+  font-size: 17px;
 }
 
 .page-contents p {
@@ -1695,7 +1675,7 @@ label[for="id_description"] {
 
 .page-heading h2 {
   font-size: 18px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   margin-bottom: 10px;
   margin-top: 25px;
   color: var(--yellow-color);
@@ -1713,10 +1693,9 @@ label[for="id_description"] {
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 5px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-weight: bold;
 }
-
 
 .petsitter-form input[name="is_small_dog"] {
   width: 20px;
@@ -1798,7 +1777,6 @@ label[for="big_dog"] {
   -moz-transition: inherit;
   -o-transition: inherit;
   transition: inherit;
-
 }
 
 .switch-label:before {
@@ -1807,8 +1785,7 @@ label[for="big_dog"] {
   color: #aaaaaa;
   font-weight: bold;
   font-size: 14px;
-  font-family: 'Hubballi', cursive;
-
+  font-family: "Hubballi", cursive;
 }
 
 .switch-label:after {
@@ -1818,8 +1795,7 @@ label[for="big_dog"] {
   opacity: 0;
   font-size: 14px;
   font-weight: bold;
-  font-family: 'Hubballi', cursive;
-
+  font-family: "Hubballi", cursive;
 }
 
 .switch-input:checked ~ .switch-label {
@@ -1883,7 +1859,6 @@ label[for="big_dog"] {
   height: 50%;
 }
 
-
 .error-box h2 {
   text-transform: uppercase;
 }
@@ -1912,10 +1887,10 @@ label[for="big_dog"] {
   height: 500px;
 }
 
-
 .not-found-button {
   margin-bottom: 100px;
   margin-top: 60px;
+  width: 20%;
 }
 
 /* -------------------Petsitters list */
@@ -1933,14 +1908,15 @@ label[for="big_dog"] {
 .card {
   position: relative;
   display: block;
-  height: 100%;  
+  height: 100%;
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
-.card__image {      
+.card__image {
   width: 100%;
   height: 400px;
 }
@@ -1950,11 +1926,11 @@ label[for="big_dog"] {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;      
-  border-radius: calc(var(--curve) * 1px);    
-  background-color: var(--surface-color);      
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--surface-color);
   transform: translateY(100%);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .card:hover .card__overlay {
@@ -1967,10 +1943,10 @@ label[for="big_dog"] {
   align-items: center;
   gap: 2em;
   padding: 2em;
-  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
   background-color: var(--surface-color);
   transform: translateY(-100%);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .card__arc {
@@ -1978,11 +1954,10 @@ label[for="big_dog"] {
   height: 80px;
   position: absolute;
   bottom: 100%;
-  right: 0;      
+  right: 0;
   z-index: 1;
 }
 
-      
 .card:hover .card__header {
   transform: translateY(0);
 }
@@ -1990,13 +1965,13 @@ label[for="big_dog"] {
 .card__thumb {
   flex-shrink: 0;
   width: 50px;
-  height: 50px;      
-  border-radius: 50%;      
+  height: 50px;
+  border-radius: 50%;
 }
 
 .card__title {
   font-size: 1em;
-  margin: 0 0 .3em;
+  margin: 0 0 0.3em;
   color: var(--black-color);
   font-size: 20px;
 }
@@ -2004,21 +1979,21 @@ label[for="big_dog"] {
 .card__tagline {
   display: block;
   margin: 1em 0;
-  font-family: "Architects Daughter", cursive;  
-  font-size: .8em; 
-  color: var(--black-color);  
+  font-family: "Architects Daughter", cursive;
+  font-size: 0.8em;
+  color: var(--black-color);
 }
 
 .card__status {
-  font-size: .8em;
+  font-size: 0.8em;
   color: var(--black-color);
 }
 
 .card__description {
   padding: 0 2em 2em;
   margin: 0;
-  color: var(--black-color);  
-  font-family: "Architects Daughter", cursive;   
+  color: var(--black-color);
+  font-family: "Architects Daughter", cursive;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -2026,14 +2001,12 @@ label[for="big_dog"] {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-}    
-
+}
 
 .petsitters-section {
   position: relative;
   overflow: hidden;
 }
-
 
 .petsitters-heading {
   margin-top: 8%;
@@ -2049,7 +2022,6 @@ label[for="big_dog"] {
   height: 200px;
   margin-bottom: 45%;
 }
-
 
 .stars-list {
   display: flex;
@@ -2073,7 +2045,6 @@ label[for="big_dog"] {
   margin-top: 35px;
   font-size: 30px;
 }
-
 
 .details-image {
   /* background: url(/media/avatar_images/3.jpg) no-repeat center center/cover; */
@@ -2120,9 +2091,8 @@ label[for="big_dog"] {
   justify-content: center;
 }
 
-
 .description-container {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   display: flex;
   height: 285px;
   width: 100%;
@@ -2133,7 +2103,7 @@ label[for="big_dog"] {
 
 .description-part {
   height: 70%;
-    width: 80%;
+  width: 80%;
 }
 
 .description-part h3 {
@@ -2142,32 +2112,30 @@ label[for="big_dog"] {
 }
 
 .description-part p {
- line-height: 23px;
- font-size: 20px;
+  line-height: 23px;
+  font-size: 20px;
 }
 
-
 .reviews-container {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   display: flex;
   width: 80%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 28%;
+  height: 40%;
 }
 
 .reviews-container h3 {
-  margin-top: 7%;
+  margin-top: 3%;
   font-size: 20px;
-
+  margin-bottom: -8%;
 }
 
 /* ----------------reviews sliders */
 .slider-container {
   width: 70%;
   height: 300px;
-
 }
 
 .slider {
@@ -2177,13 +2145,13 @@ label[for="big_dog"] {
   overflow: hidden;
 }
 
- .review-box {
+.review-box {
   width: 100%;
-  height: 100%;
+  height: 115%;
   position: absolute;
   top: 0;
   left: -100%;
-  animation-duration: .5s ;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   display: flex;
@@ -2203,7 +2171,8 @@ label[for="big_dog"] {
 
 .review-box p {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 25px;
+  font-size: 18px;
 }
 
 .next,
@@ -2215,7 +2184,7 @@ label[for="big_dog"] {
   z-index: 100;
   top: 73%;
   opacity: 0.4;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 .next:hover,
@@ -2266,7 +2235,6 @@ label[for="big_dog"] {
   }
 }
 
-
 /* ------------open prices */
 /* newsletter */
 .prices-wrapper {
@@ -2295,19 +2263,23 @@ label[for="big_dog"] {
   cursor: pointer;
 }
 
-
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF53455B', endColorstr='#FF201E22');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjAlIiByPSI3MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1MzQ1NWIiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iIzIwMWUyMiIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjAlIiByPSI3MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1MzQ1NWIiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iIzIwMWUyMiIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
   background-size: 100%;
   background-image: -moz-radial-gradient(top, circle, #53455b 0%, #201e22 70%);
-  background-image: -webkit-radial-gradient(top, circle, #53455b 0%, #201e22 70%);
+  background-image: -webkit-radial-gradient(
+    top,
+    circle,
+    #53455b 0%,
+    #201e22 70%
+  );
   background-image: radial-gradient(circle at top, #53455b 0%, #201e22 70%);
   color: #fff;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
   line-height: 1.5;
@@ -2361,9 +2333,10 @@ label[for="big_dog"] {
   clear: both;
 }
 
-.grid-1-5 {
+.prices_box {
   border: 2px solid #5d4e65;
-  min-height: 400px;
+  min-height: 500px;
+  width: 150px;
   padding: 1.25em;
   position: relative;
   text-align: center;
@@ -2372,15 +2345,22 @@ label[for="big_dog"] {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  margin-right: 20px;
 }
 
-.grid-1-5:hover {
+.prices_box:hover {
   background-color: #53455b;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF53455B', endColorstr='#FF201D22');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUzNDU1YiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIwMWQyMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUzNDU1YiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIwMWQyMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #53455b), color-stop(100%, #201d22));
+  background-image: -webkit-gradient(
+    linear,
+    50% 0%,
+    50% 100%,
+    color-stop(0%, #53455b),
+    color-stop(100%, #201d22)
+  );
   background-image: -moz-linear-gradient(top, #53455b 0%, #201d22 100%);
   background-image: -webkit-linear-gradient(top, #53455b 0%, #201d22 100%);
   background-image: linear-gradient(to bottom, #53455b 0%, #201d22 100%);
@@ -2390,15 +2370,23 @@ label[for="big_dog"] {
   transform: scale(1.025);
   z-index: 2;
 }
-.grid-1-5:hover:before, .grid-1-5:hover:after {
+
+.prices_box:hover:before,
+.prices_box:hover:after {
   content: "";
   position: absolute;
   background-color: #f67d35;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF67D35', endColorstr='#FFFF4F68');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2N2QzNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNGY2OCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2N2QzNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmNGY2OCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f67d35), color-stop(100%, #ff4f68));
+  background-image: -webkit-gradient(
+    linear,
+    50% 0%,
+    50% 100%,
+    color-stop(0%, #f67d35),
+    color-stop(100%, #ff4f68)
+  );
   background-image: -moz-linear-gradient(top, #f67d35 0%, #ff4f68 100%);
   background-image: -webkit-linear-gradient(top, #f67d35 0%, #ff4f68 100%);
   background-image: linear-gradient(to bottom, #f67d35 0%, #ff4f68 100%);
@@ -2406,35 +2394,47 @@ label[for="big_dog"] {
   bottom: -2px;
   width: 2px;
 }
-.grid-1-5:hover:before {
+
+.prices_box:hover:before {
   left: -2px;
 }
-.grid-1-5:hover:after {
+
+.prices_box:hover:after {
   right: -2px;
 }
-.grid-1-5:hover  {
+
+.prices_box:hover {
   background-color: #ee7a36;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFEE7A36', endColorstr='#FFEB495D');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlN2EzNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ViNDk1ZCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlN2EzNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ViNDk1ZCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ee7a36), color-stop(100%, #eb495d));
+  background-image: -webkit-gradient(
+    linear,
+    0% 50%,
+    100% 50%,
+    color-stop(0%, #ee7a36),
+    color-stop(100%, #eb495d)
+  );
   background-image: -moz-linear-gradient(left, #ee7a36 0%, #eb495d 100%);
   background-image: -webkit-linear-gradient(left, #ee7a36 0%, #eb495d 100%);
   background-image: linear-gradient(to right, #ee7a36 0%, #eb495d 100%);
 }
 
-
 .uppercase {
   text-transform: uppercase;
 }
 
-.grid-1-5 h2 {
+.prices_box h2 {
+  font-size: 20px;
   border-bottom: 1px solid #fff;
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 20px;
-  font-size: 23px;
+}
+
+.prices_box li {
+  font-size: 20px;
 }
 
 sup,
@@ -2465,60 +2465,84 @@ sup,
     text-shadow: 0 0 15px #777777;
   }
 }
-.rating label {
-  height: 40px;
-  width: 20%;
-  display: block;
-  position: relative;
-  cursor: pointer;
-}
-.rating label:nth-of-type(5):after {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
-}
-.rating label:nth-of-type(4):after {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-.rating label:nth-of-type(3):after {
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-}
-.rating label:nth-of-type(2):after {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
-}
-.rating label:nth-of-type(1):after {
-  -webkit-animation-delay: 0.05s;
-          animation-delay: 0.05s;
-}
-.rating label:after {
-  transition: all 0.4s ease-out;
-  -webkit-font-smoothing: antialiased;
-  position: absolute;
-  content: "☆";
-  color: var(--black-color);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 80px;
-  -webkit-animation: 1s pulse ease;
-          animation: 1s pulse ease;
-}
-.rating label:hover:after {
-  color: #5e5e5e;
-  text-shadow: 0 0 15px #5e5e5e;
-}
-.rating input {
-  display: none;
-}
-.rating input:checked + label:after,
-.rating input:checked ~ label:after {
-  content: "★";
+
+.checked {
   color: #f9bf3b;
   text-shadow: 0 0 20px #f9bf3b;
+}
+
+.stars {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#id_stars {
+  display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#id_stars input[type='radio'] {
+  display: none;
+  
+}
+
+#id_stars input[type='radio']:checked {
+  visibility: hidden;
+ 
+}
+
+label[for="id_stars_0"] {
+  content: '☆';
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+label[for="id_stars_1"] {
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+label[for="id_stars_2"] {
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+label[for="id_stars_3"] {
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+label[for="id_stars_4"] {
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .rev-container {
@@ -2543,8 +2567,7 @@ sup,
   justify-content: center;
 }
 
-
-.rev-form label {
+.lab {
   font-size: 22px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -2553,13 +2576,13 @@ sup,
 
 .rev-form p {
   font-size: 22px;
-    margin-bottom: -90px;
-    text-transform: uppercase;
-    margin-top: 15%;
+  margin-bottom: -90px;
+  text-transform: uppercase;
+  margin-top: 15%;
 }
 
 .rev-description {
-  height: 200px;
+  height: 170px;
   width: 65%;
   margin-bottom: 25px;
   border: none;
@@ -2567,42 +2590,41 @@ sup,
   text-align: center;
   border-radius: 25px;
   padding: 10px;
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-size: 18px;
   resize: none;
 }
 
-
 /* ---------MEDIA QUERIES */
 @media screen and (min-width: 700px) {
-  .grid-1-5 {
+  .prices_box {
     float: left;
     width: 50%;
   }
-  .grid-1-5:nth-child(odd) {
+  .prices_box:nth-child(odd) {
     clear: left;
   }
 }
 @media screen and (min-width: 800px) {
-  .grid-1-5 {
+  .prices_box {
     width: 33.3333333%;
   }
-  .grid-1-5:nth-child(3n + 1) {
+  .prices_box:nth-child(3n + 1) {
     clear: left;
   }
-  .grid-1-5:nth-child(odd) {
+  .prices_box:nth-child(odd) {
     clear: none;
   }
 }
 @media screen and (min-width: 1120px) {
-  .grid-1-5 {
+  .prices_box {
     width: 20%;
   }
-  .grid-1-5:nth-child(odd), .grid-1-5:nth-child(3n + 1) {
+  .prices_box:nth-child(odd),
+  .prices_box:nth-child(3n + 1) {
     clear: none;
   }
 }
-
 
 @media screen and (max-width: 1600px) {
   .home-bg-shape-2 {
@@ -2796,6 +2818,12 @@ sup,
   }
 
   .about-dog-img {
+    display: none;
+  }
+
+  .heart-about-1,
+  .heart-about-2,
+  .heart-about-3 {
     display: none;
   }
 

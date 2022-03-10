@@ -66,7 +66,7 @@
             {% if user.is_authenticated %}
             <li 
             class="welcome-msg">
-              <span>Welcome {{request.user.first_name}} !</span>
+              <span>hello {{request.user.first_name}}! ♥</span>
             </li>
             <li><a 
               id="user-profile-link" 
@@ -181,6 +181,8 @@
       </footer>
     <script src="https://kit.fontawesome.com/111b3a0b11.js" crossorigin="anonymous"></script>
     <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
     <script src="/static/js/jquery/jquery.js"></script>
     <script src="/static/js/navbar.js"></script>  
     {% block extra_js %}

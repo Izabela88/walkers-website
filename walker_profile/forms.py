@@ -1,4 +1,3 @@
-from dataclasses import fields
 from allauth.account.forms import SignupForm
 from django import forms
 from walker_profile.models import (
@@ -8,7 +7,6 @@ from walker_profile.models import (
     ServiceDetails,
 )
 from django.core.validators import RegexValidator
-import requests
 
 
 class ExtendedSignupForm(SignupForm):
