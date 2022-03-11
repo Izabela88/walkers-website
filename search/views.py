@@ -9,9 +9,14 @@ from walker_profile import utility
 from django.http import HttpResponseRedirect
 from walker_profile.utility import GeoCodeError
 from reviews.models import PetsitterReview
+from django.db.models import Avg
 
 
 class SearchView(View):
+    def get(self, request):
+        pass
+   
+
     def post(self, request):
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
@@ -82,9 +87,14 @@ class PetsitterProfile(View):
                     }
 
                 context['services'].append(service)
-        context['reviews'] = PetsitterReview.objects.filter(
+        reviews = PetsitterReview.objects.filter(
             user_id=id, is_admin_approved=True,is_visible=True
         ).all()
+        ratings = [i.stars for i in reviews]
+        context['reviews'] = reviews
+        try:
+            context['avg_rating'] = round(sum(ratings)/len(reviews))
+        except ZeroDivisionError:
+            context['avg_rating'] = None   
+        
         return render(request, 'search/petsitter_profile.html', context)
-
-

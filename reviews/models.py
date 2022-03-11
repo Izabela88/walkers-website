@@ -22,7 +22,3 @@ class PetsitterReview(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
     is_visible = models.BooleanField(null=False, default=False)
     is_admin_approved = models.BooleanField(null=False, default=False)
-
-   
-
-   

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
+{% load custom_tags %}
 <section class="petsitters-section">
     <div class="section-heading petsitters-heading center">
         <h2>
@@ -35,13 +36,28 @@
                         <div class="card__header-text">
                           <h3 class="card__title">{{i.first_name}}</h3>            
                           <span class="card__status"> 3 reviews
-                                <ul class="stars-list">
+                          <ul class="stars-list">
+                            <!-- {% if not reviews %}
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                            {% else %}
+                              {% with ''|center:avg_rating as range %}
+                              {% for _ in range %}
+                                <li style="color: #f9bf3b">★</li>
+                              {% endfor %}
+                              {% endwith %}
+                            {% with '5'|subtract:avg_rating as empty_stars %}
+                              {% with ''|center:empty_stars as range %}
+                                  {% for _ in range %}
                                     <li>☆</li>
-                                    <li>☆</li>
-                                    <li>☆</li>
-                                    <li>☆</li>
-                                    <li>☆</li>                          
-                                </ul>
+                                  {% endfor %}
+                                {% endwith %}
+                              {% endwith %}      
+                            {% endif %}                        -->
+                          </ul>
                           </span>
                         </div>
                       </div>

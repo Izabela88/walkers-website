@@ -52,6 +52,24 @@ label {
   font-family: "Hubballi", cursive;
 }
 
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f9c14a; 
+  border-radius: 10px;
+  transition-duration: .4s;
+}
+
+
 .errorlist {
   font-size: 15px;
   font-family: "Hubballi", cursive;
@@ -2479,7 +2497,7 @@ sup,
 
 .stars {
   width: 100%;
-  height: 15%;
+  height: 7%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2566,7 +2584,7 @@ label[for="id_stars_4"] {
 
 .rev-form {
   width: 60%;
-  height: 80%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2576,7 +2594,7 @@ label[for="id_stars_4"] {
 .lab {
   font-size: 22px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   margin-top: 10%;
 }
 
