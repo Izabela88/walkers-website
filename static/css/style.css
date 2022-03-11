@@ -1501,7 +1501,7 @@ label[for="id_description"] {
   text-decoration: none;
   color: inherit;
   transition: border 0.2s;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -1856,7 +1856,7 @@ label[for="big_dog"] {
 /* --------------------------errors */
 .error-box {
   width: 50%;
-  height: 50%;
+  height: 60%;
 }
 
 .error-box h2 {
@@ -1871,6 +1871,12 @@ label[for="big_dog"] {
 
 .error-img-404 {
   background: url(/media/error404.gif) no-repeat center center/cover;
+  width: 500px;
+  height: 500px;
+}
+
+.error-img-403 {
+  background: url(/media/errorcat.gif) no-repeat center center/cover;
   width: 500px;
   height: 500px;
 }

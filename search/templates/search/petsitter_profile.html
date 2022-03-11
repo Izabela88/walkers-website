@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load custom_tags %}
 <section class="section">
 {% if messages %}
       <ul class="authenticate-msg center">
@@ -73,11 +74,18 @@
               <div class="review-box ">
                 <h4>{{i.reviewer.first_name}}</h4>
                 <ul class="stars-list">
-                  <li>☆</li>
-                  <li>☆</li>
-                  <li>☆</li>
-                  <li>☆</li>
-                  <li>☆</li>                          
+                  {% with ''|center:i.stars as range %}
+                  {% for _ in range %}
+                    <li style="color: #f9bf3b">★</li>
+                  {% endfor %}
+                  {% endwith %}
+                  {% with '5'|subtract:i.stars as empty_stars %}
+                    {% with ''|center:empty_stars as range %}
+                      {% for _ in range %}
+                        <li>☆</li>
+                      {% endfor %}
+                    {% endwith %}
+                  {% endwith %}                         
                 </ul>
                 <p>
                   {{i.description}}
@@ -85,9 +93,9 @@
               </div>
               {% endfor %}
             {% else %}
-            <div class="review-box ">
-              <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
-            </div>
+              <div class="review-box ">
+                <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
+              </div>
             {% endif %}
           </div>  
         </div>

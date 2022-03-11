@@ -46,7 +46,6 @@ const handleSelect = (selection) => {
 }
 
 
-
 const arr = [one, two, three, four, five]
 
 arr.forEach (item => item.addEventListener('click', (event) => {

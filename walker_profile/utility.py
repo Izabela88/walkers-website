@@ -8,7 +8,8 @@ from walker_profile.forms import (
     PetsitterDescriptionForm,
     ServiceDetailsForm,
 )
-from .models import ServiceDetails, WalkerUser
+from .models import ServiceDetails
+from reviews.models import PetsitterReview
 import requests
 from django.http import HttpResponseRedirect
 from haversine import haversine, Unit

@@ -8,7 +8,6 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 
-
 class Review(View):
     
     def get(self, request, id):
@@ -33,6 +32,12 @@ class Review(View):
             data.user_id = id
             reviewer = request.user
             data.reviewer_id = reviewer.id
+            if id == reviewer.id:
+                return render(request, '403.html')
+            user_review = PetsitterReview.objects.filter(user_id=id, reviewer_id=reviewer.id).first()
+            if user_review:
+                messages.error(request, 'You have already given review to this user !')
+                return redirect(f"/search/petsitter_profiles/{id}")  
             data.save()
             messages.success(request, 'Thank you for your review!')
         else:

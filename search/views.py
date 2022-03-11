@@ -85,8 +85,6 @@ class PetsitterProfile(View):
         context['reviews'] = PetsitterReview.objects.filter(
             user_id=id, is_admin_approved=True,is_visible=True
         ).all()
-
-        
-
-
         return render(request, 'search/petsitter_profile.html', context)
+
+
