@@ -35,7 +35,7 @@ class WalkerUser(AbstractUser):
         try:
             avg_rating = round(sum(ratings)/len(reviews))
         except ZeroDivisionError:
-            avg_rating = None  
+            avg_rating = 0  
         return avg_rating, len(reviews)
 
     def delete(self, *args, **kwargs):

@@ -45,9 +45,9 @@ class SearchView(View):
             petsitters = utility.get_users_within_radius(
                 search_long, search_lat, petsitters, radius_miles
             )
-            context['search_results'] = petsitters
-            context['search_results'] = [(i, i.reviews_rating()) for i in petsitters]
-            breakpoint()
+            search_result = [(i, i.reviews_rating()) for i in petsitters]
+            search_result.sort(key=lambda x: x[1], reverse=True)
+            context['search_results'] = search_result
         else:
             request.session[
                 "petsitter_search_form_errors"
