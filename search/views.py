@@ -13,9 +13,6 @@ from django.db.models import Avg
 
 
 class SearchView(View):
-    def get(self, request):
-        pass
-   
 
     def post(self, request):
         context = {}
@@ -43,13 +40,14 @@ class SearchView(View):
                 is_petsitter=True,
                 service_details__service_type__type=care_type,
                 service_details__is_active=True,
-                address_details__longitude__isnull=False,
-                address_details__latitude__isnull=False,
             )
             petsitters = WalkerUser.objects.filter(filter_ & size_filter).all()
-            context['search_results'] =  utility.get_users_within_radius(
+            petsitters = utility.get_users_within_radius(
                 search_long, search_lat, petsitters, radius_miles
             )
+            context['search_results'] = petsitters
+            context['search_results'] = [(i, i.reviews_rating()) for i in petsitters]
+            breakpoint()
         else:
             request.session[
                 "petsitter_search_form_errors"
@@ -87,14 +85,12 @@ class PetsitterProfile(View):
                     }
 
                 context['services'].append(service)
-        reviews = PetsitterReview.objects.filter(
-            user_id=id, is_admin_approved=True,is_visible=True
-        ).all()
-        ratings = [i.stars for i in reviews]
-        context['reviews'] = reviews
-        try:
-            context['avg_rating'] = round(sum(ratings)/len(reviews))
-        except ZeroDivisionError:
-            context['avg_rating'] = None   
         
+        avg_rating, reviews_qty = user.reviews_rating()
+
+        context['reviews_data'] = {
+            'reviews': user.user_reviews.all(),
+            'avg_rating': avg_rating,
+            'reviews_qty': reviews_qty
+        }
         return render(request, 'search/petsitter_profile.html', context)

@@ -21,19 +21,19 @@
       {% endif %} 
       <h2>{{user.first_name}}</h2>
       <ul class="stars-list">
-        {% if not reviews %}
+        {% if not reviews_data.avg_rating %}
           <li>☆</li>
           <li>☆</li>
           <li>☆</li>
           <li>☆</li>
           <li>☆</li>
         {% else %}
-        {% with ''|center:avg_rating as range %}
+        {% with ''|center:reviews_data.avg_rating as range %}
         {% for _ in range %}
           <li style="color: #f9bf3b">★</li>
         {% endfor %}
         {% endwith %}
-        {% with '5'|subtract:avg_rating as empty_stars %}
+        {% with '5'|subtract:reviews_data.avg_rating as empty_stars %}
           {% with ''|center:empty_stars as range %}
             {% for _ in range %}
               <li>☆</li>
@@ -84,8 +84,8 @@
         <span class="prev"><i class="fas fa-arrow-left"></i></span>
         <div class="slider-container">
           <div class="slider">
-            {% if reviews %}
-              {% for i in reviews %}
+            {% if reviews_data.reviews %}
+              {% for i in reviews_data.reviews %}
                 <div class="review-box ">
                   <h4>{{i.reviewer.first_name}}</h4>
                   <ul class="stars-list">

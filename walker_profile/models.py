@@ -29,6 +29,15 @@ class WalkerUser(AbstractUser):
         upload_to='avatar_images/', null=True, blank=True, validators=[validate_image]
     )
 
+    def reviews_rating(self):
+        reviews = self.user_reviews.filter( is_admin_approved=True,is_visible=True)
+        ratings = [i.stars for i in reviews]
+        try:
+            avg_rating = round(sum(ratings)/len(reviews))
+        except ZeroDivisionError:
+            avg_rating = None  
+        return avg_rating, len(reviews)
+
     def delete(self, *args, **kwargs):
         if self.avatar:
             storage, path = self.avatar.storage, self.avatar.path

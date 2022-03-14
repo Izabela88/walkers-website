@@ -11,10 +11,10 @@ class PetsitterReview(models.Model):
         (4, 5),
     )
     user = models.ForeignKey(
-        WalkerUser, on_delete=models.CASCADE, null=False, related_name="user"
+        WalkerUser, on_delete=models.CASCADE, null=False, related_name="user_reviews"
     )
     reviewer = models.ForeignKey(
-        WalkerUser, on_delete=models.CASCADE, null=False, related_name="reviewer"
+        WalkerUser, on_delete=models.CASCADE, null=False, related_name="reviewer_reviews"
     )
     description = models.TextField(blank=True, null=True)
     stars = models.IntegerField(choices=TYPE_SELECT)
