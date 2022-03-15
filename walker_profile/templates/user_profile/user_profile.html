@@ -287,7 +287,7 @@
           class="tabs-content" 
         {% endif %}>
         <h2>My Reviews</h2>
-        <p class="my-reviews-txt">To see yours reviews, click on this <a class="password-link" href="{% url 'my_reviews' %}">link</a> <br>
+        <p class="my-reviews-txt">To see yours reviews, click on this <a class="password-link" href="{% url 'my_reviews' user.id %}">link</a> <br>
         </p>
       </div>          
     {% endif %}     

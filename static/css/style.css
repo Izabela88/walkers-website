@@ -2624,7 +2624,6 @@ label[for="id_stars_4"] {
 
 .my-reviews-heading { 
   position: relative;
-    margin-bottom: -9%;
     height: 400px;
     margin-top: -4%;
 }
@@ -2669,7 +2668,8 @@ label[for="id_stars_4"] {
 .review-icon {
   width: 80px;
   height: 80px;
-  background: url(/media/user.png) no-repeat center center/cover;
+  border-radius: 50%;
+  box-shadow: rgb(38 57 77) 0px 20px 30px -10px;
 
 }
 

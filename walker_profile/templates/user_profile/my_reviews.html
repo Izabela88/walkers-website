@@ -7,31 +7,30 @@
         <h2>Check your reviews</h2>
     </div>
     <div class="container">
-        <div class="reviews_list">      
-            <div class="reviews_list__profiles">
-              <div class="reviews_list__profile">
-                <div class="review-icon"></div>
-                <span class="reviews_list__name">Mary</span>
-                <a href="#" class="reviews_list__value">edit review</a>
-            </div>         
-              <div class="reviews_list__profile">
-                <div class="review-icon"></div>
-                <span class="reviews_list__name">John</span>
-                <a href="#" class="reviews_list__value">edit review</a>
-            </div>       
-              <div class="reviews_list__profile">
-                <div class="review-icon"></div>
-                <span class="reviews_list__name">John</span>
-                <a href="#" class="reviews_list__value">edit review</a>
-            </div>          
-              <div class="reviews_list__profile">
-                <div class="review-icon"></div>
-                <span class="reviews_list__name">Tom</span>
-                <a href="#" class="reviews_list__value">edit review</a>
+        <div class="reviews_list">
+            {% if my_reviews %}
+                <div class="reviews_list__profiles">
+                    {% for i in my_reviews %}
+                        <div class="reviews_list__profile">
+                            {% if i.user.avatar %}
+                                <div class="review-icon" 
+                                style="background: url('{{i.user.avatar.url}}') no-repeat center center/cover"></div>
+                            {% else %}
+                                <div class="review-icon" 
+                                style="background: url('/media/user.png') no-repeat center center/cover"></div>    
+                            {% endif %}
+                            <span class="reviews_list__name">{{i.user.first_name}}</span>
+                            <a href="#" class="reviews_list__value">edit review</a>
+                        </div>
+                    {% endfor %}
+                    </div>
+            {% else %}
+            <div class="center">
+                <h2>You haven't given any review yet...</h2>
+                <img src="/media/happy-dog.gif" alt="">
             </div>
-            </div>
-          </div>
-    </div>
+            {% endif %}    
+        </div>
 </section>
 
 {% endblock %}

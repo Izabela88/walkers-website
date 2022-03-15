@@ -19,4 +19,5 @@ urlpatterns = [
     Review.as_view(),
     name='reviews',
     ),
+    
 ]

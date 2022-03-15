@@ -17,15 +17,18 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse
 from walker_profile.models import ServiceTypes, ServiceDetails
 from walker_profile import utility
+from django.shortcuts import redirect, render, get_object_or_404
+from walker_profile.models import WalkerUser
+
 
 
 class UserProfileView(View):
     template_name = 'user_profile.html'
 
-    def get(self, request):
+    def get(self, request, id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
-
+        
         context = {
             "profile_form_errors": request.session.pop("profile_form_errors", None),
             "address_form_errors": request.session.pop("address_form_errors", None),
@@ -46,6 +49,8 @@ class UserProfileView(View):
         description_form = PetsitterDescriptionForm(
             instance=request.user.petsitter_details
         )
+        user = get_object_or_404(WalkerUser, id=id)
+        context['user'] = user
         context['profile_form'] = profile_form
         context['address_form'] = address_form
         context['avatar_form'] = avatar_form
@@ -80,10 +85,12 @@ class UserProfileView(View):
             context["tab"] = request.session.pop("tab")
         return render(request, 'user_profile/user_profile.html', context)
 
-    def post(self, request):
+    def post(self, request, id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
         context = {}
+        user = get_object_or_404(WalkerUser, id=id)
+        context['user'] = user
 
         form_mapping = {
             "profile_form": utility._handle_profile_form,
@@ -91,7 +98,6 @@ class UserProfileView(View):
             "avatar_form": utility._handle_avatar_form,
             "description_form": utility._handle_description_form,
         }
-
         service_types = ServiceTypes.objects.all()
         form_type = request.POST.get("form_type")
         service_type_id = None
@@ -102,7 +108,7 @@ class UserProfileView(View):
         form_handler = form_mapping.get(form_type)
         if form_handler:
             context = form_handler(request, context, service_type_id)
-        return HttpResponseRedirect("/profile/user_profile")
+        return HttpResponseRedirect(f"/profile/user_profile/{id}")
 
 
 # https://dev.to/earthcomfy/django-update-user-profile-33ho
@@ -122,8 +128,12 @@ class WalkerUserDelete(DeleteView):
         return reverse('home')
 
 
-class MyReviews(View):
+class MyReview(View):
 
-    def get(self, request):
+    def get(self, request, id):
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
         context = {}
+        user = get_object_or_404(WalkerUser, id=id)
+        context['my_reviews'] =  user.reviewer_reviews.all()
         return render(request, 'user_profile/my_reviews.html', context)

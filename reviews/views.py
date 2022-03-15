@@ -46,3 +46,5 @@ class Review(View):
             review_form = PetsitterReviewForm(data=request.POST or None)
             return render(request, 'reviews/reviews.html', context)   
         return HttpResponseRedirect(f"/search/petsitter_profiles/{id}")
+
+
