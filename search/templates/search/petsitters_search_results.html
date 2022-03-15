@@ -18,7 +18,7 @@
         <ul class="cards">
               {% for i in search_results %}
                 <li>
-                  <a href="{% url 'petsitter_profile' i.0.id %}" class="card">
+                  <a href="{% url 'petsitter_profiles' i.0.id %}" class="card">
                     {% if i.0.avatar %} 
                         <div class="card__image" style="background: url('{{i.0.avatar.url}}') no-repeat center center/cover"></div>
                     {% else %}
@@ -29,9 +29,9 @@
                     <div class="card__overlay">
                       <div class="card__header">
                         {% if i.0.avatar %}
-                        <div class="card__thumb" style="background: url('{{i.avatar.url}}') no-repeat center center/cover"></div>
+                          <div class="card__thumb" style="background:  url('/media/track.png') no-repeat center center/cover"></div>
                         {% else %}
-                            <div class="card__thumb" style="background: url('/media//user.png') no-repeat center center/cover"></div>    
+                            <div class="card__thumb" style="background: url('/media/user.png') no-repeat center center/cover"></div>    
                         {% endif %}
                         <div class="card__header-text">
                           <h3 class="card__title">{{i.0.first_name}}</h3>           

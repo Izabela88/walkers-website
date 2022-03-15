@@ -106,16 +106,12 @@ class UserProfileView(View):
 
 
 # https://dev.to/earthcomfy/django-update-user-profile-33ho
-
-
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('user_profile')
 
-
 User = get_user_model()
-
 
 class WalkerUserDelete(DeleteView):
     model = User
@@ -124,3 +120,10 @@ class WalkerUserDelete(DeleteView):
     def get_success_url(self):
         messages.success(self.request, "Your account has been deleted successfully.")
         return reverse('home')
+
+
+class MyReviews(View):
+
+    def get(self, request):
+        context = {}
+        return render(request, 'user_profile/my_reviews.html', context)

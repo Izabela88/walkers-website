@@ -8,11 +8,12 @@ from django.urls import reverse
 from walker_profile import utility
 from django.http import HttpResponseRedirect
 from walker_profile.utility import GeoCodeError
-from reviews.models import PetsitterReview
-from django.db.models import Avg
 
 
 class SearchView(View):
+
+    def get(self, request):
+        return render(request, 'search/petsitters_search_results.html')
 
     def post(self, request):
         context = {}

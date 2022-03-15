@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<section class="my-reviews-section">
+    <div class="section-heading my-reviews-heading">
+        <h2>Check your reviews</h2>
+    </div>
+    <div class="container">
+        <div class="reviews_list">      
+            <div class="reviews_list__profiles">
+              <div class="reviews_list__profile">
+                <div class="review-icon"></div>
+                <span class="reviews_list__name">Mary</span>
+                <a href="#" class="reviews_list__value">edit review</a>
+            </div>         
+              <div class="reviews_list__profile">
+                <div class="review-icon"></div>
+                <span class="reviews_list__name">John</span>
+                <a href="#" class="reviews_list__value">edit review</a>
+            </div>       
+              <div class="reviews_list__profile">
+                <div class="review-icon"></div>
+                <span class="reviews_list__name">John</span>
+                <a href="#" class="reviews_list__value">edit review</a>
+            </div>          
+              <div class="reviews_list__profile">
+                <div class="review-icon"></div>
+                <span class="reviews_list__name">Tom</span>
+                <a href="#" class="reviews_list__value">edit review</a>
+            </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

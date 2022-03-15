@@ -7,7 +7,7 @@ urlpatterns = [
     path(
         'petsitter_profiles/<int:id>',
         PetsitterProfile.as_view(),
-        name='petsitter_profile',
+        name='petsitter_profiles',
     ),
     
 ]
