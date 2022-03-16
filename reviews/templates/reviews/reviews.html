@@ -14,7 +14,7 @@
         <h2>Your opinion is extremely important ! It's increases credibility among users !</h2>
         <form class="rate-form rev-form" method="post"> 
             {% csrf_token %} 
-            <label class="lab">How many stars would you like to give {{user.first_name}} ?</label>          
+            <label class="lab">How many stars would you like to give {{user.first_name}} ?</label>         
                 <div class="stars">
                     {{review_description_form.stars}}
                 </div>    

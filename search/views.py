@@ -90,7 +90,7 @@ class PetsitterProfile(View):
         avg_rating, reviews_qty = user.reviews_rating()
 
         context['reviews_data'] = {
-            'reviews': user.user_reviews.all(),
+            'reviews': user.user_reviews.filter(is_admin_approved=True,is_visible=True).all(),
             'avg_rating': avg_rating,
             'reviews_qty': reviews_qty
         }

@@ -5,11 +5,11 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class PetsitterReviewForm(forms.Form):
     TYPE_SELECT = (
-        ('0', '☆'),
         ('1', '☆'),
         ('2', '☆'),
         ('3', '☆'),
         ('4', '☆'),
+        ('5', '☆'),
     )
     description = forms.CharField(
         required=False,

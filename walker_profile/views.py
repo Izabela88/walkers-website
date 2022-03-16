@@ -19,6 +19,7 @@ from walker_profile.models import ServiceTypes, ServiceDetails
 from walker_profile import utility
 from django.shortcuts import redirect, render, get_object_or_404
 from walker_profile.models import WalkerUser
+from reviews.models import PetsitterReview
 
 
 
@@ -110,16 +111,17 @@ class UserProfileView(View):
             context = form_handler(request, context, service_type_id)
         return HttpResponseRedirect(f"/profile/user_profile/{id}")
 
-
+User = get_user_model()
 # https://dev.to/earthcomfy/django-update-user-profile-33ho
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
-    success_url = reverse_lazy('user_profile')
+    success_url = reverse_lazy('home')
+    
 
-User = get_user_model()
 
 class WalkerUserDelete(DeleteView):
+    User = get_user_model()
     model = User
     template_name = 'user_confirm_delete.html'
 
@@ -128,12 +130,14 @@ class WalkerUserDelete(DeleteView):
         return reverse('home')
 
 
-class MyReview(View):
+class ReviewList(View):
 
     def get(self, request, id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        context = {}
         user = get_object_or_404(WalkerUser, id=id)
-        context['my_reviews'] =  user.reviewer_reviews.all()
-        return render(request, 'user_profile/my_reviews.html', context)
+        context = {
+            'reviews': user.reviewer_reviews.all(),
+            'user': user
+        }
+        return render(request, 'user_profile/reviews_list.html', context)

@@ -8,9 +8,9 @@
     </div>
     <div class="container">
         <div class="reviews_list">
-            {% if my_reviews %}
+            {% if reviews %}
                 <div class="reviews_list__profiles">
-                    {% for i in my_reviews %}
+                    {% for i in reviews %}
                         <div class="reviews_list__profile">
                             {% if i.user.avatar %}
                                 <div class="review-icon" 
@@ -21,6 +21,11 @@
                             {% endif %}
                             <span class="reviews_list__name">{{i.user.first_name}}</span>
                             <a href="#" class="reviews_list__value">edit review</a>
+                            {% if  i.is_admin_approved and i.is_visible %}
+                                <span class="reviews_list__value_1">approved and visible</span>
+                            {% else %}
+                                <span class="reviews_list__value_2">waiting for approval by admin</span>
+                            {% endif %}
                         </div>
                     {% endfor %}
                     </div>

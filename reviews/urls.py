@@ -17,7 +17,7 @@ urlpatterns = [
     path(
     'petsitter_profiles/<int:id>/review',
     Review.as_view(),
-    name='reviews',
+    name='review',
     ),
     
 ]
