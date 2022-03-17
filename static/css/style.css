@@ -2163,7 +2163,7 @@ label[for="big_dog"] {
 .reviews-container h3 {
   margin-top: 3%;
   font-size: 20px;
-  margin-bottom: -8%;
+  margin-bottom: -5%;
 }
 
 /* ----------------reviews sliders */
@@ -2201,7 +2201,10 @@ label[for="big_dog"] {
 
 .review-box h4 {
   font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
 }
+
 
 .review-box p {
   text-align: center;

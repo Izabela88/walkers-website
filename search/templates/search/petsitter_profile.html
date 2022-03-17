@@ -78,6 +78,7 @@
           {% endif %}
         </div>
       </div>
+    <!----------------- REVIEWS-------------- -->
       <div class="reviews-container">
         <h3>Reviews</h3>
         <span class="next"><i class="fas fa-arrow-right"></i></span>
@@ -87,6 +88,7 @@
             {% if reviews_data.reviews %}
               {% for i in reviews_data.reviews %}
                 <div class="review-box ">
+                  <span>{{i.created_at}}</span>
                   <h4>{{i.reviewer.first_name}}</h4>
                   <ul class="stars-list">
                   {% with ''|center:i.stars as range %}
