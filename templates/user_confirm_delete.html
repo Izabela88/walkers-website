@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load account %}
+{% load i18n %}
 
 {% block title %}User Account Delete{% endblock title %}
 
@@ -12,9 +12,9 @@
                 {% csrf_token %}
                 <p>Are you sure you want to delete your account?</p>
                 <div class="delete-buttons">
-                    <input class="button button-bright" type="submit" value="Yes I am">
-                    <div class="button button-bright center">
-                        <a href="{% url 'user_profile' %}">Nah..Back to profil</a>
+                    <input class="button button-bright del-btn" type="submit" value="Yes I am">
+                    <div class="button button-bright center del-btn">
+                        <a href="{% url 'user_profile' request.user.pk %}">Nah..Back to profil</a>
                     </div>
                 </div>
             </form>

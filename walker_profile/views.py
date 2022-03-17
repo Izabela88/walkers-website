@@ -12,7 +12,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth import get_user_model
 from django.views.generic.edit import DeleteView
 from django.urls import reverse
 from walker_profile.models import ServiceTypes, ServiceDetails
@@ -111,20 +110,19 @@ class UserProfileView(View):
             context = form_handler(request, context, service_type_id)
         return HttpResponseRedirect(f"/profile/user_profile/{id}")
 
-User = get_user_model()
+
 # https://dev.to/earthcomfy/django-update-user-profile-33ho
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    model = WalkerUser
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('home')
     
 
-
 class WalkerUserDelete(DeleteView):
-    User = get_user_model()
-    model = User
+    model = WalkerUser
     template_name = 'user_confirm_delete.html'
-
+    
     def get_success_url(self):
         messages.success(self.request, "Your account has been deleted successfully.")
         return reverse('home')
@@ -138,6 +136,6 @@ class ReviewList(View):
         user = get_object_or_404(WalkerUser, id=id)
         context = {
             'reviews': user.reviewer_reviews.all(),
-            'user': user
+            'user': user,
         }
         return render(request, 'user_profile/reviews_list.html', context)

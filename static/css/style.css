@@ -269,13 +269,12 @@ label {
   position: absolute;
   z-index: 100;
   font-size: 22px;
-  top: 10%;
   box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
   background-color: rgb(238 163 0 / 70%);
   border-radius: 10px;
   width: 400px;
   height: fit-content;
-  top: 12%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -70%);
   padding: 10px;
@@ -1445,7 +1444,11 @@ label[for="id_description"] {
 }
 
 .delete-heading p {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+.del-btn {
+  width: 230px;
 }
 
 .delete-buttons {
@@ -1500,6 +1503,18 @@ label[for="id_description"] {
   color: var(--yellow-color);
   font-weight: bold;
 }
+
+label[for='id_old_password'],
+label[for='id_new_password1'],
+label[for='id_new_password2'] {
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
 
 /* ------------petsitter profile form*/
 /* https://codepen.io/EightArmsHQ/pen/rNBZKNZ */
@@ -2618,6 +2633,16 @@ label[for="id_stars_4"] {
   overflow: hidden;
 }
 
+
+.my-reviews-btn {
+  margin-bottom: 100px;
+}
+
+.happy-dog-icon {
+  height: 500px;
+  width: 500px;
+}
+
 .my-reviews-txt {
   font-size: 25px;
 }
@@ -2644,23 +2669,30 @@ label[for="id_stars_4"] {
 .reviews_list__profiles {
   background-color: #fff;
   border-radius: 0 0 12px 12px;
+  grid-template-columns: repeat(1, 1fr);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
   gap: 20px;
 }
+
+.reviews_list__profiles_2 {
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+ 
 
 .reviews_list__profile {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
-  padding: 20px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
   transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
   background-color: #fff;
   font-family: "Hubballi", cursive;
+  height: 100px;
 }
 
 .reviews_list__profile:hover {
@@ -2672,7 +2704,7 @@ label[for="id_stars_4"] {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  box-shadow: rgb(38 57 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 
@@ -2705,7 +2737,7 @@ label[for="id_stars_4"] {
     text-align: center;
     font-weight: bold;
     letter-spacing: 1px;
-    padding: 10px;
+    padding: 12px;
 }
 
 .reviews_list__value_2 {

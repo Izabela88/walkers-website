@@ -45,6 +45,6 @@ class Review(View):
             request.session["review_form_errors"] = review_form.errors
             review_form = PetsitterReviewForm(data=request.POST or None)
             return render(request, 'reviews/reviews.html', context)   
-        return HttpResponseRedirect(f"/search/petsitter_profiles/{id}")
+        return HttpResponseRedirect("/")
 
 

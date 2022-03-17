@@ -2,15 +2,15 @@
 {% load static %} 
 {% block content %}
 
-<section class="my-reviews-section">
+<section class="my-reviews-section center">
     <div class="section-heading my-reviews-heading">
         <h2>Check your reviews</h2>
     </div>
     <div class="container">
         <div class="reviews_list">
-            {% if reviews %}
-                <div class="reviews_list__profiles">
-                    {% for i in reviews %}
+            {% if reviews %}       
+                <div class="reviews_list__profiles {% if reviews.count >= 2 %} reviews_list__profiles_2 {% endif %}">
+                    {% for i in reviews %}                
                         <div class="reviews_list__profile">
                             {% if i.user.avatar %}
                                 <div class="review-icon" 
@@ -27,15 +27,19 @@
                                 <span class="reviews_list__value_2">waiting for approval by admin</span>
                             {% endif %}
                         </div>
-                    {% endfor %}
+                        {% endfor %}
                     </div>
-            {% else %}
+                    {% else %}
             <div class="center">
-                <h2>You haven't given any review yet...</h2>
-                <img src="/media/happy-dog.gif" alt="">
+                <h2>You didn't write any review yet...</h2>
+                <img class="happy-dog-icon" src="/media/happy-dog.gif" alt=""> 
             </div>
-            {% endif %}    
+            {% endif %}
         </div>
+    </div>
+    <div class="button button-bright center my-reviews-btn">
+        <a href="{% url 'user_profile' request.user.pk %}">Back to profil</a>
+    </div>
 </section>
 
 {% endblock %}
