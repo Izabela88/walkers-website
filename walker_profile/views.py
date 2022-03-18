@@ -19,6 +19,7 @@ from walker_profile import utility
 from django.shortcuts import redirect, render, get_object_or_404
 from walker_profile.models import WalkerUser
 from reviews.models import PetsitterReview
+from reviews.forms import PetsitterReviewForm
 
 
 
@@ -128,7 +129,7 @@ class WalkerUserDelete(DeleteView):
         return reverse('home')
 
 
-class ReviewList(View):
+class WalkerUserReviewList(View):
 
     def get(self, request, id):
         if not request.user.is_authenticated:
@@ -139,3 +140,50 @@ class ReviewList(View):
             'user': user,
         }
         return render(request, 'user_profile/reviews_list.html', context)
+
+
+class WalkerUserReview(View):
+
+    def get(self, request, user_id, review_id):
+        context = {
+           'walker_user_review_form_errors': request.session.pop('walker_user_review_form_errors', None),
+        }
+        
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        walker_user_review_form = PetsitterReviewForm(instance=review)
+
+        if review.reviewer_id != request.user.id:
+            return render(request, '403.html')
+
+        context = {
+            'walker_user_review_form': walker_user_review_form,
+            'petsitter_name': review.user.first_name,
+            'petsitter_stars': review.stars,
+            
+        }
+        return render(request, 'user_profile/edit_review.html', context)
+    
+    def post(self, request, user_id, review_id):
+        context = {}
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        if review.reviewer_id != request.user.id:
+            return render(request, '403.html')
+        walker_user_review_form = PetsitterReviewForm(instance=review, data=request.POST or None)
+
+        if walker_user_review_form.is_valid():
+            if walker_user_review_form.has_changed():
+                walker_user_review_form.save()
+            messages.success(request, 'Your review is updated successfully')
+        else:
+            print(walker_user_review_form.errors)
+            request.session["walker_user_review_form_errors"] = walker_user_review_form.errors
+            context['walker_user_review_form'] = PetsitterReviewForm(instance=review)
+            return render(request, 'user_profile/edit_review.html', context)
+        return HttpResponseRedirect(f'/profile/user_profile/{user_id}/reviews/{review_id}')
+        
+
+   

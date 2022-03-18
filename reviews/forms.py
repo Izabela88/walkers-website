@@ -1,15 +1,14 @@
 from django import forms
 from reviews.models import PetsitterReview
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class PetsitterReviewForm(forms.Form):
+class PetsitterReviewForm(forms.ModelForm):
     TYPE_SELECT = (
-        ('1', '☆'),
-        ('2', '☆'),
-        ('3', '☆'),
-        ('4', '☆'),
-        ('5', '☆'),
+        (1, '☆'),
+        (2, '☆'),
+        (3, '☆'),
+        (4, '☆'),
+        (5, '☆'),
     )
     description = forms.CharField(
         required=False,
@@ -23,7 +22,7 @@ class PetsitterReviewForm(forms.Form):
             }
         ),
     ) 
-    stars = forms.ChoiceField(choices=TYPE_SELECT, widget=forms.RadioSelect())
+    stars = forms.TypedChoiceField(required=True,choices=TYPE_SELECT, coerce=int, widget=forms.RadioSelect())
 
     class Meta:
         model = PetsitterReview

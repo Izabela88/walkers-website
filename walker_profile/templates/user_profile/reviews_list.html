@@ -20,7 +20,7 @@
                                 style="background: url('/media/user.png') no-repeat center center/cover"></div>    
                             {% endif %}
                             <span class="reviews_list__name">{{i.user.first_name}}</span>
-                            <a href="#" class="reviews_list__value">edit review</a>
+                            <a href="{% url 'walker_user_review' request.user.id i.id %}" class="reviews_list__value">edit review</a>
                             {% if  i.is_admin_approved and i.is_visible %}
                                 <span class="reviews_list__value_1">approved and visible</span>
                             {% else %}

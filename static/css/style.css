@@ -71,10 +71,12 @@ label {
 }
 
 
-.errorlist {
-  font-size: 15px;
+.errorlist li {
+  font-size: 18px;
   font-family: "Hubballi", cursive;
   color: rgb(255, 60, 0);
+  text-align: center;
+  
 }
 
 .section {
@@ -270,7 +272,7 @@ label {
   z-index: 100;
   font-size: 22px;
   box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
-  background-color: rgb(238 163 0 / 70%);
+  background-color: rgb(238 163 0 / 100%);
   border-radius: 10px;
   width: 400px;
   height: fit-content;
@@ -808,7 +810,7 @@ select {
 }
 
 .heading h2 {
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
@@ -988,11 +990,6 @@ label[for="id_password2"] {
   font-weight: bold;
 }
 
-.login .errorlist {
-  font-size: 15px;
-  font-family: "Hubballi", cursive;
-  color: rgb(255, 60, 0);
-}
 
 .secondaryAction {
   color: rgb(255, 60, 0);
@@ -2594,7 +2591,7 @@ label[for="id_stars_4"] {
 
 .rev-form {
   width: 60%;
-  height: 75%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2757,6 +2754,14 @@ label[for="id_stars_4"] {
 
 .reviews_list__value:hover {
   color: var(--yellow-color);
+}
+
+.lab.edit-lab {
+  margin-top: 5%;
+}
+
+.rev-container.edit-rev-container h2 {
+  margin-top: 8%;
 }
 
 /* ---------MEDIA QUERIES */

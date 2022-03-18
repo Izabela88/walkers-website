@@ -20,7 +20,8 @@ class Review(View):
         context['user'] = user
         review_description_form = PetsitterReviewForm()
         context['review_description_form'] = review_description_form    
-        return render(request, 'reviews/reviews.html', context)
+        return render(request, 'reviews/review.html', context)
+    
 
     def post(self, request, id):
         context = {}
@@ -44,7 +45,7 @@ class Review(View):
             print(review_form.errors)
             request.session["review_form_errors"] = review_form.errors
             review_form = PetsitterReviewForm(data=request.POST or None)
-            return render(request, 'reviews/reviews.html', context)   
-        return HttpResponseRedirect("/")
+            return render(request, 'reviews/review.html', context)   
+        return HttpResponseRedirect(f'/search/petsitter_profiles/{id}')
 
 

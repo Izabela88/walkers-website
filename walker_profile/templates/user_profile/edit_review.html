@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+{% load custom_tags %}
+<section class="section">
+    {% if messages %}
+        <ul class="authenticate-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+   <div class="container">
+    <div class="rev-container edit-rev-container center">
+        <h2>Edit review</h2>
+        <form class="rate-form rev-form" method="post"> 
+            {% csrf_token %} 
+            <label class="lab edit-lab">Previously, {{petsitter_name}} received from you:</label>   
+                <ul class="stars-list">
+                    {% if not petsitter_stars %}
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                    {% else %}
+                    {% with ''|center:petsitter_stars as range %}
+                    {% for _ in range %}
+                      <li style="color: #f9bf3b">★</li>
+                    {% endfor %}
+                    {% endwith %}
+                    {% with '5'|subtract:petsitter_stars as empty_stars %}
+                      {% with ''|center:empty_stars as range %}
+                        {% for _ in range %}
+                          <li>☆</li>
+                        {% endfor %}
+                      {% endwith %}
+                    {% endwith %}      
+                    {% endif %}                    
+                  </ul>
+                  <label class="lab edit-lab ">How many stars would you like to give {{petsitter_name}} now?</label>
+                  <div class="stars">
+                    {{walker_user_review_form.stars}}
+                </div> 
+            <label class="lab edit-lab">write below what do you think about {{petsitter_name}}'s services:</label>
+            {{walker_user_review_form.description}}
+            <input type="submit" class="button button-bright">
+        </form>
+    </div>
+   </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/review.js' %}"></script>
+{% endblock %}

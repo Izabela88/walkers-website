@@ -71,7 +71,7 @@
             <li><a 
               id="user-profile-link" 
               class="close-sidebar" 
-              href="{% url 'user_profile' user.id %}">
+              href="{% url 'user_profile' request.user.id %}">
               <i class="fas fa-user-circle"></i>
               </a>
             </li>
