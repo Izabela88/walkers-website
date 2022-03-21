@@ -4,7 +4,7 @@
 {% load custom_tags %}
 <section class="section">
 {% if messages %}
-      <ul class="authenticate-msg center">
+      <ul class="info-msg center">
           {% for message in messages %}
               <li>{{ message.message }}</li>
           {% endfor %}
@@ -128,7 +128,9 @@
       <i class="far fa-times-circle"></i>
     </div>    
     <h1>prices</h1>
-    <p>Prices are for one dog. Prices are subject to change in case of exceptional circumstances, which should be discussed with the pet sitter.</p>    
+    <p>Prices are for one dog. Prices are subject to
+       change in case of exceptional circumstances,
+        which should be discussed with the pet sitter.</p>    
     <div class="prices-container group">
       {% for i in services %}
         <div class="prices_box">

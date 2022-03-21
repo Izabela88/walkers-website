@@ -2,10 +2,9 @@
 {% load static %} 
 {% block content %}
 
-
 <section class="walker-profile-section">
   {% if messages %}
-    <ul class="authenticate-msg center">
+    <ul class="info-msg center">
         {% for message in messages %}
             <li>{{ message.message }}</li>
         {% endfor %}

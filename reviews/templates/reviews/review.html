@@ -3,7 +3,7 @@
 {% block content %}
 <section class="section">
     {% if messages %}
-        <ul class="authenticate-msg center">
+        <ul class="info-msg center">
             {% for message in messages %}
                 <li>{{ message.message }}</li>
             {% endfor %}
@@ -18,7 +18,7 @@
                 <div class="stars">
                     {{review_description_form.stars}}
                 </div>    
-            <label class="lab">write below what do you think about {{user.first_name}}'s services:</label>
+            <label class="lab">what do you think about {{user.first_name}}'s services:</label>
             {{review_description_form.description}}
             <input type="submit" class="button button-bright">
         </form>

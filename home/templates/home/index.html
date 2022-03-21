@@ -5,7 +5,7 @@
 <!-------------------------- HERO SECTION ----------------------------->
 <main id="home-section" class="section">
 {% if messages %}
-  <ul class="authenticate-msg center">
+  <ul class="info-msg center">
       {% for message in messages %}
           <li>{{ message.message }}</li>
       {% endfor %}
@@ -39,7 +39,9 @@
     <div class="home-txt center">
       <div class="main-txt center">
         <h1>ARE YOU LOOKING FOR THE BEST PLATFORM FOR ADVERTISING YOUR SERVICES ?</h1>
-        <p>Well, you just found it! :-) We empower pet sitters and dog walkers around the UK to offer their own services on Walkers by giving them the tools to succeed !</p>
+        <p>Well, you just found it! :-) 
+          We empower pet sitters and dog walkers around the UK to offer their
+           own services on Walkers by giving them the tools to succeed !</p>
         <div class="button button-bright center home-button-petsitter">
           <a href="{% url 'user_profile' user.id %}">
             Complete your profile
@@ -67,9 +69,9 @@
 
 {% if not is_petsitter %}
 <!-------------------- SEARCH SECTION------------------- -->
-<section id="searching-section">
+<section id="searching-section" class="section">
   {% if messages %}
-  <ul class="authenticate-msg center">
+  <ul class="info-msg center">
       {% for message in messages %}
           <li>{{ message.message }}</li>
       {% endfor %}

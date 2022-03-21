@@ -3,6 +3,13 @@
 {% block content %}
 
 <section class="my-reviews-section center">
+    {% if messages %}
+        <ul class="info-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <div class="section-heading my-reviews-heading">
         <h2>Check your reviews</h2>
     </div>
@@ -32,7 +39,9 @@
                     {% else %}
             <div class="center">
                 <h2>You didn't write any review yet...</h2>
-                <img class="happy-dog-icon" src="/media/happy-dog.gif" alt=""> 
+                <div class="happy-dog-box center">
+                    <img class="happy-dog-icon" src="/media/dog-walking.gif" alt="Happy dog">
+                </div>                
             </div>
             {% endif %}
         </div>

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% load static %} 
-{% block content %}
 {% load custom_tags %}
+{% load static %}
+
+{% block content %}
 <section class="section">
     {% if messages %}
-        <ul class="authenticate-msg center">
+        <ul class="info-msg center">
             {% for message in messages %}
                 <li>{{ message.message }}</li>
             {% endfor %}
@@ -42,15 +43,52 @@
                   <div class="stars">
                     {{walker_user_review_form.stars}}
                 </div> 
-            <label class="lab edit-lab">write below what do you think about {{petsitter_name}}'s services:</label>
+            <label class="lab edit-lab">what do you think about {{petsitter_name}}'s services:</label>
             {{walker_user_review_form.description}}
-            <input type="submit" class="button button-bright">
-        </form>
+            <div class="buttons-box edit-rev-btns">
+              <input type="submit" class="button button-bright edit-rev-submit-btn" value="submit">
+              <div class="empty-btn"></div>
+            </div>
+          </form>
+          <div id="open-modal"></div>                
+      </div>        
     </div>
    </div>
-</section>
-{% endblock %}
+  </section>
+  <!----------------- DELETE REVIEW MODAL-------------- -->
+  <div class="delete-rev-wrapper">
+   <div class="modal-content">
+     <div class="delete-rev-box">
+       <div class="close-delete-btn">
+         <i class="far fa-times-circle"></i>
+       </div>          
+       <p>Are you sure you want to delete this review?</p>
+        <form class="delete-rev-form center" method="post" action="{% url 'delete_review' user.id review_id %}">
+            {% csrf_token %}
+            <div class="delete-buttons">
+                <input type="hidden" name="_method" value="delete">
+                <input class="button button-bright del-btn" type="submit" value="Yes I am">
+                <div class="button button-bright center del-btn">
+                    <a href="{% url 'reviews' user.id %}">Nah..Back to review</a>
+                </div>
+            </div>
+        </form>
 
-{% block extra_js %}
-<script src="{% static 'js/review.js' %}"></script>
+     </div>
+   </div>
+ </div>
+  {% block extra_js %}
+  <script>
+    const openModalButton = document.querySelector('#open-modal');
+    const closeModal = document.querySelector('.close-delete-btn');
+    // / Function opens Prices
+    function openModal() {
+      let showDeleteModal = document.querySelector('.delete-rev-wrapper');
+      showDeleteModal.classList.toggle('show-modal');
+    }
+
+    openModalButton.addEventListener('click', openModal);
+    closeModal.addEventListener('click', openModal);
+  </script>
+  {% endblock %}
 {% endblock %}

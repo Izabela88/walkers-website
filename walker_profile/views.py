@@ -144,6 +144,15 @@ class WalkerUserReviewList(View):
 
 class WalkerUserReview(View):
 
+    def dispatch(self, *args, **kwargs):
+        """Overwright interface to allow delete method
+        https://stackoverflow.com/questions/36455189/put-and-delete-django
+        """
+        method = self.request.POST.get('_method', '').lower()
+        if method == 'delete':
+            return self.delete(*args, **kwargs)
+        return super(WalkerUserReview, self).dispatch(*args, **kwargs)
+
     def get(self, request, user_id, review_id):
         context = {
            'walker_user_review_form_errors': request.session.pop('walker_user_review_form_errors', None),
@@ -161,6 +170,7 @@ class WalkerUserReview(View):
             'walker_user_review_form': walker_user_review_form,
             'petsitter_name': review.user.first_name,
             'petsitter_stars': review.stars,
+            'review_id': review_id,
             
         }
         return render(request, 'user_profile/edit_review.html', context)
@@ -185,5 +195,13 @@ class WalkerUserReview(View):
             return render(request, 'user_profile/edit_review.html', context)
         return HttpResponseRedirect(f'/profile/user_profile/{user_id}/reviews/{review_id}')
         
+    def delete(self, request, user_id, review_id):
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        if review.reviewer_id != request.user.id:
+            return render(request, '403.html')
+        review.delete()
+        messages.success(request, 'Review successfully deleted!')
+        return HttpResponseRedirect(f'/profile/user_profile/{user_id}/reviews')
 
-   

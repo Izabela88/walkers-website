@@ -18,6 +18,7 @@ class PetsitterReviewForm(forms.ModelForm):
                 'rows': 4,
                 'maxlength': '1500',
                 'style': 'resize:none',
+                'placeholder': 'write your review here...'
 
             }
         ),
