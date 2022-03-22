@@ -10,11 +10,34 @@
         </ul>
     {% endif %}
    <div class="container">
-    <h2>hey</h2>
+    <div class="contact-form-box">
+        <h2>contact us any time!</h2>
+        <p>we are here for help. If you have any question,
+            please fill in the form below. we care a lot about you,
+            so you will receive a reply within 24 hours.</p>    
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+            <div class="form-input center">
+            <label for="post-code">Full name</label>
+            <input type="text">
+            </div>
+            <div class="form-input center">
+            <label for="dog-size">Email</label>
+            <input type="text">
+            </div>
+            <div class="form-input center">
+            <label for="care-type">Your question</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-input center">
+            <input class="button button-bright center" type="submit" value="send">
+            </div>                  
+        </form>
+    
+    </div>
    </div>
 </section>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/review.js' %}"></script>
 {% endblock %}

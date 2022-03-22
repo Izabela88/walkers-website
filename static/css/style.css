@@ -1330,6 +1330,7 @@ label[for="id_description"] {
   overflow: overlay;
   padding: 10px;
   font-size: 20px;
+  resize: none;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
 }
 
@@ -2890,6 +2891,62 @@ label[for="id_stars_4"] {
 
 .edit-rev-submit-btn {
   width: 380px;
+}
+
+/* -------------CONTACT */
+.contact-form-box {
+  width: 50%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+}
+
+.contact-form-box h2 {
+  font-size: 35px;
+  
+}
+
+.contact-form-box p {
+  margin-bottom: 15px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: "Hubballi", cursive;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly
+}
+
+.contact-form textarea {
+  height: 150px;
+  width: 85%;
+  outline: none;
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: "Hubballi", cursive;
+  font-size: 16px;
+  font-weight: bold;
+  resize: none;
+  overflow: overlay;
+  padding: 15px;
 }
 
 
