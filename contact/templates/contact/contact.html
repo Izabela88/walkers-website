@@ -17,21 +17,10 @@
             so you will receive a reply within 24 hours.</p>    
         <form class="contact-form" method="post">
             {% csrf_token %}
-            <div class="form-input center">
-            <label for="post-code">Full name</label>
-            <input type="text">
-            </div>
-            <div class="form-input center">
-            <label for="dog-size">Email</label>
-            <input type="text">
-            </div>
-            <div class="form-input center">
-            <label for="care-type">Your question</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div class="form-input center">
+            {{ contact_form }}
+         
             <input class="button button-bright center" type="submit" value="send">
-            </div>                  
+                       
         </form>
     
     </div>

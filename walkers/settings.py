@@ -77,7 +77,6 @@ PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
 # Used to prevent brute force attacks.
 
 # Additional allauth configuration settings
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -88,9 +87,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -126,6 +123,18 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 
+
+# EMAIL
+
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# else:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

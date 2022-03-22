@@ -2923,7 +2923,7 @@ label[for="id_stars_4"] {
 
 .contact-form {
   width: 100%;
-  height: 65%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2937,7 +2937,6 @@ label[for="id_stars_4"] {
   border: none;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   cursor: pointer;
-  text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 10px;
@@ -2947,6 +2946,33 @@ label[for="id_stars_4"] {
   resize: none;
   overflow: overlay;
   padding: 15px;
+}
+
+.contact-form input {
+  height: 50px;
+  width: 85%;
+  outline: none;
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: "Hubballi", cursive;
+  font-size: 16px;
+  font-weight: bold;
+  resize: none;
+  overflow: overlay;
+  padding: 15px;
+}
+
+.contact-form label {
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: -15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 
