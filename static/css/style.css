@@ -280,6 +280,7 @@ label {
   left: 50%;
   transform: translate(-50%, -70%);
   padding: 10px;
+  z-index: 1000;
 }
 
 #home-section {
@@ -1446,6 +1447,10 @@ label[for="id_description"] {
 
 .del-btn {
   width: 230px;
+}
+
+.del-btn a {
+  padding-top: 21px;
 }
 
 .delete-buttons {
@@ -2633,6 +2638,10 @@ label[for="id_stars_4"] {
   overflow: hidden;
 }
 
+.no-rev h2 {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
 .my-reviews-btn {
   margin-bottom: 100px;
@@ -2642,11 +2651,15 @@ label[for="id_stars_4"] {
 .happy-dog-box {
   height: 400px;
   width: 400px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 15px -3px,
+   rgba(0, 0, 0, 0.5) 0px 4px 6px -2px;
 }
 
 .happy-dog-icon {
   height: 100%;
   width: 100%;
+  border-radius: 50%;
 }
 
 .my-reviews-txt {
@@ -2655,7 +2668,7 @@ label[for="id_stars_4"] {
 
 .my-reviews-heading { 
   position: relative;
-  height: 200px;
+  height: 190px;
   margin-top: 2%;
 }
 
@@ -2814,7 +2827,7 @@ label[for="id_stars_4"] {
 }
 
 .delete-rev-box {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 3px, rgba(0, 0, 0, 0.60) 0px 1px 2px;
   height: 350px;
   width: 600px;
   display: flex;
@@ -2876,7 +2889,7 @@ label[for="id_stars_4"] {
 }
 
 .edit-rev-submit-btn {
-  width: 400px;
+  width: 380px;
 }
 
 

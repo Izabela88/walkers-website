@@ -15,4 +15,5 @@ urlpatterns = [
     path('<int:pk>/delete/', WalkerUserDelete.as_view(), name='user_confirm_delete'),
     path('search/', include('search.urls')),
     path('search/', include('reviews.urls')),
+    path('contact/', include('contact.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

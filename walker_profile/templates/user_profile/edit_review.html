@@ -69,7 +69,7 @@
                 <input type="hidden" name="_method" value="delete">
                 <input class="button button-bright del-btn" type="submit" value="Yes I am">
                 <div class="button button-bright center del-btn">
-                    <a href="{% url 'reviews' user.id %}">Nah..Back to review</a>
+                    <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to review</a>
                 </div>
             </div>
         </form>
@@ -90,5 +90,6 @@
     openModalButton.addEventListener('click', openModal);
     closeModal.addEventListener('click', openModal);
   </script>
+  <script src="{% static 'js/review.js' %}"></script>
   {% endblock %}
 {% endblock %}

@@ -5,7 +5,7 @@ URL patterns for Home application
 from django.urls import path
 from . import views
 from reviews.views import Review
-from search.views import SearchView, PetsitterProfile
+from search.views import PetsitterProfile
 
 
 urlpatterns = [

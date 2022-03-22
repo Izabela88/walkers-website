@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<section class="section">
+    {% if messages %}
+        <ul class="info-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+   <div class="container">
+    <h2>hey</h2>
+   </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/review.js' %}"></script>
+{% endblock %}
