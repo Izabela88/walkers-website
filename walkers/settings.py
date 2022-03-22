@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from unittest.mock import patch
 import dj_database_url
+
 if os.path.isfile('env.py'):
     import env
 
@@ -56,8 +57,10 @@ INSTALLED_APPS = [
     'cloudinary',
     'phonenumber_field',
     'home',
-    'about', 
-    'walker_profile', 
+    'about',
+    'walker_profile',
+    'search',
+    'reviews',
 ]
 
 # SITE_ID = 1
@@ -85,8 +88,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -104,14 +107,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'name_format',
             'email',
             'picture',
-            'short_name'
+            'short_name',
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'en_US',
         'VERIFIED_EMAIL': False,
         'VERSION': 'v7.0',
     },
-
     'google': {
         'SCOPE': [
             'profile',
@@ -119,10 +121,9 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         'AUTH_PARAMS': {
             'access_type': 'online',
-        }
-    }
+        },
+    },
 }
-
 
 
 MIDDLEWARE = [
@@ -166,9 +167,7 @@ if os.getenv("ENV", "local") == "local":
         }
     }
 else:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -226,12 +225,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCOUNT_FORMS = {'signup': 'walker_profile.forms.ExtendedSignupForm'}
 
 
-AUTHENTICATION_BACKENDS = [  
+AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',  
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-AUTH_USER_MODEL = 'walker_profile.WalkerUser' 
+AUTH_USER_MODEL = 'walker_profile.WalkerUser'
 
 SILENCED_SYSTEM_CHECKS = ["auth.W004"]
 

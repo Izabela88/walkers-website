@@ -2,14 +2,14 @@
 function addActiveOnScroll() {
   window.addEventListener("scroll", (e) => {
     let sections = document.querySelectorAll(".section");
-    let navLinks = document.querySelectorAll(".nav-link");
+    let links = document.querySelectorAll("#menu-list li a");
 
     for (let [i, section] of sections.entries()) {
       let box = section.getBoundingClientRect();
       if ( box.top <= 200 && box.bottom >= 300) {
-        navLinks[i].classList.add("active");
+        links[i].classList.add("active");
       } else {
-        navLinks[i].classList.remove("active");
+        links[i].classList.remove("active");
       }
     }
   });

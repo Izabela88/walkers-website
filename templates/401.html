@@ -7,11 +7,17 @@
     <section class="section">
         <div class="container center ">
             <div class="error-box center">
-                <h2>oops! you are not authorized to proceed, please log in.</h2>
+                <h2>oops! you are not authorized to proceed... please register or log in.</h2>
                 <div class="error-img center"></div>               
             </div>
-            <div class="button button-bright center">
-                <a href="{% url 'home' %}">Back to home</a>
+            <div class="buttons-box">
+                <div class="button button-bright center">
+                    <a href="{% url 'account_signup' %}">Register</a>
+                </div>
+                <div class="button button-bright center">
+                    <a href="{% url 'account_login' %}">Log In</a>
+                </div>
+
             </div>
         </div>
 
