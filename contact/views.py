@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from contact.forms import ContactForm
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings

@@ -2976,6 +2976,117 @@ label[for="id_stars_4"] {
 }
 
 
+/* --------------NEWSLETTER */
+.newsletter-wrapper {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.3s, opacity 0.3s 0s, transform 0.3s;
+}
+
+
+.newsletter-modal-content {
+  background: url(/media/newsletter.jpg) no-repeat center center/cover;
+  color: #fff;
+  font-family: "Hubballi", cursive;
+  font-size: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+  padding: 2.5em 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.newsletter-box {
+  background-color: rgba(255, 255, 255, .15); 
+  backdrop-filter: blur(3px);
+	text-align: center;
+	border-radius: 5px;
+	height: 400px;
+	width: 750px;
+  font-weight: bold;
+  text-align: center;
+	
+}
+
+.newsletter-txt {
+  position: absolute;
+  z-index: 200;
+}
+
+.newsletter-txt h2 {
+  color: var(--white-color);
+	letter-spacing: 2px;
+	font-size: 45px;
+	margin: 0;
+}
+
+.newsletter-txt p {
+  font-size: 30px;
+  text-align: center;
+	color: var(--white-color);
+  font-family: "Architects Daughter", cursive;
+}
+
+.show-newsletter-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s;
+}
+
+.newsletter-form {
+  height: 40%;
+  width: 100%;
+}
+
+.newsletter-input {
+  width: 400px;
+  height: 45px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 25px;
+	background: #eee;
+	padding: 1em 2em;
+	outline: none;
+	border: none;
+	color: #222;
+	transition: 0.3s linear;
+  margin: 20px 0;
+}
+
+.newsletter-input::placeholder {
+  color: var(--black-color)
+}
+
+.newsletter-btn {
+  width: 400px;
+  height: 45px;
+}
+
+.close-newsletter-btn {
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  left: 110%;
+  top: -20%; 
+}
+
+
 /* ---------MEDIA QUERIES */
 @media screen and (min-width: 700px) {
   .prices_box {

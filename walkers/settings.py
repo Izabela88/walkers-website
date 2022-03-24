@@ -67,14 +67,10 @@ INSTALLED_APPS = [
 # SITE_ID = 1
 SITE_ID = 2
 
-
 # phonenumber_field
 PHONENUMBER_DEFAULT_REGION = 'GB'
 PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
 
-
-# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-# Used to prevent brute force attacks.
 
 # Additional allauth configuration settings
 LOGIN_REDIRECT_URL = '/'
@@ -86,8 +82,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -125,10 +119,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 # EMAIL
-
 # if DEBUG:
 #     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# else:
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL')

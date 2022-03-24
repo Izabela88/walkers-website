@@ -150,7 +150,7 @@
               </li>
             </ul>
             <h3>Subscribe to our newsletter</h3>
-            <button id="open-newsletter " class="button button-dark">
+            <button id="open-newsletter" class="button button-dark">
               SUBSCRIBE
             </button>
           </div>
@@ -186,12 +186,32 @@
         </div>
         <p>Walkers &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
       </footer>
+
+      <div class="newsletter-wrapper">
+        <div class="newsletter-modal-content">
+          <div class="newsletter-box"></div>
+          <div class="newsletter-txt center">
+              <div class="close-newsletter-btn">
+                <i class="far fa-times-circle"></i>
+              </div>
+              <h2>hungry for news ?</h2>          
+              <p>well...subscribe to our newsletter !</p>
+               <form class="newsletter-form center" method="post">
+                   {% csrf_token %}
+                   <div class="center">
+                       <input class="newsletter-input" name="newsletter" type="email" placeholder="Your email">
+                       <input class="button button-bright newsletter-btn" type="submit" value="subscribe">
+                   </div>
+               </form>
+            </div>    
+        </div>
+      </div>
+
     <script src="https://kit.fontawesome.com/111b3a0b11.js" crossorigin="anonymous"></script>
     <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
     <script src="/static/js/jquery/jquery.js"></script>
-    <script src="/static/js/navbar.js"></script>  
+    <script src="/static/js/navbar.js"></script>
     {% block extra_js %}
     {% endblock %}
     
