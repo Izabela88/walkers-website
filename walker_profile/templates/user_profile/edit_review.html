@@ -50,7 +50,7 @@
               <div class="empty-btn"></div>
             </div>
           </form>
-          <div id="open-modal"></div>                
+          <div id="open-edit-modal"></div>                
       </div>        
     </div>
    </div>
@@ -77,19 +77,8 @@
      </div>
    </div>
  </div>
-  {% block extra_js %}
-  <script>
-    const openModalButton = document.querySelector('#open-modal');
-    const closeModal = document.querySelector('.close-delete-btn');
-    // / Function opens Prices
-    function openModal() {
-      let showDeleteModal = document.querySelector('.delete-rev-wrapper');
-      showDeleteModal.classList.toggle('show-modal');
-    }
-
-    openModalButton.addEventListener('click', openModal);
-    closeModal.addEventListener('click', openModal);
-  </script>
-  <script src="{% static 'js/review.js' %}"></script>
-  {% endblock %}
-{% endblock %}
+ {% endblock %}
+ {% block extra_js %}
+ <script src="{% static 'js/review.js' %}"></script>
+ <script src="{% static 'user/js/edit_review.js' %}"></script>
+ {% endblock %}
