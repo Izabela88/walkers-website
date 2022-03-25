@@ -186,7 +186,7 @@
         </div>
         <p>Walkers &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
       </footer>
-
+<!-- ------------NEWSLETTER-------------- -->
       <div class="newsletter-wrapper">
         <div class="newsletter-modal-content">
           <div class="newsletter-box"></div>
@@ -196,11 +196,11 @@
               </div>
               <h2>hungry for news ?</h2>          
               <p>well...subscribe to our newsletter !</p>
-               <form class="newsletter-form center" method="post">
+               <form class="newsletter-form center" action="{% url 'newsletter' %}" method="post">
                    {% csrf_token %}
                    <div class="center">
-                       <input class="newsletter-input" name="newsletter" type="email" placeholder="Your email">
-                       <input class="button button-bright newsletter-btn" type="submit" value="subscribe">
+                      {{newsletter_email}}
+                      <input class="button button-bright newsletter-btn" type="submit" value="subscribe">
                    </div>
                </form>
             </div>    

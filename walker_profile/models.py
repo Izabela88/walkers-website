@@ -29,6 +29,7 @@ class WalkerUser(AbstractUser):
         upload_to='avatar_images/', null=True, blank=True, validators=[validate_image]
     )
 
+
     def reviews_rating(self):
         reviews = self.user_reviews.filter( is_admin_approved=True,is_visible=True)
         ratings = [i.stars for i in reviews]
@@ -71,6 +72,7 @@ class AddressDetails(models.Model):
     longitude = models.DecimalField(
         max_digits=9, decimal_places=6, null=True, blank=True
     )
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
 
 
 class PetsitterDetails(models.Model):

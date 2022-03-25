@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'search',
     'reviews',
     'contact',
+    'newsletter'
 ]
 
 # SITE_ID = 1
@@ -118,6 +119,11 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
+# MAILCHIMP CREDENTIALS
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER = os.environ.get('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get('MAILCHIMP_EMAIL_LIST_ID')
+
 # EMAIL
 # if DEBUG:
 #     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -137,6 +143,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 
@@ -151,6 +158,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'walkers.context_processors.global_variables'
             ],
         },
     },
