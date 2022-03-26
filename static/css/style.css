@@ -182,6 +182,90 @@ label {
   text-align: center;
 }
 
+/* allauth templates */
+.allauth-heading h1 {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.allauth-heading h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.allauth-paragraph p {
+  font-size: 20px;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 40px;
+}
+
+.password_reset,
+.add_email {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-key-password {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.password_reset input,
+.add_email input,
+.reset-key-password input {
+  height: 40px;
+  width: 85%;
+  outline: none;
+  border: none;
+  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: "Hubballi", cursive;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reset-btn {
+  margin-top: 30px;
+}
+
+.blockLabels {
+  border: none;
+}
+
+label[for="email_radio_1"] {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.buttonHolder {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.add-btn {
+  margin-top: 35px;
+}
+
+.change-btn {
+  margin-top: 40px;
+}
+
+input[id="id_password1"] {
+  margin-bottom: 40px;
+}
+
 /*----------------- navbar */
 #header {
   width: 100%;
@@ -851,7 +935,7 @@ select {
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
-  height: 45vh;
+  height: 50vh;
 }
 
 .signup input {
@@ -991,14 +1075,6 @@ label[for="id_password2"] {
   font-weight: bold;
 }
 
-
-.secondaryAction {
-  color: rgb(255, 60, 0);
-  bottom: 5px;
-  position: relative;
-  font-size: 18px;
-  font-weight: bold;
-}
 
 label[for="id_remember"] {
   width: auto;
