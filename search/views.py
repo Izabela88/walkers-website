@@ -12,9 +12,6 @@ from walker_profile.utility import GeoCodeError
 
 class SearchView(View):
 
-    def get(self, request):
-        return render(request, 'search/petsitters_search_results.html')
-
     def post(self, request):
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)

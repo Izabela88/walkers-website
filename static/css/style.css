@@ -79,6 +79,15 @@ label {
   
 }
 
+.fa-times-circle {
+  background-color: var(--yellow-color);
+  border-radius: 50%;
+  color: var(--white-color);
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px,
+   rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px,
+   rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+}
+
 .section {
   height: 100vh;
   overflow: hidden;
@@ -945,6 +954,7 @@ select {
   border: none;
   box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 #id_password1::placeholder {
@@ -1527,7 +1537,7 @@ label[for="id_description"] {
 }
 
 .del-btn a {
-  padding-top: 21px;
+  padding-top: 11px;
 }
 
 .delete-buttons {
@@ -2009,12 +2019,32 @@ label[for="big_dog"] {
 /* https://codepen.io/seyedi/pen/zYoeLEv */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 40px 25px;
   padding: 0;
   list-style-type: none;
   width: 80%;
+}
+
+.cards_2 {
+  grid-template-columns: repeat( 1, 1fr);
+  width: 300px;
+  display: grid;
+  gap: 10px;
+  margin: 40px 25px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.cards_3 {
+  grid-template-columns: repeat( 2, 1fr);
+  width: 50%;
+  display: grid;
+  gap: 10px;
+  margin: 40px 25px;
+  padding: 0;
+  list-style-type: none;
 }
 
 .card {
@@ -2164,7 +2194,7 @@ label[for="big_dog"] {
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   margin-top: 10%;
 }
 
@@ -3091,6 +3121,7 @@ label[for="id_stars_4"] {
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s;
 }
+
 
 .newsletter-form {
   height: 40%;
