@@ -1,12 +1,12 @@
 from django import forms
 
+
 class ContactForm(forms.Form):
     full_name = forms.CharField(
         required=True,
         widget=forms.TextInput(
             attrs={
                 'maxlength': '100',
-
             }
         ),
     )
@@ -25,8 +25,7 @@ class ContactForm(forms.Form):
                 'class': 'rev-description',
                 'rows': 4,
                 'maxlength': '1500',
-                'placeholder': 'write your message here...'
-
+                'placeholder': 'write your message here...',
             }
         ),
     )

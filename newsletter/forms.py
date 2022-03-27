@@ -1,6 +1,7 @@
 from django import forms
 from newsletter.models import NewsletterUser
 
+
 class NewsletterUserForm(forms.ModelForm):
     newsletter_email = forms.CharField(
         required=True,
@@ -8,15 +9,13 @@ class NewsletterUserForm(forms.ModelForm):
             attrs={
                 'maxlength': '100',
                 'placeholder': 'write your email here...',
-                'class': 'newsletter-input'
+                'class': 'newsletter-input',
             }
         ),
     )
-
 
     class Meta:
         model = NewsletterUser
         fields = [
             'newsletter_email',
-
         ]

@@ -27,7 +27,9 @@ def index(request):
 def register_question(request):
     if request.method == "GET":
         form_petsitter = PetsitterQuestion()
-        return render(request, 'home/question.html', {'form_petsitter': form_petsitter})
+        return render(
+            request, 'home/question.html', {'form_petsitter': form_petsitter}
+        )
     if request.method == "POST":
         pet_sitter = PetsitterQuestion(request.POST)
         try:

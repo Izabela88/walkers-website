@@ -1,4 +1,5 @@
 [flake8]
 ignore = D203
-exclude = venv-walkers/*,__pycache__,migrations/*
+extend-ignore = F401
+exclude = venv-walkers/*,__pycache__,*/migrations/*,env.py,tests.py
 max-complexity = 10

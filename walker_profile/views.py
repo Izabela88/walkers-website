@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views import View
 from walker_profile.forms import (
     UpdateWalkerProfileForm,
@@ -16,11 +15,10 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse
 from walker_profile.models import ServiceTypes, ServiceDetails
 from walker_profile import utility
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from walker_profile.models import WalkerUser
 from reviews.models import PetsitterReview
 from reviews.forms import PetsitterReviewForm
-
 
 
 class UserProfileView(View):
@@ -29,13 +27,20 @@ class UserProfileView(View):
     def get(self, request, id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        
+
         context = {
-            "profile_form_errors": request.session.pop("profile_form_errors", None),
-            "address_form_errors": request.session.pop("address_form_errors", None),
-            "avatar_form_errors": request.session.pop("avatar_form_errors", None),
-            "description_errors": request.session.pop("description_errors", None),
-            "description_errors": request.session.pop("description_errors", None),
+            "profile_form_errors": request.session.pop(
+                "profile_form_errors", None
+            ),
+            "address_form_errors": request.session.pop(
+                "address_form_errors", None
+            ),
+            "avatar_form_errors": request.session.pop(
+                "avatar_form_errors", None
+            ),
+            "description_errors": request.session.pop(
+                "description_errors", None
+            ),
             "service_details_errors": request.session.pop(
                 "service_details_errors", None
             ),
@@ -62,7 +67,8 @@ class UserProfileView(View):
         ).all()
         service_types = ServiceTypes.objects.all()
 
-        # Iterate on user service details and create mapping with service types and form with user detail instance
+        # Iterate on user service details and create mapping with
+        # service types and form with user detail instance*/
         for i in user_service_details:
             service_detail_form = ServiceDetailsForm(instance=i)
             formatted_type = i.service_type.type.replace("_", " ").capitalize()
@@ -72,7 +78,8 @@ class UserProfileView(View):
                 service_detail_form,
             )
 
-        # Check if any kind of form was not initiated with user data. If not create one with types fields and empty form
+        # Check if any kind of form was not initiated with user data.
+        # If not create one with types fields and empty form
         for i in service_types:
             if i.id not in context['service_details_forms']:
                 formatted_type = i.type.replace("_", " ").capitalize()
@@ -118,19 +125,20 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('home')
-    
+
 
 class WalkerUserDelete(DeleteView):
     model = WalkerUser
     template_name = 'user_confirm_delete.html'
-    
+
     def get_success_url(self):
-        messages.success(self.request, "Your account has been deleted successfully.")
+        messages.success(
+            self.request, "Your account has been deleted successfully."
+        )
         return reverse('home')
 
 
 class WalkerUserReviewList(View):
-
     def get(self, request, id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
@@ -143,7 +151,6 @@ class WalkerUserReviewList(View):
 
 
 class WalkerUserReview(View):
-
     def dispatch(self, *args, **kwargs):
         """Overwright interface to allow delete method
         https://stackoverflow.com/questions/36455189/put-and-delete-django
@@ -155,12 +162,16 @@ class WalkerUserReview(View):
 
     def get(self, request, user_id, review_id):
         context = {
-           'walker_user_review_form_errors': request.session.pop('walker_user_review_form_errors', None),
+            'walker_user_review_form_errors': request.session.pop(
+                'walker_user_review_form_errors', None
+            ),
         }
-        
+
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        review = get_object_or_404(
+            PetsitterReview, id=review_id, reviewer_id=user_id
+        )
         walker_user_review_form = PetsitterReviewForm(instance=review)
 
         if review.reviewer_id != request.user.id:
@@ -171,18 +182,21 @@ class WalkerUserReview(View):
             'petsitter_name': review.user.first_name,
             'petsitter_stars': review.stars,
             'review_id': review_id,
-            
         }
         return render(request, 'user_profile/edit_review.html', context)
-    
+
     def post(self, request, user_id, review_id):
         context = {}
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        review = get_object_or_404(
+            PetsitterReview, id=review_id, reviewer_id=user_id
+        )
         if review.reviewer_id != request.user.id:
             return render(request, '403.html')
-        walker_user_review_form = PetsitterReviewForm(instance=review, data=request.POST or None)
+        walker_user_review_form = PetsitterReviewForm(
+            instance=review, data=request.POST or None
+        )
 
         if walker_user_review_form.is_valid():
             if walker_user_review_form.has_changed():
@@ -190,18 +204,25 @@ class WalkerUserReview(View):
             messages.success(request, 'Your review is updated successfully')
         else:
             print(walker_user_review_form.errors)
-            request.session["walker_user_review_form_errors"] = walker_user_review_form.errors
-            context['walker_user_review_form'] = PetsitterReviewForm(instance=review)
+            request.session[
+                "walker_user_review_form_errors"
+            ] = walker_user_review_form.errors
+            context['walker_user_review_form'] = PetsitterReviewForm(
+                instance=review
+            )
             return render(request, 'user_profile/edit_review.html', context)
-        return HttpResponseRedirect(f'/profile/user_profile/{user_id}/reviews/{review_id}')
-        
+        return HttpResponseRedirect(
+            f'/profile/user_profile/{user_id}/reviews/{review_id}'
+        )
+
     def delete(self, request, user_id, review_id):
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        review = get_object_or_404(PetsitterReview, id=review_id, reviewer_id=user_id)
+        review = get_object_or_404(
+            PetsitterReview, id=review_id, reviewer_id=user_id
+        )
         if review.reviewer_id != request.user.id:
             return render(request, '403.html')
         review.delete()
         messages.success(request, 'Review successfully deleted!')
         return HttpResponseRedirect(f'/profile/user_profile/{user_id}/reviews')
-

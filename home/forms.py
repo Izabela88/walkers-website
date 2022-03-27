@@ -1,5 +1,4 @@
 from django import forms
-from walker_profile.models import WalkerUser
 
 
 class FormValidationError(Exception):
@@ -9,7 +8,10 @@ class FormValidationError(Exception):
 class PetsitterQuestion(forms.Form):
     is_petsitter = forms.BooleanField(
         required=False,
-        label='Please mark the field only if you are the pet sitter / dog walker',
+        label=(
+            'Please mark the field only if you'
+            'are the pet sitter / dog walker'
+        ),
     )
 
     def save(self, user):

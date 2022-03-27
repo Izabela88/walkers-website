@@ -8,5 +8,4 @@ from contact.views import Contact
 
 urlpatterns = [
     path("", Contact.as_view(), name="contact"),
-    
 ]

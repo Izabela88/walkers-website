@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views import View
 from newsletter.forms import NewsletterUserForm
 from newsletter.models import NewsletterUser
@@ -10,23 +9,25 @@ from django.http import HttpResponseRedirect
 import datetime
 
 
-
 # Mailchimp Settings
 api_key = settings.MAILCHIMP_API_KEY
 server = settings.MAILCHIMP_DATA_CENTER
 list_id = settings.MAILCHIMP_EMAIL_LIST_ID
 
+
 def subscribe(email):
     """
-     Contains code handling the communication to the mailchimp api
-     to create a contact/member in an audience/list.
+    Contains code handling the communication to the mailchimp api
+    to create a contact/member in an audience/list.
     """
 
     mailchimp = Client()
-    mailchimp.set_config({
-        "api_key": api_key,
-        "server": server,
-    })
+    mailchimp.set_config(
+        {
+            "api_key": api_key,
+            "server": server,
+        }
+    )
 
     member_info = {
         "email_address": email,
@@ -40,9 +41,7 @@ def subscribe(email):
         print("An exception occurred: {}".format(error.text))
 
 
-
 class Newsletter(View):
- 
     def post(self, request):
         email_form = NewsletterUserForm(data=request.POST or None)
         if email_form.is_valid():
@@ -58,13 +57,13 @@ class Newsletter(View):
                 data = NewsletterUser()
                 data.email = email
                 data.created_at = datetime.datetime.utcnow()
-                data.save()                                   
+                data.save()
             subscribe(email)
-            messages.success(request, "Thank You for subscribe to our newsletter!")
+            messages.success(
+                request, "Thank You for subscribe to our newsletter!"
+            )
             return HttpResponseRedirect('/')
         else:
-            messages.error(request,
-                            'Something went wrong!')
+            messages.error(request, 'Something went wrong!')
 
         return HttpResponseRedirect('/')
-
