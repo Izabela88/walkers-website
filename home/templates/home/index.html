@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
-
+<!-- Back to top button -->
+<a href="#home-section" id="scroll-top-button"></a>
 <!-------------------------- HERO SECTION ----------------------------->
 <main id="home-section" class="section">
 {% if messages %}
@@ -111,10 +112,8 @@
       </div>     
       <div class="form-input center">
         <input class="button button-bright center" type="submit" value="Search">
-      </div>
-               
+      </div>              
     </form>
-
   </div>
   <div class="search-dog-img">
     <img src="/media/dog2.png" class="search-dog-image" alt="A dog" />
@@ -169,7 +168,6 @@
   </div>
 </div>
 </section>
-
 
 {% block extra_js %}
   <script src="{% static 'home/js/home.js' %}"></script>

@@ -9,7 +9,6 @@
   --black-color: #000000;
   --surface-color: #fff;
   --curve: 40;
-
 }
 
 html {
@@ -62,30 +61,28 @@ label {
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f9c14a; 
+  background: #f9c14a;
   border-radius: 10px;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
-
 
 .errorlist li {
   font-size: 18px;
   font-family: "Hubballi", cursive;
   color: rgb(255, 60, 0);
   text-align: center;
-  
 }
 
 .fa-times-circle {
   background-color: var(--yellow-color);
   border-radius: 50%;
   color: var(--white-color);
-  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px,
-   rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px,
-   rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
 }
 
 .section {
@@ -273,6 +270,46 @@ label[for="email_radio_1"] {
 
 input[id="id_password1"] {
   margin-bottom: 40px;
+}
+
+/* ----SCROLL TO TOP BUTTON */
+#scroll-top-button {
+  display: inline-block;
+  background-color: #ff9800;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+#scroll-top-button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 40px;
+  color: #fff;
+}
+#scroll-top-button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#scroll-top-button:active {
+  background-color: #555;
+}
+#scroll-top-button.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /*----------------- navbar */
@@ -1085,7 +1122,6 @@ label[for="id_password2"] {
   font-weight: bold;
 }
 
-
 label[for="id_remember"] {
   width: auto;
   margin-top: 6px;
@@ -1593,9 +1629,9 @@ label[for="id_description"] {
   font-weight: bold;
 }
 
-label[for='id_old_password'],
-label[for='id_new_password1'],
-label[for='id_new_password2'] {
+label[for="id_old_password"],
+label[for="id_new_password1"],
+label[for="id_new_password2"] {
   font-family: "Architects Daughter", cursive;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -1603,7 +1639,6 @@ label[for='id_new_password2'] {
   letter-spacing: 2px;
   font-weight: bold;
 }
-
 
 /* ------------petsitter profile form*/
 /* https://codepen.io/EightArmsHQ/pen/rNBZKNZ */
@@ -2028,7 +2063,7 @@ label[for="big_dog"] {
 }
 
 .cards_2 {
-  grid-template-columns: repeat( 1, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 300px;
   display: grid;
   gap: 10px;
@@ -2038,7 +2073,7 @@ label[for="big_dog"] {
 }
 
 .cards_3 {
-  grid-template-columns: repeat( 2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   width: 50%;
   display: grid;
   gap: 10px;
@@ -2314,7 +2349,6 @@ label[for="big_dog"] {
   margin-top: 10px;
 }
 
-
 .review-box p {
   text-align: center;
   margin-top: 25px;
@@ -2488,8 +2522,8 @@ label[for="big_dog"] {
 .prices_box:hover {
   *zoom: 1;
   background-size: 100%;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, 
-  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   transform: scale(1.025);
   z-index: 2;
 }
@@ -2574,26 +2608,24 @@ sup,
 
 #id_stars {
   display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 25px;
-    margin-bottom: 20px;
-    position: relative;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-#id_stars input[type='radio'] {
+#id_stars input[type="radio"] {
   display: none;
-  
 }
 
-#id_stars input[type='radio']:checked {
+#id_stars input[type="radio"]:checked {
   visibility: hidden;
- 
 }
 
 label[for="id_stars_0"] {
-  content: '☆';
+  content: "☆";
   font-size: 45px;
   display: flex;
   flex-direction: column;
@@ -2710,7 +2742,7 @@ label[for="id_stars_4"] {
   width: 400px;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 15px -3px,
-   rgba(0, 0, 0, 0.5) 0px 4px 6px -2px;
+    rgba(0, 0, 0, 0.5) 0px 4px 6px -2px;
 }
 
 .happy-dog-icon {
@@ -2723,14 +2755,14 @@ label[for="id_stars_4"] {
   font-size: 25px;
 }
 
-.my-reviews-heading { 
+.my-reviews-heading {
   position: relative;
   height: 190px;
   margin-top: 2%;
 }
 
 .my-reviews-heading h2 {
-  font-size: 30px;;
+  font-size: 30px;
 }
 
 .reviews_list {
@@ -2756,7 +2788,6 @@ label[for="id_stars_4"] {
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
 }
- 
 
 .reviews_list__profile {
   display: grid;
@@ -2766,7 +2797,8 @@ label[for="id_stars_4"] {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-  transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+  transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98),
+    box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
   background-color: #fff;
   font-family: "Hubballi", cursive;
   height: 100px;
@@ -2782,7 +2814,6 @@ label[for="id_stars_4"] {
   height: 80px;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
 
 .reviews_list__name,
@@ -2793,7 +2824,6 @@ label[for="id_stars_4"] {
   margin-left: 12px;
   text-transform: uppercase;
   text-align: center;
-
 }
 
 .reviews_list__name {
@@ -2807,14 +2837,14 @@ label[for="id_stars_4"] {
 
 .reviews_list__value_1 {
   cursor: default;
-    color: #18d777;
-    font-size: 16px;
-    margin-left: 12px;
-    text-transform: lowercase;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 1px;
-    padding: 12px;
+  color: #18d777;
+  font-size: 16px;
+  margin-left: 12px;
+  text-transform: lowercase;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 12px;
 }
 
 .reviews_list__value_2 {
@@ -2878,17 +2908,14 @@ label[for="id_stars_4"] {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 36px rgba(0, 0, 0, 0.3);
-  
 }
 
 .delete-rev-box {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
-  rgba(0, 0, 0, 0.12) 0px -12px 30px, 
-  rgba(0, 0, 0, 0.12) 0px 4px 6px, 
-  rgba(0, 0, 0, 0.17) 0px 12px 13px, 
-  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   height: 350px;
-  background-color: rgba(255, 255, 255, .15);
+  background-color: rgba(255, 255, 255, 0.15);
   color: var(--white-color);
   width: 600px;
   display: flex;
@@ -2973,7 +3000,6 @@ label[for="id_stars_4"] {
 
 .contact-form-box h2 {
   font-size: 35px;
-  
 }
 
 .contact-form-box p {
@@ -2992,7 +3018,7 @@ label[for="id_stars_4"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .contact-form textarea {
@@ -3040,7 +3066,6 @@ label[for="id_stars_4"] {
   font-weight: bold;
 }
 
-
 /* --------------NEWSLETTER */
 .newsletter-wrapper {
   height: 100vh;
@@ -3055,7 +3080,6 @@ label[for="id_stars_4"] {
   transform: scale(1.1);
   transition: visibility 0s linear 0.3s, opacity 0.3s 0s, transform 0.3s;
 }
-
 
 .newsletter-modal-content {
   background: url(/media/newsletter.jpg) no-repeat center center/cover;
@@ -3073,11 +3097,10 @@ label[for="id_stars_4"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
 
 .newsletter-box {
-  background-color: rgba(255, 255, 255, .15);
+  background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   text-align: center;
   border-radius: 5px;
@@ -3085,34 +3108,31 @@ label[for="id_stars_4"] {
   width: 600px;
   font-weight: bold;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
-  rgba(0, 0, 0, 0.12) 0px -12px 30px, 
-  rgba(0, 0, 0, 0.12) 0px 4px 6px, 
-  rgba(0, 0, 0, 0.17) 0px 12px 13px, 
-  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .newsletter-txt {
   position: absolute;
   z-index: 200;
   color: var(--white-color);
-	
 }
 
 .newsletter-txt h2 {
-	letter-spacing: 2px;
-	font-size: 45px;
-	margin: 0;
+  letter-spacing: 2px;
+  font-size: 45px;
+  margin: 0;
 }
 
 .newsletter-txt p {
   font-size: 25px;
-    text-align: center;
-    font-family: "Architects Daughter", cursive;
-    text-transform: uppercase;
-    font-weight: bold;
-    width: 70%;
-    letter-spacing: 3px;
+  text-align: center;
+  font-family: "Architects Daughter", cursive;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 70%;
+  letter-spacing: 3px;
 }
 
 .show-newsletter-modal {
@@ -3122,7 +3142,6 @@ label[for="id_stars_4"] {
   transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s;
 }
 
-
 .newsletter-form {
   height: 40%;
   width: 100%;
@@ -3131,20 +3150,20 @@ label[for="id_stars_4"] {
 .newsletter-input {
   width: 400px;
   height: 45px;
-	display: inline-block;
-	text-align: center;
-	border-radius: 25px;
-	background: #eee;
-	padding: 1em 2em;
-	outline: none;
-	border: none;
-	color: var(--black-color);
-	transition: 0.3s linear;
+  display: inline-block;
+  text-align: center;
+  border-radius: 25px;
+  background: #eee;
+  padding: 1em 2em;
+  outline: none;
+  border: none;
+  color: var(--black-color);
+  transition: 0.3s linear;
   margin: 20px 0;
 }
 
 .newsletter-input::placeholder {
-  color: var(--black-color)
+  color: var(--black-color);
 }
 
 label[for="id_newsletter_email"] {
@@ -3163,7 +3182,6 @@ label[for="id_newsletter_email"] {
   left: 95%;
   top: -24%;
 }
-
 
 /* ---------MEDIA QUERIES */
 @media screen and (min-width: 700px) {
