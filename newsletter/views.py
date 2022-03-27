@@ -7,7 +7,11 @@ from mailchimp_marketing.api_client import ApiClientError
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 import datetime
-
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from newsletter.serializers import SubscriptionSerializer
+from django.shortcuts import get_object_or_404
 
 # Mailchimp Settings
 api_key = settings.MAILCHIMP_API_KEY
@@ -67,3 +71,26 @@ class Newsletter(View):
             messages.error(request, 'Something went wrong!')
 
         return HttpResponseRedirect('/')
+
+
+class UpdateSubscription(APIView):
+    serializer_class = SubscriptionSerializer
+
+    def post(self, request):
+        """
+        Update subscription
+        """
+
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            data = serializer.data
+            subscription = get_object_or_404(
+                NewsletterUser, email=data['data']['email']
+            )
+            if data['type'] == 'unsubscribed':
+                subscription.is_subscribed = False
+                subscription.unsubscribed_at = data['fired_at']
+                subscription.save()
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

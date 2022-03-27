@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'phonenumber_field',
+    'rest_framework',
     'home',
     'about',
     'walker_profile',
