@@ -11,10 +11,6 @@ from walker_profile.utility import GeoCodeError
 
 
 class SearchView(View):
-
-    def get(self, request):
-        return render(request, 'search/petsitters_search_results.html')
-
     def post(self, request):
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
@@ -25,7 +21,9 @@ class SearchView(View):
                 )
             except GeoCodeError:
                 messages.error(request, "Invalid postcode!")
-                return HttpResponseRedirect(reverse('home') + '#searching-section')
+                return HttpResponseRedirect(
+                    reverse('home') + '#searching-section'
+                )
 
             care_type = petsitter_search_form.cleaned_data['care_type']
             dog_size = petsitter_search_form.cleaned_data['dog_size']
@@ -55,7 +53,9 @@ class SearchView(View):
             ] = petsitter_search_form.errors
             petsitter_search_form = SearchForm(data=request.POST or None)
             return redirect(reverse('home') + '#searching-section')
-        return render(request, 'search/petsitters_search_results.html', context)
+        return render(
+            request, 'search/petsitters_search_results.html', context
+        )
 
 
 class PetsitterProfile(View):
@@ -86,12 +86,14 @@ class PetsitterProfile(View):
                     }
 
                 context['services'].append(service)
-        
+
         avg_rating, reviews_qty = user.reviews_rating()
 
         context['reviews_data'] = {
-            'reviews': user.user_reviews.filter(is_admin_approved=True,is_visible=True).all(),
+            'reviews': user.user_reviews.filter(
+                is_admin_approved=True, is_visible=True
+            ).all(),
             'avg_rating': avg_rating,
-            'reviews_qty': reviews_qty
+            'reviews_qty': reviews_qty,
         }
         return render(request, 'search/petsitter_profile.html', context)

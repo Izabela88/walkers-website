@@ -50,7 +50,7 @@
               <div class="empty-btn"></div>
             </div>
           </form>
-          <div id="open-modal"></div>                
+          <div id="open-edit-modal"></div>                
       </div>        
     </div>
    </div>
@@ -69,7 +69,7 @@
                 <input type="hidden" name="_method" value="delete">
                 <input class="button button-bright del-btn" type="submit" value="Yes I am">
                 <div class="button button-bright center del-btn">
-                    <a href="{% url 'reviews' user.id %}">Nah..Back to review</a>
+                    <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to edit review</a>
                 </div>
             </div>
         </form>
@@ -77,18 +77,8 @@
      </div>
    </div>
  </div>
-  {% block extra_js %}
-  <script>
-    const openModalButton = document.querySelector('#open-modal');
-    const closeModal = document.querySelector('.close-delete-btn');
-    // / Function opens Prices
-    function openModal() {
-      let showDeleteModal = document.querySelector('.delete-rev-wrapper');
-      showDeleteModal.classList.toggle('show-modal');
-    }
-
-    openModalButton.addEventListener('click', openModal);
-    closeModal.addEventListener('click', openModal);
-  </script>
-  {% endblock %}
-{% endblock %}
+ {% endblock %}
+ {% block extra_js %}
+ <script src="{% static 'js/review.js' %}"></script>
+ <script src="{% static 'user/js/edit_review.js' %}"></script>
+ {% endblock %}

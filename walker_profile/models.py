@@ -1,5 +1,3 @@
-from statistics import mode
-from urllib import request
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
@@ -26,16 +24,21 @@ class WalkerUser(AbstractUser):
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
     avatar = models.ImageField(
-        upload_to='avatar_images/', null=True, blank=True, validators=[validate_image]
+        upload_to='avatar_images/',
+        null=True,
+        blank=True,
+        validators=[validate_image],
     )
 
     def reviews_rating(self):
-        reviews = self.user_reviews.filter( is_admin_approved=True,is_visible=True)
+        reviews = self.user_reviews.filter(
+            is_admin_approved=True, is_visible=True
+        )
         ratings = [i.stars for i in reviews]
         try:
-            avg_rating = round(sum(ratings)/len(reviews))
+            avg_rating = round(sum(ratings) / len(reviews))
         except ZeroDivisionError:
-            avg_rating = 0  
+            avg_rating = 0
         return avg_rating, len(reviews)
 
     def delete(self, *args, **kwargs):
@@ -49,7 +52,7 @@ class WalkerUser(AbstractUser):
             this = WalkerUser.objects.get(id=self.id)
             if this.avatar != self.avatar:
                 this.avatar.delete(save=False)
-        except:
+        except Exception:
             pass
         super().save(*args, **kwargs)
 
@@ -58,19 +61,32 @@ class WalkerUser(AbstractUser):
 
 
 class AddressDetails(models.Model):
-    address = models.CharField(verbose_name='Address', max_length=100, null=True)
-    address_1 = models.CharField(verbose_name='Address 1', max_length=100, null=True)
-    address_2 = models.CharField(verbose_name='Address 2', max_length=100, null=True)
-    town = models.CharField(verbose_name='Town/City', max_length=100, null=True)
-    postcode = models.CharField(verbose_name='Post Code', max_length=8, null=True)
+    address = models.CharField(
+        verbose_name='Address', max_length=100, null=True
+    )
+    address_1 = models.CharField(
+        verbose_name='Address 1', max_length=100, null=True
+    )
+    address_2 = models.CharField(
+        verbose_name='Address 2', max_length=100, null=True
+    )
+    town = models.CharField(
+        verbose_name='Town/City', max_length=100, null=True
+    )
+    postcode = models.CharField(
+        verbose_name='Post Code', max_length=8, null=True
+    )
     county = models.CharField(verbose_name='County', max_length=100, null=True)
-    country = models.CharField(verbose_name='Country', max_length=100, null=True)
+    country = models.CharField(
+        verbose_name='Country', max_length=100, null=True
+    )
     latitude = models.DecimalField(
         max_digits=9, decimal_places=6, null=True, blank=True
     )
     longitude = models.DecimalField(
         max_digits=9, decimal_places=6, null=True, blank=True
     )
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
 
 
 class PetsitterDetails(models.Model):
@@ -85,9 +101,14 @@ class ServiceTypes(models.Model):
 
 class ServiceDetails(models.Model):
     user = models.ForeignKey(
-        WalkerUser, on_delete=models.CASCADE, null=False, related_name="service_details"
+        WalkerUser,
+        on_delete=models.CASCADE,
+        null=False,
+        related_name="service_details",
     )
-    service_type = models.ForeignKey(ServiceTypes, on_delete=models.CASCADE, null=False)
+    service_type = models.ForeignKey(
+        ServiceTypes, on_delete=models.CASCADE, null=False
+    )
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
     s_price_hour = models.CharField(max_length=10, null=True)

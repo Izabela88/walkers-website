@@ -11,7 +11,8 @@ from django.core.validators import RegexValidator
 
 class ExtendedSignupForm(SignupForm):
     is_petsitter = forms.BooleanField(
-        required=False, label='Mark the box only if you are a pet sitter/dog walker'
+        required=False,
+        label='Mark the box only if you are a pet sitter/dog walker',
     )
 
     def save(self, request):
@@ -59,7 +60,8 @@ class WalkerAddressForm(forms.ModelForm):
 class WalkerUserAvatarForm(forms.ModelForm):
 
     avatar = forms.ImageField(
-        required=True, widget=forms.FileInput(attrs={'class': 'form-control-file'})
+        required=True,
+        widget=forms.FileInput(attrs={'class': 'form-control-file'}),
     )
 
     class Meta:
@@ -94,32 +96,48 @@ class ServiceDetailsForm(forms.ModelForm):
             }
         ),
     )
-    is_small_dog = forms.BooleanField(required=False, label='Small Dog (< 10kg)')
-    is_medium_dog = forms.BooleanField(required=False, label='Medium Dog (10-20 kg)')
+    is_small_dog = forms.BooleanField(
+        required=False, label='Small Dog (< 10kg)'
+    )
+    is_medium_dog = forms.BooleanField(
+        required=False, label='Medium Dog (10-20 kg)'
+    )
     is_big_dog = forms.BooleanField(required=False, label='Big Dog (> 20kg)')
     s_price_hour = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per hour'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per hour'}
+        ),
     )
     s_price_day = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per day'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per day'}
+        ),
     )
     m_price_hour = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per hour'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per hour'}
+        ),
     )
     m_price_day = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per day'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per day'}
+        ),
     )
     b_price_hour = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per hour'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per hour'}
+        ),
     )
     b_price_day = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'maxlength': '10', 'placeholder': '£ per day'}),
+        widget=forms.TextInput(
+            attrs={'maxlength': '10', 'placeholder': '£ per day'}
+        ),
     )
 
     class Meta:

@@ -11,8 +11,18 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path('accounts/', include('allauth.urls')),
     path('profile/', include('walker_profile.urls')),
-    path('password_change/', ChangePasswordView.as_view(), name='password_change'),
-    path('<int:pk>/delete/', WalkerUserDelete.as_view(), name='user_confirm_delete'),
+    path(
+        'password_change/',
+        ChangePasswordView.as_view(),
+        name='password_change',
+    ),
+    path(
+        '<int:pk>/delete/',
+        WalkerUserDelete.as_view(),
+        name='user_confirm_delete',
+    ),
     path('search/', include('search.urls')),
     path('search/', include('reviews.urls')),
+    path('contact/', include('contact.urls')),
+    path('newsletter/', include('newsletter.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

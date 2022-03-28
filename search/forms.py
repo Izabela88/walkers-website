@@ -30,4 +30,6 @@ class SearchForm(forms.Form):
     dog_size = forms.CharField(
         label='My Dog Size:', widget=forms.Select(choices=DOG_SIZE)
     )
-    area = forms.CharField(label='Location:', widget=forms.Select(choices=AREA))
+    area = forms.CharField(
+        label='Location:', widget=forms.Select(choices=AREA)
+    )

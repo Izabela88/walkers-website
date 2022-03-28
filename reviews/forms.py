@@ -18,16 +18,17 @@ class PetsitterReviewForm(forms.ModelForm):
                 'rows': 4,
                 'maxlength': '1500',
                 'style': 'resize:none',
-                'placeholder': 'write your review here...'
-
+                'placeholder': 'write your review here...',
             }
         ),
-    ) 
-    stars = forms.TypedChoiceField(required=True,choices=TYPE_SELECT, coerce=int, widget=forms.RadioSelect())
+    )
+    stars = forms.TypedChoiceField(
+        required=True,
+        choices=TYPE_SELECT,
+        coerce=int,
+        widget=forms.RadioSelect(),
+    )
 
     class Meta:
         model = PetsitterReview
-        fields = [
-            'description',
-            'stars'
-        ]
+        fields = ['description', 'stars']

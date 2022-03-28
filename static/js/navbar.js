@@ -111,3 +111,13 @@ function controlActiveClass() {
 
 controlActiveClass()
 
+const openModalButton = document.querySelector('#open-newsletter');
+const closeModal = document.querySelector('.close-newsletter-btn');
+// / Function opens Prices
+function openModal() {
+  let showDeleteModal = document.querySelector('.newsletter-wrapper');
+  showDeleteModal.classList.toggle('show-newsletter-modal');
+}
+
+openModalButton.addEventListener('click', openModal);
+closeModal.addEventListener('click', openModal);

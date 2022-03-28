@@ -1,6 +1,5 @@
 """Utility functions"""
 from django.contrib import messages
-from django.shortcuts import redirect
 from walker_profile.forms import (
     UpdateWalkerProfileForm,
     WalkerAddressForm,
@@ -9,7 +8,6 @@ from walker_profile.forms import (
     ServiceDetailsForm,
 )
 from .models import ServiceDetails
-from reviews.models import PetsitterReview
 import requests
 from django.http import HttpResponseRedirect
 from haversine import haversine, Unit
@@ -26,7 +24,9 @@ def _handle_profile_form(request, context, *args):
     else:
         print(profile_form.errors)
         request.session["profile_form_errors"] = profile_form.errors
-        context['profile_form'] = UpdateWalkerProfileForm(instance=request.user)
+        context['profile_form'] = UpdateWalkerProfileForm(
+            instance=request.user
+        )
     return context
 
 
@@ -37,7 +37,9 @@ def _handle_address_form(request, context, *arg):
     request.session['tab'] = "address_details"
     if address_form.is_valid() and address_form.has_changed():
         try:
-            long, lat = get_postcode_coordinates(address_form.cleaned_data["postcode"])
+            long, lat = get_postcode_coordinates(
+                address_form.cleaned_data["postcode"]
+            )
         except GeoCodeError:
             messages.error(request, "Invalid postcode!")
             return HttpResponseRedirect("/profile/user_profile")
@@ -102,13 +104,18 @@ def _handle_service_details_forms(request, context, service_type_id):
             instance=service_detail, data=request.POST or None
         )
         request.session['tab'] = "petsitter_profile"
-        if service_details_form.is_valid() and service_details_form.has_changed():
+        if (
+            service_details_form.is_valid()
+            and service_details_form.has_changed()  # noqa: W503
+        ):
             service_details_form.instance.service_type_id = service_type_id
             service_details_form.instance.user_id = request.user.id
             service_details_form.save()
             messages.success(request, 'Your data is updated successfully')
         else:
-            request.session["service_details_errors"] = service_details_form.errors
+            request.session[
+                "service_details_errors"
+            ] = service_details_form.errors
             context['service_details_forms'] = ServiceDetailsForm(
                 instance=service_detail
             )
@@ -144,5 +151,3 @@ def get_users_within_radius(long, lat, users_list, radius_miles):
         if distance_miles <= float(radius_miles):
             users_within_radius.append(i)
     return users_within_radius
-
-
