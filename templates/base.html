@@ -50,14 +50,12 @@
               href="{{ url }}"
               >Home
               </a>
-            </li>          
-            {% if not is_petsitter %}     
-              <li><a 
-                class="close-sidebar" 
-                href="{% url 'home' %}#searching-section">Find petsitter
-                </a>
-              </li>
-            {% endif %}
+            </li>                          
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'home' %}#searching-section">Find petsitter
+              </a>
+            </li>
             <li><a 
               class="close-sidebar" 
               href="{% url 'home' %}#join-section">Join Us
@@ -73,34 +71,34 @@
               href="{% url 'contact' %}">Contact</a>
             </li>
             {% if user.is_authenticated %}
-            <li 
-            class="welcome-msg">
-              <span>hello {{request.user.first_name}}! ♥</span>
-            </li>
-            <li><a 
-              id="user-profile-link" 
-              class="close-sidebar" 
-              href="{% url 'user_profile' request.user.id %}">
-              <i class="fas fa-user-circle"></i>
-              </a>
-            </li>
-            <li><a 
-              class="close-sidebar" 
-              href="{% url 'account_logout' %}">
-              <i class="fas fa-sign-out-alt"></i>
-              </a>
-            </li>
+              <li 
+              class="welcome-msg">
+                <span>hello {{request.user.first_name}}! ♥</span>
+              </li>
+              <li><a 
+                id="user-profile-link" 
+                class="close-sidebar" 
+                href="{% url 'user_profile' request.user.id %}">
+                <i class="fas fa-user-circle"></i>
+                </a>
+              </li>
+              <li><a 
+                class="close-sidebar" 
+                href="{% url 'account_logout' %}">
+                <i class="fas fa-sign-out-alt"></i>
+                </a>
+              </li>
             {% else %}
-            <li><a 
-              class="close-sidebar" 
-              href="{% url 'account_signup' %}">Register
-              </a>
-            </li>
-            <li><a 
-              class="close-sidebar" 
-              href="{% url 'account_login' %}">Log In
-              </a>
-            </li>
+              <li><a 
+                class="close-sidebar" 
+                href="{% url 'account_signup' %}">Register
+                </a>
+              </li>
+              <li><a 
+                class="close-sidebar" 
+                href="{% url 'account_login' %}">Log In
+                </a>
+              </li>
             {% endif %}
           </ul>
         </div>
