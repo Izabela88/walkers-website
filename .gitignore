@@ -8,3 +8,4 @@ node_modules/
 final_project/
 venv-walkers
 db.sqlite3
+staticfiles/
