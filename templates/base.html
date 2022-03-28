@@ -51,12 +51,13 @@
               >Home
               </a>
             </li>          
-                 
-            <li><a 
-              class="close-sidebar" 
-              href="{% url 'home' %}#searching-section">Find petsitter
-              </a>
-            </li>
+            {% if not is_petsitter %}     
+              <li><a 
+                class="close-sidebar" 
+                href="{% url 'home' %}#searching-section">Find petsitter
+                </a>
+              </li>
+            {% endif %}
             <li><a 
               class="close-sidebar" 
               href="{% url 'home' %}#join-section">Join Us
