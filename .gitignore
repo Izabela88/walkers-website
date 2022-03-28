@@ -7,3 +7,4 @@ __pycache__/
 node_modules/
 final_project/
 venv-walkers
+db.sqlite3
