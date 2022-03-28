@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}User Account Delete{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <section class="section">
+        <div class="container center delete-heading">
+            <h2>Delete User Account</h2>
+            <form class="delete-form center" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to delete your account?</p>
+                <div class="delete-buttons">
+                    <input class="button button-bright del-btn" type="submit" value="Yes I am">
+                    <div class="button button-bright center del-btn">
+                        <a href="{% url 'user_profile' request.user.pk %}">Nah..Back to profil</a>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+
+        </div>
+
+    </section>
+{% endblock content %}

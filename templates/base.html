@@ -1,0 +1,222 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block meta %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% endblock %}
+
+    {% block corecss %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+    <title>Walkers</title>
+  </head>
+
+  <body>
+    <!-- Back to top button -->
+    <a href="#" id="scroll-top-button"></a>
+    <!---------------HEADER--------------->
+    <header id="header">
+      {% url 'home' as url %}
+      <div class="logo 
+        {% if request.path == url %}
+        active
+        {% endif %}">
+        <a href="{{ url }}">
+          <img src="/media/logo.gif" alt="Logo"/>
+        </a>
+      </div>
+      <nav id="nav">    
+        <div class="wrapper-menu">
+          <div class="line-menu half start"></div>
+          <div class="line-menu"></div>
+          <div class="line-menu half end"></div>
+        </div>
+        <div id="my-sidebar" class="sidebar">
+          <ul id="menu-list" class="nav-list">
+            {% url 'home' as url %}
+            <li 
+            class="{% if request.path == url %}
+            active
+            {% endif %}">
+              <a
+              class="close-sidebar" 
+              href="{{ url }}"
+              >Home
+              </a>
+            </li>          
+                 
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'home' %}#searching-section">Find petsitter
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'home' %}#join-section">Join Us
+              </a>
+            </li>        
+            <li><a  
+              class="close-sidebar" 
+              href="{% url 'about' %}">About
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'contact' %}">Contact</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li 
+            class="welcome-msg">
+              <span>hello {{request.user.first_name}}! ♥</span>
+            </li>
+            <li><a 
+              id="user-profile-link" 
+              class="close-sidebar" 
+              href="{% url 'user_profile' request.user.id %}">
+              <i class="fas fa-user-circle"></i>
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_logout' %}">
+              <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </li>
+            {% else %}
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_signup' %}">Register
+              </a>
+            </li>
+            <li><a 
+              class="close-sidebar" 
+              href="{% url 'account_login' %}">Log In
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+        {% block content %}
+
+    <!------------CONTENT GOES HERE------------------>
+
+        {% endblock content %}
+
+    <!------------------FOOTER--------------------->
+    <footer id="footer">
+        <div class="box-logo">
+          <a href="{% url 'home' %}#home-section">
+            <img src="/media/logo.gif" alt="Logo" />
+          </a>
+        </div>
+        <div id="footer-container">
+          <div class="footer-box , social-icons">
+            <h3>Stay in touch</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Visit our Facebook page"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.twitter.com/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Visit our Twitter page"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Visit our Instagram page"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+            <h3>Subscribe to our newsletter</h3>
+            <button id="open-newsletter" class="button button-dark">
+              SUBSCRIBE
+            </button>
+          </div>
+          <div class="footer-box">
+            <h3>Quick links</h3>
+            <ul>
+              <li><a href="{% url 'home' %}#home-section">Home</a></li>
+              <li><a href="{% url 'home' %}#searching-section">Find</a></li>
+              <li><a href="{% url 'home' %}#join-section">Join</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="/accounts/signup/">Register</a></li>
+              <li><a href="/accounts/login/">Login</a></li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h3>Office working hours</h3>
+            <ul>
+              <li>Monday: 9:00 - 18:00</li>
+              <li>Tuesday: 9:00 - 18:00</li>
+              <li>Wednesday: 9:00 - 18:00</li>
+              <li>Thursday: 9:00 - 18:00</li>
+              <li>Friday: 9:00 - 18:00</li>
+            </ul>
+          </div>
+          <div class="footer-box">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="fas fa-phone-alt"></i> 0333 333 333</li>
+              <li><i class="fas fa-envelope"></i> info@walkers.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> Wolverhampton, UK</li>
+            </ul>
+          </div>
+        </div>
+        <p>Walkers &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
+      </footer>
+<!-- ------------NEWSLETTER-------------- -->
+      <div class="newsletter-wrapper">
+        <div class="newsletter-modal-content">
+          <div class="newsletter-box"></div>
+          <div class="newsletter-txt center">
+              <div class="close-newsletter-btn">
+                <i class="far fa-times-circle"></i>
+              </div>
+              <h2>hungry for news ?</h2>          
+              <p>well...subscribe to our newsletter !</p>
+               <form class="newsletter-form center" action="{% url 'newsletter' %}" method="post">
+                   {% csrf_token %}
+                   <div class="center">
+                      {{newsletter_email}}
+                      <input class="button button-bright newsletter-btn" type="submit" value="subscribe">
+                   </div>
+               </form>
+            </div>    
+        </div>
+      </div>
+
+    <script src="https://kit.fontawesome.com/111b3a0b11.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="/static/js/jquery/jquery.js"></script>
+    <script src="/static/js/navbar.js"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+    
+  </body>
+</html>

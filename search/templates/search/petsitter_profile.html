@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+<section class="section">
+{% if messages %}
+      <ul class="info-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+  <div class="container">
+    <div class="profile-wrap">
+      {% if user.avatar %} 
+        <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
+      {% else %}
+        <div class="details-image center">
+            <div class="details-no-avatar " style="background: url('/media//user.png') no-repeat center center/cover"></div>
+        </div>                        
+      {% endif %} 
+      <h2>{{user.first_name}}</h2>
+      <ul class="stars-list">
+        {% if not reviews_data.avg_rating %}
+          <li>☆</li>
+          <li>☆</li>
+          <li>☆</li>
+          <li>☆</li>
+          <li>☆</li>
+        {% else %}
+        {% with ''|center:reviews_data.avg_rating as range %}
+        {% for _ in range %}
+          <li style="color: #f9bf3b">★</li>
+        {% endfor %}
+        {% endwith %}
+        {% with '5'|subtract:reviews_data.avg_rating as empty_stars %}
+          {% with ''|center:empty_stars as range %}
+            {% for _ in range %}
+              <li>☆</li>
+            {% endfor %}
+          {% endwith %}
+        {% endwith %}      
+        {% endif %}                    
+      </ul>
+      <div class="contact-info center">
+      <h5>Email address</h5>
+      <p>
+        {% if user.email %}
+          {{user.email}}
+        {% else %}
+          -ˏˋ no email address yet ˊˎ
+        {% endif %} 
+      </p>
+      <h5>Phone number</h5>
+      <p>
+        {% if user.phone_number %}
+          {{user.phone_number}}
+        {% else %}
+          -ˏˋ no phone number yet ˊˎ
+        {% endif %} 
+      </p>
+      </div>
+      <div class="button button-bright center reviews-button">
+        <a href="{% url 'review' user.id %}">write review</a>
+      </div>
+    </div>
+      <div class="details-wrap">      
+          <div class="services-part">
+            <button id="open-prices" class="button button-bright">Check prices</button>
+          </div>
+      <div class="description-container">
+        <div class="description-part">
+          <h3>About {{user.first_name}}</h3>
+          {% if user.petsitter_details %}
+            <p>{{user.petsitter_details.description}}</p>
+          {% else %}
+            <p>-ˏˋ {{user.first_name}} doesn't write a description yet... ˊˎ</p>
+          {% endif %}
+        </div>
+      </div>
+    <!----------------- REVIEWS-------------- -->
+      <div class="reviews-container">
+        <h3>Reviews</h3>
+        <span class="next"><i class="fas fa-arrow-right"></i></span>
+        <span class="prev"><i class="fas fa-arrow-left"></i></span>
+        <div class="slider-container">
+          <div class="slider">
+            {% if reviews_data.reviews %}
+              {% for i in reviews_data.reviews %}
+                <div class="review-box ">
+                  <span>{{i.created_at}}</span>
+                  <h4>{{i.reviewer.first_name}}</h4>
+                  <ul class="stars-list">
+                  {% with ''|center:i.stars as range %}
+                  {% for _ in range %}
+                    <li style="color: #f9bf3b">★</li>
+                  {% endfor %}
+                  {% endwith %}
+                  {% with '5'|subtract:i.stars as empty_stars %}
+                    {% with ''|center:empty_stars as range %}
+                      {% for _ in range %}
+                        <li>☆</li>
+                      {% endfor %}
+                    {% endwith %}
+                  {% endwith %}                         
+                </ul>
+                <p>
+                  {{i.description}}
+                </p>
+              </div>
+              {% endfor %}
+            {% else %}
+              <div class="review-box ">
+                <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
+              </div>
+            {% endif %}
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<!----------------- PRICES MODAL-------------- -->
+<div class="prices-wrapper">
+  <div class="card-content">
+    <div class="close-prices">
+      <i class="far fa-times-circle"></i>
+    </div>    
+    <h1>prices</h1>
+    <p>Prices are for one dog. Prices are subject to
+       change in case of exceptional circumstances,
+        which should be discussed with the pet sitter.</p>    
+    <div class="prices-container group">
+      {% for i in services %}
+        <div class="prices_box">
+          <h2>
+            {% if i.type == 'walk' %}
+              Walk in the client neighborhood
+            {% elif i.type == 'boarding_at_pet_sitter_home' %}
+              Boarding at the pet sitter home
+            {% else %}
+              Day care at the client home
+            {% endif %}
+          </h2>
+          {% for k, v in i.dog_sizes.items %}
+            <h3>
+              <span class="uppercase">
+                {% if k == 'small' %}
+                  small dog (> 10kg)
+                {% elif k == 'medium' %}
+                  medium dog (10-20 kg)
+                {% else %}
+                  big dog (< 20kg)
+                {% endif %}
+              </span>
+            </h3>
+            <ul>
+              {% if v.price_hour and v.price_hour != '0' %}
+                <li>£ {{v.price_hour}} / h </li>
+              {% endif %}
+              {% if v.price_day and v.price_day != '0' %}
+                <li>£ {{v.price_day}} / day</li>
+              {% endif %}             
+            </ul>
+          {% endfor %}         
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+</div>
+
+{% block extra_js %}
+
+<script src="{% static 'js/profile.js' %}"></script>
+
+{% endblock %}
+{% endblock %}

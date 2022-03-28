@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+{% load custom_tags %}
+<section class="petsitters-section">
+    <div class="section-heading petsitters-heading center">
+        <h2>
+        {% if search_results %}
+            Looks like you've found petsitter(s) ! :-D
+        {% else %}
+            It seems there are no results for your criteria... <br>
+            Maybe try get back to form, change some criteria and search again.
+        {% endif %}
+        </h2>
+    </div>
+    <div class="container">
+        {% if search_results %}
+        <ul class="{% if search_results|length < 2 %} cards_2 {% elif search_results|length == 2 %} cards_3 {% else %} cards {% endif %}">
+              {% for i in search_results %}
+                <li>
+                  <a href="{% url 'petsitter_profiles' i.0.id %}" class="card">
+                    {% if i.0.avatar %} 
+                        <div class="card__image" style="background: url('{{i.0.avatar.url}}') no-repeat center center/cover"></div>
+                    {% else %}
+                    <div class="card__image center">
+                        <div class="no-avatar " style="background: url('/media//user.png') no-repeat center center/cover"></div>
+                    </div>                        
+                    {% endif %}
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        {% if i.0.avatar %}
+                          <div class="card__thumb" style="background:  url('/media/track.png') no-repeat center center/cover"></div>
+                        {% else %}
+                            <div class="card__thumb" style="background: url('/media/user.png') no-repeat center center/cover"></div>    
+                        {% endif %}
+                        <div class="card__header-text">
+                          <h3 class="card__title">{{i.0.first_name}}</h3>           
+                          <span class="card__status"> {{i.1.1}} reviews
+                          <ul class="stars-list">
+                            {% if not i.1.0 %}
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                              <li>☆</li>
+                            {% else %}
+                              {% with ''|center:i.1.0 as range %}
+                              {% for _ in range %}
+                                <li style="color: #f9bf3b">★</li>
+                              {% endfor %}
+                              {% endwith %}
+                            {% with '5'|subtract:i.1.0 as empty_stars %}
+                              {% with ''|center:empty_stars as range %}
+                                  {% for _ in range %}
+                                    <li>☆</li>
+                                  {% endfor %}
+                                {% endwith %}
+                              {% endwith %}      
+                            {% endif %}                       
+                          </ul>
+                          </span>
+                        </div>
+                      </div>
+                      <p class="card__description center">click on the card to see {{i.0.first_name}}'s profile</p>
+                    </div>
+                  </a>      
+                </li>  
+                {% endfor %}
+              </ul>
+    
+            {% else %}
+            <div class="center">
+                <div class="not-found center"></div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="center">
+            <div class="button button-bright center not-found-button"><a href="{% url 'home' %}#searching-section">Back to searching</a></div>
+        </div>
+</section>
+
+{% block extra_js %}
+<script src="{% static 'home/js/home.js' %}"></script>
+{% endblock %}
+ 
+{% endblock %}
