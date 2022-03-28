@@ -29,7 +29,7 @@
         active
         {% endif %}">
         <a href="{{ url }}">
-          <img src="/media/logo.gif" alt="Logo"/>
+          <img src="{% static 'images/logo.gif' %}" alt="Logo"/>
         </a>
       </div>
       <nav id="nav">    
@@ -116,7 +116,7 @@
     <footer id="footer">
         <div class="box-logo">
           <a href="{% url 'home' %}#home-section">
-            <img src="/media/logo.gif" alt="Logo" />
+            <img src="{% static 'images/logo.gif' %}" alt="Logo" />
           </a>
         </div>
         <div id="footer-container">

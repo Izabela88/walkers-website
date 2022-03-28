@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 {% load account socialaccount %}
@@ -8,7 +9,7 @@
 {% block content %}
   <section id="login" class="section">
     <div class="main-image image-shadow">
-      <img src="/media/puppy.png" class="puppy-dog-img" alt="" />
+      <img src="{% static 'images/puppy.png' %}" class="puppy-dog-img" alt="" />
     </div>
     <div class="register-bg-shape"></div>
     <div class="container">

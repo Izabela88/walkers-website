@@ -28,5 +28,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/review.js' %}"></script>
+    {{ block.super }}
+    <script src="{% static 'js/review.js' %}"></script>
 {% endblock %}
