@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<section class="my-reviews-section center">
+    {% if messages %}
+        <ul class="info-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="section-heading my-reviews-heading">
+        <h2>Check your reviews</h2>
+    </div>
+    <div class="container">
+        <div class="reviews_list">
+            {% if reviews %}       
+                <div class="reviews_list__profiles {% if reviews.count >= 2 %} reviews_list__profiles_2 {% endif %}">
+                    {% for i in reviews %}                
+                        <div class="reviews_list__profile">
+                            {% if i.user.avatar %}
+                                <div class="review-icon" 
+                                style="background: url('{{i.user.avatar.url}}') no-repeat center center/cover"></div>
+                            {% else %}
+                                <div class="review-icon" 
+                                style="background: url('/media/user.png') no-repeat center center/cover"></div>    
+                            {% endif %}
+                            <span class="reviews_list__name">{{i.user.first_name}}</span>
+                            <a href="{% url 'walker_user_review' request.user.id i.id %}" class="reviews_list__value">edit review</a>
+                            {% if  i.is_admin_approved and i.is_visible %}
+                                <span class="reviews_list__value_1">approved and visible</span>
+                            {% else %}
+                                <span class="reviews_list__value_2">waiting for approval by admin</span>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+            <div class="no-rev center">
+                <h2>You didn't write any review yet...</h2>
+                <div class="happy-dog-box center">
+                    <img class="happy-dog-icon" src="/media/dog1.gif" alt="Happy dog">
+                </div>                
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="button button-bright center my-reviews-btn">
+        <a href="{% url 'user_profile' request.user.pk %}">Back to profil</a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

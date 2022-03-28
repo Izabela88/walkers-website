@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load account %}
+
+{% block title %}Error 500{% endblock title %}
+
+{% block content %}
+    <section class="section">
+        <div class="container center ">
+            <div class="error-box center">
+                <h2>oops! server error!</h2>
+                <div class="error-img-500 center"></div>               
+            </div>
+            <div class="button button-bright center">
+                <a href="{% url 'home' %}">Back to home</a>
+            </div>
+        </div>
+
+    </section>
+{% endblock content %}

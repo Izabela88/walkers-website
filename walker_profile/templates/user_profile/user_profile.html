@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<section class="walker-profile-section">
+  {% if messages %}
+    <ul class="info-msg center">
+        {% for message in messages %}
+            <li>{{ message.message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+<div class="bg-shape"></div>
+<div class="container">
+  <div class="tabs">
+    <div class="tabs-sidebar center">
+    <!---------------------BUTTONS---------------------->
+    <button class="tabs-button blind-btn"></button> 
+    <button 
+      {% if tab == 'personal_information' %}
+        class="tabs-button button display-tab-white"
+      {% else %} 
+        class="tabs-button button"
+      {% endif %}
+      >Personal Information</button>
+    <button
+      {% if tab == 'address_details' %}
+        class="tabs-button button display-tab-white"
+      {% else %} 
+        class="tabs-button button"
+      {% endif %}
+      >Address Details</button>     
+    <button class="tabs-button button"> Edit account</button>
+    <button
+      {% if tab == 'upload_photo' %}
+      class="tabs-button button display-tab-white"
+      {% else %} 
+        class="tabs-button button"
+      {% endif %}
+      class="tabs-button button ">Upload Photo</button>
+    {% if is_petsitter %}     
+      <button
+        {% if tab == 'petsitter_profile' %}
+        class="tabs-button button display-tab-white"
+        {% else %} 
+          class="tabs-button button"
+        {% endif %}
+      class="tabs-button button"> Petsitter profile</button>
+    {% else %}
+    <button 
+      {% if tab == 'my_reviews' %}
+        class="tabs-button button display-tab-white"
+      {% else %} 
+        class="tabs-button button"
+      {% endif %}
+      >My rewiews</button>
+    {% endif %}
+    </div>
+    <!-- ----------------START IMAGE----------------------->
+    <div class="tabs-content">
+      <div class="main-image center ">
+        <h3>If you fill out the entire profile, you will gain more trust among users ! ♡</h3>
+        <img src="/media/dog-love.gif" class="profile-dog-img" alt="A dog" />
+    </div>
+    </div>
+    <!-- ---------PERSONAL INFORMATION--------------------->
+    <div {% if tab == 'personal_information' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
+    <h2 class="personal-heading">Personal Information</h2>
+    <form class="details-box center" method="post">
+      {% csrf_token %}
+      <label class="profile-label">Phone number</label>
+      {{ profile_form.phone_number }}
+      
+      {% if profile_form_errors and 'phone_number' in profile_form_errors %}
+        <div class="error-profile">
+          <strong>{{profile_form_errors.phone_number.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">Email</label>
+      {{ profile_form.email }}
+        {% if profile_form_errors and 'email' in profile_form_errors %}
+        <div class="error-profile">
+          <strong>{{profile_form_errors.email.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">First Name</label>
+      {{ profile_form.first_name }}
+      {% if profile_form_errors and 'first_name' in profile_form_errors %}
+        <div class="error-profile">
+          <strong>{{profile_form_errors.first_name.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">Last Name</label>
+      {{ profile_form.last_name }}
+      {% if profile_form_errors and 'last_name' in profile_form_errors %}
+        <div class="error-profile">
+          <strong>{{profile_form_errors.last_name.0}}</strong>
+        </div>
+      {% endif %}
+      <input type="hidden" name="form_type" value="profile_form" /> 
+      <input class="button button-bright update-profil" type="submit" value="Update" />
+    </form>
+  </div>
+  <!-- ---------ADDRESS DETAILS------------------- -->
+    <div {% if tab == 'address_details' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
+    <h2 class="address-heading">Address Details</h2>
+    <form class="details-box center" method="post">
+      {% csrf_token %}
+      <label class="profile-label">Address line 1</label>
+      {{ address_form.address_1 }}
+      {% if address_form_errors and 'address_1' in address_form_errors %}
+        <div class="error-profile">
+          <strong>{{address_form_errors.address_1.0}}</strong>
+        </div>
+      {% endif %}
+
+      <label class="profile-label">Address line 2</label>
+      {{ address_form.address_2 }}
+      {% if address_form_errors and 'address_2' in address_form_errors %}
+        <div class="error-profile">
+          <strong>{{address_form_errors.address_2.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">Post Code</label>
+      {{ address_form.postcode }}
+      <p>{{address_form_errors.postcode.0}}</p>
+      {% if address_form_errors and 'postcode' in address_form_errors %}
+        <div class="error-profile">
+          <strong>{{address_form_errors.postcode.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">Town / City</label>
+      {{ address_form.town }}
+      {% if address_form_errors and 'town' in address_form_errors %}
+        <div class="error-profile">
+          <strong>{{address_form_errors.town.0}}</strong>
+        </div>
+      {% endif %}
+      <label class="profile-label">County</label>
+      {{ address_form.county }}
+      {% if address_form_errors and 'county' in address_form_errors %}
+        <div class="error-profile">
+          <strong>{{address_form_errors.county.0}}</strong>
+        </div>
+      {% endif %}     
+      <input type="hidden" name="form_type" value="address_form" /> 
+      <input class="button button-bright" type="submit" value="Update" />
+    </form>
+  </div>
+  <!-- ---------EDIT ACCOUNT------------------- -->
+  <div class="tabs-content edit-content">
+    <h2>Edit Account</h2>
+    <div class="edit-box change-password">
+      <h2>Change password</h2>
+      <form class="center" action="post">
+      {% csrf_token %}
+        <p>To change the current password, click on this <a class="password-link" href="{% url 'password_change' %}">link</a> <br>
+          You can change your password only if you do not have an account registered via social media.
+        </p>
+      </form>
+    </div>
+    <div class="edit-box center">
+      <h2>Delete account</h2>
+      <div class="button button-bright center">
+        <a href="{% url 'user_confirm_delete' user.id %}">Delete account</a>
+      </div>
+    </div>
+  </div>
+  <!-- ---------UPLOAD PHOTO------------------- -->
+    <div {% if tab == 'upload_photo' %} class="tabs-content display-content" {% else %} class="tabs-content" {% endif %} >
+      <h2 class="upload-heading">Upload Your Photo</h2>
+    <form class="profile-img-form" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if user.avatar %}           
+        <div class="img-box center">
+          <div class="user-img center" style="background: url('{{request.user.avatar.url}}') no-repeat center center/cover"></div>
+        </div>                        
+      {% else %}
+        <div class="img-box center">
+          <div class="no-user-img"></div>
+        </div>
+      {% endif %}
+        <div class="avatar-txt">
+          {{avatar_form}}
+        </div>
+      {% for key, value in avatar_form_errors.items %}
+        <div class="error-profile center">
+          <strong>{{value.0}}</strong>
+        </div>
+      {% endfor %}
+      <input type="hidden" name="form_type" value="avatar_form" /> 
+      <input class="button button-bright" type="submit" value="Upload" />
+    </form>
+    </div>
+  <!-- ---------PETSITTER PROFILE------------------- -->
+    {% if is_petsitter %}
+    <div
+    {% if tab == 'petsitter_profile' %}
+     class="tabs-content display-content" 
+     {% else %} 
+      class="tabs-content" 
+    {% endif %}>
+      <h2>Petsitter profile</h2>
+      <div class="petsitter-layout">
+        {% if service_details_errors in service_details_errors %}
+            <div class="error-profile">
+              <strong>{{service_details_errors.0}}</strong>
+            </div>
+        {% endif %}
+      {% for key, value in service_details_forms.items %}                 
+        <input name="service-type" type="radio" class="service-type" id={{value.0}} checked="checked" />    
+          <div class="page walk-page">
+            <div class="page-contents">
+              <h4>
+                {{value.1}}
+              </h4>
+              <form class="petsitter-form" method="post">
+                {% csrf_token %}
+                <label class="form-title">Mark the size of the dog you can look after:</label>
+                {{value.2.is_small_dog}}
+                <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                {{value.2.is_medium_dog}}
+                <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                {{value.2.is_big_dog}}
+                <label for="big_dog">Big Dog (> 20kg)</label><br><br>                     
+                <label class="form-title">Enter what amount you expect for your services, please fill in all fields. <br> Enter '0' if the amount is not included:</label>                
+                {{value.2.s_price_hour}}
+                {{value.2.s_price_day}}
+                <label for="small_dog"> Small Dog (< 10kg)</label><br>
+                {{value.2.m_price_hour}}
+                {{value.2.m_price_day}}
+                <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
+                {{value.2.b_price_hour}}
+                {{value.2.b_price_day}}
+                <label for="big_dog">Big Dog (> 20kg)</label><br><br>                         
+                <label class="form-title">If you want to display the above information in your ad,
+                   select "YES".If for some reason you do not want to display it, 
+                   select "NO". All data will be kept in case you wish to display it again. 
+                </label>
+                <label class="switch">
+                  {{value.2.is_active}}
+                  <span class="switch-label" data-on="Yes" data-off="No"></span> 
+                  <span class="switch-handle"></span> 
+                </label>                         
+                <input type="hidden" name="form_type" value={{value.0}} />
+                <input class="button button-bright page-btn" type="submit" value="Save" />
+              </form>
+            </div>
+          </div>
+          <label class="service-type" for={{value.0}}>
+            <span>
+              {{value.1}}
+            </span>
+          </label>
+      {% endfor %}                 
+        <input name="service-type" type="radio" class="description-radio" id="description" />
+        <div class="page description-page">
+          <div class="page-contents">
+            <h4>Description</h4>                    
+            <p>Describe yourself (max 1500 characters):</p>
+            <form class="details-box center" method="post">
+              {% csrf_token %}
+              {{description_form}}
+              {% if description_errors in description_errors %}
+                <div class="error-profile">
+                  <strong>{{description_errors.0}}</strong>
+                </div>
+              {% endif %}
+                <input type="hidden" name="form_type" value="description_form" />
+                <input class="button button-bright page-btn" type="submit" value="Save" />
+              </form>
+          </div>
+        </div>
+        <label class="service-type" for="description">
+          <span>                   
+          Description
+            </span>                   
+        </label>                 
+      </div>             
+    </div>
+    {% else %}
+      <div
+        {% if tab == 'my_reviews' %}
+          class="tabs-content display-content" 
+        {% else %} 
+          class="tabs-content" 
+        {% endif %}>
+        <h2>My Reviews</h2>
+        <p class="my-reviews-txt">To see yours reviews, click on this 
+          <a class="password-link" href="{% url 'reviews' user.id %}">link</a> <br>
+        </p>
+      </div>          
+    {% endif %}     
+</div>      
+</div>
+</section>
+
+{% block extra_js %}
+<script src="{% static 'user/js/user.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

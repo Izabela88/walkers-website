@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<section class="question-section">
+    <div class="container">
+        <div class="question-box">
+                <h2>Are you a dog walker / pet sitter ?</h2>      
+            <form class="question-form" method="post">
+                {% csrf_token %}
+                <div class="form">
+                    {{form_petsitter}}
+                </div>
+                <input class="button button-bright question-button" type="submit" value="SUBMIT">           
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

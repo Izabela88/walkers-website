@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+{% load static %}
+
+{% block content %}
+<section class="section">
+    {% if messages %}
+        <ul class="info-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+   <div class="container">
+    <div class="rev-container edit-rev-container center">
+        <h2>Edit review</h2>
+        <form class="rate-form rev-form" method="post"> 
+            {% csrf_token %} 
+            <label class="lab edit-lab">Previously, {{petsitter_name}} received from you:</label>   
+                <ul class="stars-list">
+                    {% if not petsitter_stars %}
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                      <li>☆</li>
+                    {% else %}
+                    {% with ''|center:petsitter_stars as range %}
+                    {% for _ in range %}
+                      <li style="color: #f9bf3b">★</li>
+                    {% endfor %}
+                    {% endwith %}
+                    {% with '5'|subtract:petsitter_stars as empty_stars %}
+                      {% with ''|center:empty_stars as range %}
+                        {% for _ in range %}
+                          <li>☆</li>
+                        {% endfor %}
+                      {% endwith %}
+                    {% endwith %}      
+                    {% endif %}                    
+                  </ul>
+                  <label class="lab edit-lab ">How many stars would you like to give {{petsitter_name}} now?</label>
+                  <div class="stars">
+                    {{walker_user_review_form.stars}}
+                </div> 
+            <label class="lab edit-lab">what do you think about {{petsitter_name}}'s services:</label>
+            {{walker_user_review_form.description}}
+            <div class="buttons-box edit-rev-btns">
+              <input type="submit" class="button button-bright edit-rev-submit-btn" value="submit">
+              <div class="empty-btn"></div>
+            </div>
+          </form>
+          <div id="open-edit-modal"></div>                
+      </div>        
+    </div>
+   </div>
+  </section>
+  <!----------------- DELETE REVIEW MODAL-------------- -->
+  <div class="delete-rev-wrapper">
+   <div class="modal-content">
+     <div class="delete-rev-box">
+       <div class="close-delete-btn">
+         <i class="far fa-times-circle"></i>
+       </div>          
+       <p>Are you sure you want to delete this review?</p>
+        <form class="delete-rev-form center" method="post" action="{% url 'delete_review' user.id review_id %}">
+            {% csrf_token %}
+            <div class="delete-buttons">
+                <input type="hidden" name="_method" value="delete">
+                <input class="button button-bright del-btn" type="submit" value="Yes I am">
+                <div class="button button-bright center del-btn">
+                    <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to edit review</a>
+                </div>
+            </div>
+        </form>
+
+     </div>
+   </div>
+ </div>
+ {% endblock %}
+ {% block extra_js %}
+ <script src="{% static 'js/review.js' %}"></script>
+ <script src="{% static 'user/js/edit_review.js' %}"></script>
+ {% endblock %}

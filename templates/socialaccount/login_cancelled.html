@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Login Cancelled" %}{% endblock %}
+
+{% block content %}
+
+<section class="social-section">
+    <div class="container center">    
+            <div class="social-heading">
+                <h2>{% trans "Login Cancelled" %}</h1>
+            </div>
+            <div class="social-cancelled-box">
+                {% url 'account_login' as login_url %}
+                {% blocktrans %}
+                <p>You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to log in.</p>
+                {% endblocktrans %}
+                <div class="social-button center button-bright button">
+                    <a href="{{login_url}}">Log In</a>
+                </div>
+            </div>    
+    </div>
+</section>
+{% endblock %}
+
+

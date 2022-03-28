@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container center">
+        <div class="allauth-heading">
+            <h1>{% trans "Sign Up Closed" %}</h1>
+        </div>   
+        <div class="allauth-paragraph center">
+            <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
