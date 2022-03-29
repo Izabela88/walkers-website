@@ -32,10 +32,15 @@ h5 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-size: 35px;
+}
+
 a {
   font-family: "Hubballi", cursive;
   text-decoration: none;
   letter-spacing: 2px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 p {
@@ -54,7 +59,7 @@ label {
 
 /* scroll bar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 /* Track */
@@ -195,7 +200,6 @@ label {
 }
 
 .allauth-heading h2 {
-  font-size: 35px;
   margin-bottom: 15px;
 }
 
@@ -542,9 +546,8 @@ input[id="id_password1"] {
 }
 
 .search-form h2 {
-  font-size: 35px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .search-form p {
@@ -649,7 +652,6 @@ select {
 
 .join-txt h2 {
   margin-top: 30px;
-  font-size: 35px;
 }
 
 .join-txt p {
@@ -1167,9 +1169,6 @@ label[for="id_password"] {
   justify-content: space-evenly;
 }
 
-.logout-heading h2 {
-  font-size: 35px;
-}
 
 .logout-heading p {
   margin-top: 40px;
@@ -1204,7 +1203,6 @@ label[for="id_password"] {
 }
 
 .question-box h2 {
-  font-size: 35px;
   margin-bottom: -60px;
 }
 
@@ -1305,7 +1303,6 @@ label[for="id_password"] {
 .tabs-sidebar h2 {
   color: var(--yellow-color);
   margin-bottom: 40px;
-  font-size: 35px;
   margin-top: -20%;
 }
 
@@ -1562,9 +1559,6 @@ label[for="id_description"] {
   justify-content: space-evenly;
 }
 
-.delete-heading h2 {
-  font-size: 35px;
-}
 
 .delete-heading p {
   font-size: 25px;
@@ -1588,7 +1582,6 @@ label[for="id_description"] {
 
 /* --------------change password section */
 .change-password-box h2 {
-  font-size: 35px;
   margin-bottom: 40px;
 }
 
@@ -2257,7 +2250,7 @@ label[for="big_dog"] {
 .details-wrap {
   display: flex;
   flex-direction: column;
-  height: 95%;
+  height: 85%;
   align-items: center;
   justify-content: center;
   width: 80%;
@@ -2269,21 +2262,24 @@ label[for="big_dog"] {
   width: 100%;
   align-items: center;
   justify-content: center;
+  margin-top: 65px;
+  margin-bottom: 40px;
 }
 
 .description-container {
   font-family: "Hubballi", cursive;
   display: flex;
   height: 285px;
-  width: 100%;
+  width: 800px;
   align-items: center;
   justify-content: center;
-  overflow: overlay;
+  overflow: scroll;
 }
 
 .description-part {
-  height: 70%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
+  padding: 33px;
 }
 
 .description-part h3 {
@@ -2303,19 +2299,25 @@ label[for="big_dog"] {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 40%;
+  height: 80%;
+  margin-top: 40px;
 }
 
 .reviews-container h3 {
-  margin-top: 3%;
   font-size: 20px;
-  margin-bottom: -5%;
+  margin-bottom: 30px;
 }
 
 /* ----------------reviews sliders */
 .slider-container {
   width: 70%;
   height: 300px;
+}
+
+.reviewer-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .slider {
@@ -2327,7 +2329,7 @@ label[for="big_dog"] {
 
 .review-box {
   width: 100%;
-  height: 115%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: -100%;
@@ -2337,8 +2339,16 @@ label[for="big_dog"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: overlay;
+  
+
+}
+
+.reviewer-no-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 .review-box:first-of-type {
@@ -2351,36 +2361,77 @@ label[for="big_dog"] {
   margin-top: 10px;
 }
 
-.review-box p {
+.review-desc {
+  width: 100%;
+  height: 60%;
+  overflow-wrap: break-word;
+  overflow: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 25px;
+}
+
+.review-desc p {
+  width: 100%;
   font-size: 18px;
+  line-height: 25px;
 }
 
 .next,
 .prev {
-  position: absolute;
-  color: var(--black-color);
-  font-size: 25px;
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
   cursor: pointer;
-  z-index: 100;
-  top: 73%;
-  opacity: 0.4;
-  transition-duration: 0.4s;
 }
 
-.next:hover,
-.prev:hover {
-  opacity: 1;
+.next span,
+.prev span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
-.next {
-  right: 13%;
+.next:before,
+.prev:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgb(238 163 0 / 59%);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
 }
 
-.prev {
-  left: 34%;
+.next:hover:before,
+.prev:hover:before {
+  width: 100%;
+  background: var(--yellow-color);
 }
+
+.next:active,
+.prev:active {
+  transform: scale(0.96);
+}
+
+.reviews-btns {
+  width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 
 @keyframes firstNext {
   0% {
@@ -2417,8 +2468,8 @@ label[for="big_dog"] {
   }
 }
 
-/* ------------open prices */
-/* newsletter */
+/* ------------PRICES MODAL */
+
 .prices-wrapper {
   height: 100vh;
   width: 100%;
@@ -2448,7 +2499,6 @@ label[for="big_dog"] {
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
-  *zoom: 1;
   background: url(/static/images/fatty-corg.jpg) no-repeat center center/cover;
   color: var(--black-color);
   font-family: "Hubballi", cursive;
@@ -2475,7 +2525,7 @@ label[for="big_dog"] {
 }
 
 .card-content h1 {
-  margin: 10px 0;
+  margin-top: -60px;
   font-size: 30px;
 }
 
@@ -2486,7 +2536,7 @@ label[for="big_dog"] {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  width: 50%;
+  width: 600px;
   font-weight: bold;
 }
 
@@ -2498,78 +2548,147 @@ label[for="big_dog"] {
   justify-content: center;
 }
 
-/* https://codepen.io/mtorosian/pen/KwyrZa */
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+/* ------------------- PRICES CAROUSEL */
+.prices-slider-container {
+  width: 70%;
+  height: 450px;
+  margin-top: 35px;
 }
 
-.prices_box {
-  min-height: 500px;
-  width: 150px;
-  padding: 1.25em;
+.prices-slider {
+  width: 600px;
+  height: 100%;
   position: relative;
-  text-align: center;
-  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 5px;
+}
+
+
+.prices-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  margin-right: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  justify-content: flex-start;
+  overflow: overlay;
 }
 
-.prices_box:hover {
-  *zoom: 1;
-  background-size: 100%;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transform: scale(1.025);
-  z-index: 2;
+.prices-box:first-of-type {
+  left: 0;
 }
 
-.prices_box:hover:before,
-.prices_box:hover:after {
+.prices-box h4 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 65px;
+}
+
+.prices-box li {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.prices-next,
+.prices-prev {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.prices-next span,
+.prices-prev span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.prices-next:before,
+.prices-prev:before {
   content: "";
   position: absolute;
-  *zoom: 1;
-  top: -2px;
-  bottom: -2px;
-  width: 2px;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgb(238 163 0 / 59%);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
 }
 
-.prices_box:hover:before {
-  left: -2px;
-}
-
-.prices_box:hover:after {
-  right: -2px;
-}
-
-.prices_box:hover {
-  *zoom: 1;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.prices_box h2 {
-  font-size: 20px;
+.prices-next:hover:before,
+.prices-prev:hover:before {
   width: 100%;
+  background: var(--yellow-color);
+}
+
+.prices-next:active,
+.prices-prev:active {
+  transform: scale(0.96);
+}
+
+.prices-btns {
+  width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-.prices_box li {
-  font-size: 20px;
+@keyframes firstPricesNext {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes secondPricesNext {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
-sup,
-.small {
-  font-size: 0.6125em;
+@keyframes firstPricesPrev {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }
+
+@keyframes secondPricesPrev {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
 
 /* ------------------reviews */
 
@@ -2926,6 +3045,7 @@ label[for="id_stars_4"] {
   justify-content: center;
   padding: 40px;
   backdrop-filter: blur(20px);
+  border-radius: 25px;
 }
 
 .delete-rev-box p {
@@ -2998,10 +3118,6 @@ label[for="id_stars_4"] {
   position: relative;
   z-index: 100;
   text-align: center;
-}
-
-.contact-form-box h2 {
-  font-size: 35px;
 }
 
 .contact-form-box p {
@@ -3105,7 +3221,7 @@ label[for="id_stars_4"] {
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 25px;
   height: 350px;
   width: 600px;
   font-weight: bold;
@@ -3379,6 +3495,14 @@ label[for="id_newsletter_email"] {
     display: none;
   }
 
+  .search-form {
+    height: 90%;
+  }
+
+  .search-form p {
+    font-size: 20px;
+  }
+
   .search-section-box {
     display: none;
   }
@@ -3403,12 +3527,30 @@ label[for="id_newsletter_email"] {
     width: 65%;
   }
 
+  .join-txt h1 {
+    font-size: 40px;
+  }
+
+  .main-txt {
+    height: 90%;
+  }
+
   #about-section {
     height: unset;
   }
 
   .about-dog-img {
     display: none;
+  }
+
+  .about-box {
+    height: 300px;
+    width: 400px;
+    
+  }
+
+  .safety-box {
+    align-items: inherit;
   }
 
   .heart-about-1,
@@ -3423,6 +3565,59 @@ label[for="id_newsletter_email"] {
 
   .about-bg-shape {
     display: none;
+  }
+
+  .about-txt p {
+    font-size: 18px;
+  }
+
+  .about-txt h2 {
+    font-size: 25px;
+  }
+
+  .profile-dog-img {
+    height: 400px;
+    width: 400px;
+}
+
+  .edit-box p {
+    font-size: 18px;
+  }
+
+  .profile-wrap {
+    width: 400px;
+    height: 640px;
+    margin-bottom: 20px;
+  }
+
+  .description-container {
+    margin-bottom: 110px;
+    margin-top: 50px;
+  }
+
+  .next, .prev {
+    top: 82%;
+  }
+
+  .prev {
+    left: 17%;
+  }
+
+  .next {
+    right: 17%;
+  }
+
+  .reviews-container {
+    margin-bottom: 100px;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-section {
+    height: unset;
   }
 
   #footer-container {
@@ -3451,9 +3646,6 @@ label[for="id_newsletter_email"] {
     display: none;
   }
 
-  .main-image {
-    display: none;
-  }
 
   .register-bg-shape {
     display: none;
@@ -3470,6 +3662,9 @@ label[for="id_newsletter_email"] {
   #id_is_petsitter {
     left: 76%;
   }
+
+
+
 }
 
 @media screen and (max-width: 800px) {
