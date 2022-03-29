@@ -236,8 +236,8 @@ label {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 10px;
@@ -587,8 +587,8 @@ select {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
@@ -993,8 +993,8 @@ select {
   height: 50px;
   padding-left: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
   margin-bottom: 10px;
 }
 
@@ -1046,8 +1046,8 @@ label[for="id_password2"] {
   height: 30px;
   position: absolute;
   right: 0;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  border: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border: none;
 }
 
 .signup input::placeholder {
@@ -1088,8 +1088,8 @@ label[for="id_password2"] {
   height: 50px;
   padding-left: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
 }
 
 #id_login::placeholder {
@@ -1426,8 +1426,8 @@ label[for="id_description"] {
   width: 65%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
   border-radius: 25px;
   padding: 10px;
   font-family: "Hubballi", cursive;
@@ -1452,8 +1452,8 @@ label[for="id_description"] {
   padding: 10px;
   font-size: 20px;
   resize: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-}
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
 
 .details-box textarea::placeholder {
   text-transform: lowercase;
@@ -1481,8 +1481,8 @@ label[for="id_description"] {
   width: 100%;
   margin-bottom: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-}
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
 
 .edit-box input::placeholder {
   text-transform: uppercase;
@@ -1606,8 +1606,8 @@ label[for="id_description"] {
   width: 100%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  padding: 10px;
   border-radius: 25px;
 }
 
@@ -2561,8 +2561,6 @@ label[for="big_dog"] {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 5px;
 }
 
@@ -2833,10 +2831,10 @@ label[for="id_stars_4"] {
   width: 65%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px;
   font-family: "Hubballi", cursive;
   font-size: 18px;
   resize: none;
@@ -3144,8 +3142,8 @@ label[for="id_stars_4"] {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 10px;
@@ -3162,8 +3160,8 @@ label[for="id_stars_4"] {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 10px;
