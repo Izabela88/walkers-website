@@ -12,6 +12,8 @@ from walker_profile.utility import GeoCodeError
 
 class SearchView(View):
     def post(self, request):
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():

@@ -16,23 +16,23 @@
 <div class="container">
   <div class="half-home-bg">
     <img
-      src="/media/q-mark.png"
+      src="{% static 'images/q-mark.png' %}"
       class="mark-img small-mark small-mark-left"
       alt="A question mark-img"
     />
     <img
-      src="/media/q-mark.png"
+      src="{% static 'images/q-mark.png' %}"
       class="mark-img big-mark"
       alt="A question mark"
     />
     <img
-      src="/media/q-mark.png"
+      src="{% static 'images/q-mark.png' %}"
       class="mark-img small-mark small-mark-right"
       alt="A question mark-img"
     />
   </div>
   <div class="main-image image-shadow">
-    <img src="/media/dog1.png" class="home-dog-img" alt="A dog" />
+    <img src="{% static 'images/dog1.png' %}" class="home-dog-img" alt="A dog" />
   </div>
 
   {% if user.is_authenticated and is_petsitter %}
@@ -115,11 +115,11 @@
     </form>
   </div>
   <div class="search-dog-img">
-    <img src="/media/dog2.png" class="search-dog-image" alt="A dog" />
+    <img src="{% static 'images/dog2.png' %}" class="search-dog-image" alt="A dog" />
   </div>
   <div class="search-section-box">
-    <img src="/media/heart.png" class="heart-1" alt="Heart icon" />
-    <img src="/media/heart.png" class="heart-2" alt="Heart icon" />
+    <img src="{% static 'images/heart.png' %}" class="heart-1" alt="Heart icon" />
+    <img src="{% static 'images/heart.png' %}" class="heart-2" alt="Heart icon" />
   </div>
 </div>
 </section>
@@ -132,7 +132,7 @@
   <div class="paws-img paw-1 image-shadow-2"></div>
   <div class="paws-img paw-2 image-shadow-2"></div>
   <div class="main-image image-shadow">
-    <img src="/media/dog3.png" class="home-dog-img" alt="A dog" />
+    <img src="{% static 'images/dog3.png' %}" class="home-dog-img" alt="A dog" />
   </div>
   <div class="join-txt center">
     <div class="main-txt center">
@@ -169,6 +169,7 @@
 </section>
 
 {% block extra_js %}
+  {{ block.super }}
   <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock %}
 

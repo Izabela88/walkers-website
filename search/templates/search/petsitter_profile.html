@@ -16,7 +16,7 @@
         <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
       {% else %}
         <div class="details-image center">
-            <div class="details-no-avatar " style="background: url('/media//user.png') no-repeat center center/cover"></div>
+            <div class="details-no-avatar" style="background: url('/static/images/user.png') no-repeat center center/cover"></div>
         </div>                        
       {% endif %} 
       <h2>{{user.first_name}}</h2>
@@ -171,8 +171,7 @@
 </div>
 
 {% block extra_js %}
-
-<script src="{% static 'js/profile.js' %}"></script>
-
+  {{ block.super }}
+  <script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}
 {% endblock %}

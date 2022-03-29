@@ -496,7 +496,7 @@ input[id="id_password1"] {
 }
 
 .home-bg-shape-1 {
-  background: url(/media/circle2.png) no-repeat center center/cover;
+  background: url(/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 1000px;
   width: 1000px;
@@ -505,7 +505,7 @@ input[id="id_password1"] {
 }
 
 .home-bg-shape-2 {
-  background: url(/media/circle1.png) no-repeat center center/cover;
+  background: url(/static/images/circle1.png) no-repeat center center/cover;
   position: absolute;
   height: 700px;
   width: 700px;
@@ -521,7 +521,7 @@ input[id="id_password1"] {
 }
 
 .searching-bg-shape {
-  background: url(/media/circle2.png) no-repeat center center/cover;
+  background: url(/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
@@ -691,7 +691,7 @@ select {
 }
 
 .join-bg-shape {
-  background: url(/media/circle2.png) no-repeat center center/cover;
+  background: url(/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
@@ -700,7 +700,7 @@ select {
 }
 
 .paws-img {
-  background: url(/media/paws.png) no-repeat center center/cover;
+  background: url(/static/images/paws.png) no-repeat center center/cover;
   position: absolute;
   height: 200px;
   width: 200px;
@@ -805,7 +805,7 @@ select {
 
 /* -------------------footer */
 #footer {
-  background: url(/media/footer.jpg) no-repeat center center/cover;
+  background: url(/static/images/footer.jpg) no-repeat center center/cover;
   position: relative;
   overflow: hidden;
 }
@@ -921,7 +921,7 @@ select {
 }
 
 .register-bg-shape {
-  background: url(/media/circle2.png) no-repeat center center/cover;
+  background: url(/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 900px;
   width: 900px;
@@ -1398,7 +1398,7 @@ label[for="id_avatar"] {
 .no-user-img {
   width: 250px;
   height: 250px;
-  background: url(/media/user.png) no-repeat center center/cover;
+  background: url(/static/images/user.png) no-repeat center center/cover;
   border-radius: 50%;
 }
 
@@ -2017,31 +2017,31 @@ label[for="big_dog"] {
 }
 
 .error-img {
-  background: url(/media/cant.gif) no-repeat center center/cover;
+  background: url(/static/images/cant.gif) no-repeat center center/cover;
   width: 500px;
   height: 500px;
 }
 
 .error-img-404 {
-  background: url(/media/error404.gif) no-repeat center center/cover;
+  background: url(/static/images/error404.gif) no-repeat center center/cover;
   width: 500px;
   height: 500px;
 }
 
 .error-img-403 {
-  background: url(/media/errorcat.gif) no-repeat center center/cover;
+  background: url(/static/images/errorcat.gif) no-repeat center center/cover;
   width: 500px;
   height: 500px;
 }
 
 .error-img-500 {
-  background: url(/media/server-error.gif) no-repeat center center/cover;
+  background: url(/static/images/server-error.gif) no-repeat center center/cover;
   width: 500px;
   height: 500px;
 }
 
 .not-found {
-  background: url(/media/not-found.gif) no-repeat center center/cover;
+  background: url(/static/images/not-found.gif) no-repeat center center/cover;
   width: 400px;
   height: 400px;
 }
@@ -2449,7 +2449,7 @@ label[for="big_dog"] {
   background-color: #211f23;
   background-repeat: no-repeat;
   *zoom: 1;
-  background: url(/media/fatty-corg.jpg) no-repeat center center/cover;
+  background: url(/static/images/fatty-corg.jpg) no-repeat center center/cover;
   color: var(--black-color);
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -2895,7 +2895,7 @@ label[for="id_stars_4"] {
 }
 
 .modal-content {
-  background: url(/media/dogpuppy.jpg) no-repeat center center/cover;
+  background: url(/static/images/dogpuppy.jpg) no-repeat center center/cover;
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -2959,7 +2959,7 @@ label[for="id_stars_4"] {
 }
 
 #open-edit-modal {
-  background: url(/media/delete.gif) no-repeat center center/cover;
+  background: url(/static/images/delete.gif) no-repeat center center/cover;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -3084,7 +3084,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
-  background: url(/media/newsletter.jpg) no-repeat center center/cover;
+  background: url(/static/images/newsletter.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3372,7 +3372,7 @@ label[for="id_newsletter_email"] {
   }
 
   #home-section {
-    background: url(/media/footer.jpg) no-repeat center center/cover;
+    background: url(/static/images/footer.jpg) no-repeat center center/cover;
   }
 
   .search-dog-img {
