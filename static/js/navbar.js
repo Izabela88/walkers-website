@@ -16,26 +16,13 @@ let openSidebar = true;
 
 toggleHamburgerIcon();
 
-function handleSidebar() {
-  if (openSidebar) {
-    openMenu();
-    openSidebar = false;
-  } else {
-    closeMenu();
-    openSidebar = true;
-  }
-}
 
 function openMenu() {
-  document.getElementById("my-sidebar").style.width = "50%";
-}
-
-function closeMenu() {
-  document.getElementById("my-sidebar").style.width = null;
+  document.getElementById("my-sidebar").classList.toggle('open-menu')
 }
 
 hamburgerIcon.addEventListener("click", function (e) {
-  handleSidebar();
+  openMenu();
 });
 
 function toggleWrapperMenuOnResize() {
