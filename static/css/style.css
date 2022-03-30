@@ -590,7 +590,7 @@ input[id="id_password1"] {
 
 .form-input input,
 select {
-  height: 40px;
+  height: 45px;
   width: 85%;
   outline: none;
   border: none;
@@ -2372,7 +2372,7 @@ label[for="big_dog"] {
 }
 
 .review-desc {
-  width: 100%;
+  width: 60%;
   height: 60%;
   overflow-wrap: break-word;
   overflow: overlay;
@@ -2496,6 +2496,13 @@ label[for="big_dog"] {
 
 #open-prices {
   margin: 0;
+}
+
+#open-prices:hover:disabled,
+.button:hover:disabled {
+  transform: unset;
+  color: rgba(16, 16, 16, 0.3);
+  box-shadow: none;
 }
 
 .close-prices {

@@ -48,7 +48,7 @@
         {% if user.email %}
           {{user.email}}
         {% else %}
-          -ˏˋ no email address yet ˊˎ
+          -ˏˋ no email address ˊˎ
         {% endif %} 
       </p>
       <h5>Phone number</h5>
@@ -56,7 +56,7 @@
         {% if user.phone_number %}
           {{user.phone_number}}
         {% else %}
-          -ˏˋ no phone number yet ˊˎ
+          -ˏˋ no phone number ˊˎ
         {% endif %} 
       </p>
       </div>
@@ -64,9 +64,13 @@
         <a href="{% url 'review' user.id %}">write review</a>
       </div>
     </div>
-      <div class="details-wrap">      
+      <div class="details-wrap">        
           <div class="services-part">
-            <button id="open-prices" class="button button-bright">Check prices</button>
+            <button id="open-prices" class="button button-bright"
+            {% if not services %}
+            disabled
+            {% endif %}
+            >Check prices</button>
           </div>
       <div class="description-container">
         <div class="description-part">
