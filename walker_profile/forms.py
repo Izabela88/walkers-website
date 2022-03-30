@@ -12,7 +12,10 @@ from django.core.validators import RegexValidator
 class ExtendedSignupForm(SignupForm):
     is_petsitter = forms.BooleanField(
         required=False,
-        label='Mark the box only if you are a pet sitter/dog walker',
+        label=(
+            'Mark the field below if you want to register as the '
+            ' pet sitter / dog walker.  If not, just leave it blank.'
+        ),
     )
 
     def save(self, request):

@@ -55,6 +55,7 @@ li {
 
 label {
   font-family: "Hubballi", cursive;
+  letter-spacing: 1px;
 }
 
 /* scroll bar */
@@ -191,6 +192,9 @@ label {
 
 .terms-txt {
   text-align: center;
+  margin-top: 10px;
+  color: #f73221;
+  font-weight: bold;
 }
 
 /* allauth templates */
@@ -436,8 +440,8 @@ input[id="id_password1"] {
 }
 
 .home-txt p {
-  font-size: 25px;
-  font-family: "Architects Daughter", cursive;
+  font-size: 23px;
+  font-family: "Hubballi", cursive;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -449,6 +453,7 @@ input[id="id_password1"] {
 
 .home-button {
   margin-top: -30%;
+  margin-bottom: 30%;
 }
 
 .home-button-petsitter {
@@ -464,7 +469,9 @@ input[id="id_password1"] {
   justify-content: center;
 }
 
-.main-image {
+
+.main-image ,
+.user_profile-main-image {
   height: 100%;
   width: 60%;
   position: absolute;
@@ -946,7 +953,6 @@ select {
 
 .heading h2 {
   font-size: 30px;
-  margin-bottom: 10px;
 }
 
 .heading a {
@@ -955,99 +961,104 @@ select {
   font-size: 18px;
 }
 
+.social-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+
 .fb-button {
-  width: 100%;
+  width: 48%;
   background-color: #475993;
 }
 
-.fb-button a {
+.fb-button a,
+.google-button a {
   color: var(--white-color);
+  font-size: 15px;
 }
 
 .google-button {
-  width: 100%;
+  width: 48%;
   background-color: #db4437;
 }
 
-.google-button a {
-  color: var(--white-color);
+.fb_reset {
+  display: none;
 }
 
 .form-grid-container {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-  width: 40%;
+  width: 50%;
   height: 80%;
 }
 
 .signup {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: baseline;
-  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
 }
 
 .signup input {
   width: 100%;
-  height: 50px;
-  padding-left: 10px;
+  height: 45px;
+  padding: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Hubballi", cursive;
+  font-size: 18px;
+
 }
 
-#id_password1::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-#id_password2::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
+#id_password1::placeholder,
+#id_password2::placeholder,
 #id_email::placeholder {
   text-transform: lowercase;
   color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  visibility: hidden;
 }
 
 label[for="id_is_petsitter"] {
   position: relative;
   font-size: 18px;
-  top: 6px;
   font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border: none;  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+  color: #f73221;
+  border-radius: 25px;
 }
 
-label[for="id_email"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
-}
-
-label[for="id_password1"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
-}
-
-label[for="id_password2"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
+label[for="id_email"],
+label[for="id_password1"],
+label[for="id_password2"]  {
+font-family: "Architects Daughter", cursive;
+margin-bottom: 10px;
+text-transform: uppercase;
+font-size: 14px;
+letter-spacing: 2px;
+font-weight: bold;
 }
 
 .signup input[type="checkbox"] {
   width: 30px;
   height: 30px;
-  position: absolute;
-  right: 0;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border: none;
+  border: none;
+  cursor: pointer;
 }
 
 .signup input::placeholder {
@@ -1057,15 +1068,11 @@ label[for="id_password2"] {
   font-weight: bold;
 }
 
-.signup p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
 .register-input {
   cursor: pointer;
   width: 100%;
+  margin-top: 10px;
+  height: 50px;
 }
 
 .sign-in-social-btn {
@@ -1079,76 +1086,77 @@ label[for="id_password2"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 }
 
 .login input {
   width: 100%;
-  height: 50px;
-  padding-left: 10px;
+  height: 45px;
+  padding: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
+    margin-bottom: 20px;
+  text-align: center;
 }
 
-#id_login::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
+#id_login::placeholder,
 #id_password::placeholder {
   text-transform: lowercase;
   color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 18px;
+}
+
+
+label[for="id_remember"] {
+  font-size: 18px;
+  text-transform: uppercase;
+
 }
 
 #id_remember {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  left: 17%;
   box-shadow: none;
+  top: -21px;
 }
 
 .login-form-grid-container {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-  width: 40%;
-  height: 70%;
+  width: 50%;
+  height: 65%;
 }
 
-.login p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
 
 .login input::placeholder {
   font-family: "Hubballi", cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
-}
-
-label[for="id_remember"] {
-  width: auto;
-  margin-top: 6px;
-  position: absolute;
+  font-family: "Hubballi", cursive;
   font-size: 18px;
+  visibility: hidden;
 }
 
-label[for="id_login"] {
-  position: relative;
-  font-size: 18px;
-  top: -6px;
+  label[for="id_login"],
+  label[for="id_password"] {
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
-label[for="id_password"] {
-  position: relative;
-  font-size: 18px;
-  top: -6px;
-}
-
-#id_remember {
-  position: relative;
-  margin-left: -85px;
-  height: 30px;
+.forgot-link a {
+  text-transform: uppercase;
+  color: #db4437;
+  font-weight: bold;
 }
 
 /* -------------logout page */
@@ -1453,7 +1461,9 @@ label[for="id_description"] {
   font-size: 20px;
   resize: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 25px;
+  }
 
 .details-box textarea::placeholder {
   text-transform: lowercase;
@@ -3403,7 +3413,7 @@ label[for="id_newsletter_email"] {
     right: 5%;
   }
 
-  .nav-list li a.active {
+  #menu-list li a.active {
     color: var(--white-color);
   }
 
@@ -3458,7 +3468,7 @@ label[for="id_newsletter_email"] {
     left: 0;
     background-color: var(--yellow-color);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: rgb(0 0 0 / 35%) 0px -10px 20px;
   }
 
@@ -3466,6 +3476,8 @@ label[for="id_newsletter_email"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    text-align: center;
   }
 
   .nav-list li {
@@ -3473,7 +3485,16 @@ label[for="id_newsletter_email"] {
     margin-bottom: 40px;
   }
 
+  .nav-list a {
+    margin: 0;
+  }
+
   .half-home-bg {
+    display: none;
+  }
+
+  
+  .puppy-dog-img {
     display: none;
   }
 
@@ -3574,9 +3595,73 @@ label[for="id_newsletter_email"] {
   }
 
   .profile-dog-img {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
 }
+
+  .walker-profile-section {
+    height: unset;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tabs-content {
+    height: 1010px;
+    width: 100%;
+  }
+
+  .petsitter-form {
+    width: 80%;
+  }
+
+  .page-contents {
+    align-items: center;
+    width: 100%;
+  }
+
+  .user_profile-main-image {
+    height: unset;
+    position: unset;
+  }
+
+  .details-box {
+    width: 80%;
+  }
+
+  .page-btn {
+    margin: 15px 144px;
+  }
+
+
+  .petsitter-layout label.service-type {
+    border-bottom: none;
+    margin: 0;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+  .tabs-button {
+    margin: 10px auto;
+  }
+
+  .tabs-sidebar {
+    margin-top: 100px;
+  }
+
+  .petsitter-layout {
+    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(1, 1fr);
+    width: 65%;
+  }
+
+  .page {
+    grid-column-start: 1;
+    grid-row-start: 5;
+    grid-column-end: span 1;
+    padding: 0;
+  }
 
   .edit-box p {
     font-size: 18px;
@@ -3609,13 +3694,26 @@ label[for="id_newsletter_email"] {
     margin-bottom: 100px;
   }
 
+  .reviews-btns {
+    width: 700px;
+  }
+
   .profile-container {
     display: flex;
     flex-direction: column;
   }
 
+  .card-content {
+    background: url(/static/images/fatty-corg-small.jpg) no-repeat center center/cover;
+  }
+
   .profile-section {
     height: unset;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
   }
 
   #footer-container {
@@ -3661,8 +3759,6 @@ label[for="id_newsletter_email"] {
     left: 76%;
   }
 
-
-
 }
 
 @media screen and (max-width: 800px) {
@@ -3671,7 +3767,7 @@ label[for="id_newsletter_email"] {
   }
 
   .search-form h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .join-bg-shape {
@@ -3687,10 +3783,38 @@ label[for="id_newsletter_email"] {
   }
 
   .join-txt h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .main-txt {
+    width: 90%;
+  }
+
+  .main-txt h1 {
+    font-size: 30px;
+  }
+
+  .error-box h2 {
+    font-size: 23px;
+  }
+
+  .buttons-box {
+    width: 52%;
+  }
+
+  .petsitters-heading h2 {
+    font-size: 25px;
+  }
+
+  .not-found-button {
+    width: 30%;
+  }
+
+  .description-container {
+    width: 500px;
+  }
+
+  .rev-form {
     width: 90%;
   }
 }
