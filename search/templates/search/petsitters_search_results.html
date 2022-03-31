@@ -15,7 +15,7 @@
     </div>
     <div class="container">
         {% if search_results %}
-        <ul class="{% if search_results|length < 2 %} cards_2 {% elif search_results|length == 2 %} cards_3 {% else %} cards {% endif %}">
+        <ul class="cards {% if search_results|length < 2 %} cards_2 {% elif search_results|length == 2 %} cards_3 {% else %} cards {% endif %}">
               {% for i in search_results %}
                 <li>
                   <a href="{% url 'petsitter_profiles' i.0.id %}" class="card">

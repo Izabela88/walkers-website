@@ -949,6 +949,7 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .heading h2 {
@@ -1172,9 +1173,9 @@ label[for="id_remember"] {
 
 .buttons-box {
   display: flex;
-  width: 40%;
+  width: 90%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 
@@ -1596,11 +1597,15 @@ label[for="id_description"] {
 }
 
 .change-password-form {
-  width: 100%;
+  width: 400px;
   height: 40%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.password-buttons {
+  width: 400px;
 }
 
 .change-password-form p {
@@ -1608,7 +1613,7 @@ label[for="id_description"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 35%;
+  width: 100%;
 }
 
 .change-password-form input {
@@ -1655,6 +1660,7 @@ label[for="id_new_password2"] {
   overflow: hidden;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
 }
 
 .petsitter-layout label {
@@ -1857,20 +1863,8 @@ label[for="id_new_password2"] {
   font-weight: bold;
 }
 
-.petsitter-form input[name="is_small_dog"] {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 6px;
-}
-
-.petsitter-form input[name="is_medium_dog"] {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 6px;
-}
-
+.petsitter-form input[name="is_small_dog"],
+.petsitter-form input[name="is_medium_dog"],
 .petsitter-form input[name="is_big_dog"] {
   width: 20px;
   height: 20px;
@@ -1878,16 +1872,8 @@ label[for="id_new_password2"] {
   top: 6px;
 }
 
-label[for="small_dog"] {
-  position: relative;
-  margin-left: 30px;
-}
-
-label[for="medium_dog"] {
-  position: relative;
-  margin-left: 30px;
-}
-
+label[for="small_dog"],
+label[for="medium_dog"],
 label[for="big_dog"] {
   position: relative;
   margin-left: 30px;
@@ -2052,7 +2038,7 @@ label[for="big_dog"] {
 .not-found-button {
   margin-bottom: 100px;
   margin-top: 60px;
-  width: 20%;
+  width: 40%;
 }
 
 /* -------------------Petsitters list */
@@ -2064,7 +2050,7 @@ label[for="big_dog"] {
   margin: 40px 25px;
   padding: 0;
   list-style-type: none;
-  width: 80%;
+  width: 90%;
 }
 
 .cards_2 {
@@ -2320,7 +2306,7 @@ label[for="big_dog"] {
 
 /* ----------------reviews sliders */
 .slider-container {
-  width: 70%;
+  width: 100%;
   height: 300px;
 }
 
@@ -2372,7 +2358,7 @@ label[for="big_dog"] {
 }
 
 .review-desc {
-  width: 60%;
+  width: 100%;
   height: 60%;
   overflow-wrap: break-word;
   overflow: overlay;
@@ -3407,6 +3393,15 @@ label[for="id_newsletter_email"] {
 }
 
 @media screen and (max-width: 1150px) {
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1, h2 {
+    font-size: 30px;
+  }
   /* hamburger icon code from https://codepen.io/JoseRosario/pen/BWqMwK*/
   .wrapper-menu {
     width: 50px;
@@ -3506,8 +3501,8 @@ label[for="id_newsletter_email"] {
   .half-home-bg {
     display: none;
   }
+ 
 
-  
   .puppy-dog-img {
     display: none;
   }
@@ -3638,6 +3633,7 @@ label[for="id_newsletter_email"] {
   .user_profile-main-image {
     height: unset;
     position: unset;
+    width: 100%;
   }
 
   .details-box {
@@ -3662,6 +3658,7 @@ label[for="id_newsletter_email"] {
 
   .tabs-sidebar {
     margin-top: 100px;
+    width: 90%;
   }
 
   .petsitter-layout {
@@ -3678,7 +3675,7 @@ label[for="id_newsletter_email"] {
   }
 
   .edit-box p {
-    font-size: 18px;
+    font-size: 25px;
   }
 
   .profile-wrap {
@@ -3727,7 +3724,7 @@ label[for="id_newsletter_email"] {
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    width: 60%;
+    width: 70%;
   }
 
   #footer-container {
@@ -3773,6 +3770,10 @@ label[for="id_newsletter_email"] {
     left: 76%;
   }
 
+  .edit-rev-submit-btn {
+    width: 295px;
+  }
+  
 }
 
 @media screen and (max-width: 800px) {
@@ -3812,16 +3813,9 @@ label[for="id_newsletter_email"] {
     font-size: 23px;
   }
 
-  .buttons-box {
-    width: 52%;
-  }
-
   .petsitters-heading h2 {
     font-size: 25px;
-  }
-
-  .not-found-button {
-    width: 30%;
+    width: 50%;
   }
 
   .description-container {
@@ -3831,9 +3825,255 @@ label[for="id_newsletter_email"] {
   .rev-form {
     width: 90%;
   }
+
+
+ .profile-dog-img {
+  height: 300px;
+  width: 300px;
+  }
+
+  .tabs-content {
+    width: 65%;
+  }
+
+  .tabs-content h3 {
+    width: 90%;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .details-box input {
+    width: 90%;
+  }
+
+  .petsitter-layout {
+    width: 100%;
+  }
+
+  .petsitter-form {
+    width: 400px;
+  }
+
+  .petsitter-layout label {
+    font-size: 14px;
+    margin: 10px auto;
+
+  }
+
+  .page-contents h4 {
+    font-size: 14px;
+  }
+
+  .petsitter-layout label.service-type span {
+    font-size: 14px;
+  }
+
+  label[for="small_dog"],
+  label[for="medium_dog"],
+  label[for="big_dog"] {
+    margin-left: 0;
+  }
+
+
+  .petsitter-form input[type="text"] {
+    height: 30px;
+    padding: 5px;
+    margin: 0 auto;
+    width: 166px;
+    margin-top: 20px;
+  }
+
+  .page-btn {
+  margin: 15px auto;
+  width: 100%;
+  }
+
+
+  .petsitter-form {
+    width: 350px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    width: 315px;
+  }
+
+  .petsitter-layout label.service-type {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .details-box textarea {
+    height: 50%;
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 550px) {
+  .wrapper-menu {
+    width: 40px;
+    height: 40px;
+  }
+
+  .join-txt p {
+    font-size: 16px;
+  }
+
+  .step-no {
+    width: 30px;
+    height: 30px;
+  }
+
+  .join-instructions {
+    width: 90%;
+  }
+
+  .search-form p {
+    font-size: 14px;
+  }
+
+  .footer-box h3 {
+    font-size: 20px;
+  }
+
+  .form-input label {
+    font-size: 12px;
+  }
+
+  .about-txt h2 {
+    font-size: 23px;
+  }
+
+  .about-txt p {
+    font-size: 15px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+
+  .contact-form-box {
+    width: 80%;
+  }
+
+  .contact-form-box p {
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .signup {
+    width: 100%;
+  }
+
+  .form-grid-container {
+    width: 85%;
+  }
+
+  .google-button a,
+  .fb-button a {
+    padding: 18px;
+  }
+
+  label[for="id_email"], 
+  label[for="id_password1"], 
+  label[for="id_password2"] {
+    font-size: 12px;
+  }
+
+  label[for="id_is_petsitter"] {
+    font-size: 16px;
+  }
+
+  .heading h2 {
+    font-size: 25px;
+  }
+
+  .login-form-grid-container {
+    width: 85%;
+  }
+
+  #id_remember {
+    left: 25%;
+  }
+
+  .social-heading h1 {
+    font-size: 25px;
+  }
+
+  .social-heading p {
+    font-size: 16px;
+  }
+
+  .home-txt {
+    width: 80%;
+  }
+
+  .home-txt p {
+    font-size: 16px;
+  }
+
+  .buttons-box {
+    width: 80%;
+  }
+
+  .tabs-content h3 {
+    font-size: 15px;
+  }
+
+  .tabs-content h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .details-box {
+    width: 100%;
+  }
+
+  .edit-box p {
+    font-size: 20px;
+  }
+
+
+  .details-box textarea {
+    height: 45%;
+    width: 80%;
+  }
+
+  .petsitter-form {
+    width: 300px;
+  }
+  
+  .petsitter-form input[type="text"] {
+    width: 140px;
+    margin-top: 20px;
+  }
+
+  .page-contents p {
+    text-align: center;
+  }
+
+  .error-img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .petsitters-heading h2 {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 30%;
+  }
+
+  .not-found {
+    width: 300px;
+    height: 300px;
+  }
+
+  .not-found-button {
+    width: 55%;
+  }
+
+ 
+
 }
 
 @media screen and (max-width: 380px) {

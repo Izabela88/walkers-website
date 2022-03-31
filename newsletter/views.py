@@ -76,6 +76,12 @@ class Newsletter(View):
 class UpdateSubscription(APIView):
     serializer_class = SubscriptionSerializer
 
+    def get(self, request):
+        """
+        ping method
+        """
+        return Response({}, status=status.HTTP_200_OK)
+
     def post(self, request):
         """
         Update subscription
