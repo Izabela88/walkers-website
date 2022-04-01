@@ -197,6 +197,11 @@ label {
   font-weight: bold;
 }
 
+.back-btn {
+  margin-bottom: 30px;
+  width: 200px;
+}
+
 /* allauth templates */
 .allauth-heading h1 {
   font-size: 35px;
@@ -542,7 +547,7 @@ input[id="id_password1"] {
 
 .search-form {
   width: 50%;
-  height: 75%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -571,7 +576,7 @@ input[id="id_password1"] {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 60%;
+  height: 65%;
   width: 100%;
 }
 
@@ -603,6 +608,11 @@ select {
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
+  
+}
+
+.form-input select {
+  background: var(--white-color);
 }
 
 .search-dog-img {
@@ -806,10 +816,11 @@ select {
 }
 
 .safety-icon {
-  font-size: 30px;
   color: #18d777;
-  margin-right: 4%;
-  margin-left: 4%;
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.2;
+  left: 88%;
 }
 
 /* -------------------footer */
@@ -1173,11 +1184,14 @@ label[for="id_remember"] {
 
 .buttons-box {
   display: flex;
-  width: 90%;
   align-items: center;
   justify-content: space-between;
 }
 
+
+.logout-buttons {
+  width: 395px;
+}
 
 .logout-heading p {
   margin-top: 40px;
@@ -1579,9 +1593,6 @@ label[for="id_description"] {
   width: 230px;
 }
 
-.del-btn a {
-  padding-top: 11px;
-}
 
 .delete-buttons {
   display: flex;
@@ -2275,7 +2286,7 @@ label[for="big_dog"] {
 .description-part {
   height: 100%;
   width: 100%;
-  padding: 33px;
+  padding: 15px;
 }
 
 .description-part h3 {
@@ -2502,8 +2513,8 @@ label[for="big_dog"] {
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
-  background: url(/static/images/fatty-corg.jpg) no-repeat center center/cover;
-  color: var(--black-color);
+  background: url(/static/images/bro-dog.jpg) no-repeat center center/cover;
+  color: var(--white-color);
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -2528,8 +2539,9 @@ label[for="big_dog"] {
 }
 
 .card-content h1 {
-  margin-top: -60px;
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 40px;
+  margin-bottom: 35px;
 }
 
 .card-content p {
@@ -2553,7 +2565,6 @@ label[for="big_dog"] {
 
 /* ------------------- PRICES CAROUSEL */
 .prices-slider-container {
-  width: 70%;
   height: 450px;
   margin-top: 35px;
 }
@@ -2564,6 +2575,12 @@ label[for="big_dog"] {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px,
+   rgb(0 0 0 / 12%) 0px -12px 30px,
+   rgb(0 0 0 / 12%) 0px 4px 6px,
+    rgb(0 0 0 / 17%) 0px 12px 13px,
+     rgb(0 0 0 / 9%) 0px -3px 5px;
   border-radius: 5px;
 }
 
@@ -2652,7 +2669,7 @@ label[for="big_dog"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 25px;
 }
 
 @keyframes firstPricesNext {
@@ -2843,6 +2860,11 @@ label[for="id_stars_4"] {
   resize: none;
 }
 
+
+.back-button a {
+  padding: 0;
+}
+
 /* -------------my reviews */
 .my-reviews-section {
   position: relative;
@@ -2875,6 +2897,8 @@ label[for="id_stars_4"] {
 
 .my-reviews-txt {
   font-size: 25px;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .my-reviews-heading {
@@ -3015,7 +3039,7 @@ label[for="id_stars_4"] {
 }
 
 .modal-content {
-  background: url(/static/images/dogpuppy.jpg) no-repeat center center/cover;
+  background: url(/static/images/dog-bros.jpg) no-repeat center center/cover;
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -3045,12 +3069,12 @@ label[for="id_stars_4"] {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
   border-radius: 25px;
 }
 
 .delete-rev-box p {
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -3086,7 +3110,7 @@ label[for="id_stars_4"] {
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
-  bottom: 12%;
+  bottom: 17%;
   right: 32%;
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgb(0 0 0 / 0%);
@@ -3106,6 +3130,7 @@ label[for="id_stars_4"] {
 
 .edit-rev-submit-btn {
   width: 380px;
+  position: relative;
 }
 
 /* -------------CONTACT */
@@ -3201,7 +3226,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
-  background: url(/static/images/newsletter.jpg) no-repeat center center/cover;
+  background: url(/static/images/dogpuppy.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3220,7 +3245,7 @@ label[for="id_stars_4"] {
 
 .newsletter-box {
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   text-align: center;
   border-radius: 25px;
   height: 350px;
@@ -3240,7 +3265,7 @@ label[for="id_stars_4"] {
 
 .newsletter-txt h2 {
   letter-spacing: 2px;
-  font-size: 45px;
+  font-size: 40px;
   margin: 0;
 }
 
@@ -3298,8 +3323,8 @@ label[for="id_newsletter_email"] {
   font-size: 40px;
   cursor: pointer;
   position: absolute;
-  left: 95%;
-  top: -24%;
+  left: 90%;
+  top: -14%;
 }
 
 /* ---------MEDIA QUERIES */
@@ -3402,6 +3427,11 @@ label[for="id_newsletter_email"] {
   h1, h2 {
     font-size: 30px;
   }
+
+  .edit-rev-section {
+    height: 100%;
+  }
+
   /* hamburger icon code from https://codepen.io/JoseRosario/pen/BWqMwK*/
   .wrapper-menu {
     width: 50px;
@@ -3603,6 +3633,12 @@ label[for="id_newsletter_email"] {
     font-size: 25px;
   }
 
+  .safety-icon {
+    font-size: 61px;
+    opacity: 0.2;
+    left: 25%;
+  }
+
   .profile-dog-img {
     height: 500px;
     width: 500px;
@@ -3701,6 +3737,10 @@ label[for="id_newsletter_email"] {
     right: 17%;
   }
 
+  .reviews-section {
+    height: 100%;
+  }
+
   .reviews-container {
     margin-bottom: 100px;
   }
@@ -3709,13 +3749,17 @@ label[for="id_newsletter_email"] {
     width: 700px;
   }
 
+  .rev-container {
+    height: 1000px;
+  }
+
   .profile-container {
     display: flex;
     flex-direction: column;
   }
 
   .card-content {
-    background: url(/static/images/fatty-corg-small.jpg) no-repeat center center/cover;
+    background: url(/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
   }
 
   .profile-section {
@@ -3773,12 +3817,33 @@ label[for="id_newsletter_email"] {
   .edit-rev-submit-btn {
     width: 295px;
   }
+
+  .rev-form {
+    width: 600px;
+  }
+
+  .newsletter-modal-content {
+    background: url(/static/images/dogpuppy-medium.jpg) no-repeat center center/cover;
+  }
+
+  .reviews_list__profiles {
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+  }
   
+  .modal-content {
+    background: url(/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
+  }
+
+  #open-edit-modal {   
+    bottom: 19%;
+    right: 35%;  
+  }
 }
 
 @media screen and (max-width: 800px) {
   .search-form {
-    width: 80%;
+    width: 85%;
   }
 
   .search-form h2 {
@@ -3823,7 +3888,42 @@ label[for="id_newsletter_email"] {
   }
 
   .rev-form {
-    width: 90%;
+    width: 500px;
+    height: 800px;
+  }
+
+ 
+
+  .delete-rev-box {
+    width: 400px;
+    height: 300px;
+  }
+
+  .del-btn-1,
+  .del-btn-2 {
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .del-btn-2 a {
+    padding-top: 13px;
+  }
+
+  .delete-rev-box p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .delete-buttons {
+    flex-direction: column;
+  }
+
+  .edit-rev-submit-btn {
+    width: 260px;
+  }
+
+  #open-edit-modal {
+    right: 29%;
   }
 
 
@@ -3907,6 +4007,31 @@ label[for="id_newsletter_email"] {
     height: 50%;
     width: 80%;
   }
+
+  .prices-slider {
+    width: 400px;
+  }
+  
+  .prices-slider-container {
+    height: 500px;
+  }
+
+  .newsletter-box {
+    width: 500px;
+  }
+
+  .close-newsletter-btn {
+    left: 82%;
+    top: -15%;
+  }
+
+  .newsletter-txt h2 {
+    font-size: 35px;
+  }
+
+  .newsletter-txt p {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -3925,7 +4050,7 @@ label[for="id_newsletter_email"] {
   }
 
   .join-instructions {
-    width: 90%;
+    width: 100%;
   }
 
   .search-form p {
@@ -4016,6 +4141,10 @@ label[for="id_newsletter_email"] {
     width: 80%;
   }
 
+  .tabs-content {
+    height: 100%;
+  }
+
   .tabs-content h3 {
     font-size: 15px;
   }
@@ -4035,16 +4164,16 @@ label[for="id_newsletter_email"] {
 
 
   .details-box textarea {
-    height: 45%;
-    width: 80%;
+    height: 160px;
+    width: 240px;
   }
 
   .petsitter-form {
-    width: 300px;
+    width: 205px;
   }
   
   .petsitter-form input[type="text"] {
-    width: 140px;
+    width: 195px;
     margin-top: 20px;
   }
 
@@ -4072,7 +4201,94 @@ label[for="id_newsletter_email"] {
     width: 55%;
   }
 
- 
+  .edit-box {
+    margin-bottom: 45px;
+  }
+
+  .newsletter-box {
+    width: 300px;
+    height: 280px;
+  }
+
+  .newsletter-txt h2 {
+    font-size: 20px;
+  }
+
+  .newsletter-input,
+  .newsletter-btn {
+    width: 245px;
+    height: 40px;
+  }
+
+  .newsletter-txt p {
+    font-size: 12px;
+  }
+
+  .close-newsletter-btn {
+    left: 81%;
+    top: -25%;
+    font-size: 35px;
+  }
+
+  .img-box,
+  .no-user-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .avatar-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 68%;
+    margin: 0 auto;
+  }
+
+  .profile-img-form input[type="file"] {
+    margin: 0;
+  }
+
+  .change-password-form {
+    width: 340px;
+  }
+
+  .password-buttons {
+    width: 380px;
+  }
+
+  .petsitter-layout label.switch {
+    margin: 0;
+  }
+
+  .about-box {
+    width: 240px;
+  }
+
+  .card-content {
+    background: url(/static/images/bro-dog-small.jpg) no-repeat center center/cover;
+  }
+
+  .newsletter-modal-content {
+    background: url(/static/images/puppy-small.jpg) no-repeat center center/cover;
+  }
+
+  .modal-content {
+    background: url(/static/images//puppy-small.jpg) no-repeat center center/cover;
+  }
+
+  .delete-rev-box {
+    padding: 20px;
+  }
+
+
+  .card-content p {
+    width: 300px;
+  }
+
+  #open-edit-modal {
+    right: 15%;
+  }
+
 
 }
 

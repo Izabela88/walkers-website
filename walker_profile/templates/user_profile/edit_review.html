@@ -3,14 +3,14 @@
 {% load static %}
 
 {% block content %}
-<section class="section">
-    {% if messages %}
-        <ul class="info-msg center">
-            {% for message in messages %}
-                <li>{{ message.message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+<section class="section edit-rev-section">
+  {% if messages %}
+      <ul class="info-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
    <div class="container">
     <div class="rev-container edit-rev-container center">
         <h2>Edit review</h2>
@@ -50,8 +50,11 @@
               <div class="empty-btn"></div>
             </div>
           </form>
-          <div id="open-edit-modal"></div>                
-      </div>        
+          <div id="open-edit-modal"></div> 
+          <div class="button button-bright center back-btn">
+            <a href="{% url 'reviews' user.id %}">back to reviews</a>
+          </div>              
+        </div>        
     </div>
    </div>
   </section>
@@ -67,9 +70,9 @@
             {% csrf_token %}
             <div class="delete-buttons">
                 <input type="hidden" name="_method" value="delete">
-                <input class="button button-bright del-btn" type="submit" value="Yes I am">
-                <div class="button button-bright center del-btn">
-                    <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to edit review</a>
+                <input class="button button-bright del-btn del-btn-1" type="submit" value="Yes I am">
+                <div class="button button-bright center del-btn del-btn-2">
+                    <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to edit</a>
                 </div>
             </div>
         </form>
