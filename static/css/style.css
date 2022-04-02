@@ -2786,7 +2786,7 @@ label[for="id_stars_4"] {
 
 .rev-form {
   width: 60%;
-  height: 75%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3071,12 +3071,12 @@ label[for="id_stars_4"] {
   height: 100px;
   border-radius: 50%;
   cursor: pointer;
-  position: absolute;
-  bottom: 17%;
-  right: 32%;
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgb(0 0 0 / 0%);
   transition-duration: 0.4s;
+  position: absolute;
+  z-index: 100;
+  right: 30%;
 }
 
 #open-edit-modal:hover {
@@ -3093,6 +3093,7 @@ label[for="id_stars_4"] {
 .edit-rev-submit-btn {
   width: 380px;
   position: relative;
+  z-index: 1;
 }
 
 /* -------------CONTACT */
@@ -3782,7 +3783,7 @@ label[for="id_newsletter_email"] {
 
   .rev-form {
     width: 600px;
-    height: 660px;
+    height: 827px;
   }
 
   .newsletter-modal-content {
@@ -3798,10 +3799,6 @@ label[for="id_newsletter_email"] {
     background: url(/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
   }
 
-  #open-edit-modal {   
-    bottom: 19%;
-    right: 35%;  
-  }
 
   .del-btn-2 a {
     padding-top: 21px;
@@ -3856,7 +3853,6 @@ label[for="id_newsletter_email"] {
 
   .rev-form {
     width: 500px;
-    height: 675px;
   }
 
  
@@ -3891,11 +3887,7 @@ label[for="id_newsletter_email"] {
   }
 
   .edit-rev-submit-btn {
-    width: 260px;
-  }
-
-  #open-edit-modal {
-    right: 29%;
+    width: 285px;
   }
 
 
@@ -4003,6 +3995,10 @@ label[for="id_newsletter_email"] {
 
   .newsletter-txt p {
     font-size: 22px;
+  }
+
+  #open-edit-modal {
+    right: 27%;
   }
 }
 
@@ -4267,9 +4263,6 @@ label[for="id_newsletter_email"] {
     width: 300px;
   }
 
-  #open-edit-modal {
-    right: 15%;
-  }
 
   .logout-buttons {
     flex-direction: column;
@@ -4378,6 +4371,12 @@ label[for="id_newsletter_email"] {
     padding: 10px;
     margin-top: 10px;
     text-align: center;
+  }
+
+  #open-edit-modal {
+    right: 10%;
+    height: 80px;
+    width: 80px;
   }
 
 }
@@ -4500,11 +4499,7 @@ label[for="id_newsletter_email"] {
     width: 90%;
   }
 
-  #open-edit-modal {
-    width: 80px;
-    height: 80px;
-    bottom: 24%;
-  }
+ 
 
   .back-btn a {
     font-size: 13px;

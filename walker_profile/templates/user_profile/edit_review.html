@@ -47,10 +47,10 @@
             {{walker_user_review_form.description}}
             <div class="buttons-box edit-rev-btns">
               <input type="submit" class="button button-bright edit-rev-submit-btn" value="submit">
-              <div class="empty-btn"></div>
+              <div id="open-edit-modal"></div> 
             </div>
+         
           </form>
-          <div id="open-edit-modal"></div> 
           <div class="button button-bright center back-btn">
             <a href="{% url 'reviews' user.id %}">back to reviews</a>
           </div>              
