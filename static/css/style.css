@@ -64,14 +64,14 @@ label {
  
 }
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 20px;
  
 }
 
 ::-webkit-scrollbar-thumb {
   background: #f4c557;
   border: 1px solid #ffffff;
-  border-radius: 10px;
+  border-radius: 20px;
   transition-duration: 0.4s;
 }
 
@@ -146,7 +146,7 @@ label {
   letter-spacing: 1px;
   border: none;
   text-transform: uppercase;
-  border-radius: 25px;
+  border-radius: 30px;
   font-family: "Hubballi", cursive;
 }
 
@@ -164,7 +164,7 @@ label {
 .button a {
   height: 100%;
   width: 100%;
-  padding-top: 23px;
+  padding-top: 22px;
   transition-duration: 0.3s;
   font-family: "Hubballi", cursive;
   text-decoration: none;
@@ -211,7 +211,7 @@ label {
   font-size: 22px;
   box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
   background-color: rgb(238 163 0 / 100%);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 400px;
   height: fit-content;
   top: 15%;
@@ -269,7 +269,7 @@ label {
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -604,7 +604,7 @@ select {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -1052,7 +1052,7 @@ label[for="id_is_petsitter"] {
   align-items: center;
   padding: 18px;
   color: #f73221;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 label[for="id_email"],
@@ -1314,13 +1314,13 @@ label[for="id_remember"] {
   height: 85%;
   width: 100%;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .tabs-sidebar {
   width: 35%;
   height: 75%;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .tabs-sidebar h2 {
@@ -1342,6 +1342,7 @@ label[for="id_remember"] {
   padding: 14px;
   width: 75%;
   border: none;
+  border-radius: 55px;
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 10px;
@@ -1451,7 +1452,7 @@ label[for="id_description"] {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 10px;
   font-family: "Hubballi", cursive;
   font-size: 18px;
@@ -1477,7 +1478,7 @@ label[for="id_description"] {
   resize: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
 .details-box textarea::placeholder {
@@ -1634,7 +1635,7 @@ label[for="id_description"] {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  padding: 10px;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .change-password-form ul {
@@ -2370,7 +2371,7 @@ label[for="big_dog"] {
 
 .review-desc {
   width: 100%;
-  height: 60%;
+  height: 47%;
   overflow-wrap: break-word;
   overflow: overlay;
   display: flex;
@@ -2383,6 +2384,8 @@ label[for="big_dog"] {
   width: 100%;
   font-size: 18px;
   line-height: 25px;
+  margin-top: 70px;
+  padding: 30px;
 }
 
 .next,
@@ -2412,7 +2415,7 @@ label[for="big_dog"] {
   top: 0;
   left: 0;
   display: block;
-  border-radius: 28px;
+  border-radius: 25px;
   background: rgb(238 163 0 / 59%);
   width: 56px;
   height: 56px;
@@ -2639,7 +2642,7 @@ label[for="big_dog"] {
   top: 0;
   left: 0;
   display: block;
-  border-radius: 28px;
+  border-radius: 25px;
   background: rgb(238 163 0 / 59%);
   width: 56px;
   height: 56px;
@@ -2815,7 +2818,7 @@ label[for="id_stars_4"] {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 20px;
   font-family: "Hubballi", cursive;
   font-size: 18px;
@@ -2875,7 +2878,7 @@ label[for="id_stars_4"] {
 
 .reviews_list {
   width: 90%;
-  border-radius: 12px;
+  border-radius: 20px;
   margin-bottom: 100px;
   display: flex;
   justify-content: center;
@@ -2903,7 +2906,7 @@ label[for="id_stars_4"] {
   align-items: center;
   justify-items: center;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
   transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98),
     box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
@@ -3032,7 +3035,7 @@ label[for="id_stars_4"] {
   justify-content: center;
   padding: 40px;
   backdrop-filter: blur(5px);
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .delete-rev-box p {
@@ -3137,7 +3140,7 @@ label[for="id_stars_4"] {
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -3155,7 +3158,7 @@ label[for="id_stars_4"] {
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -3189,7 +3192,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
-  background: url(/static/images/dogpuppy.jpg) no-repeat center center/cover;
+  background: url(/static/images/hungry-2.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3208,9 +3211,9 @@ label[for="id_stars_4"] {
 
 .newsletter-box {
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(5px);
   text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   height: 350px;
   width: 600px;
   font-weight: bold;
@@ -3259,7 +3262,7 @@ label[for="id_stars_4"] {
   height: 45px;
   display: inline-block;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   background: #eee;
   padding: 1em 2em;
   outline: none;
@@ -3270,7 +3273,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-input::placeholder {
-  color: var(--black-color);
+  color: #777777;
 }
 
 label[for="id_newsletter_email"] {
@@ -3647,7 +3650,7 @@ label[for="id_newsletter_email"] {
   .petsitter-layout label.service-type {
     border-bottom: none;
     margin: 0;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: bold;
 }
 
@@ -3787,7 +3790,7 @@ label[for="id_newsletter_email"] {
   }
 
   .newsletter-modal-content {
-    background: url(/static/images/dogpuppy-medium.jpg) no-repeat center center/cover;
+    background: url(/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
   }
 
   .reviews_list__profiles {
@@ -3870,7 +3873,7 @@ label[for="id_newsletter_email"] {
   }
 
   .del-btn-2 a {
-    padding-top: 13px;
+    padding-top: 18px;
   }
 
   .delete-rev-box p {
@@ -4000,6 +4003,10 @@ label[for="id_newsletter_email"] {
   #open-edit-modal {
     right: 27%;
   }
+
+  .review-desc p {
+    margin-top: 200px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -4052,6 +4059,10 @@ label[for="id_newsletter_email"] {
 
   h1, h2 {
     font-size: 20px;
+  }
+
+  .button {
+    height: 55px;
   }
 
   .contact-form-box {
@@ -4340,10 +4351,6 @@ label[for="id_newsletter_email"] {
     font-size: 11px;
   }
 
-  .back-btn a {
-    padding-top: 26px;
-  }
-
   .card-content p {
     font-size: 11px;
     margin-top: 0;
@@ -4369,7 +4376,7 @@ label[for="id_newsletter_email"] {
 
   .review-desc p {
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 70px;
     text-align: center;
   }
 
@@ -4377,6 +4384,18 @@ label[for="id_newsletter_email"] {
     right: 10%;
     height: 80px;
     width: 80px;
+  }
+
+  .rev-form {
+    height: 660px;
+  }
+
+  .rev-container h2 {
+    font-size: 20px;
+  }
+
+  .lab {
+    font-size: 18px;
   }
 
 }
@@ -4503,7 +4522,6 @@ label[for="id_newsletter_email"] {
 
   .back-btn a {
     font-size: 13px;
-    padding-top: 25px;
   }
 
   label[for="id_stars_0"],
