@@ -60,17 +60,17 @@ label {
 
 /* scroll bar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
+ 
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   border-radius: 10px;
+ 
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f9c14a;
+  background: #f4c557;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   transition-duration: 0.4s;
 }
@@ -202,6 +202,26 @@ label {
   width: 200px;
 }
 
+.info-msg {
+  font-family: "Hubballi", cursive;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 100;
+  font-size: 22px;
+  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
+  background-color: rgb(238 163 0 / 100%);
+  border-radius: 10px;
+  width: 400px;
+  height: fit-content;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  padding: 10px;
+  z-index: 1000;
+}
+
+
 /* allauth templates */
 .allauth-heading h1 {
   font-size: 35px;
@@ -311,7 +331,7 @@ input[id="id_password1"] {
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
-  font-size: 2em;
+  font-size: 20px;
   line-height: 40px;
   color: #fff;
 }
@@ -408,26 +428,6 @@ input[id="id_password1"] {
 }
 
 /*------------------- home section */
-
-.info-msg {
-  font-family: "Hubballi", cursive;
-  letter-spacing: 2px;
-  font-weight: bold;
-  position: absolute;
-  z-index: 100;
-  font-size: 22px;
-  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
-  background-color: rgb(238 163 0 / 100%);
-  border-radius: 10px;
-  width: 400px;
-  height: fit-content;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  padding: 10px;
-  z-index: 1000;
-}
-
 #home-section {
   position: relative;
   height: 100vh;
@@ -2576,12 +2576,6 @@ label[for="big_dog"] {
   overflow: hidden;
   backdrop-filter: blur(10px);
   border-radius: 5px;
-  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px,
-   rgb(0 0 0 / 12%) 0px -12px 30px,
-   rgb(0 0 0 / 12%) 0px 4px 6px,
-    rgb(0 0 0 / 17%) 0px 12px 13px,
-     rgb(0 0 0 / 9%) 0px -3px 5px;
-  border-radius: 5px;
 }
 
 
@@ -2763,44 +2757,12 @@ label[for="big_dog"] {
   visibility: hidden;
 }
 
-label[for="id_stars_0"] {
-  content: "☆";
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_1"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_2"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_3"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
+label[for="id_stars_0"],
+label[for="id_stars_1"],
+label[for="id_stars_2"],
+label[for="id_stars_3"],
 label[for="id_stars_4"] {
+  content: "☆";
   font-size: 45px;
   display: flex;
   flex-direction: column;
@@ -2824,7 +2786,7 @@ label[for="id_stars_4"] {
 
 .rev-form {
   width: 60%;
-  height: 90%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3820,6 +3782,7 @@ label[for="id_newsletter_email"] {
 
   .rev-form {
     width: 600px;
+    height: 660px;
   }
 
   .newsletter-modal-content {
@@ -3838,6 +3801,10 @@ label[for="id_newsletter_email"] {
   #open-edit-modal {   
     bottom: 19%;
     right: 35%;  
+  }
+
+  .del-btn-2 a {
+    padding-top: 21px;
   }
 }
 
@@ -3889,7 +3856,7 @@ label[for="id_newsletter_email"] {
 
   .rev-form {
     width: 500px;
-    height: 800px;
+    height: 675px;
   }
 
  
@@ -3897,6 +3864,7 @@ label[for="id_newsletter_email"] {
   .delete-rev-box {
     width: 400px;
     height: 300px;
+    padding: 30px;
   }
 
   .del-btn-1,
@@ -3911,11 +3879,15 @@ label[for="id_newsletter_email"] {
 
   .delete-rev-box p {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .delete-buttons {
     flex-direction: column;
+  }
+
+  .delete-buttons .button {
+    margin-bottom: 20px;
   }
 
   .edit-rev-submit-btn {
@@ -4035,6 +4007,13 @@ label[for="id_newsletter_email"] {
 }
 
 @media screen and (max-width: 550px) {
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+  }
+
   .wrapper-menu {
     width: 40px;
     height: 40px;
@@ -4053,8 +4032,10 @@ label[for="id_newsletter_email"] {
     width: 100%;
   }
 
+
   .search-form p {
     font-size: 14px;
+    padding: 0;
   }
 
   .footer-box h3 {
@@ -4208,6 +4189,7 @@ label[for="id_newsletter_email"] {
   .newsletter-box {
     width: 300px;
     height: 280px;
+    backdrop-filter: blur(8px);
   }
 
   .newsletter-txt h2 {
@@ -4289,8 +4271,257 @@ label[for="id_newsletter_email"] {
     right: 15%;
   }
 
+  .logout-buttons {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .logout-heading p {
+    font-size: 18px;
+  }
+
+  .button, 
+  .button a {
+    font-size: 13px;
+  }
+
+  .info-msg {
+    width: 300px;
+  }
+
+  .social-btns {
+    flex-direction: column;
+    height: 140px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .fb-button a, .google-button a {
+    font-size: 16px;
+  }
+
+  .page-contents h4 {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  
+ .password-buttons {
+  flex-direction: column;
+  }
+
+  .password-buttons .button {
+  margin-bottom: 20px;
+ 
+  }
+
+  .password-buttons .button a {
+    padding-top: 27px;
+  }
+
+  .change-password-box h2 {
+    margin-bottom: 90px;
+  }
+
+  .terms-txt {
+    font-size: 12px;
+  }
+
+  .reviews_list__profiles {
+    width: 100%;
+  }
+
+  .review-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .reviews_list__name, .reviews_list__value {
+    font-size: 15px; 
+  }
+
+  .reviews_list__value_1, 
+  .reviews_list__value_2 {
+    font-size: 11px;
+  }
+
+  .back-btn a {
+    padding-top: 26px;
+  }
+
+  .card-content p {
+    font-size: 11px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .card-content h1 {
+    font-size: 25px;
+    margin: 0 auto;
+  }
+
+  .description-container {
+    width: 350px;
+  }
+
+  .slider-container {
+    height: 500px;
+  }
+
+  .review-desc {
+    height: 100%;
+  }
+
+  .review-desc p {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
 
 }
 
 @media screen and (max-width: 380px) {
+
+  .main-txt {
+    width: 100%;
+  }
+
+  .main-txt h1 {
+    font-size: 20px;
+  }
+
+  .home-txt p {
+    font-size: 15px;
+  }
+
+  .search-form h2 {
+    font-size: 18px;
+  }
+
+  .form-input, select {
+    font-size: 12px;
+  }
+
+  .form-input label {
+    font-size: 11px;
+  }
+
+  #scroll-top-button {
+    height: 30px;
+    width: 30px;
+    right: 0;
+  }
+
+  #scroll-top-button::after {
+    line-height: 30px;
+  }
+
+  .join-txt h2 {
+    font-size: 18px;
+  }
+
+  .step-no {
+    margin-right: 10px;
+  }
+
+  .step-txt {
+    width: 85%;
+  }
+
+  .sidebar {
+    width: 70%;
+  }
+
+  .about-txt {
+    padding: 0;
+    margin-top: 50px;
+  }
+
+  .about-txt h2 {
+    font-size: 20px;
+  }
+
+  .contact-form-box {
+    width: 90%;
+  }
+
+  .contact-form label {
+    font-size: 11px;
+  }
+
+  .fb-button, .google-button {
+    width: 70%;
+  }
+
+  .heading h2 {
+    font-size: 20px;
+  }
+
+  #id_remember {
+    left: 30%;
+  }
+
+  label[for="id_login"], label[for="id_password"] {
+    font-size: 11px;
+  }
+
+  label[for="id_is_petsitter"] {
+    font-size: 13px;
+  }
+
+  .tabs-content {
+    width: 85%;
+  }
+
+  .profile-label {
+    font-size: 11px;
+  }
+
+  .my-reviews-txt {
+    font-size: 20px;
+  }
+
+ 
+  .rev-form {
+    width: 330px;
+  }
+
+  .rev-container h2 {
+    font-size: 20px;
+  }
+
+  .lab {
+    font-size: 15px;
+  }
+
+  .rev-description {
+    width: 90%;
+  }
+
+  #open-edit-modal {
+    width: 80px;
+    height: 80px;
+    bottom: 24%;
+  }
+
+  .back-btn a {
+    font-size: 13px;
+    padding-top: 25px;
+  }
+
+  label[for="id_stars_0"],
+  label[for="id_stars_1"],
+  label[for="id_stars_2"],
+  label[for="id_stars_3"],
+  label[for="id_stars_4"] {
+    font-size: 30px;
+  }
+
+  .delete-heading p {
+    font-size: 16px;
+  }
+
+ 
 }
