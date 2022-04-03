@@ -46,5 +46,7 @@ class Review(View):
             else:
                 print(review_form.errors)
                 request.session["review_form_errors"] = review_form.errors
-                return  HttpResponseRedirect(reverse('review'))
-        return HttpResponseRedirect(reverse('petsitter_profile', kwargs={'id': id}))
+                return HttpResponseRedirect(reverse('review'))
+        return HttpResponseRedirect(
+            reverse('petsitter_profile', kwargs={'id': id})
+        )
