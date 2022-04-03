@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.urls import reverse
 from walker_profile import utility
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
-from walker_profile.utility import GeoCodeError
+from walker_profile.utility import geocode
 
 
 class SearchView(View):
@@ -19,10 +19,10 @@ class SearchView(View):
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():
             try:
-                search_long, search_lat = utility.get_postcode_coordinates(
+                search_long, search_lat = geocode.get_postcode_coordinates(
                     petsitter_search_form.cleaned_data['postcode']
                 )
-            except GeoCodeError:
+            except geocode.GeoCodeError:
                 messages.error(request, "Invalid postcode!")
                 return HttpResponseRedirect(
                     reverse('home') + '#searching-section'
@@ -31,7 +31,7 @@ class SearchView(View):
             petsitters = WalkerUser.search_petsitter(
                 petsitter_search_form.cleaned_data
             )
-            petsitters = utility.get_users_within_radius(
+            petsitters = geocode.get_users_within_radius(
                 search_long,
                 search_lat,
                 petsitters,
