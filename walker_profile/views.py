@@ -12,7 +12,6 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import DeleteView
-from django.urls import reverse
 from walker_profile.models import ServiceTypes, ServiceDetails
 from walker_profile.utility import form_handlers
 from django.shortcuts import render, get_object_or_404
