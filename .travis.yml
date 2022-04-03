@@ -6,7 +6,7 @@ python:
 services:
   - docker
 
-before_script: pip install requirements.txt
+before_script: pip install -r requirements.txt
 
 
 jobs:
