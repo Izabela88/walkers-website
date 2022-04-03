@@ -3,9 +3,9 @@ URL patterns for About application
 """
 
 from django.urls import path
-from . import views
+from about.views import AboutView
 
 
 urlpatterns = [
-    path("", views.about, name="about"),
+    path("", AboutView.as_view(), name="about"),
 ]

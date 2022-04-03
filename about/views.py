@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
+from django.views.generic import TemplateView
 
 
-def about(request: HttpRequest) -> HttpResponse:
+class AboutView(TemplateView):
     """Render about page"""
-    return render(request, 'about/about.html')
+
+    template_name = 'about/about.html'
