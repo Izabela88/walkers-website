@@ -57,8 +57,7 @@ class ContactForm(forms.Form):
         message = '''
             From:\n\t\t{}\n
             Email:\n\t\t{}\n
-            Message:\n\t\t{}\n
-            '''.format(
+            Message:\n\t\t{}\n'''.format(
             self.cleaned_data['full_name'],
             self.cleaned_data['email'],
             self.cleaned_data['message'],
