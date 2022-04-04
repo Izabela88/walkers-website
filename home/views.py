@@ -1,39 +1,50 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
-from django.contrib.auth.decorators import login_required
-from home.forms import PetsitterQuestion, FormValidationError
+from home.forms import PetsitterQuestionForm, PetsitterFormValidationError
 from search.forms import SearchForm
+from django.views import View
+from django.urls import reverse
+from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# Create your views here.
-def index(request):
-    context = {
-        "petsitter_search_form_errors": request.session.pop(
-            "petsitter_search_form_errors", None
-        ),
-    }
+class Home(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        """Home view endpoint. First pre check when user is signed in and if
+        pet sitter question was submitted"""
+        context = {
+            "petsitter_search_form_errors": request.session.pop(
+                "petsitter_search_form_errors", None
+            ),
+        }
 
-    if request.user.is_authenticated:
-        if request.user.is_petsitter is None:
-            return redirect('/question')
-        context['is_petsitter'] = request.user.is_petsitter
+        if request.user.is_authenticated:
+            if request.user.is_petsitter is None:
+                return HttpResponseRedirect(reverse('question'))
+            context['is_petsitter'] = request.user.is_petsitter
 
-    search_form = SearchForm()
-    context['search_form'] = search_form
-    return render(request, 'home/index.html', context)
+        search_form = SearchForm()
+        context['search_form'] = search_form
+        return render(request, 'home/index.html', context)
 
 
-@login_required
-def register_question(request):
-    if request.method == "GET":
-        form_petsitter = PetsitterQuestion()
+class RegisterQuestion(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        """Render pet sitter question template if user registered via social
+        media"""
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        form_petsitter = PetsitterQuestionForm()
         return render(
             request, 'home/question.html', {'form_petsitter': form_petsitter}
         )
-    if request.method == "POST":
-        pet_sitter = PetsitterQuestion(request.POST)
+
+    def post(self, request) -> HttpResponse:
+        """Submit question form endpoint"""
+        if not request.user.is_authenticated:
+            return render(request, '401.html')
+        pet_sitter = PetsitterQuestionForm(request.POST)
         try:
             pet_sitter.save(request.user)
-        except FormValidationError:
-            redirect('/question')
-        return redirect("/")
+        except PetsitterFormValidationError:
+            HttpResponseRedirect(reverse('question'))
+        return HttpResponseRedirect(reverse('home'))
