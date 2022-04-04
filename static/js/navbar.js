@@ -7,49 +7,33 @@ function toggleHamburgerIcon() {
   });
 }
 
+toggleHamburgerIcon();
+
 /* My code starts here
       Open and close sidebar for small devices*/
 const hamburgerIcon = document.querySelector(".wrapper-menu");
 const closeButtons = document.querySelectorAll(".close-sidebar");
 
-let openSidebar = true;
-
-toggleHamburgerIcon();
-
-function handleSidebar() {
-  if (openSidebar) {
-    openMenu();
-    openSidebar = false;
-  } else {
-    closeMenu();
-    openSidebar = true;
-  }
-}
-
 function openMenu() {
-  document.getElementById("my-sidebar").style.width = "50%";
-}
-
-function closeMenu() {
-  document.getElementById("my-sidebar").style.width = null;
+  document.getElementById("my-sidebar").classList.toggle('open-menu')
 }
 
 hamburgerIcon.addEventListener("click", function (e) {
-  handleSidebar();
+  openMenu();
 });
 
-function toggleWrapperMenuOnResize() {
-  if (window.innerWidth >= 1150) {
-    closeMenu();
-    openSidebar = true;
-    let wrapperMenu = document.querySelector(".wrapper-menu.open");
-    if (wrapperMenu) {
-      wrapperMenu.classList.toggle("open");
-    }
-  }
-}
+// function toggleWrapperMenuOnResize() {
+//   if (window.innerWidth >= 1150) {
+//     closeMenu();
+//     openSidebar = true;
+//     let wrapperMenu = document.querySelector(".wrapper-menu.open");
+//     if (wrapperMenu) {
+//       wrapperMenu.classList.toggle("open");
+//     }
+//   }
+// }
 
-window.addEventListener("resize", toggleWrapperMenuOnResize);
+// window.addEventListener("resize", toggleWrapperMenuOnResize);
 
 /* After pressing sidebar links and scrolling to a given section,
       the sidebar closes automatically*/
@@ -58,7 +42,7 @@ for (const button of closeButtons) {
   button.addEventListener("click", function (e) {
     if (window.innerWidth < 1150) {
       wrapperMenu.classList.toggle("open");
-      handleSidebar();
+      openMenu();
     }
   });
 }

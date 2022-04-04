@@ -9,8 +9,8 @@ class PetsitterQuestion(forms.Form):
     is_petsitter = forms.BooleanField(
         required=False,
         label=(
-            'Please mark the field only if you'
-            'are the pet sitter / dog walker'
+            'Are you pet sitter / dog walker ?'
+            ' If not, just leave this field blank.'
         ),
     )
 

@@ -21,20 +21,25 @@
         </div>
         {% load socialaccount %}
         {% providers_media_js %}
-        <div class="fb-button button center">
-          <a href="{% provider_login_url "facebook" process="login" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Login via Facebook</a>
-        </div>
-        <div class="google-button button center"> 
-          <a href="{% provider_login_url "google" process="login" %}"><i class="fab fa-google"></i> Login via Google</a>
+        <div class="social-btns">
+          <div class="fb-button button center">
+            <a href="{% provider_login_url "facebook" process="login" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Login via Facebook</a>
+          </div>
+          <div class="google-button button center"> 
+            <a href="{% provider_login_url "google" process="login" %}"><i class="fab fa-google"></i> Login via Google</a>
+          </div>
+
         </div>
         <form class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %} 
-          {{ form.as_p }} 
+          {{ form }} 
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
           {% endif %}
-          <div class="form-grid-input form-input">
+          <div class="forgot-link">
             <a class="secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          </div>
+          <div class="form-grid-input form-input">
             <button class="button button-bright register-input" type="submit">{% trans "LOG IN" %} &raquo;</button>
             <p class="terms-txt">By joining, you agree to the Terms and Privacy Policy</p>
           </div>

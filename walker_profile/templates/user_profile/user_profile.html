@@ -58,7 +58,7 @@
     </div>
     <!-- ----------------START IMAGE----------------------->
     <div class="tabs-content">
-      <div class="main-image center ">
+      <div class="user_profile-main-image center ">
         <h3>If you fill out the entire profile, you will gain more trust among users ! ♡</h3>
         <img src="{% static 'images/dog-love.gif' %}" class="profile-dog-img" alt="A dog" />
     </div>
@@ -154,8 +154,8 @@
       <h2>Change password</h2>
       <form class="center" action="post">
       {% csrf_token %}
-        <p>To change the current password, click on this <a class="password-link" href="{% url 'password_change' %}">link</a> <br>
-          You can change your password only if you do not have an account registered via social media.
+        <p>To change the current password, click on this 
+          <a class="password-link" href="{% url 'password_change' %}">link</a> <br>
         </p>
       </form>
     </div>
