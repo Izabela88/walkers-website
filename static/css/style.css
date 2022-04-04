@@ -32,10 +32,15 @@ h5 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-size: 35px;
+}
+
 a {
   font-family: "Hubballi", cursive;
   text-decoration: none;
   letter-spacing: 2px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 p {
@@ -50,22 +55,23 @@ li {
 
 label {
   font-family: "Hubballi", cursive;
+  letter-spacing: 1px;
 }
 
 /* scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
+ 
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 20px;
+ 
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f9c14a;
-  border-radius: 10px;
+  background: #f4c557;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
   transition-duration: 0.4s;
 }
 
@@ -140,7 +146,7 @@ label {
   letter-spacing: 1px;
   border: none;
   text-transform: uppercase;
-  border-radius: 25px;
+  border-radius: 30px;
   font-family: "Hubballi", cursive;
 }
 
@@ -158,7 +164,7 @@ label {
 .button a {
   height: 100%;
   width: 100%;
-  padding-top: 23px;
+  padding-top: 22px;
   transition-duration: 0.3s;
   font-family: "Hubballi", cursive;
   text-decoration: none;
@@ -186,7 +192,35 @@ label {
 
 .terms-txt {
   text-align: center;
+  margin-top: 10px;
+  color: #f73221;
+  font-weight: bold;
 }
+
+.back-btn {
+  margin-bottom: 30px;
+  width: 200px;
+}
+
+.info-msg {
+  font-family: "Hubballi", cursive;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 100;
+  font-size: 22px;
+  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
+  background-color: rgb(238 163 0 / 100%);
+  border-radius: 20px;
+  width: 400px;
+  height: fit-content;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  padding: 10px;
+  z-index: 1000;
+}
+
 
 /* allauth templates */
 .allauth-heading h1 {
@@ -195,7 +229,6 @@ label {
 }
 
 .allauth-heading h2 {
-  font-size: 35px;
   margin-bottom: 15px;
 }
 
@@ -232,11 +265,11 @@ label {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -298,7 +331,7 @@ input[id="id_password1"] {
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
-  font-size: 2em;
+  font-size: 20px;
   line-height: 40px;
   color: #fff;
 }
@@ -395,26 +428,6 @@ input[id="id_password1"] {
 }
 
 /*------------------- home section */
-
-.info-msg {
-  font-family: "Hubballi", cursive;
-  letter-spacing: 2px;
-  font-weight: bold;
-  position: absolute;
-  z-index: 100;
-  font-size: 22px;
-  box-shadow: rgb(100 100 111 / 40%) 0px 7px 29px 0px;
-  background-color: rgb(238 163 0 / 100%);
-  border-radius: 10px;
-  width: 400px;
-  height: fit-content;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  padding: 10px;
-  z-index: 1000;
-}
-
 #home-section {
   position: relative;
   height: 100vh;
@@ -432,8 +445,8 @@ input[id="id_password1"] {
 }
 
 .home-txt p {
-  font-size: 25px;
-  font-family: "Architects Daughter", cursive;
+  font-size: 23px;
+  font-family: "Hubballi", cursive;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -445,6 +458,7 @@ input[id="id_password1"] {
 
 .home-button {
   margin-top: -30%;
+  margin-bottom: 30%;
 }
 
 .home-button-petsitter {
@@ -460,7 +474,9 @@ input[id="id_password1"] {
   justify-content: center;
 }
 
-.main-image {
+
+.main-image ,
+.user_profile-main-image {
   height: 100%;
   width: 60%;
   position: absolute;
@@ -531,7 +547,7 @@ input[id="id_password1"] {
 
 .search-form {
   width: 50%;
-  height: 75%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -542,9 +558,8 @@ input[id="id_password1"] {
 }
 
 .search-form h2 {
-  font-size: 35px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .search-form p {
@@ -561,7 +576,7 @@ input[id="id_password1"] {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 60%;
+  height: 65%;
   width: 100%;
 }
 
@@ -580,19 +595,24 @@ input[id="id_password1"] {
 
 .form-input input,
 select {
-  height: 40px;
+  height: 45px;
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
+  
+}
+
+.form-input select {
+  background: var(--white-color);
 }
 
 .search-dog-img {
@@ -649,7 +669,6 @@ select {
 
 .join-txt h2 {
   margin-top: 30px;
-  font-size: 35px;
 }
 
 .join-txt p {
@@ -797,10 +816,11 @@ select {
 }
 
 .safety-icon {
-  font-size: 30px;
   color: #18d777;
-  margin-right: 4%;
-  margin-left: 4%;
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.2;
+  left: 88%;
 }
 
 /* -------------------footer */
@@ -940,11 +960,11 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .heading h2 {
   font-size: 30px;
-  margin-bottom: 10px;
 }
 
 .heading a {
@@ -953,99 +973,104 @@ select {
   font-size: 18px;
 }
 
+.social-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+
 .fb-button {
-  width: 100%;
+  width: 48%;
   background-color: #475993;
 }
 
-.fb-button a {
+.fb-button a,
+.google-button a {
   color: var(--white-color);
+  font-size: 15px;
 }
 
 .google-button {
-  width: 100%;
+  width: 48%;
   background-color: #db4437;
 }
 
-.google-button a {
-  color: var(--white-color);
+.fb_reset {
+  display: none;
 }
 
 .form-grid-container {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-  width: 40%;
+  width: 50%;
   height: 80%;
 }
 
 .signup {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: baseline;
-  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
 }
 
 .signup input {
   width: 100%;
-  height: 50px;
-  padding-left: 10px;
+  height: 45px;
+  padding: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  border-radius: 20px;
-  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Hubballi", cursive;
+  font-size: 18px;
+
 }
 
-#id_password1::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-#id_password2::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
+#id_password1::placeholder,
+#id_password2::placeholder,
 #id_email::placeholder {
   text-transform: lowercase;
   color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  visibility: hidden;
 }
 
 label[for="id_is_petsitter"] {
   position: relative;
   font-size: 18px;
-  top: 6px;
   font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border: none;  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+  color: #f73221;
+  border-radius: 20px;
 }
 
-label[for="id_email"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
-}
-
-label[for="id_password1"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
-}
-
-label[for="id_password2"] {
-  font-size: 20px;
-  position: relative;
-  left: 8px;
-  bottom: 5px;
+label[for="id_email"],
+label[for="id_password1"],
+label[for="id_password2"]  {
+font-family: "Architects Daughter", cursive;
+margin-bottom: 10px;
+text-transform: uppercase;
+font-size: 14px;
+letter-spacing: 2px;
+font-weight: bold;
 }
 
 .signup input[type="checkbox"] {
   width: 30px;
   height: 30px;
-  position: absolute;
-  right: 0;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
   border: none;
+  cursor: pointer;
 }
 
 .signup input::placeholder {
@@ -1055,15 +1080,11 @@ label[for="id_password2"] {
   font-weight: bold;
 }
 
-.signup p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
 .register-input {
   cursor: pointer;
   width: 100%;
+  margin-top: 10px;
+  height: 50px;
 }
 
 .sign-in-social-btn {
@@ -1077,76 +1098,77 @@ label[for="id_password2"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 }
 
 .login input {
   width: 100%;
-  height: 50px;
-  padding-left: 10px;
+  height: 45px;
+  padding: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
+    margin-bottom: 20px;
+  text-align: center;
 }
 
-#id_login::placeholder {
-  text-transform: lowercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
+#id_login::placeholder,
 #id_password::placeholder {
   text-transform: lowercase;
   color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 18px;
+}
+
+
+label[for="id_remember"] {
+  font-size: 18px;
+  text-transform: uppercase;
+
 }
 
 #id_remember {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  left: 17%;
   box-shadow: none;
+  top: -21px;
 }
 
 .login-form-grid-container {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-  width: 40%;
-  height: 70%;
+  width: 50%;
+  height: 65%;
 }
 
-.login p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
 
 .login input::placeholder {
   font-family: "Hubballi", cursive;
   color: var(--black-color);
   letter-spacing: 1px;
   font-weight: bold;
-}
-
-label[for="id_remember"] {
-  width: auto;
-  margin-top: 6px;
-  position: absolute;
+  font-family: "Hubballi", cursive;
   font-size: 18px;
+  visibility: hidden;
 }
 
-label[for="id_login"] {
-  position: relative;
-  font-size: 18px;
-  top: -6px;
+  label[for="id_login"],
+  label[for="id_password"] {
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
-label[for="id_password"] {
-  position: relative;
-  font-size: 18px;
-  top: -6px;
-}
-
-#id_remember {
-  position: relative;
-  margin-left: -85px;
-  height: 30px;
+.forgot-link a {
+  text-transform: uppercase;
+  color: #db4437;
+  font-weight: bold;
 }
 
 /* -------------logout page */
@@ -1162,13 +1184,13 @@ label[for="id_password"] {
 
 .buttons-box {
   display: flex;
-  width: 40%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
-.logout-heading h2 {
-  font-size: 35px;
+
+.logout-buttons {
+  width: 395px;
 }
 
 .logout-heading p {
@@ -1204,7 +1226,6 @@ label[for="id_password"] {
 }
 
 .question-box h2 {
-  font-size: 35px;
   margin-bottom: -60px;
 }
 
@@ -1215,6 +1236,7 @@ label[for="id_password"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .form {
@@ -1234,6 +1256,7 @@ label[for="id_password"] {
   font-family: "Hubballi", cursive;
   font-size: 20px;
   letter-spacing: 1px;
+  width: 80%;
 }
 
 .question-button {
@@ -1293,19 +1316,18 @@ label[for="id_password"] {
   height: 85%;
   width: 100%;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .tabs-sidebar {
   width: 35%;
   height: 75%;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .tabs-sidebar h2 {
   color: var(--yellow-color);
   margin-bottom: 40px;
-  font-size: 35px;
   margin-top: -20%;
 }
 
@@ -1322,6 +1344,7 @@ label[for="id_password"] {
   padding: 14px;
   width: 75%;
   border: none;
+  border-radius: 55px;
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 10px;
@@ -1429,9 +1452,9 @@ label[for="id_description"] {
   width: 65%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  text-align: center;
-  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
+  border-radius: 20px;
   padding: 10px;
   font-family: "Hubballi", cursive;
   font-size: 18px;
@@ -1455,8 +1478,10 @@ label[for="id_description"] {
   padding: 10px;
   font-size: 20px;
   resize: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-}
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 20px;
+  }
 
 .details-box textarea::placeholder {
   text-transform: lowercase;
@@ -1484,8 +1509,8 @@ label[for="id_description"] {
   width: 100%;
   margin-bottom: 10px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-}
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
 
 .edit-box input::placeholder {
   text-transform: uppercase;
@@ -1562,9 +1587,6 @@ label[for="id_description"] {
   justify-content: space-evenly;
 }
 
-.delete-heading h2 {
-  font-size: 35px;
-}
 
 .delete-heading p {
   font-size: 25px;
@@ -1574,9 +1596,6 @@ label[for="id_description"] {
   width: 230px;
 }
 
-.del-btn a {
-  padding-top: 11px;
-}
 
 .delete-buttons {
   display: flex;
@@ -1588,16 +1607,19 @@ label[for="id_description"] {
 
 /* --------------change password section */
 .change-password-box h2 {
-  font-size: 35px;
   margin-bottom: 40px;
 }
 
 .change-password-form {
-  width: 100%;
+  width: 400px;
   height: 40%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.password-buttons {
+  width: 400px;
 }
 
 .change-password-form p {
@@ -1605,7 +1627,7 @@ label[for="id_description"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 35%;
+  width: 100%;
 }
 
 .change-password-form input {
@@ -1613,9 +1635,9 @@ label[for="id_description"] {
   width: 100%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  padding: 10px;
-  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  padding: 10px;
+  border-radius: 20px;
 }
 
 .change-password-form ul {
@@ -1652,6 +1674,7 @@ label[for="id_new_password2"] {
   overflow: hidden;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
 }
 
 .petsitter-layout label {
@@ -1854,20 +1877,8 @@ label[for="id_new_password2"] {
   font-weight: bold;
 }
 
-.petsitter-form input[name="is_small_dog"] {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 6px;
-}
-
-.petsitter-form input[name="is_medium_dog"] {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 6px;
-}
-
+.petsitter-form input[name="is_small_dog"],
+.petsitter-form input[name="is_medium_dog"],
 .petsitter-form input[name="is_big_dog"] {
   width: 20px;
   height: 20px;
@@ -1875,16 +1886,8 @@ label[for="id_new_password2"] {
   top: 6px;
 }
 
-label[for="small_dog"] {
-  position: relative;
-  margin-left: 30px;
-}
-
-label[for="medium_dog"] {
-  position: relative;
-  margin-left: 30px;
-}
-
+label[for="small_dog"],
+label[for="medium_dog"],
 label[for="big_dog"] {
   position: relative;
   margin-left: 30px;
@@ -2049,7 +2052,7 @@ label[for="big_dog"] {
 .not-found-button {
   margin-bottom: 100px;
   margin-top: 60px;
-  width: 20%;
+  width: 40%;
 }
 
 /* -------------------Petsitters list */
@@ -2061,7 +2064,7 @@ label[for="big_dog"] {
   margin: 40px 25px;
   padding: 0;
   list-style-type: none;
-  width: 80%;
+  width: 90%;
 }
 
 .cards_2 {
@@ -2257,7 +2260,7 @@ label[for="big_dog"] {
 .details-wrap {
   display: flex;
   flex-direction: column;
-  height: 95%;
+  height: 85%;
   align-items: center;
   justify-content: center;
   width: 80%;
@@ -2269,21 +2272,24 @@ label[for="big_dog"] {
   width: 100%;
   align-items: center;
   justify-content: center;
+  margin-top: 65px;
+  margin-bottom: 40px;
 }
 
 .description-container {
   font-family: "Hubballi", cursive;
   display: flex;
   height: 285px;
-  width: 100%;
+  width: 800px;
   align-items: center;
   justify-content: center;
-  overflow: overlay;
+  overflow: scroll;
 }
 
 .description-part {
-  height: 70%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
 }
 
 .description-part h3 {
@@ -2303,19 +2309,25 @@ label[for="big_dog"] {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 40%;
+  height: 80%;
+  margin-top: 40px;
 }
 
 .reviews-container h3 {
-  margin-top: 3%;
   font-size: 20px;
-  margin-bottom: -5%;
+  margin-bottom: 30px;
 }
 
 /* ----------------reviews sliders */
 .slider-container {
-  width: 70%;
+  width: 100%;
   height: 300px;
+}
+
+.reviewer-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .slider {
@@ -2327,7 +2339,7 @@ label[for="big_dog"] {
 
 .review-box {
   width: 100%;
-  height: 115%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: -100%;
@@ -2337,8 +2349,16 @@ label[for="big_dog"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: overlay;
+  
+
+}
+
+.reviewer-no-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 .review-box:first-of-type {
@@ -2351,36 +2371,79 @@ label[for="big_dog"] {
   margin-top: 10px;
 }
 
-.review-box p {
+.review-desc {
+  width: 100%;
+  height: 47%;
+  overflow-wrap: break-word;
+  overflow: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 25px;
+}
+
+.review-desc p {
+  width: 100%;
   font-size: 18px;
+  line-height: 25px;
+  margin-top: 70px;
+  padding: 30px;
 }
 
 .next,
 .prev {
-  position: absolute;
-  color: var(--black-color);
-  font-size: 25px;
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
   cursor: pointer;
-  z-index: 100;
-  top: 73%;
-  opacity: 0.4;
-  transition-duration: 0.4s;
 }
 
-.next:hover,
-.prev:hover {
-  opacity: 1;
+.next span,
+.prev span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
-.next {
-  right: 13%;
+.next:before,
+.prev:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 25px;
+  background: rgb(238 163 0 / 59%);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
 }
 
-.prev {
-  left: 34%;
+.next:hover:before,
+.prev:hover:before {
+  width: 100%;
+  background: var(--yellow-color);
 }
+
+.next:active,
+.prev:active {
+  transform: scale(0.96);
+}
+
+.reviews-btns {
+  width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 
 @keyframes firstNext {
   0% {
@@ -2417,8 +2480,8 @@ label[for="big_dog"] {
   }
 }
 
-/* ------------open prices */
-/* newsletter */
+/* ------------PRICES MODAL */
+
 .prices-wrapper {
   height: 100vh;
   width: 100%;
@@ -2437,6 +2500,13 @@ label[for="big_dog"] {
   margin: 0;
 }
 
+#open-prices:hover:disabled,
+.button:hover:disabled {
+  transform: unset;
+  color: rgba(16, 16, 16, 0.3);
+  box-shadow: none;
+}
+
 .close-prices {
   position: absolute;
   font-size: 35px;
@@ -2448,9 +2518,8 @@ label[for="big_dog"] {
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
-  *zoom: 1;
-  background: url(/static/images/fatty-corg.jpg) no-repeat center center/cover;
-  color: var(--black-color);
+  background: url(/static/images/bro-dog.jpg) no-repeat center center/cover;
+  color: var(--white-color);
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -2475,8 +2544,9 @@ label[for="big_dog"] {
 }
 
 .card-content h1 {
-  margin: 10px 0;
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 40px;
+  margin-bottom: 35px;
 }
 
 .card-content p {
@@ -2486,7 +2556,7 @@ label[for="big_dog"] {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
-  width: 50%;
+  width: 600px;
   font-weight: bold;
 }
 
@@ -2498,78 +2568,144 @@ label[for="big_dog"] {
   justify-content: center;
 }
 
-/* https://codepen.io/mtorosian/pen/KwyrZa */
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+/* ------------------- PRICES CAROUSEL */
+.prices-slider-container {
+  height: 450px;
+  margin-top: 35px;
 }
 
-.prices_box {
-  min-height: 500px;
-  width: 150px;
-  padding: 1.25em;
+.prices-slider {
+  width: 600px;
+  height: 100%;
   position: relative;
-  text-align: center;
-  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+}
+
+
+.prices-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  margin-right: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  justify-content: flex-start;
+  overflow: overlay;
 }
 
-.prices_box:hover {
-  *zoom: 1;
-  background-size: 100%;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  transform: scale(1.025);
-  z-index: 2;
+.prices-box:first-of-type {
+  left: 0;
 }
 
-.prices_box:hover:before,
-.prices_box:hover:after {
+.prices-box h4 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 65px;
+}
+
+.prices-box li {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.prices-next,
+.prices-prev {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.prices-next span,
+.prices-prev span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.prices-next:before,
+.prices-prev:before {
   content: "";
   position: absolute;
-  *zoom: 1;
-  top: -2px;
-  bottom: -2px;
-  width: 2px;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 25px;
+  background: rgb(238 163 0 / 59%);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
 }
 
-.prices_box:hover:before {
-  left: -2px;
-}
-
-.prices_box:hover:after {
-  right: -2px;
-}
-
-.prices_box:hover {
-  *zoom: 1;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.prices_box h2 {
-  font-size: 20px;
+.prices-next:hover:before,
+.prices-prev:hover:before {
   width: 100%;
-  margin-bottom: 20px;
+  background: var(--yellow-color);
 }
 
-.prices_box li {
-  font-size: 20px;
+.prices-next:active,
+.prices-prev:active {
+  transform: scale(0.96);
 }
 
-sup,
-.small {
-  font-size: 0.6125em;
+.prices-btns {
+  width: 300px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
 }
+
+@keyframes firstPricesNext {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes secondPricesNext {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes firstPricesPrev {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes secondPricesPrev {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
 
 /* ------------------reviews */
 
@@ -2626,44 +2762,12 @@ sup,
   visibility: hidden;
 }
 
-label[for="id_stars_0"] {
-  content: "☆";
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_1"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_2"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-label[for="id_stars_3"] {
-  font-size: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
+label[for="id_stars_0"],
+label[for="id_stars_1"],
+label[for="id_stars_2"],
+label[for="id_stars_3"],
 label[for="id_stars_4"] {
+  content: "☆";
   font-size: 45px;
   display: flex;
   flex-direction: column;
@@ -2687,7 +2791,7 @@ label[for="id_stars_4"] {
 
 .rev-form {
   width: 60%;
-  height: 90%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2714,13 +2818,18 @@ label[for="id_stars_4"] {
   width: 65%;
   margin-bottom: 25px;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  text-align: center;
-  border-radius: 25px;
-  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
   font-family: "Hubballi", cursive;
   font-size: 18px;
   resize: none;
+}
+
+
+.back-button a {
+  padding: 0;
 }
 
 /* -------------my reviews */
@@ -2755,6 +2864,8 @@ label[for="id_stars_4"] {
 
 .my-reviews-txt {
   font-size: 25px;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .my-reviews-heading {
@@ -2769,7 +2880,7 @@ label[for="id_stars_4"] {
 
 .reviews_list {
   width: 90%;
-  border-radius: 12px;
+  border-radius: 20px;
   margin-bottom: 100px;
   display: flex;
   justify-content: center;
@@ -2797,7 +2908,7 @@ label[for="id_stars_4"] {
   align-items: center;
   justify-items: center;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
   transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98),
     box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
@@ -2895,7 +3006,7 @@ label[for="id_stars_4"] {
 }
 
 .modal-content {
-  background: url(/static/images/dogpuppy.jpg) no-repeat center center/cover;
+  background: url(/static/images/dog-bros.jpg) no-repeat center center/cover;
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -2925,11 +3036,12 @@ label[for="id_stars_4"] {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
 }
 
 .delete-rev-box p {
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -2964,12 +3076,12 @@ label[for="id_stars_4"] {
   height: 100px;
   border-radius: 50%;
   cursor: pointer;
-  position: absolute;
-  bottom: 12%;
-  right: 32%;
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgb(0 0 0 / 0%);
   transition-duration: 0.4s;
+  position: absolute;
+  z-index: 100;
+  right: 30%;
 }
 
 #open-edit-modal:hover {
@@ -2985,6 +3097,8 @@ label[for="id_stars_4"] {
 
 .edit-rev-submit-btn {
   width: 380px;
+  position: relative;
+  z-index: 1;
 }
 
 /* -------------CONTACT */
@@ -2998,10 +3112,6 @@ label[for="id_stars_4"] {
   position: relative;
   z-index: 100;
   text-align: center;
-}
-
-.contact-form-box h2 {
-  font-size: 35px;
 }
 
 .contact-form-box p {
@@ -3028,11 +3138,11 @@ label[for="id_stars_4"] {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -3046,11 +3156,11 @@ label[for="id_stars_4"] {
   width: 85%;
   outline: none;
   border: none;
-  box-shadow: rgb(238 163 0 / 38%) 0px 0px 0px 1px;
-  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
@@ -3084,7 +3194,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
-  background: url(/static/images/newsletter.jpg) no-repeat center center/cover;
+  background: url(/static/images/hungry-2.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3103,9 +3213,9 @@ label[for="id_stars_4"] {
 
 .newsletter-box {
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 20px;
   height: 350px;
   width: 600px;
   font-weight: bold;
@@ -3123,7 +3233,7 @@ label[for="id_stars_4"] {
 
 .newsletter-txt h2 {
   letter-spacing: 2px;
-  font-size: 45px;
+  font-size: 40px;
   margin: 0;
 }
 
@@ -3154,7 +3264,7 @@ label[for="id_stars_4"] {
   height: 45px;
   display: inline-block;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 20px;
   background: #eee;
   padding: 1em 2em;
   outline: none;
@@ -3165,7 +3275,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-input::placeholder {
-  color: var(--black-color);
+  color: #777777;
 }
 
 label[for="id_newsletter_email"] {
@@ -3181,8 +3291,8 @@ label[for="id_newsletter_email"] {
   font-size: 40px;
   cursor: pointer;
   position: absolute;
-  left: 95%;
-  top: -24%;
+  left: 90%;
+  top: -14%;
 }
 
 /* ---------MEDIA QUERIES */
@@ -3276,6 +3386,20 @@ label[for="id_newsletter_email"] {
 }
 
 @media screen and (max-width: 1150px) {
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1, h2 {
+    font-size: 30px;
+  }
+
+  .edit-rev-section {
+    height: 100%;
+  }
+
   /* hamburger icon code from https://codepen.io/JoseRosario/pen/BWqMwK*/
   .wrapper-menu {
     width: 50px;
@@ -3289,7 +3413,7 @@ label[for="id_newsletter_email"] {
     right: 5%;
   }
 
-  .nav-list li a.active {
+  #menu-list li a.active {
     color: var(--white-color);
   }
 
@@ -3337,21 +3461,30 @@ label[for="id_newsletter_email"] {
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 0;
+    width: 50%;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: var(--yellow-color);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: all 0.5s ease-in-out;
     box-shadow: rgb(0 0 0 / 35%) 0px -10px 20px;
+    margin-left: -50%;
+    opacity: 0;
+  }
+
+  .sidebar.open-menu {
+    margin-left: 0px;
+    opacity: 1;
   }
 
   .nav-list {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    text-align: center;
   }
 
   .nav-list li {
@@ -3359,7 +3492,16 @@ label[for="id_newsletter_email"] {
     margin-bottom: 40px;
   }
 
+  .nav-list a {
+    margin: 0;
+  }
+
   .half-home-bg {
+    display: none;
+  }
+ 
+
+  .puppy-dog-img {
     display: none;
   }
 
@@ -3377,6 +3519,14 @@ label[for="id_newsletter_email"] {
 
   .search-dog-img {
     display: none;
+  }
+
+  .search-form {
+    height: 90%;
+  }
+
+  .search-form p {
+    font-size: 20px;
   }
 
   .search-section-box {
@@ -3403,12 +3553,30 @@ label[for="id_newsletter_email"] {
     width: 65%;
   }
 
+  .join-txt h1 {
+    font-size: 40px;
+  }
+
+  .main-txt {
+    height: 90%;
+  }
+
   #about-section {
     height: unset;
   }
 
   .about-dog-img {
     display: none;
+  }
+
+  .about-box {
+    height: 300px;
+    width: 400px;
+    
+  }
+
+  .safety-box {
+    align-items: inherit;
   }
 
   .heart-about-1,
@@ -3423,6 +3591,152 @@ label[for="id_newsletter_email"] {
 
   .about-bg-shape {
     display: none;
+  }
+
+  .about-txt p {
+    font-size: 18px;
+  }
+
+  .about-txt h2 {
+    font-size: 25px;
+  }
+
+  .safety-icon {
+    font-size: 61px;
+    opacity: 0.2;
+    left: 25%;
+  }
+
+  .profile-dog-img {
+    height: 500px;
+    width: 500px;
+}
+
+  .walker-profile-section {
+    height: unset;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tabs-content {
+    height: 1010px;
+    width: 100%;
+  }
+
+  .petsitter-form {
+    width: 80%;
+  }
+
+  .page-contents {
+    align-items: center;
+    width: 100%;
+  }
+
+  .user_profile-main-image {
+    height: unset;
+    position: unset;
+    width: 100%;
+  }
+
+  .details-box {
+    width: 80%;
+  }
+
+  .page-btn {
+    margin: 15px 144px;
+  }
+
+
+  .petsitter-layout label.service-type {
+    border-bottom: none;
+    margin: 0;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+  .tabs-button {
+    margin: 10px auto;
+  }
+
+  .tabs-sidebar {
+    margin-top: 100px;
+    width: 90%;
+  }
+
+  .petsitter-layout {
+    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(1, 1fr);
+    width: 65%;
+  }
+
+  .page {
+    grid-column-start: 1;
+    grid-row-start: 5;
+    grid-column-end: span 1;
+    padding: 0;
+  }
+
+  .edit-box p {
+    font-size: 25px;
+  }
+
+  .profile-wrap {
+    width: 400px;
+    height: 640px;
+    margin-bottom: 20px;
+  }
+
+  .description-container {
+    margin-bottom: 110px;
+    margin-top: 50px;
+  }
+
+  .next, .prev {
+    top: 82%;
+  }
+
+  .prev {
+    left: 17%;
+  }
+
+  .next {
+    right: 17%;
+  }
+
+  .reviews-section {
+    height: 100%;
+  }
+
+  .reviews-container {
+    margin-bottom: 100px;
+  }
+
+  .reviews-btns {
+    width: 700px;
+  }
+
+  .rev-container {
+    height: 1000px;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-content {
+    background: url(/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
+  }
+
+  .profile-section {
+    height: unset;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
   }
 
   #footer-container {
@@ -3451,9 +3765,6 @@ label[for="id_newsletter_email"] {
     display: none;
   }
 
-  .main-image {
-    display: none;
-  }
 
   .register-bg-shape {
     display: none;
@@ -3470,15 +3781,42 @@ label[for="id_newsletter_email"] {
   #id_is_petsitter {
     left: 76%;
   }
+
+  .edit-rev-submit-btn {
+    width: 295px;
+  }
+
+  .rev-form {
+    width: 600px;
+    height: 827px;
+  }
+
+  .newsletter-modal-content {
+    background: url(/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
+  }
+
+  .reviews_list__profiles {
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+  }
+  
+  .modal-content {
+    background: url(/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
+  }
+
+
+  .del-btn-2 a {
+    padding-top: 21px;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .search-form {
-    width: 80%;
+    width: 85%;
   }
 
   .search-form h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .join-bg-shape {
@@ -3494,16 +3832,711 @@ label[for="id_newsletter_email"] {
   }
 
   .join-txt h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .main-txt {
     width: 90%;
   }
+
+  .main-txt h1 {
+    font-size: 30px;
+  }
+
+  .error-box h2 {
+    font-size: 23px;
+  }
+
+  .petsitters-heading h2 {
+    font-size: 25px;
+    width: 50%;
+  }
+
+  .description-container {
+    width: 500px;
+  }
+
+  .rev-form {
+    width: 500px;
+  }
+
+ 
+
+  .delete-rev-box {
+    width: 400px;
+    height: 300px;
+    padding: 30px;
+  }
+
+  .del-btn-1,
+  .del-btn-2 {
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .del-btn-2 a {
+    padding-top: 18px;
+  }
+
+  .delete-rev-box p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .delete-buttons {
+    flex-direction: column;
+  }
+
+  .delete-buttons .button {
+    margin-bottom: 20px;
+  }
+
+  .edit-rev-submit-btn {
+    width: 285px;
+  }
+
+
+ .profile-dog-img {
+  height: 300px;
+  width: 300px;
+  }
+
+  .tabs-content {
+    width: 65%;
+  }
+
+  .tabs-content h3 {
+    width: 90%;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .details-box input {
+    width: 90%;
+  }
+
+  .petsitter-layout {
+    width: 100%;
+  }
+
+  .petsitter-form {
+    width: 400px;
+  }
+
+  .petsitter-layout label {
+    font-size: 14px;
+    margin: 10px auto;
+
+  }
+
+  .page-contents h4 {
+    font-size: 14px;
+  }
+
+  .petsitter-layout label.service-type span {
+    font-size: 14px;
+  }
+
+  label[for="small_dog"],
+  label[for="medium_dog"],
+  label[for="big_dog"] {
+    margin-left: 0;
+  }
+
+
+  .petsitter-form input[type="text"] {
+    height: 30px;
+    padding: 5px;
+    margin: 0 auto;
+    width: 166px;
+    margin-top: 20px;
+  }
+
+  .page-btn {
+  margin: 15px auto;
+  width: 100%;
+  }
+
+
+  .petsitter-form {
+    width: 350px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    width: 315px;
+  }
+
+  .petsitter-layout label.service-type {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .details-box textarea {
+    height: 50%;
+    width: 80%;
+  }
+
+  .prices-slider {
+    width: 400px;
+  }
+  
+  .prices-slider-container {
+    height: 500px;
+  }
+
+  .newsletter-box {
+    width: 500px;
+  }
+
+  .close-newsletter-btn {
+    left: 82%;
+    top: -15%;
+  }
+
+  .newsletter-txt h2 {
+    font-size: 35px;
+  }
+
+  .newsletter-txt p {
+    font-size: 22px;
+  }
+
+  #open-edit-modal {
+    right: 27%;
+  }
+
+  .review-desc p {
+    margin-top: 200px;
+  }
 }
 
 @media screen and (max-width: 550px) {
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+  }
+
+  .wrapper-menu {
+    width: 40px;
+    height: 40px;
+  }
+
+  .join-txt p {
+    font-size: 16px;
+  }
+
+  .step-no {
+    width: 30px;
+    height: 30px;
+  }
+
+  .join-instructions {
+    width: 100%;
+  }
+
+
+  .search-form p {
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .footer-box h3 {
+    font-size: 20px;
+  }
+
+  .form-input label {
+    font-size: 12px;
+  }
+
+  .about-txt h2 {
+    font-size: 23px;
+  }
+
+  .about-txt p {
+    font-size: 15px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+
+  .button {
+    height: 55px;
+  }
+
+  .contact-form-box {
+    width: 80%;
+  }
+
+  .contact-form-box p {
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .signup {
+    width: 100%;
+  }
+
+  .form-grid-container {
+    width: 85%;
+  }
+
+  .google-button a,
+  .fb-button a {
+    padding: 18px;
+  }
+
+  label[for="id_email"], 
+  label[for="id_password1"], 
+  label[for="id_password2"] {
+    font-size: 12px;
+  }
+
+  label[for="id_is_petsitter"] {
+    font-size: 16px;
+  }
+
+  .heading h2 {
+    font-size: 25px;
+  }
+
+  .login-form-grid-container {
+    width: 85%;
+  }
+
+  #id_remember {
+    left: 25%;
+  }
+
+  .social-heading h1 {
+    font-size: 25px;
+  }
+
+  .social-heading p {
+    font-size: 16px;
+  }
+
+  .home-txt {
+    width: 80%;
+  }
+
+  .home-txt p {
+    font-size: 16px;
+  }
+
+  .buttons-box {
+    width: 80%;
+  }
+
+  .tabs-content {
+    height: 100%;
+  }
+
+  .tabs-content h3 {
+    font-size: 15px;
+  }
+
+  .tabs-content h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .details-box {
+    width: 100%;
+  }
+
+  .edit-box p {
+    font-size: 20px;
+  }
+
+
+  .details-box textarea {
+    height: 160px;
+    width: 240px;
+  }
+
+  .petsitter-form {
+    width: 205px;
+  }
+  
+  .petsitter-form input[type="text"] {
+    width: 195px;
+    margin-top: 20px;
+  }
+
+  .page-contents p {
+    text-align: center;
+  }
+
+  .error-img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .petsitters-heading h2 {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 30%;
+  }
+
+  .not-found {
+    width: 300px;
+    height: 300px;
+  }
+
+  .not-found-button {
+    width: 55%;
+  }
+
+  .edit-box {
+    margin-bottom: 45px;
+  }
+
+  .newsletter-box {
+    width: 300px;
+    height: 280px;
+    backdrop-filter: blur(8px);
+  }
+
+  .newsletter-txt h2 {
+    font-size: 20px;
+  }
+
+  .newsletter-input,
+  .newsletter-btn {
+    width: 245px;
+    height: 40px;
+  }
+
+  .newsletter-txt p {
+    font-size: 12px;
+  }
+
+  .close-newsletter-btn {
+    left: 81%;
+    top: -25%;
+    font-size: 35px;
+  }
+
+  .img-box,
+  .no-user-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .avatar-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 68%;
+    margin: 0 auto;
+  }
+
+  .profile-img-form input[type="file"] {
+    margin: 0;
+  }
+
+  .change-password-form {
+    width: 340px;
+  }
+
+  .password-buttons {
+    width: 380px;
+  }
+
+  .petsitter-layout label.switch {
+    margin: 0;
+  }
+
+  .about-box {
+    width: 240px;
+  }
+
+  .card-content {
+    background: url(/static/images/bro-dog-small.jpg) no-repeat center center/cover;
+  }
+
+  .newsletter-modal-content {
+    background: url(/static/images/puppy-small.jpg) no-repeat center center/cover;
+  }
+
+  .modal-content {
+    background: url(/static/images//puppy-small.jpg) no-repeat center center/cover;
+  }
+
+  .delete-rev-box {
+    padding: 20px;
+  }
+
+
+  .card-content p {
+    width: 300px;
+  }
+
+
+  .logout-buttons {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .logout-heading p {
+    font-size: 18px;
+  }
+
+  .button, 
+  .button a {
+    font-size: 13px;
+  }
+
+  .info-msg {
+    width: 300px;
+  }
+
+  .social-btns {
+    flex-direction: column;
+    height: 140px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .fb-button a, .google-button a {
+    font-size: 16px;
+  }
+
+  .page-contents h4 {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  
+ .password-buttons {
+  flex-direction: column;
+  }
+
+  .password-buttons .button {
+  margin-bottom: 20px;
+ 
+  }
+
+  .password-buttons .button a {
+    padding-top: 27px;
+  }
+
+  .change-password-box h2 {
+    margin-bottom: 90px;
+  }
+
+  .terms-txt {
+    font-size: 12px;
+  }
+
+  .reviews_list__profiles {
+    width: 100%;
+  }
+
+  .review-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .reviews_list__name, .reviews_list__value {
+    font-size: 15px; 
+  }
+
+  .reviews_list__value_1, 
+  .reviews_list__value_2 {
+    font-size: 11px;
+  }
+
+  .card-content p {
+    font-size: 11px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .card-content h1 {
+    font-size: 25px;
+    margin: 0 auto;
+  }
+
+  .description-container {
+    width: 350px;
+  }
+
+  .slider-container {
+    height: 500px;
+  }
+
+  .review-desc {
+    height: 100%;
+  }
+
+  .review-desc p {
+    padding: 10px;
+    margin-top: 70px;
+    text-align: center;
+  }
+
+  #open-edit-modal {
+    right: 10%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .rev-form {
+    height: 660px;
+  }
+
+  .rev-container h2 {
+    font-size: 20px;
+  }
+
+  .lab {
+    font-size: 18px;
+  }
+
 }
 
 @media screen and (max-width: 380px) {
+
+  .main-txt {
+    width: 100%;
+  }
+
+  .main-txt h1 {
+    font-size: 20px;
+  }
+
+  .home-txt p {
+    font-size: 15px;
+  }
+
+  .search-form h2 {
+    font-size: 18px;
+  }
+
+  .form-input, select {
+    font-size: 12px;
+  }
+
+  .form-input label {
+    font-size: 11px;
+  }
+
+  #scroll-top-button {
+    height: 30px;
+    width: 30px;
+    right: 0;
+  }
+
+  #scroll-top-button::after {
+    line-height: 30px;
+  }
+
+  .join-txt h2 {
+    font-size: 18px;
+  }
+
+  .step-no {
+    margin-right: 10px;
+  }
+
+  .step-txt {
+    width: 85%;
+  }
+
+  .sidebar {
+    width: 70%;
+  }
+
+  .about-txt {
+    padding: 0;
+    margin-top: 50px;
+  }
+
+  .about-txt h2 {
+    font-size: 20px;
+  }
+
+  .contact-form-box {
+    width: 90%;
+  }
+
+  .contact-form label {
+    font-size: 11px;
+  }
+
+  .fb-button, .google-button {
+    width: 70%;
+  }
+
+  .heading h2 {
+    font-size: 20px;
+  }
+
+  #id_remember {
+    left: 30%;
+  }
+
+  label[for="id_login"], label[for="id_password"] {
+    font-size: 11px;
+  }
+
+  label[for="id_is_petsitter"] {
+    font-size: 13px;
+  }
+
+  .tabs-content {
+    width: 85%;
+  }
+
+  .profile-label {
+    font-size: 11px;
+  }
+
+  .my-reviews-txt {
+    font-size: 20px;
+  }
+
+ 
+  .rev-form {
+    width: 330px;
+  }
+
+  .rev-container h2 {
+    font-size: 20px;
+  }
+
+  .lab {
+    font-size: 15px;
+  }
+
+  .rev-description {
+    width: 90%;
+  }
+
+ 
+
+  .back-btn a {
+    font-size: 13px;
+  }
+
+  label[for="id_stars_0"],
+  label[for="id_stars_1"],
+  label[for="id_stars_2"],
+  label[for="id_stars_3"],
+  label[for="id_stars_4"] {
+    font-size: 30px;
+  }
+
+  .delete-heading p {
+    font-size: 16px;
+  }
+
+ 
 }

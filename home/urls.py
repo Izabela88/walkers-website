@@ -3,10 +3,10 @@ URL patterns for Home application
 """
 
 from django.urls import path
-from . import views
+from home.views import Home, RegisterQuestion
 
 
 urlpatterns = [
-    path("", views.index, name="home"),
-    path("question", views.register_question, name="question"),
+    path("", Home.as_view(), name="home"),
+    path("question", RegisterQuestion.as_view(), name="question"),
 ]

@@ -6,8 +6,16 @@ python:
 services:
   - docker
 
-before_script: pip install black==22.1.0 flake8==4.0.1
-
-script:
-  - black . --check -S
-  - flake8 .
+jobs:
+  include:
+    - stage: linting
+      script:
+        - pip install black==22.1.0 flake8==4.0.1
+        - black . --check -S
+        - flake8 .
+    - stage: test
+      script:
+        - export ENV=local
+        - export SECRET_KEY=secret_test_key
+        - pip install -r requirements.txt
+        - python manage.py test

@@ -1,7 +1,7 @@
 const imageSlider = document.querySelectorAll(".review-box")
 
-const next = document.querySelector("span.next")
-const prev = document.querySelector("span.prev")
+const next = document.querySelector("a.next")
+const prev = document.querySelector("a.prev")
 
 let slidCount = 0 
 
@@ -28,6 +28,41 @@ prev.addEventListener("click", () => {
     
 
     imageSlider[slidCount].style.animationName = "secondPrev"
+    
+})
+
+
+// ---------------------------------------------------------
+const pricesSlider = document.querySelectorAll(".prices-box")
+
+const pricesNext = document.querySelector("a.prices-next")
+const pricesPrev = document.querySelector("a.prices-prev")
+
+let slidPricesCount = 0 
+
+pricesNext.addEventListener("click", () => {
+    pricesSlider[slidPricesCount].style.animationName = "firstPricesNext"
+
+    if (slidPricesCount >= pricesSlider.length - 1) {
+        slidPricesCount = 0
+    } else {
+        slidPricesCount++
+    }
+
+    pricesSlider[slidPricesCount].style.animationName = "secondPricesNext"
+    
+})
+
+pricesPrev.addEventListener("click", () => {
+    pricesSlider[slidPricesCount].style.animationName = "firstPricesPrev"
+    if (slidPricesCount === 0) {
+        slidPricesCount =  pricesSlider.length - 1
+    } else {
+        slidPricesCount--
+    }
+    
+
+    pricesSlider[slidPricesCount].style.animationName = "secondPricesPrev"
     
 })
 

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.exceptions import ValidationError
+from django.db.models import Q
 
 
 class WalkerUser(AbstractUser):
@@ -30,7 +31,30 @@ class WalkerUser(AbstractUser):
         validators=[validate_image],
     )
 
-    def reviews_rating(self):
+    def delete(self, *args, **kwargs):
+        """Delete avatar"""
+        if self.avatar:
+            storage, path = self.avatar.storage, self.avatar.path
+            storage.delete(path)
+        super().delete(*args, **kwargs)
+
+    # def save(self, *args, **kwargs):
+    #     """Save avatar and delete previous"""
+    #     breakpoint()
+    #     try:
+    #         user = WalkerUser.objects.get(id=self.id)
+    #         if user.avatar and user.avatar != self.avatar:
+    #             user.avatar.delete(save=False)
+    #     except Exception:
+    #         pass
+    #     super().save(*args, **kwargs)
+
+    def reviews_rating(self) -> tuple[float, int]:
+        """Return user avarage reviews rating
+
+        Returns:
+            tuple[float, int]: Avarage rating and number of reviews
+        """
         reviews = self.user_reviews.filter(
             is_admin_approved=True, is_visible=True
         )
@@ -41,20 +65,52 @@ class WalkerUser(AbstractUser):
             avg_rating = 0
         return avg_rating, len(reviews)
 
-    def delete(self, *args, **kwargs):
-        if self.avatar:
-            storage, path = self.avatar.storage, self.avatar.path
-            storage.delete(path)
-        super(WalkerUser, self).delete(*args, **kwargs)
+    @classmethod
+    def search_petsitter(cls, search_params):
+        """Search petsitters
 
-    def save(self, *args, **kwargs):
-        try:
-            this = WalkerUser.objects.get(id=self.id)
-            if this.avatar != self.avatar:
-                this.avatar.delete(save=False)
-        except Exception:
-            pass
-        super().save(*args, **kwargs)
+        Args:
+            search_params (dict): Form search data
+
+        Returns:
+            list: List of Walker Users
+        """
+        dog_type_mapping = {
+            "small": Q(service_details__is_small_dog=True),
+            "medium": Q(service_details__is_medium_dog=True),
+            "big": Q(service_details__is_big_dog=True),
+        }
+
+        size_filter = dog_type_mapping[search_params['dog_size']]
+        filter_ = Q(
+            is_petsitter=True,
+            service_details__service_type__type=search_params['care_type'],
+            service_details__is_active=True,
+        )
+        return cls.objects.filter(filter_ & size_filter).all()
+
+    def get_service_details(self):
+        """Get all petsitter active services"""
+        active_services = []
+        for i in self.service_details.filter(is_active=True).all():
+            service = {'type': i.service_type.type, 'dog_sizes': {}}
+            if i.is_small_dog:
+                service['dog_sizes']['small'] = {
+                    'price_hour': i.s_price_hour,
+                    'price_day': i.s_price_day,
+                }
+            if i.is_medium_dog:
+                service['dog_sizes']['medium'] = {
+                    'price_hour': i.m_price_hour,
+                    'price_day': i.m_price_day,
+                }
+            if i.is_big_dog:
+                service['dog_sizes']['big'] = {
+                    'price_hour': i.b_price_hour,
+                    'price_day': i.b_price_day,
+                }
+            active_services.append(service)
+        return active_services
 
     def __str__(self):
         return str(self.username)

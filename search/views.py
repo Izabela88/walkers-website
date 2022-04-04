@@ -6,46 +6,38 @@ from search.forms import SearchForm
 from django.db.models import Q
 from django.urls import reverse
 from walker_profile import utility
-from django.http import HttpResponseRedirect
-from walker_profile.utility import GeoCodeError
+from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
+from walker_profile.utility import geocode
 
 
 class SearchView(View):
-    def post(self, request):
+    def post(self, request: HttpRequest) -> HttpResponse:
+        """Search pet sitters endpoint"""
         if not request.user.is_authenticated:
             return render(request, '401.html')
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():
             try:
-                search_long, search_lat = utility.get_postcode_coordinates(
+                search_long, search_lat = geocode.get_postcode_coordinates(
                     petsitter_search_form.cleaned_data['postcode']
                 )
-            except GeoCodeError:
+            except geocode.GeoCodeError:
                 messages.error(request, "Invalid postcode!")
                 return HttpResponseRedirect(
                     reverse('home') + '#searching-section'
                 )
 
-            care_type = petsitter_search_form.cleaned_data['care_type']
-            dog_size = petsitter_search_form.cleaned_data['dog_size']
-            radius_miles = petsitter_search_form.cleaned_data['area']
-
-            if dog_size == "small":
-                size_filter = Q(service_details__is_small_dog=True)
-            elif dog_size == "medium":
-                size_filter = Q(service_details__is_medium_dog=True)
-            elif dog_size == "big":
-                size_filter = Q(service_details__is_big_dog=True)
-            filter_ = Q(
-                is_petsitter=True,
-                service_details__service_type__type=care_type,
-                service_details__is_active=True,
+            petsitters = WalkerUser.search_petsitter(
+                petsitter_search_form.cleaned_data
             )
-            petsitters = WalkerUser.objects.filter(filter_ & size_filter).all()
-            petsitters = utility.get_users_within_radius(
-                search_long, search_lat, petsitters, radius_miles
+            petsitters = geocode.get_users_within_radius(
+                search_long,
+                search_lat,
+                petsitters,
+                petsitter_search_form.cleaned_data['area'],
             )
+            # Create tuples pet sitter and review rating for sorting purpose
             search_result = [(i, i.reviews_rating()) for i in petsitters]
             search_result.sort(key=lambda x: x[1], reverse=True)
             context['search_results'] = search_result
@@ -61,36 +53,16 @@ class SearchView(View):
 
 
 class PetsitterProfile(View):
-    def get(self, request, id):
+    def get(self, request: HttpRequest, id: int) -> HttpResponse:
+        """Get petsitter profile"""
         if not request.user.is_authenticated:
             return render(request, '401.html')
         context = {}
         user = get_object_or_404(WalkerUser, id=id)
         context['user'] = user
         context['services'] = []
-        for i in user.service_details.all():
-            if i.is_active:
-                service = {'type': i.service_type.type, 'dog_sizes': {}}
-                if i.is_small_dog:
-                    service['dog_sizes']['small'] = {
-                        'price_hour': i.s_price_hour,
-                        'price_day': i.s_price_day,
-                    }
-                if i.is_medium_dog:
-                    service['dog_sizes']['medium'] = {
-                        'price_hour': i.m_price_hour,
-                        'price_day': i.m_price_day,
-                    }
-                if i.is_big_dog:
-                    service['dog_sizes']['big'] = {
-                        'price_hour': i.b_price_hour,
-                        'price_day': i.b_price_day,
-                    }
-
-                context['services'].append(service)
-
+        context['services'] = user.get_service_details()
         avg_rating, reviews_qty = user.reviews_rating()
-
         context['reviews_data'] = {
             'reviews': user.user_reviews.filter(
                 is_admin_approved=True, is_visible=True
