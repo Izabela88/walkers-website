@@ -38,12 +38,16 @@ class WalkerUser(AbstractUser):
             storage.delete(path)
         super().delete(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        """Save avatar and delete previous"""
-        user = WalkerUser.objects.get(id=self.id)
-        if user.avatar and user.avatar != self.avatar:
-            user.avatar.delete(save=False)
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     """Save avatar and delete previous"""
+    #     breakpoint()
+    #     try:
+    #         user = WalkerUser.objects.get(id=self.id)
+    #         if user.avatar and user.avatar != self.avatar:
+    #             user.avatar.delete(save=False)
+    #     except Exception:
+    #         pass
+    #     super().save(*args, **kwargs)
 
     def reviews_rating(self) -> tuple[float, int]:
         """Return user avarage reviews rating

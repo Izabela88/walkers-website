@@ -7,12 +7,12 @@ class PetsitterFormValidationError(Exception):
     pass
 
 
-class PetsitterQuestion(forms.Form):
+class PetsitterQuestionForm(forms.Form):
     is_petsitter = forms.BooleanField(
         required=False,
         label=(
-            'Are you pet sitter / dog walker ?'
-            ' If not, just leave this field blank.'
+            'Mark the field if you want to register as the pet sitter / '
+            ' dog walker. If not, just leave this field blank.'
         ),
     )
 

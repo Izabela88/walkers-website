@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from home.forms import PetsitterQuestion, PetsitterFormValidationError
+from home.forms import PetsitterQuestionForm, PetsitterFormValidationError
 from search.forms import SearchForm
 from django.views import View
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class Home(View):
@@ -32,7 +33,7 @@ class RegisterQuestion(View):
         media"""
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        form_petsitter = PetsitterQuestion()
+        form_petsitter = PetsitterQuestionForm()
         return render(
             request, 'home/question.html', {'form_petsitter': form_petsitter}
         )
@@ -41,7 +42,7 @@ class RegisterQuestion(View):
         """Submit question form endpoint"""
         if not request.user.is_authenticated:
             return render(request, '401.html')
-        pet_sitter = PetsitterQuestion(request.POST)
+        pet_sitter = PetsitterQuestionForm(request.POST)
         try:
             pet_sitter.save(request.user)
         except PetsitterFormValidationError:
