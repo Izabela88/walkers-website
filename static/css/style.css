@@ -3786,6 +3786,15 @@ label[for="id_newsletter_email"] {
     height: 100%;
   }
 
+  .allauth-container{
+    height: 900px;
+    width: 95%;
+  }
+
+  .allauth-heading h1 {
+    font-size: 30px;
+  }
+
   .question-box {
     width: 85%;
     text-align: center;
@@ -3813,6 +3822,11 @@ label[for="id_newsletter_email"] {
 
   .search-form {
     width: 85%;
+    height: 800px;
+  }
+
+  #searching-section {
+    height: 100%;
   }
 
   .search-form h2 {
