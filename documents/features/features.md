@@ -87,7 +87,7 @@
 
 - ## **Profile page:**
 
-    - My profile page features the user’s personal information, address details, upload photo, account settings . The user is able to update each section as well as changing the password. The page will be updated upon submitting the new information.
+    - My profile page features the user's personal information, address details, upload photo, account settings . The user is able to update each section as well as changing the password. The page will be updated upon submitting the new information.
     - This page also features the ability for the user to delete their account.
     - The platform supports two types of users: pet sitters/dog walkers and pet sitters/dog walkers seekers, so depending on this two types, the website display extra content after register.
 
@@ -110,4 +110,143 @@
         ![no review](/documents/no-reviews.png)
 
 
-    
+    - ### **Personal Information:**
+
+        ![personal information](/documents/personal-info.png)
+
+
+    - ### **Address Details:**
+
+        ![address details](/documents/address-details.png)
+
+
+    - ### **Edit Account:**
+
+        ![edit account](/documents/edit-account.png)
+
+        - In this section user can change password and delete account
+
+        ![change password](/documents/change-password.png)
+        ![delete account](/documents/delete-account.png)
+
+
+    - ### **Upload Photo:**
+
+        ![upload photo](/documents/upload-photo.png)
+
+
+- ## **Contact Form:**
+
+    - In the contact section is a form that allows the user to send a message to the company owner.
+
+    ![contact form](/documents/contact-form.png)
+
+
+
+- ## **Search Form:**
+
+    - Search form allows users to find pet sitter in their area.
+    - The form contains essential information that will allow the user to find the right person for his/her dog.
+
+    ![search form](/documents/search.png)
+
+    - The results are presented in the form of a list of user cards which after click on it leads to pet sitter profile.
+
+    ![results](/documents/success-search.png)
+
+    - If the user cannot find anyone, an appropriate message appears
+
+    ![no pet sitters](/documents/fail-search.png)
+
+
+- ## **Pet sitter Profile:**
+
+    - 'Pet sitter profile' show all the information about a particular pet sitter:
+
+        - pet sitter image/avatar
+        - contact details
+        - description
+        - star rating
+        - reviews carousel
+        - 'write review' button
+        - 'check prices' button
+
+    - User only can see the pet sitter profile after registration
+
+    ![pet sitter profile](/documents/petsitter-prof.png)
+
+    - ### **Pet sitter image/avatar:**
+
+        - Shows a picture of a pet sitter
+        - If the pet sitter hasn't uploaded any photos, there's an icon
+
+        ![no-avatar](/documents/no-avatar.png)
+
+
+    - ### **Contact Details:**
+
+        - That part contains email and phone no of the pet sitter
+        - The seeker may contact the pet sitter in one of the possible ways
+        - If the pet sitter did not provide a phone number, an appropriate message appears 
+
+        ![no-phone-no](/documents/no-phone.png)
+
+
+    - ### **Description:**
+
+        - The description contains information that pet sitter wrote about himself/herself
+        - If the pet sitter did not provide a description, an appropriate message appears 
+
+        ![no phone no](/documents/no-description.png)
+
+
+    - ### **Star Rating:**
+
+        - The star rating represents the average of all ratings a pet sitter has received.
+        - If the pet sitter has not received any reviews, the stars remain blank
+
+        ![star rating](/documents/star-rating.png)
+        ![no review rating](/documents/no-review.png)
+
+
+    - ### **Reviews Carousel:**
+
+        - Pet sitter reviews are appear as carousel.
+        - Each review includes: the date it was issued, the number of stars the reviewer gave, a photo of the reviewer and a description
+        - The next or preview reviews can be seen after pressing the buttons underneath
+
+        ![reviews carousel](/documents/reviews-carousel.png)
+
+        - If the pet sitter has not received any reviews, an appropriate message appears
+
+        ![no review yet](/documents/no-review-yet.png)
+
+
+
+    - ### **Write Review Button:**
+
+        - This button lead to new form where user can write a review about the pet sitter
+
+        ![write review](/documents/write-review.png)
+
+        - To give a rating, it is enough to press the appropriate number of stars
+        - There is also a textarea under the stars where the user can write opinion
+
+        ![review](/documents/review.png)
+
+        - Review does not appear immediately in the pet sitter profile
+        - To be displayed, it must first be approved by the admin
+
+        ![review in pet sitter profile](/documents/review-profile.png)
+
+
+    - ### **Check Prices Button:**
+
+        - This button which open modal with prices what pet sitter is expecting for his/her services
+
+        ![prices](/documents/prices.png)
+
+        - - The next or preview prices can be seen after pressing the buttons underneath
+
+
+       
