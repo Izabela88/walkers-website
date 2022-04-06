@@ -46,6 +46,24 @@
     ![contact form](/documents/contact-form.png)
 
 
+- ## **Home page:**
+
+    - Depending on whether the user is the pet sitter or not, the website display different home page content.
+    
+    - ### **Pet sitter/ dog walker:**
+
+        - Home page display text for people who want to advertise their services.
+
+        ![home pet sitter](/documents/home-pet-sitter.png)
+
+
+    - ### **Pet sitter/ dog walker seeker:**
+
+        - Home page display text for people who looking for dog sitters.
+
+        ![home pet sitter seeker](/documents/home.png)
+
+
 - ## **Register page:**
 
     - This page features a form asking the user for their email address and password.
@@ -53,15 +71,7 @@
     - When registering, the user must indicate whether he is a pet sitter or not. For this, there is a query that is highlighted in red and a box that should be checked if the user is a pet sitter.
     - When a user registers via social media, the same query appears. The user must indicate whether he is a pet sitter or not.
     - Once completed the user is redirected to a home page.
-    - Depending on whether the user is the pet sitter or not, the website display different content.
     
-        - ### **Pet sitter/ dog walker:**
-            - Home page display text for people who want to advertise their services.
-
-
-        - ### **Pet sitter/ dog walker seeker:**
-            - Home page display text for people who looking for dog sitters.
-            - The users can see the search section.
 
     ![register page](/documents/register.png)
     ![question](/documents/question.png)
@@ -87,15 +97,18 @@
 
 - ## **Profile page:**
 
+
     - My profile page features the user's personal information, address details, upload photo, account settings . The user is able to update each section as well as changing the password. The page will be updated upon submitting the new information.
     - This page also features the ability for the user to delete their account.
     - The platform supports two types of users: pet sitters/dog walkers and pet sitters/dog walkers seekers, so depending on this two types, the website display extra content after register.
+
+    ![petsitter profile](/documents/petsitter-profile.png)
+
 
     - ### **Pet sitter/ dog walker:**
         
         - Profile page contains extra 'Petsitter profile' section which contains forms to be filled in, which then appear in pet sitter profile page.
 
-        ![petsitter profile](/documents/petsitter-profile.png)
         ![petsitter profile form](/documents/petsitter-profile-form.png)
 
     - ### **Pet sitter/ dog walker seeker:**
@@ -246,7 +259,7 @@
 
         ![prices](/documents/prices.png)
 
-        - - The next or preview prices can be seen after pressing the buttons underneath
+        - The next or preview prices can be seen after pressing the buttons underneath
 
 
        
