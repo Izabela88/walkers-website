@@ -1,8 +1,7 @@
 [![Build Status](https://app.travis-ci.com/Izabela88/walkers-website.svg?branch=main)](https://app.travis-ci.com/Izabela88/walkers-website)
-# walkers-website
 
 
-# **WALKERS**
+# **WALKERS WEBSITE**
 
 ## **INTRODUCTION** 
 
@@ -186,7 +185,7 @@ View live project here [link to deployed link](https://walkers88.herokuapp.com/)
         The diagram below illustrates the database structure used in this project, first managed using SQLite during the development process, then Postgres in production with Heroku.
 
         ![Attach db structure](documents/db%20structure.png)
-        
+
         - **User**
           - The default User model is replaced by custom AbstractUser because:
             - During authentication, application using an email address to uniquely identify
@@ -353,3 +352,11 @@ View live project here [link to deployed link](https://walkers88.herokuapp.com/)
     - [Pixlr](https://pixlr.com/pl/):  was used to process used photos
     - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code
     - [GitHub](https://github.com/): used to store the code of the project
+
+
+
+## **TESTING**
+
+  - ### **Testing User Stories**
+  
+    Testing User Stories can be found in [this document](/documents/features/test_user_stories.md).
