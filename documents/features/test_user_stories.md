@@ -165,7 +165,7 @@
         ![review in pet sitter profile](/documents/review-profile.png)
 
 
-        - User can delete or edit his/her review in his/her profile in 'my reviews' section.
+        - User can delete or edit review in the user profile in 'my reviews' section.
 
         ![my reviews](/documents/no-petsitter-profile.png)
         ![my reviews](/documents/reviews-list.png)
@@ -176,13 +176,61 @@
 
     - ### **User stories** 
       > - I want to be able to create my profile so I can advertise my services as dog walker/pet sitter.
+
+      - The profile page contains an extra 'Petsitter profile' section which contains forms to be filled in by the pet sitter, which then appear later on on the pet sitter profile page.
+        - The form is divided into four categories:
+            - walk
+            - boarding at pet sitter home
+            - day care at client home
+            - description
+        - Each category also has a button that should be marked 'ON' or 'OFF' depending on whether the information should be displayed in ad or not.
+        - Category 'walk', 'boarding at pet sitter home', 'day care at client home' are related to the type of care provided by the pet sitter.
+        - Pet sitter can point what size of dog he/she can look after and amount he/she expect for his/her services.
+        - In the 'description' category, the pet sitter can describe himself/herself.
+
+        ![pet sitter profile form](/documents/petsitter-profile-form.png)
+
+
       > - I want to have the ability to change my password so I can keep my account safe.
+
+        - In 'edit account' section user can change password.
+
+        ![edit account](/documents/edit-account.png)
+
+        ![change password](/documents/change-password.png)
+
+
       > - I want to edit my profile so that I can update my personal information.
+
+      - Profile page features the user's personal information, address details, upload photo, account settings. The user is able to update each section. The page will be updated upon submitting the new information.
+
+      ![pet sitter profile](/documents/petsitter-profile.png)
+
+
       > - I want to be able to contact the platform owner so I can report any problems or ask questions.
+
+      - In the contact section is a form that allows the user to send a message to the company owner.
+
+      ![contact form](/documents/contact-form.png)
+
       > - I want to verify forgotten password so I can confirm my request on the recovery link.
+
+
+      - The user can recovery the forgotten password in the 'log in' section.
+      - The user will be asked for their email and a reset link with a token will be sent to the email address provided should it exist in the database.
+      - Once clicking on the reset link, the user is redirected to a form prompting for a new password and confirmation of that password.
+      - Upon the submitting the new password the user is redirected to the log in page.
+
+      ![forgot password](/documents/forgot-password.png)
+      ![reset password](/documents/reset-password.png)
+
+
       > - I want to sign up for the Newsletter to email any major updates and/or changes to the website or organization
 
-    -
+      - The newsletter window appears after pressing the 'subscribe' button in the footer.
+      - After clicking the 'subscribe' button appears a message with thanks for subscribing to the newsletter which disappears by itself after 3 seconds.
+
+      ![newsletter](/documents/newsletter.png)
 
 
 

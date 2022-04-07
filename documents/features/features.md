@@ -35,7 +35,7 @@
 
 - ## **Newsletter window:**
 
-    - In the newsletter window appears after pressing the 'subscribe' button in the footer.
+    - The newsletter window appears after pressing the 'subscribe' button in the footer.
     - After clicking the 'subscribe' button appears a message with thanks for subscribing to the newsletter which disappears by itself after 3 seconds.
 
     ![newsletter](/documents/newsletter.png)
@@ -99,6 +99,11 @@
 
 
 - ## **Profile page:**
+
+    - User can see his/her profile only after log in.
+    - In the navigation bar is icon which, when pressed, takes straight to the user profile page.
+
+    ![profile icon](/documents/profile-icon.png)
 
     - Profile page features the user's personal information, address details, upload photo, account settings. The user is able to update each section. The page will be updated upon submitting the new information.
     - This page also features the ability for the users to delete their account.
