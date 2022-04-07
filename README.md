@@ -14,7 +14,7 @@ Using the principles of UX design, this fully responsive and interactive website
 View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 
 
-## **Search for pet sitter** 
+## **CHECK SEARCH FORM FUNCTIONALITY** 
 
 The platform is to operate in the UK, and addresses from the Wolverhampton area were entered into the database.
 
