@@ -16,15 +16,15 @@ View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 
 ## **Search for pet sitter** 
 
-  The platform is to operate in the UK, and addresses from the Wolverhampton area were entered into the database.
+The platform is to operate in the UK, and addresses from the Wolverhampton area were entered into the database.
 
-  To check the search form functionality please:
+To check the search form functionality please:
 
-    - visit this page [doogal](https://www.doogal.co.uk/RandomAddresses.php)
-    - From 'Generate addresses in this area' option please choose 'WV'
-    - Click 'Create random addresses' button
+  - visit this page [doogal](https://www.doogal.co.uk/RandomAddresses.php)
+  - From 'Generate addresses in this area' option please choose 'WV'
+  - Click 'Create random addresses' button
 
-  You can use the generated post code for the search form as your own.
+You can use the generated post code for the search form as your own.
 
 
 ## **TABLE OF CONTENT** 
