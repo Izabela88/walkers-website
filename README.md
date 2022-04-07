@@ -20,7 +20,8 @@ The platform is to operate in the UK, and addresses from the Wolverhampton area 
 
 To check the search form functionality please:
 
-  - visit this page [doogal](https://www.doogal.co.uk/RandomAddresses.php)
+  - visit this page [Random Addresses Generator](https://www.doogal.co.uk/RandomAddresses.php)
+  - to 'Number of addresses required' input enter '1'
   - From 'Generate addresses in this area' option please choose 'WV'
   - Click 'Create random addresses' button
 
