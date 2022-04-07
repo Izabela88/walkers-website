@@ -20,7 +20,7 @@
     - While using the website, each activity is described by messages appearing on the screen
     - The layout and menu of the website will resize according to the device used for better visibility and user experience. The navigation is collapsible on mobile devices for better visibility.
     - While using the website, each activity is described by messages appearing on the screen.
-    - when the user is not authorized to proceed appropriate information appears on the screen.
+    - When the user is not authorized to proceed appropriate information appears on the screen.
 
     
     ![navbar mobile](/documents/navbar-mobile.png)
@@ -56,40 +56,113 @@
     - After register, the user receives a message to his/her e-mail with a verification link that allows to verify whether the e-mail is correct.
     
     ![home](/documents/home.png)
+
     ![about](/documents/about.png)
+
     ![join us](/documents/join-us.png)
+
     ![footer social icons](/documents/footer.png)
+
     ![search form](/documents/search.png)
+
     ![register](/documents/register.png)
+
     ![log in](/documents/log-in.png)
+
     ![email verification](/documents/email-verification.png)
 
 
 
  - ## **As a returning user:**
 
-    - ### **User stories** 
-      > - I want to log in and logout so that I can access my profile safely.
-      > - I want to be able to delete my profile so my personal information is removed from the website.
-      > - I want to be able to add my image to my profile so I can be more trustworthy for others users.
-      > - I want to register for an account so  I can view a profile of dog walkers or pet sitters.
-      > - I want to be able to find a dog walker or pet sitter in my area.
-      > - I want to be able to see dog walker or pet sitter profile to check more information about this person
-      > - I want to be able to write comments about dog walkers or pet sitters so I can help others users with choosing the best one person
-      > - I want to be able to delete or edit my reviews so I can manage them on my profile.
+    > - I want to log in and logout so that I can access my profile safely.
+
+    - The menu contains the 'log in' option which, when pressed, leads to the log in form.
+    - After entering their data, the user can log in to his profile.
+    - After logging in to user profile, an icon appears in the menu which, when pressed, allows user to log out.
+
+    ![log out icon](/documents/log-out-icon.png)
+
+    - Before the user logs off, he/she is asked if he/she is sure he/she wants to log out.
+
+    ![log out question](/documents/log-out-q.png)
+
+
+    > - I want to be able to delete my profile so my personal information is removed from the website.
+
+    - In the user's profile is an 'edit account' option and there is option for 'delete account'.
+    - Before the user delete account, he/she is asked if he/she is sure he/she wants to delete the account.
+
+    ![delete account](/documents/delete-account-option.png)
+    ![delete account question](/documents/delete-account.png)
+
+
+    > - I want to be able to add my image to my profile so I can be more trustworthy for others users.
+
+    - In the user's profile is an 'upload photo' option.
+ 
+    ![upload photo](/documents/upload-photo.png)
+
     
-    - 
+    > - I want to register for an account so I can view a profile of dog walkers or pet sitters.
+
+    - When registering, the user must indicate whether he/she is a pet sitter or not. For this, there is a query that is highlighted in red and a box that should be checked if the user is a pet sitter.
+    - When a user registers via social media, the same query appears. The user must indicate whether he/she is a pet sitter or not.
+    - Once completed the user is redirected to a home page.
+
+    ![register page](/documents/register.png)
+    ![question](/documents/question.png)
 
 
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
+    > - I want to be able to find a dog walker or pet sitter in my area.
 
+    - Search form allows users to find pet sitter in their area.
+    - The form contains essential information that will allow the user to find the right person for his/her dog.
+
+    ![search form](/documents/search.png)
+
+    - The results are presented in the form of a list of pet sitter cards which after click on it leads to pet sitter profile.
+
+    ![results](/documents/success-search.png)
+
+    - If the user cannot find anyone, an appropriate message appears.
+
+    ![no pet sitters](/documents/fail-search.png)
+
+
+    > - I want to be able to see dog walker or pet sitter profile to check more information about this person.
+
+     - 'Pet sitter profile' show all the information about a particular pet sitter:
+
+        - pet sitter image/avatar
+        - contact details
+        - description
+        - star rating
+        - reviews carousel
+        - 'write review' button
+        - 'check prices' button
+
+    - User only can see the pet sitter profile after registration.
+
+    ![pet sitter profile](/documents/petsitter-prof.png)
+
+    
+    > - I want to be able to write comments about dog walkers or pet sitters so I can help others users with choosing the best one person.
+    > - I want to be able to delete or edit my reviews so I can manage them on my profile.
+
+    - This button lead to new form where user can write a review about the pet sitter.
+
+        ![write review](/documents/write-review.png)
+
+        - To give a rating, it is enough to press the appropriate number of stars.
+        - There is also a textarea under the stars where the user can write opinion.
+
+        ![review](/documents/review.png)
+
+        - Review does not appear immediately in the pet sitter profile.
+        - To be displayed, it must first be approved by the admin.
+
+        ![review in pet sitter profile](/documents/review-profile.png)
 
 
  - ## **As a frequent user:**
@@ -102,17 +175,7 @@
       > - I want to verify forgotten password so I can confirm my request on the recovery link.
       > - I want to sign up for the Newsletter to email any major updates and/or changes to the website or organization
 
-    - 
-
-    
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-    ![]()
-
+    -
 
 
 
