@@ -99,7 +99,7 @@
 
     > - I want to be able to add my image to my profile so I can be more trustworthy for others users.
 
-    - In the user's profile is an 'upload photo' option.
+    - In the user's profile is an 'upload photo' option where user can upload photo.
  
     ![upload photo](/documents/upload-photo.png)
 
@@ -150,7 +150,7 @@
     > - I want to be able to write comments about dog walkers or pet sitters so I can help others users with choosing the best one person.
     > - I want to be able to delete or edit my reviews so I can manage them on my profile.
 
-    - This button lead to new form where user can write a review about the pet sitter.
+    - User can write a review about the pet sitter in the pet sitter profile part.
 
         ![write review](/documents/write-review.png)
 
@@ -163,6 +163,13 @@
         - To be displayed, it must first be approved by the admin.
 
         ![review in pet sitter profile](/documents/review-profile.png)
+
+
+        - User can delete or edit his/her review in his/her profile in 'my reviews' section.
+
+        ![my reviews](/documents/no-petsitter-profile.png)
+        ![my reviews](/documents/reviews-list.png)
+        ![edit review](/documents/edit-review.png)
 
 
  - ## **As a frequent user:**
