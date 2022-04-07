@@ -1,6 +1,6 @@
 # TESTING USER STORIES
 
-  [Return to main ReadMe](/README.md#testing-user-stories)
+  [Return to main README file](/README.md#testing-user-stories)
 
 
  - ## **Navigation and website experience**
