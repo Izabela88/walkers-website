@@ -53,7 +53,6 @@ You can use the generated post code for the search form as your own.
     - [Code validation](#code-validation)
     - [Testing User stories](#testing-user-stories)
     - [Automated testing](#automated-testing)
-    - [Responsiveness and compatibility](#responsiveness-and-compatibility)
     - [Testing accessibility and performance](#testing-accessibility-and-performance)
     - [Interesting issues and known bugs](#interesting-issues-and-known-bugs)
   - [Deployment](#deployment)
@@ -63,7 +62,6 @@ You can use the generated post code for the search form as your own.
      - [Code](#code)
      - [Content](#content)
      - [Media](#media)
-     - [Acknowledgment](#acknowledgments)
 
 
 
@@ -325,18 +323,21 @@ You can use the generated post code for the search form as your own.
 ## **TECHNOLOGIES USED**
 
   - ### **Languages**
+
     - [HTML](https://html.spec.whatwg.org/multipage/)
     - [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
     - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
     - [Python](https://www.python.org/)
 
   - ### **Databases platform and cloud storage**
+
     - [SQlite](https://www.sqlite.org/index.html): SQL database engine provided by default as part of Django and used during development
     - [Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql): SQL database service provided directly by Heroku for storing data
     - [Cloudinary](https://cloudinary.com/): to store images and static files in production
     - [Heroku](https://www.heroku.com/): to deploy and run the application in production
 
   - ### **Libraries and frameworks**
+
     - [Django](https://www.djangoproject.com/): Python web framework for rapid development and clean, pragmatic design
     - [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/0.2a3/): uk phone numbers validation
     - [Pillow](https://pillow.readthedocs.io/en/stable/): This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
@@ -348,6 +349,7 @@ You can use the generated post code for the search form as your own.
     - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes the source to identify code that could have been executed but was not.
 
   - ### **Other technologies**
+
     - [Google font](https://fonts.google.com/): used for body and headings font
     - [Font Awesome](https://fontawesome.com/): used for icons throughout the website
     - [Postcodes Io](https://api.postcodes.io/): Postcodes & Geolocation API for the UK.
@@ -359,11 +361,8 @@ You can use the generated post code for the search form as your own.
     - [JSHint](https://jshint.com/): to validate jquery/javascript syntax
     - [Chrome DevTools](https://developer.chrome.com/docs/devtools/): Google inspect was used to test and fix code and page responsiveness.
     - [Google lighthouse](https://developers.google.com/web/tools/lighthouse): Google lighthouse was used to assess performance of the site
-    - [Lottiefiles](https://lottiefiles.com/): for used animations
     - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing code before pulls and merge
-    - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator
-    - [Unsplash](https://unsplash.com/): for images
-    - [Pixlr](https://pixlr.com/pl/):  was used to process used photos
+    - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator   
     - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code
     - [GitHub](https://github.com/): used to store the code of the project
 
@@ -468,3 +467,26 @@ You can use the generated post code for the search form as your own.
     ```
 
     Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+
+## **CREDITS**
+
+  - ### **Code**
+
+    - While coding for some problems and inspirations with JavaScript code, I looked for answers on websites:
+
+    - [W3School](https://www.w3schools.com/)
+    - [Stack Overflow](https://stackoverflow.com/)
+    - [JavaScript Tutorial](https://www.javascripttutorial.net/)
+    - [MDN Web Docs](https://developer.mozilla.org/en-US/)
+    - [Sabe Io](https://sabe.io/)
+
+    
+  - ### **Media and content**
+
+    - All content was written by the developer.
+    - [Unsplash](https://unsplash.com/): for images
+    - [Lottiefiles](https://lottiefiles.com/): for used animations
+    - [Pixlr](https://pixlr.com/pl/):  was used to process used photos
+
+
