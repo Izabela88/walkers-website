@@ -54,8 +54,7 @@ You can use the generated post code for the search form as your own.
     - [Testing User stories](#testing-user-stories)
     - [Automated testing](#automated-testing)
     - [Responsiveness and compatibility](#responsiveness-and-compatibility)
-    - [Testing performance](#testing-performance)
-    - [Testing accessibility](#testing-accessibility)
+    - [Testing accessibility and performance](#testing-accessibility-and-performance)
     - [Interesting issues and known bugs](#interesting-issues-and-known-bugs)
   - [Deployment](#deployment)
     - [Deployment of the page](#deployment-of-the-page)
@@ -346,6 +345,7 @@ You can use the generated post code for the search form as your own.
     - [Django_case_insensitive_field](https://pypi.org/project/django-case-insensitive-field/): to allow case insensitive comparison for unique fields.
     - [Django cleanup](https://pypi.org/project/django-cleanup/): to automatically delete images / files when an ImagField is removed / updated or deleted
     - [Flake8](https://pypi.org/project/flake8-django/): A flake8 plugin to detect bad practices on Django projects
+    - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes the source to identify code that could have been executed but was not.
 
   - ### **Other technologies**
     - [Google font](https://fonts.google.com/): used for body and headings font
@@ -360,7 +360,7 @@ You can use the generated post code for the search form as your own.
     - [Chrome DevTools](https://developer.chrome.com/docs/devtools/): Google inspect was used to test and fix code and page responsiveness.
     - [Google lighthouse](https://developers.google.com/web/tools/lighthouse): Google lighthouse was used to assess performance of the site
     - [Lottiefiles](https://lottiefiles.com/): for used animations
-    - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing my code
+    - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing code before pulls and merge
     - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator
     - [Unsplash](https://unsplash.com/): for images
     - [Pixlr](https://pixlr.com/pl/):  was used to process used photos
@@ -371,6 +371,100 @@ You can use the generated post code for the search form as your own.
 
 ## **TESTING**
 
+  - ### **Introduction**
+
+    - The website was tested as it was developed with the implementation of new features, using:
+
+      - console.log() and google developer tools
+      - breakpoint() function and terminal for backend functionalities by printing expected outcome
+      - manual testing
+      - automated testing
+      - Travis CI for testing code before pull and merge on GitHub:
+
+        ![travis](/documents/travis-ci-merge-check.png)
+        ![travis](/documents/travis-ci-merge-complete.png)
+      
+
   - ### **Testing User Stories**
   
-    Testing User Stories can be found in [this document](/documents/features/test_user_stories.md).
+    - Testing User Stories can be found in [this document](/documents/features/test_user_stories.md).
+
+
+  - ### **Automated testing**
+
+    - The developer implemented automated testing all apps.
+    - For measuring code coverage developer used Coverage.py tool.
+
+    Coverage.py report can be found in [this document]()
+
+- ### **Code validation**
+
+    - #### **W3C HTML Code Validator**
+      Each page for the website was run through the [W3C Markup Validation Service](https://validator.w3.org/) and returned no errors. 
+      As all web pages are rendered dynamically using Django template, each page and scenario had to be validated by direct input by copying and pasting the source code for the page.
+
+    - #### **W3C CSS Jigsaw Validator**
+      Each CSS file was tested with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) via direct input and returned no errors
+
+    - #### **JSHint validator**
+      All JavaScripts files were tested with [JSHint](https://jshint.com/) and returned no errors.
+
+
+    - #### **Python 8**
+      Each python file was run through [PEP8 online](http://pep8online.com/) and returned no errors.
+
+
+  - ### **Responsiveness and compatibility**
+
+    The Website was tested on Google Chrome, Mozilla Firefox, Opera and Safari browsers.
+    The Safari browser doesn't support 'smooth' behavior parameter in window.scroll() method.
+    The website was viewed on a variety of devices such as Desktop, Laptop (Macbook Pro 16 inch), Mobiles( Huawei P20 Mate, Huawei P30, Samsung S21 ultra).
+    A large amount of testing was done to ensure that all pages were linking correctly.
+    Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+    
+  - ### **Testing accessibility and performance**
+
+    I confirmed that the colors and fonts chosen are easy to read and accessible by running it through Lighthouse in Chrome extension.
+
+      - Accessibility for desktop
+      - Accessibility for mobiles
+
+
+## **DEPLOYMENT**
+
+ 
+  - ### **How to run the code locally**
+
+    - ### **Forking the GitHub Repository**
+
+    By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+    1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
+    2. At the top of the Repository (not top of page), just above the "Settings" button on the menu, locate the "Fork" button.
+    3. You should now have a copy of the original repository in your GitHub account.
+
+    - ### **Making a Local Clone**
+
+    1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
+    2. Under the repository name, click "Clone or download".
+    3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+    4. Open Git Bash
+    5. Change the current working directory to the location where you want the cloned directory to be made.
+    6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+    ```
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    ```
+
+    7. Press Enter. Your local clone will be created.
+
+    ```
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    > Cloning into `CI-Clone`...
+    > remote: Counting objects: 10, done.
+    > remote: Compressing objects: 100% (8/8), done.
+    > remove: Total 10 (delta 1), reused 10 (delta 1)
+    > Unpacking objects: 100% (10/10), done.
+    ```
+
+    Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
