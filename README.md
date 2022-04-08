@@ -373,6 +373,7 @@ You can use the generated post code for the search form as your own.
     - [GitHub](https://github.com/): used to store the code of the project
     - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects
     - [Compress](https://compressgif.com/): for compress images
+    - [Realfavicongenerator](https://realfavicongenerator.net/): for favicon
 
 
 ## **TESTING**
