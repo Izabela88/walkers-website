@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'reviews',
     'contact',
     'newsletter',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 

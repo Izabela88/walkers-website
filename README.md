@@ -372,7 +372,7 @@ You can use the generated post code for the search form as your own.
     - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code
     - [GitHub](https://github.com/): used to store the code of the project
     - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects
-
+    - [Compress](https://compressgif.com/): for compress images
 
 
 ## **TESTING**
@@ -402,6 +402,7 @@ You can use the generated post code for the search form as your own.
     - For measuring code coverage developer used Coverage.py tool.
 
     Coverage.py report can be found in [this document]()
+    
 
 - ### **Code validation**
 
@@ -486,7 +487,6 @@ You can use the generated post code for the search form as your own.
     - [Stack Overflow](https://stackoverflow.com/)
     - [JavaScript Tutorial](https://www.javascripttutorial.net/)
     - [MDN Web Docs](https://developer.mozilla.org/en-US/)
-    - [Sabe Io](https://sabe.io/)
 
     
   - ### **Media and content**
@@ -494,6 +494,8 @@ You can use the generated post code for the search form as your own.
     - All content was written by the developer.
     - [Unsplash](https://unsplash.com/): for images
     - [Lottiefiles](https://lottiefiles.com/): for used animations
-    - [Pixlr](https://pixlr.com/pl/):  was used to process used photos
+    - [Pixlr](https://pixlr.com/pl/): was used to process used photos
+    - [CSS Scan](https://getcssscan.com/css-box-shadow-examples): for box shadow example
+    - [Free Frontend](https://freefrontend.com/): for CSS and JavaScript inspirations
 
 
