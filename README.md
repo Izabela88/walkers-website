@@ -235,10 +235,10 @@ You can use the generated post code for the search form as your own.
 
       - All projects was created in Adobe XD:
 
-      [Home page, search section, join us section](/documents/home-page-project.png)
-      [Login, register](/documents/login-register-project.png)
-      [Pet sitter profile](/documents/petsitter-profile-project.png)
-      [Search results](/documents/search-results-project.png)
+      - [Home page, search section, join us section](/documents/home-page-project.png)
+      - [Login, register page](/documents/login-register-project.png)
+      - [Pet sitter profile](/documents/petsitter-profile-project.png)
+      - [Search results](/documents/search-results-project.png)
 
 
 - ### **Surface / Design** 
