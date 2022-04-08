@@ -64,7 +64,6 @@ You can use the generated post code for the search form as your own.
      - [Media](#media)
 
 
-
 ## **UX DESIGN**
 
  - ### **Strategy**  
@@ -234,6 +233,13 @@ You can use the generated post code for the search form as your own.
     
     - ### **Wireframes**
 
+      - All projects was created in Adobe XD:
+
+      [Home page, search section, join us section](/documents/home-page-project.png)
+      [Login, register](/documents/login-register-project.png)
+      [Pet sitter profile](/documents/petsitter-profile-project.png)
+      [Search results](/documents/search-results-project.png)
+
 
 - ### **Surface / Design** 
 
@@ -365,6 +371,7 @@ You can use the generated post code for the search form as your own.
     - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator   
     - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code
     - [GitHub](https://github.com/): used to store the code of the project
+    - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects
 
 
 
