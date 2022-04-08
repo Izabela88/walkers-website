@@ -132,12 +132,26 @@
     - ### **Pet sitter/ dog walker seeker:**
 
         - Profile page contains extra 'My reviews' section which directs to  reviews list which was written by user.
-        - The user can edit and delete reviews.
-        - If the user has not write any review, the information is displayed.
 
         ![reviews list](/documents/no-petsitter-profile.png)
         ![reviews list](/documents/reviews-list.png)
+
+
+         - The user can edit and delete reviews.
+         - 'Edit Review' template contains:
+            - the star rating that pet sitter previously received
+            - empty stars which can be mark again for re-rating
+            - textarea with previous description which can be update
+            - bin icon which allow user to delete review
+
         ![edit review](/documents/edit-review.png)
+
+        - Before deleting a review, a modal will appear wit question.
+
+        ![delete review](/documents/delete-rev.png)
+
+        - If the user has not write any review, the information is displayed.
+
         ![no review](/documents/no-reviews.png)
 
 
@@ -289,4 +303,3 @@
         - If pet sitter doesn't have any active ad's the 'check price' button is disabled.
 
 
-       

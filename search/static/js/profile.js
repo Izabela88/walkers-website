@@ -1,3 +1,4 @@
+// Reviews carousel
 const imageSlider = document.querySelectorAll(".review-box");
 const next = document.querySelector("a.next");
 const prev = document.querySelector("a.prev");
@@ -27,7 +28,7 @@ prev.addEventListener("click", () => {
   imageSlider[slidCount].style.animationName = "secondPrev";
 });
 
-// ---------------------------------------------------------
+// Prices carousel
 
 const pricesSlider = document.querySelectorAll(".prices-box");
 const pricesNext = document.querySelector("a.prices-next");

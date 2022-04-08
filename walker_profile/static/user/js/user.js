@@ -1,3 +1,4 @@
+// Display tabs content
 function displayCurrentTab(current) {
   let tabs = document.querySelector(".tabs");
   let tabsContents = tabs.querySelectorAll(".tabs-content");
@@ -15,6 +16,7 @@ if (!document.querySelector(".display-content")) {
   displayCurrentTab(0);
 }
 
+// Handle tabs buttons and change their colors on click
 function swapTabs() {
   let tabs = document.querySelector(".tabs");
   let tabsBtns = tabs.querySelectorAll(".tabs-button");

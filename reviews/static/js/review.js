@@ -5,6 +5,7 @@ const four = document.getElementById("id_stars_3");
 const five = document.getElementById("id_stars_4");
 const stars = document.querySelector("#id_stars");
 
+// Change stars color on click
 const handleStarSelect = (size) => {
   const children = stars.children;
   console.log(children);
@@ -18,6 +19,7 @@ const handleStarSelect = (size) => {
   }
 };
 
+// Handle qty of selected stars
 const handleSelect = (selection) => {
   switch (selection) {
     case "id_stars_0": {
