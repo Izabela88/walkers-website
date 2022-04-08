@@ -45,7 +45,7 @@ You can use the generated post code for the search form as your own.
     - [Defensive design](#defensive-design)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
-    - [Databases platform and cloud storage](#database-platform-and-cloud-storage)
+    - [Databases platform and cloud storage](#databases-platform-and-cloud-storage)
     - [Libraries and frameworks](#libraries-and-frameworks)
     - [Other technologies](#other-technologies)  
   - [Testing](#testing)
