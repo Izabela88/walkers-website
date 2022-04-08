@@ -60,8 +60,8 @@ You can use the generated post code for the search form as your own.
     - [How to run the code locally](#how-to-run-the-code-locally)
    - [Credits](#credits)
      - [Code](#code)
-     - [Content](#content)
-     - [Media](#media)
+     - [Media and content](#media-and-content)
+
 
 
 ## **UX DESIGN**
