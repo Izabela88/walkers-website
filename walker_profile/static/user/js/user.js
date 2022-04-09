@@ -1,23 +1,22 @@
+// Display tabs content
 function displayCurrentTab(current) {
   let tabs = document.querySelector(".tabs");
   let tabsContents = tabs.querySelectorAll(".tabs-content");
 
   for (let i = 0; i < tabsContents.length; i++) {
     if (current === i) {
-      tabsContents[i].classList.add('display-content')
+      tabsContents[i].classList.add("display-content");
     } else {
-      tabsContents[i].classList.remove('display-content')
+      tabsContents[i].classList.remove("display-content");
     }
   }
-
 }
 
-if (!document.querySelector('.display-content')) {
-  displayCurrentTab(0)
+if (!document.querySelector(".display-content")) {
+  displayCurrentTab(0);
 }
 
-
-
+// Handle tabs buttons and change their colors on click
 function swapTabs() {
   let tabs = document.querySelector(".tabs");
   let tabsBtns = tabs.querySelectorAll(".tabs-button");
@@ -27,16 +26,15 @@ function swapTabs() {
       for (let i = 0; i < tabsBtns.length; i++) {
         if (event.target === tabsBtns[i]) {
           displayCurrentTab(i);
-          tabsBtns[i].classList.add('display-tab-white')
-          tabsBtns[i].classList.remove('display-tab-orange')
+          tabsBtns[i].classList.add("display-tab-white");
+          tabsBtns[i].classList.remove("display-tab-orange");
         } else {
-          tabsBtns[i].classList.add('display-tab-orange')
-          tabsBtns[i].classList.remove('display-tab-white')
+          tabsBtns[i].classList.add("display-tab-orange");
+          tabsBtns[i].classList.remove("display-tab-white");
         }
       }
     }
   });
 }
 
-swapTabs()
-
+swapTabs();

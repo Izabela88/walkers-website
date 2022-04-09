@@ -251,6 +251,4 @@ class WalkerUserReview(View):
             return render(request, '403.html')
         review.delete()
         messages.success(request, 'Review successfully deleted!')
-        return HttpResponseRedirect(
-            reverse("reviews", kwargs={"user_id": user_id})
-        )
+        return HttpResponseRedirect(reverse("reviews", kwargs={"id": user_id}))
