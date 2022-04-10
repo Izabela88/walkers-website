@@ -46,5 +46,5 @@ class RegisterQuestion(View):
         try:
             pet_sitter.save(request.user)
         except PetsitterFormValidationError:
-            HttpResponseRedirect(reverse('question'))
+            return HttpResponseRedirect(reverse('question'))
         return HttpResponseRedirect(reverse('home'))
