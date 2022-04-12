@@ -27,7 +27,7 @@
         active
         {% endif %}">
         <a href="{{ url }}">
-          <img src="{% static 'images/logo.gif' %}" alt="Logo"/>
+          <img src="{% static 'images/logo.png' %}" alt="Logo"/>
         </a>
       </div>
       <nav id="nav">    
@@ -115,7 +115,7 @@
     <footer id="footer">
         <div class="box-logo">
           <a href="{% url 'home' %}#home-section">
-            <img src="{% static 'images/logo.gif' %}" alt="Logo" />
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />
           </a>
         </div>
         <div id="footer-container">
@@ -185,7 +185,13 @@
             </ul>
           </div>
         </div>
-        <p>Walkers &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
+        <p>
+          Walkers &copy;
+          <span id="copyright">
+              <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+          </span>
+          All Rights Reserved
+        </p>
       </footer>
 <!-- ------------NEWSLETTER-------------- -->
       <div class="newsletter-wrapper">

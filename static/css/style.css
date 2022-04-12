@@ -657,7 +657,7 @@ select {
 
 .join-txt {
   height: 100%;
-  width: 50%;
+  width: 690px;
 }
 
 .join-txt h1 {
@@ -2018,28 +2018,38 @@ label[for="big_dog"] {
   height: 60%;
 }
 
-.error-img {
-  background: url(/static/images/cant.gif) no-repeat center center/cover;
+.error-buttons {
+  flex-direction: column;
+
+}
+
+.error-button {
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.error-img,
+.error-img-404,
+.error-img-403,
+.error-img-500 {
   width: 500px;
   height: 500px;
+}
+
+.error-img {
+  background: url(/static/images/cant.gif) no-repeat center center/cover;
 }
 
 .error-img-404 {
   background: url(/static/images/error404.gif) no-repeat center center/cover;
-  width: 500px;
-  height: 500px;
 }
 
 .error-img-403 {
   background: url(/static/images/errorcat.gif) no-repeat center center/cover;
-  width: 500px;
-  height: 500px;
 }
 
 .error-img-500 {
   background: url(/static/images/server-error.gif) no-repeat center center/cover;
-  width: 500px;
-  height: 500px;
 }
 
 .not-found {
@@ -3785,13 +3795,24 @@ label[for="id_newsletter_email"] {
     height: 100%;
   }
 
+  .petsitters-heading h2 {
+    font-size: 25px;
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
   .allauth-container{
     height: 900px;
     width: 95%;
   }
 
+  h1, h2 {
+    font-size: 25px;
+  }
+
   .allauth-heading h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .question-box {
@@ -3841,7 +3862,7 @@ label[for="id_newsletter_email"] {
   }
 
   .join-txt h1 {
-    font-size: 35px;
+    font-size: 20px;
   }
 
   .join-txt h2 {
@@ -3853,11 +3874,25 @@ label[for="id_newsletter_email"] {
   }
 
   .main-txt h1 {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .error-box h2 {
-    font-size: 23px;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .error-img, .error-img-403,
+  .error-img-404, .error-img-500 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .error-button {
+    width: 250px;
   }
 
   .petsitter-heading h2 {
@@ -4075,11 +4110,11 @@ label[for="id_newsletter_email"] {
   }
 
   .search-form h2 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .join-txt h2 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
 
@@ -4089,7 +4124,7 @@ label[for="id_newsletter_email"] {
   }
 
   .footer-box h3 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .form-input label {
@@ -4097,7 +4132,7 @@ label[for="id_newsletter_email"] {
   }
 
   .about-txt h2 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .about-txt p {
@@ -4146,7 +4181,7 @@ label[for="id_newsletter_email"] {
   }
 
   .heading h2 {
-    font-size: 25px;
+    font-size: 15px;
   }
 
   .login-form-grid-container {
@@ -4157,8 +4192,16 @@ label[for="id_newsletter_email"] {
     left: 25%;
   }
 
+  h1, h2, h3, h4 {
+    font-size: 15px;
+  }
+
   .social-heading h1 {
-    font-size: 25px;
+    font-size: 15px;
+  }
+
+  .prices-box h4 {
+    font-size: 15px;
   }
 
   .social-heading p {
@@ -4177,6 +4220,22 @@ label[for="id_newsletter_email"] {
     width: 80%;
   }
 
+  .reviews-container {
+    width: 100%;
+  }
+
+  .description-part h3 {
+    font-size: 15px;
+  }
+
+  .description-part p {
+    font-size: 14px;
+  }
+
+  .error-box h2 {
+    font-size: 15px;
+    margin-top: 90px;
+  }
  
 
   .tabs-content h3 {
@@ -4184,7 +4243,7 @@ label[for="id_newsletter_email"] {
   }
 
   .tabs-content h2 {
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
   }
 
@@ -4193,7 +4252,7 @@ label[for="id_newsletter_email"] {
   }
 
   .edit-box p {
-    font-size: 20px;
+    font-size: 15px;
   }
 
 
@@ -4221,7 +4280,7 @@ label[for="id_newsletter_email"] {
   }
 
   .petsitter-heading h2 {
-    font-size: 20px;
+    font-size: 15px;
     width: 80%;
     margin-top: 30%;
   }
@@ -4246,7 +4305,7 @@ label[for="id_newsletter_email"] {
   }
 
   .newsletter-txt h2 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .newsletter-input,
@@ -4284,12 +4343,29 @@ label[for="id_newsletter_email"] {
   }
 
   .change-password-form {
-    width: 340px;
+    width: 300px;
   }
+
+  label[for="id_old_password"], label[for="id_new_password1"], label[for="id_new_password2"] {
+    font-size: 10px;
+}
 
   .password-buttons {
     width: 380px;
   }
+
+  .profile-label {
+    font-size: 10px;
+  }
+
+  .my-reviews-txt {
+    font-size: 15px;
+  
+}
+
+.delete-buttons .button {
+  margin-bottom: 10px;
+}
 
   .petsitter-layout label.switch {
     margin: 0;
@@ -4327,7 +4403,7 @@ label[for="id_newsletter_email"] {
   }
 
   .logout-heading p {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .button, 
@@ -4347,7 +4423,7 @@ label[for="id_newsletter_email"] {
   }
 
   .fb-button a, .google-button a {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .page-contents h4 {
@@ -4360,6 +4436,7 @@ label[for="id_newsletter_email"] {
   
  .password-buttons {
   flex-direction: column;
+  margin-bottom: 50px;
   }
 
   .password-buttons .button {
@@ -4367,17 +4444,19 @@ label[for="id_newsletter_email"] {
  
   }
 
-  .password-buttons .button a {
-    padding-top: 27px;
-  }
-
   .change-password-box h2 {
     margin-bottom: 90px;
+    margin-top: 90px;
+    font-size: 15px;
   }
 
   .terms-txt {
     font-size: 12px;
   }
+
+  .my-reviews-heading h2 {
+    font-size: 15px;
+}
 
   .reviews_list__profiles {
     width: 100%;
@@ -4404,7 +4483,7 @@ label[for="id_newsletter_email"] {
   }
 
   .card-content h1 {
-    font-size: 25px;
+    font-size: 15px;
     margin: 0 auto;
   }
 
@@ -4437,11 +4516,20 @@ label[for="id_newsletter_email"] {
   }
 
   .rev-container h2 {
-    font-size: 20px;
+    font-size: 15px;
+    width: 80%;
   }
 
   .lab {
     font-size: 18px;
+  }
+
+  .step-txt {
+    width: 70%;
+  }
+
+  .petsitters-heading h2 {
+    font-size: 15px;
   }
 
 }

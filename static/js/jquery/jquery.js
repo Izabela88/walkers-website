@@ -16,7 +16,7 @@ $(window).scroll(function () {
 });
 
 // Scroll to top on click
-btn.addEventListener("click", () => {
+btn[0].addEventListener("click", () => {
   window.scroll({
     top: 0,
     left: 0,
