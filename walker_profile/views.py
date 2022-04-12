@@ -225,6 +225,7 @@ class WalkerUserReview(View):
                 walker_user_review_form.save()
             messages.success(request, 'Your review is updated successfully')
         else:
+            messages.error(request, 'Something went wrong!')
             request.session[
                 "walker_user_review_form_errors"
             ] = walker_user_review_form.errors
@@ -251,6 +252,4 @@ class WalkerUserReview(View):
             return render(request, '403.html')
         review.delete()
         messages.success(request, 'Review successfully deleted!')
-        return HttpResponseRedirect(
-            reverse("reviews", kwargs={"user_id": user_id})
-        )
+        return HttpResponseRedirect(reverse("reviews", kwargs={"id": user_id}))

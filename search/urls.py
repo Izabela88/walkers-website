@@ -9,6 +9,6 @@ urlpatterns = [
     path(
         'petsitter_profiles/<int:id>',
         PetsitterProfile.as_view(),
-        name='petsitter_profiles',
+        name='petsitter_profile',
     ),
 ]

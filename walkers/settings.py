@@ -33,6 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 if os.getenv("ENV") == "PRODUCTION":
     DEBUG = False
     X_FRAME_OPTIONS = 'SAMEORIGIN'
+    X_FRAME_OPTIONS = 'ALLOW-FROM http://ami.responsivedesign.is'
 else:
     DEBUG = True
 
@@ -66,6 +67,7 @@ INSTALLED_APPS = [
     'reviews',
     'contact',
     'newsletter',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 
@@ -88,6 +90,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SESSION_REMEMBER = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {

@@ -13,8 +13,6 @@ from walker_profile.utility import geocode
 class SearchView(View):
     def post(self, request: HttpRequest) -> HttpResponse:
         """Search pet sitters endpoint"""
-        if not request.user.is_authenticated:
-            return render(request, '401.html')
         context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():
@@ -42,6 +40,7 @@ class SearchView(View):
             search_result.sort(key=lambda x: x[1], reverse=True)
             context['search_results'] = search_result
         else:
+            messages.error(request, 'Something went wrong!')
             request.session[
                 "petsitter_search_form_errors"
             ] = petsitter_search_form.errors

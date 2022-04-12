@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 
 :root {
@@ -7,7 +6,7 @@
   --light-yellow-color: #ffeb96;
   --white-color: #ffffff;
   --black-color: #000000;
-  --surface-color: #fff;
+  --surface-color: #ffffff;
   --curve: 40;
 }
 
@@ -3786,6 +3785,15 @@ label[for="id_newsletter_email"] {
     height: 100%;
   }
 
+  .allauth-container{
+    height: 900px;
+    width: 95%;
+  }
+
+  .allauth-heading h1 {
+    font-size: 30px;
+  }
+
   .question-box {
     width: 85%;
     text-align: center;
@@ -3813,6 +3821,11 @@ label[for="id_newsletter_email"] {
 
   .search-form {
     width: 85%;
+    height: 800px;
+  }
+
+  #searching-section {
+    height: 100%;
   }
 
   .search-form h2 {
