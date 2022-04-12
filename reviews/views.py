@@ -44,11 +44,11 @@ class Review(View):
                 review_form.instance.save()
                 messages.success(request, 'Thank you for your review!')
             else:
-                messages.error(
-                request, 'Something went wrong!'
-            )
+                messages.error(request, 'Something went wrong!')
                 request.session["review_form_errors"] = review_form.errors
-                return HttpResponseRedirect(reverse('review', kwargs={'id': id}))
+                return HttpResponseRedirect(
+                    reverse('review', kwargs={'id': id})
+                )
         return HttpResponseRedirect(
             reverse('petsitter_profile', kwargs={'id': id})
         )

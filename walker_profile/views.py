@@ -225,6 +225,7 @@ class WalkerUserReview(View):
                 walker_user_review_form.save()
             messages.success(request, 'Your review is updated successfully')
         else:
+            messages.error(request, 'Something went wrong!')
             request.session[
                 "walker_user_review_form_errors"
             ] = walker_user_review_form.errors

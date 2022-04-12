@@ -9,8 +9,10 @@ from django.contrib.messages import get_messages
 def get_review_url(id=1):
     return reverse("review", kwargs={"id": id})
 
+
 def get_petsitter_profile_url(id=1):
     return reverse("petsitter_profile", kwargs={"id": id})
+
 
 def mock_true(*args, **kwargs):
     return True
@@ -31,7 +33,7 @@ class TestReviewPageUserLogIn(TestCase):
         res = self.client.get(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'reviews/review.html')
-    
+
     def test_user_can_not_self_review(self):
         res = self.client.post(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
@@ -43,13 +45,10 @@ class TestReviewPageUserLogIn(TestCase):
         res = self.client.post(get_review_url(id=2))
         messages = list(get_messages(res.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(
-            str(messages[0]), "Thank you for your review!"
-        )
+        self.assertEqual(str(messages[0]), "Thank you for your review!")
 
     @mock.patch("reviews.views.PetsitterReviewForm")
-    def test_post_method_create_error_message(
-        self, mock_review_form):
+    def test_post_method_create_error_message(self, mock_review_form):
         mock_review_form.return_value.is_valid = mock_false
         mock_review_form.return_value.errors = {"Error": "Test Error"}
         res = self.client.post(get_review_url(id=2))
@@ -57,7 +56,9 @@ class TestReviewPageUserLogIn(TestCase):
         session = self.client.session
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "Something went wrong!")
-        self.assertEqual(session["review_form_errors"], {"Error": "Test Error"})
+        self.assertEqual(
+            session["review_form_errors"], {"Error": "Test Error"}
+        )
 
 
 class TestReviewPageUserLogOut(TestCase):
@@ -66,7 +67,7 @@ class TestReviewPageUserLogOut(TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, '401.html')
 
-    def testget_return_401_template(self):
+    def test_get_return_401_template(self):
         res = self.client.get(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, '401.html')
@@ -84,4 +85,3 @@ class TestReviewForm(TestCase):
     def test_required_data_missing(self):
         review_form = PetsitterReviewForm(data={})
         self.assertFalse(review_form.is_valid())
-

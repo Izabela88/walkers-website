@@ -40,6 +40,7 @@ class SearchView(View):
             search_result.sort(key=lambda x: x[1], reverse=True)
             context['search_results'] = search_result
         else:
+            messages.error(request, 'Something went wrong!')
             request.session[
                 "petsitter_search_form_errors"
             ] = petsitter_search_form.errors
