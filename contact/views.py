@@ -36,18 +36,20 @@ class Contact(View):
         body = render_to_string('email/body.txt')
 
         if contact_form.is_valid():
-
+            success = False
             if contact_form.submit_email():
-                messages.success(
-                    request, 'Your message has been sent successfully!'
-                )
-                send_email(
+                if send_email(
                     [contact_form.cleaned_data['email']],
                     settings.EMAIL_HOST_USER,
                     body,
                     'We have got your email',
+                ):
+                    success = True
+            if success:
+                messages.success(
+                    request, 'Your message has been sent successfully!'
                 )
             else:
                 messages.error(request, "Your message couldn't be sent")
-
+        # TODO: Handle message if form is invalid
         return HttpResponseRedirect(reverse('contact'))

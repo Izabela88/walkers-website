@@ -10,15 +10,16 @@ HOME_URL = reverse("home")
 REGISTER_QUESTION_URL = reverse("question")
 
 
-def create_user():
+def create_user(is_petsitter=None):
     user = get_user_model().objects.create(
-        email='test@email.com', password='test1234'
+        email='test@email.com', password='test1234', is_petsitter=is_petsitter
     )
     return user
 
 
 class TestHomePage(TestCase):
     def test_get_home_page_return_200_when_user_not_logged_in(self):
+        self.client.force_login(create_user(is_petsitter=True))
         res = self.client.get(HOME_URL)
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'home/index.html')
@@ -51,6 +52,20 @@ class TestRegisterQuestionPage(TestCase):
             res.context["form_petsitter"], PetsitterQuestionForm
         )
 
+    @mock.patch.object(PetsitterQuestionForm, "save", return_value=True)
+    def test_post_happy_flow_redirect_to_home(self, mock_petsitter_form):
+        res = self.client.post(REGISTER_QUESTION_URL)
+        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.url, HOME_URL)
+
+    @mock.patch.object(
+        PetsitterQuestionForm, "save", side_effect=PetsitterFormValidationError
+    )
+    def test_post_form_invalid_redirect_to_question(self, mock_petsitter_form):
+        res = self.client.post(REGISTER_QUESTION_URL)
+        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.url, REGISTER_QUESTION_URL)
+
 
 class TestRegisterQuestionForm(TestCase):
     def test_petsitter_question_form_updates_user_to_petsitter(self):
@@ -63,9 +78,8 @@ class TestRegisterQuestionForm(TestCase):
         user = petsitter_q_form.save(create_user())
         self.assertFalse(user.is_petsitter)
 
-    @mock.patch("home.forms.PetsitterQuestionForm.is_valid")
+    @mock.patch.object(PetsitterQuestionForm, "is_valid", return_value=False)
     def test_petsitter_form_raises_validation_error(self, is_valid_mock):
-        is_valid_mock.return_value = False
         petsitter_q_form = PetsitterQuestionForm(data={})
         with self.assertRaises(PetsitterFormValidationError):
             petsitter_q_form.save(create_user())

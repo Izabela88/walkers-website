@@ -3,17 +3,31 @@ from newsletter.forms import NewsletterUserForm
 from newsletter.models import NewsletterUser
 from newsletter.mailchimp_utils import subscribe
 from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 import datetime
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from newsletter.serializers import SubscriptionSerializer
 from django.urls import reverse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
+from django.contrib.sessions.backends.base import SessionBase
+from django.utils import timezone
 
 
 class Newsletter(View):
+    def get(self, request: HttpRequest, session: SessionBase) -> HttpResponse:
+        """Prepare context with possible newsletter form errors.
+
+        Args:
+            request (HttpRequest): request 'home' template
+            session (SessionBase): Django session
+        """
+        context = {
+            "email_form_errors": session.pop("email_form_errors", None),
+        }
+        return render(request, 'home/home.html', context)
+
     def post(self, request) -> HttpResponse:
         """Subscribe email address"""
         email_form = NewsletterUserForm(data=request.POST or None)
@@ -25,7 +39,7 @@ class Newsletter(View):
             else:
                 data = NewsletterUser()
                 data.email = email
-                data.created_at = datetime.datetime.utcnow()
+                data.created_at = datetime.datetime.now(tz=timezone.utc)
                 data.save()
             subscribe(email)
             messages.success(
@@ -34,6 +48,7 @@ class Newsletter(View):
             return HttpResponseRedirect(reverse('home'))
         else:
             messages.error(request, 'Something went wrong!')
+            request.session["email_form_errors"] = email_form.errors
 
         return HttpResponseRedirect(reverse('home'))
 
