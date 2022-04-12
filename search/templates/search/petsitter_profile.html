@@ -75,7 +75,7 @@
       <div class="description-container">
         <div class="description-part">
           <h3>About {{user.first_name}}</h3>
-          {% if user.petsitter_details %}
+          {% if user.petsitter_details and user.petsitter_details.description %}
             <p>{{user.petsitter_details.description}}</p>
           {% else %}
             <p>-ˏˋ {{user.first_name}} doesn't write a description yet... ˊˎ</p>
