@@ -5,7 +5,7 @@
 
 ## **INTRODUCTION** 
 
-![mockup]()
+![mockup](/documents/responsive.png)
 
 Walkers -  a platform and website for people who are both looking for dog carers and for people providing such services in the whole UK.
 
