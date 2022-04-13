@@ -163,7 +163,7 @@ label {
 .button a {
   height: 100%;
   width: 100%;
-  padding-top: 22px;
+  padding-top: 23px;
   transition-duration: 0.3s;
   font-family: "Hubballi", cursive;
   text-decoration: none;
@@ -803,8 +803,8 @@ select {
 
 .about-dog-img {
   position: absolute;
-  height: 120%;
-  bottom: -45%;
+  height: 100%;
+  bottom: -35%;
   right: 75%;
 }
 
@@ -3313,7 +3313,7 @@ label[for="id_newsletter_email"] {
 }
 
 @media screen and (max-width: 1300px) {
-  @media screen and (max-height: 800px) {
+  @media screen and (max-height: 805px) {
     .home-bg-shape-1 {
       left: -25%;
     }
@@ -3337,8 +3337,13 @@ label[for="id_newsletter_email"] {
       width: 37%;
     }
 
+    .search-form {
+      height: 90%;
+    }
+
+  
     .main-txt {
-      height: 82%;
+      height: 95%;
     }
 
     .join-instructions {
@@ -3361,6 +3366,70 @@ label[for="id_newsletter_email"] {
 
     .about-bg-shape {
       left: -34%;
+    }
+
+    .about-box {
+      height: 20%;
+    }
+
+    #id_stars {
+      margin: 0;
+    }
+
+    .rev-form {
+      height: 76%;
+    }
+
+    .rev-container h2 {
+      margin-bottom: -6%;
+      margin-top: 6%;
+    }
+
+    .reviews-container {
+      height: 45%;
+    }
+
+    .reviews-btns {
+      margin-bottom: -20px;
+    }
+
+    .review-desc p {
+      margin-top: 0px;
+    }
+
+    .description-container {
+      height: 115px;
+    }
+
+    .lab {
+      margin-top: 8%;
+    }
+
+    .details-box {
+      height: 70%;
+      margin-top: 30px;
+    }
+
+    .rev-description {
+      height: 120px;
+    }
+
+    .rev-container.edit-rev-container h2 {
+      margin-top: 5%;
+      margin-bottom: -35px;
+    }
+
+    .tabs-content h2 {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .details-box textarea {
+      height: 50%;
+    }
+
+    .petsitter-layout label {
+      font-size: 15px;
     }
   }
 }
@@ -4080,10 +4149,20 @@ label[for="id_newsletter_email"] {
     margin-top: 15%;
     margin-bottom: 10%;
   }
+
+  .happy-dog-box {
+    height: 200px;
+    width: 200px;
+  }
+
 }
 
 @media screen and (max-width: 550px) {
 
+  .allauth-paragraph p {
+    width: 80%;
+  }
+ 
   .logo {
     width: 50px;
     height: 50px;
