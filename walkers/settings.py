@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.getenv("ENV") == "PRODUCTION":
-    DEBUG = True
+    DEBUG = False
     X_FRAME_OPTIONS = 'SAMEORIGIN'
     X_FRAME_OPTIONS = 'ALLOW-FROM http://ami.responsivedesign.is'
 else:
