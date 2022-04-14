@@ -37,7 +37,7 @@ if os.getenv("ENV") == "PRODUCTION":
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['walkers88.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['walkers88.herokuapp.com', 'localhost']
 
 ROOT_URLCONF = 'walkers.urls'
 
@@ -87,12 +87,12 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_QUERY_EMAIL = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+LOGIN_URL = '/accounts/login/'
 
-if os.getenv("ENV") in ("PRODUCTION", "STAGING"):
-    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
