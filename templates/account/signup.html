@@ -7,6 +7,13 @@
 
 {% block content %}
 <section id="register">
+  {% if messages %}
+      <ul class="info-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
   <div class="main-image image-shadow">
     <img src="{% static 'images/puppy.png' %}" class="puppy-dog-img" alt="" />
   </div>

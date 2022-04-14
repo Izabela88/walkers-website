@@ -3,11 +3,17 @@
 
 {% block content %}
 
-
 <section class="social-section">
+    {% if messages %}
+    <ul class="info-msg center">
+        {% for message in messages %}
+            <li>{{ message.message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% if process == "connect" %}
 <div class="container">
-    <div class="container ">    
+    <div class="container">    
         <div class="center social-heading">
             <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 

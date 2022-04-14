@@ -6,6 +6,13 @@
 
 {% block content %}
 <section class="logout">
+    {% if messages %}
+      <ul class="info-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
     <div class="container center">    
             <div class="logout-heading">
                 <h2>{% trans "Log Out" %}</h2>
