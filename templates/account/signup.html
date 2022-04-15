@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% load i18n %}
+{% load socialaccount %}
+{% load i18n socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
-
 {% block content %}
 <section id="register">
+  {% if messages %}
+  <ul class="info-msg center">
+      {% for message in messages %}
+          <li>{{ message.message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
   <div class="main-image image-shadow">
     <img src="{% static 'images/puppy.png' %}" class="puppy-dog-img" alt="" />
   </div>
@@ -16,19 +22,25 @@
     <div class="form-grid-container">
       <div class="heading">
         <h2>Register your account!</h2>
-        <p>Alredy have account? <a href="{{ login_url }}">LOGIN</a></p>
       </div>
-        {% load socialaccount %}
-        {% providers_media_js %}
-        <div class="social-btns">
-          <div class="fb-button button center">
-            <a href="{% provider_login_url "facebook" process="login" method="js_sdk" %}"><i class="fab fa-facebook-square"></i> Register via Facebook</a>
+      {% get_providers as socialaccount_providers %}
+      <div class="social-btns">
+        {% if socialaccount_providers %}
+          <p>{% blocktrans with site.name as site_name %}Please register with one
+          of your existing social accounts, or <a href="{{ login_url }}">LOGIN</a>
+          for a Walkers account {% endblocktrans %}</p>
+          <div class="socialaccount_ballot">
+            <ul class="socialaccount_providers">
+              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
           </div>
-          <div class="google-button button center"> 
-            <a href="{% provider_login_url "google" process="login" %}"><i class="fab fa-google"></i> Register via Google</a>
-          </div>
-
-        </div>
+        {% include "socialaccount/snippets/login_extra.html" %}
+        {% else %}
+          <p>{% blocktrans %}If you have not created an account yet, then please
+          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        {% endif %}
+      </div>
+      
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %} 
         {{ form }} 

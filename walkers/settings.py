@@ -84,20 +84,30 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # ALLAUTH
-SOCIALACCOUNT_QUERY_EMAIL = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SESSION_REMEMBER = True
+EXCHANGE_TOKEN = True
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_EMAIL_REQUIRED = True
 
-if os.getenv("ENV") in ("PRODUCTION", "STAGING"):
-    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+SOCIALACCOUNT_ADAPTER = 'walkers.adapter.SocialAccountAdapter'
+
+# Forms
+ACCOUNT_FORMS = {'signup': 'walker_profile.forms.ExtendedSignupForm'}
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
-        'METHOD': 'oauth2',
-        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'METHOD': 'js_sdk',
         'SCOPE': ['email', 'public_profile'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'INIT_PARAMS': {'cookie': True},
@@ -109,13 +119,11 @@ SOCIALACCOUNT_PROVIDERS = {
             'name',
             'name_format',
             'email',
-            'picture',
-            'short_name',
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'en_US',
         'VERIFIED_EMAIL': False,
-        'VERSION': 'v7.0',
+        'VERSION': 'v13.0',
     },
     'google': {
         'SCOPE': [
@@ -264,14 +272,6 @@ if os.getenv("ENV") in ("PRODUCTION", "STAGING"):
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Forms
-ACCOUNT_FORMS = {'signup': 'walker_profile.forms.ExtendedSignupForm'}
-
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
 
 AUTH_USER_MODEL = 'walker_profile.WalkerUser'
 

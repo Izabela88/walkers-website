@@ -2,33 +2,37 @@
 {% load i18n %}
 
 {% block content %}
-
-
 <section class="social-section">
-{% if process == "connect" %}
-<div class="container">
-    <div class="container ">    
-        <div class="center social-heading">
-            <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 
-            <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
-
-        </div>
-    </div>
-</div> 
-    {% else %}
-    <div class="container ">    
-        <div class="center social-heading">
-            <h1>{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h1>
-
-            <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
-        </div>
-    </div>
+    {% if messages %}
+      <ul class="info-msg center">
+          {% for message in messages %}
+              <li>{{ message.message }}</li>
+          {% endfor %}
+      </ul>
     {% endif %}
-    <form class="center" method="post">
-        {% csrf_token %}
-        <button class="button button-bright sign-in-social-btn"  type="submit">{% trans "Continue" %}</button>
-      </form>
- 
+    <div class="container">
+      {% if process == "connect" %}
+      <div class="center social-connect">      
+          <h2>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h2>         
+          <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+          <form method="post">
+            {% csrf_token %}
+            <button class="button button-bright" type="submit">{% trans "Continue" %}</button>
+          </form>
+        </div>
+          {% else %}
+      <div class="center social-connect">
+          <h2>{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h2>          
+          <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
+          <form method="post">
+            {% csrf_token %}
+            <button class="button button-bright" type="submit">{% trans "Continue" %}</button>
+          </form>
+       </div>   
+          {% endif %}        
+    
+    </div>
+
 </section>
 {% endblock %}

@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
+{% load socialaccount %}
 
 <section class="walker-profile-section">
+
+
   {% if messages %}
     <ul class="info-msg center">
         {% for message in messages %}
