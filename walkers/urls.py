@@ -3,13 +3,14 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from walker_profile.views import ChangePasswordView, WalkerUserDelete
+from walker_profile.forms import ExtendedSignupForm
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('about/', include('about.urls')),
-    path('accounts/', include('allauth.urls')),
     path('profile/', include('walker_profile.urls')),
     path(
         'password_change/',
