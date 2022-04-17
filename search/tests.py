@@ -41,13 +41,13 @@ class TestPetsitterProfileUserLogOut(TestCase):
     def test_get_return_401_template(self):
         res = self.client.get(get_petsitter_profile_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
 
 class TestPetsitterProfilePage(TestCase):
     def setUp(self):
         user = get_user_model().objects.create(
-            email='barlog@gmail.com', password='ilikedestroying1509'
+            email="barlog@gmail.com", password="ilikedestroying1509"
         )
         self.client.force_login(user)
 

@@ -5,6 +5,6 @@
   Amazon_customers/*
   manage.py
   */tests.py
-  settings.py
-  */wsgi.py
-  */asgi.py
+  walkers/settings.py
+  walkers/wsgi.py
+  walkers/asgi.py

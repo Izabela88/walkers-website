@@ -66,32 +66,49 @@ class ResponseStub:
         return self.data
 
 
+class MessagesListStub(list):
+    def add(self, *args):
+        self.append((args))
+        return self
+
+
+class HttpRequestStub:
+    def __init__(self, session=None, post_data=None, files_data=None):
+        self.user = create_user(
+            email="legolas@email.com", password="ilovemybow2000"
+        )
+        self.POST = post_data or None
+        self.FILES = files_data or None
+        self.session = session or {}
+        self._messages = MessagesListStub()
+
+
 class TestWalkerProfilePageUserLogIn(TestCase):
     def setUp(self):
-        user = create_user(email='elrond@gmail.com', password='arvena0008')
+        user = create_user(email="elrond@gmail.com", password="arvena0008")
         self.client.force_login(user)
 
     def test_get_return_403_template(self):
         res = self.client.get(get_user_profile_url(id=2))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '403.html')
+        self.assertTemplateUsed(res, "403.html")
 
     def test_get_user_profile_return_200(self):
         res = self.client.get(get_user_profile_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'user_profile/user_profile.html')
+        self.assertTemplateUsed(res, "user_profile/user_profile.html")
 
 
 class TestWalkerProfilePageUserLogOut(TestCase):
     def test_get_return_401_template(self):
         res = self.client.get(get_user_profile_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
     def test_post_return_401_template(self):
         res = self.client.post(get_user_profile_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
 
 class TestWalkerUserReviewPageUserLogOut(TestCase):
@@ -100,27 +117,27 @@ class TestWalkerUserReviewPageUserLogOut(TestCase):
             get_walker_user_review_url(user_id=1, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
     def test_post_return_401_template(self):
         res = self.client.post(
             get_walker_user_review_url(user_id=1, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
     def test_delete_return_401_template(self):
         res = self.client.delete(
             get_delete_walker_user_review_url(user_id=1, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
 
 class TestWalkerUserReviewPageUserLogIn(TestCase):
     def setUp(self):
         user = create_user(
-            email='legolas@email.com', password='ilovemybow2000'
+            email="legolas@email.com", password="ilovemybow2000"
         )
         self.client.force_login(user)
 
@@ -139,21 +156,21 @@ class TestWalkerUserReviewPageUserLogIn(TestCase):
             get_walker_user_review_url(user_id=2, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '403.html')
+        self.assertTemplateUsed(res, "403.html")
 
     def test_post_return_403_template(self):
         res = self.client.post(
             get_walker_user_review_url(user_id=2, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '403.html')
+        self.assertTemplateUsed(res, "403.html")
 
     def test_delete_return_403_template(self):
         res = self.client.delete(
             get_delete_walker_user_review_url(user_id=2, review_id=1)
         )
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '403.html')
+        self.assertTemplateUsed(res, "403.html")
 
     @mock.patch.object(
         PetsitterReviewForm,
@@ -223,20 +240,20 @@ class TestWalkerUserReviewPageUserLogIn(TestCase):
 
 class TestWalkerUserReviewListPageUserLogIn(TestCase):
     def setUp(self):
-        user = create_user(email='gimmly@email.com', password='ilovemyaxe2000')
+        user = create_user(email="gimmly@email.com", password="ilovemyaxe2000")
         self.client.force_login(user)
 
     def test_get_reviews_list_return_200(self):
         res = self.client.get(get_user_profile_reviews_url(user_id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'user_profile/reviews_list.html')
+        self.assertTemplateUsed(res, "user_profile/reviews_list.html")
 
 
 class TestWalkerUserReviewListPageUserLogOut(TestCase):
     def test_get_return_401_template(self):
         res = self.client.get(get_user_profile_reviews_url(user_id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
 
 class TestGeocodeUtils(TestCase):
@@ -278,13 +295,13 @@ class TestGeocodeUtils(TestCase):
             latitude=66.4854694342929, longitude=25.714669467882725
         )
         user_in_radius = create_user(
-            email='legolas@email.com',
-            password='ilovemybow2000',
+            email="legolas@email.com",
+            password="ilovemybow2000",
             address_details_id=address_in_radius.id,
         )
         user_out_radius = create_user(
-            email='orc123@email.com',
-            password='123',
+            email="orc123@email.com",
+            password="123",
             address_details_id=address_out_radius.id,
         )
         users = [user_in_radius, user_out_radius]
@@ -293,23 +310,6 @@ class TestGeocodeUtils(TestCase):
         )
         self.assertEqual(len(filtered_users), 1)
         self.assertEqual(filtered_users[0], user_in_radius)
-
-
-class MessagesListStub(list):
-    def add(self, *args):
-        self.append((args))
-        return self
-
-
-class HttpRequestStub:
-    def __init__(self, session=None, post_data=None, files_data=None):
-        self.user = create_user(
-            email='legolas@email.com', password='ilovemybow2000'
-        )
-        self.POST = post_data or None
-        self.FILES = files_data or None
-        self.session = session or {}
-        self._messages = MessagesListStub()
 
 
 class TestFormHandlers(TestCase):
@@ -331,7 +331,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(len(request_stub._messages), 1)
         self.assertEqual(
             request_stub._messages[0][1],
-            'Your profile is updated successfully',
+            "Your profile is updated successfully",
         )
         self.assertEqual(request_stub._messages[0][0], 25)
 
@@ -378,7 +378,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(len(request_stub._messages), 1)
         self.assertEqual(
             request_stub._messages[0][1],
-            'Your address is updated successfully',
+            "Your address is updated successfully",
         )
         self.assertEqual(request_stub._messages[0][0], 25)
 
@@ -430,7 +430,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(len(request_stub._messages), 1)
         self.assertEqual(
             request_stub._messages[0][1],
-            'Your avatar is updated successfully',
+            "Your avatar is updated successfully",
         )
         self.assertEqual(request_stub._messages[0][0], 25)
 
@@ -469,7 +469,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(len(request_stub._messages), 1)
         self.assertEqual(
             request_stub._messages[0][1],
-            'Your description is updated successfully',
+            "Your description is updated successfully",
         )
         self.assertEqual(request_stub._messages[0][0], 25)
 
@@ -515,7 +515,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(len(request_stub._messages), 1)
         self.assertEqual(
             request_stub._messages[0][1],
-            'Your data is updated successfully',
+            "Your data is updated successfully",
         )
         self.assertEqual(request_stub._messages[0][0], 25)
 

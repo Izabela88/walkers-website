@@ -19,12 +19,12 @@ class Home(View):
 
         if request.user.is_authenticated:
             if request.user.is_petsitter is None:
-                return HttpResponseRedirect(reverse('question'))
-            context['is_petsitter'] = request.user.is_petsitter
+                return HttpResponseRedirect(reverse("question"))
+            context["is_petsitter"] = request.user.is_petsitter
 
         search_form = SearchForm()
-        context['search_form'] = search_form
-        return render(request, 'home/index.html', context)
+        context["search_form"] = search_form
+        return render(request, "home/index.html", context)
 
 
 class RegisterQuestion(View):
@@ -32,19 +32,19 @@ class RegisterQuestion(View):
         """Render pet sitter question template if user registered via social
         media"""
         if not request.user.is_authenticated:
-            return render(request, '401.html')
+            return render(request, "401.html")
         form_petsitter = PetsitterQuestionForm()
         return render(
-            request, 'home/question.html', {'form_petsitter': form_petsitter}
+            request, "home/question.html", {"form_petsitter": form_petsitter}
         )
 
     def post(self, request) -> HttpResponse:
         """Submit question form endpoint"""
         if not request.user.is_authenticated:
-            return render(request, '401.html')
+            return render(request, "401.html")
         pet_sitter = PetsitterQuestionForm(request.POST)
         try:
             pet_sitter.save(request.user)
         except PetsitterFormValidationError:
-            return HttpResponseRedirect(reverse('question'))
-        return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse("question"))
+        return HttpResponseRedirect(reverse("home"))

@@ -7,23 +7,23 @@ from walker_profile.forms import ExtendedSignupForm
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('', include('home.urls')),
-    path('about/', include('about.urls')),
-    path('profile/', include('walker_profile.urls')),
+    path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
+    path("", include("home.urls")),
+    path("about/", include("about.urls")),
+    path("profile/", include("walker_profile.urls")),
     path(
-        'password_change/',
+        "password_change/",
         ChangePasswordView.as_view(),
-        name='password_change',
+        name="password_change",
     ),
     path(
-        '<int:pk>/delete/',
+        "<int:pk>/delete/",
         WalkerUserDelete.as_view(),
-        name='user_confirm_delete',
+        name="user_confirm_delete",
     ),
-    path('search/', include('search.urls')),
-    path('search/', include('reviews.urls')),
-    path('contact/', include('contact.urls')),
-    path('newsletter/', include('newsletter.urls')),
+    path("search/", include("search.urls")),
+    path("search/", include("reviews.urls")),
+    path("contact/", include("contact.urls")),
+    path("newsletter/", include("newsletter.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
