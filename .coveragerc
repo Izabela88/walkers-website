@@ -1,0 +1,10 @@
+[run]
+ omit =
+  */environment/*
+  */migrations/*
+  Amazon_customers/*
+  manage.py
+  */tests.py
+  settings.py
+  */wsgi.py
+  */asgi.py
