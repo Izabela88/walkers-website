@@ -59,7 +59,6 @@ class PetsitterProfile(View):
         context = {}
         user = get_object_or_404(WalkerUser, id=id)
         context['user'] = user
-        context['services'] = []
         context['services'] = user.get_service_details()
         avg_rating, reviews_qty = user.reviews_rating()
         context['reviews_data'] = {

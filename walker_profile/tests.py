@@ -5,6 +5,8 @@ from unittest import mock
 from django.contrib.messages import get_messages
 from reviews.forms import PetsitterReviewForm
 from reviews.models import PetsitterReview
+from walker_profile.models import AddressDetails
+from walker_profile.utility import geocode
 
 
 def get_user_profile_url(id=1):
@@ -211,3 +213,68 @@ class TestWalkerUserReviewListPageUserLogOut(TestCase):
         res = self.client.get(get_user_profile_reviews_url(user_id=1))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, '401.html')
+
+
+class ResponseStub:
+    def __init__(self, ok=True, data=None):
+        self.ok = ok
+        self.data = data
+
+    def json(self):
+        return self.data
+
+
+class TestGeocodeUtils(TestCase):
+    @mock.patch("walker_profile.utility.geocode.requests")
+    def test_postcodes_api_return_invalid_status_code(self, requests_mock):
+        requests_mock.get.return_value = ResponseStub(ok=False)
+        with self.assertRaises(geocode.GeoCodeError):
+            geocode.get_postcode_coordinates("WX10 9SS")
+
+    @mock.patch("walker_profile.utility.geocode.requests")
+    def test_postcodes_api_response_is_missing_coordinates(
+        self, requests_mock
+    ):
+        data = {"result": {}}
+        requests_mock.get.return_value = ResponseStub(ok=True, data=data)
+        with self.assertRaises(geocode.GeoCodeError):
+            geocode.get_postcode_coordinates("WX10 9SS")
+
+    @mock.patch("walker_profile.utility.geocode.requests")
+    def test_postcodes_api_happy_flow_response(self, requests_mock):
+        data = {
+            "result": {
+                "longitude": 123,
+                "latitude": 456,
+            }
+        }
+        requests_mock.get.return_value = ResponseStub(ok=True, data=data)
+
+        longitude, latitude = geocode.get_postcode_coordinates("WX10 9SS")
+        self.assertEqual(longitude, 123)
+        self.assertEqual(latitude, 456)
+
+    def test_return_users_only_within_given_radius(self):
+        center_point = (66.54185013423182, 25.842665542284724)
+        address_in_radius = AddressDetails.objects.create(
+            latitude=66.4982785106706, longitude=25.70529992490776
+        )
+        address_out_radius = AddressDetails.objects.create(
+            latitude=66.4854694342929, longitude=25.714669467882725
+        )
+        user_in_radius = get_user_model().objects.create(
+            email='legolas@email.com',
+            password='ilovemybow2000',
+            address_details_id=address_in_radius.id,
+        )
+        user_out_radius = get_user_model().objects.create(
+            email='orc123@email.com',
+            password='123',
+            address_details_id=address_out_radius.id,
+        )
+        users = [user_in_radius, user_out_radius]
+        filtered_users = geocode.get_users_within_radius(
+            center_point[1], center_point[0], users, 5
+        )
+        self.assertEqual(len(filtered_users), 1)
+        self.assertEqual(filtered_users[0], user_in_radius)
