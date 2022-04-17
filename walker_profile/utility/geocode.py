@@ -21,9 +21,9 @@ def get_postcode_coordinates(postcode: str) -> tuple:
     Returns:
         tuple: tuple with longitude and latitude as floats
     """
-    r = requests.get(f'https://api.postcodes.io/postcodes/{postcode}')
-    if r.ok:
-        geocode_data = r.json()
+    res = requests.get(f'https://api.postcodes.io/postcodes/{postcode}')
+    if res.ok:
+        geocode_data = res.json()
         try:
             return (
                 geocode_data['result']['longitude'],

@@ -125,3 +125,12 @@ class TestUpdateSubscriptionAPI(TestCase):
             content_type='application/json',
         )
         self.assertEqual(res.status_code, 400)
+
+
+class TestNewsletterModel(TestCase):
+    def test_subscribe_method_change_subscribe_state(self):
+        newsletter = NewsletterUser.objects.create(
+            email="gandalf@gmail.com", is_subscribed=False
+        )
+        newsletter.subscribe()
+        self.assertTrue(newsletter.is_subscribed)

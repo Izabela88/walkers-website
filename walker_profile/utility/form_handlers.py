@@ -50,9 +50,8 @@ def _address_form_handler(request: HttpRequest, *args):
                 address_form.cleaned_data["postcode"]
             )
         except geocode.GeoCodeError:
-            messages.error(request, "Invalid postcode!")
+            messages.error(request, "We couldn't find your postcode!")
             return
-
         address_form.instance.longitude = long
         address_form.instance.latitude = lat
         address_form.save()
