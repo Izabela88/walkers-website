@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.exceptions import ValidationError
 from django.db.models import Q
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator
 
 
 class WalkerUser(AbstractUser):
@@ -18,9 +18,9 @@ class WalkerUser(AbstractUser):
     username = models.CharField(max_length=150, null=True, unique=False)
     phone_number = PhoneNumberField(null=True, blank=False, unique=True)
 
-    def validate_image(fieldfile_obj):
+    def validate_image(self):
         # https://stackoverflow.com/questions/6195478/max-image-size-on-file-upload
-        filesize = fieldfile_obj.file.size
+        filesize = self.file.size
         megabyte_limit = 0.4
         if filesize > megabyte_limit * 1024 * 1024:
             raise ValidationError(
@@ -60,12 +60,12 @@ class WalkerUser(AbstractUser):
         Returns:
             list: List of Walker Users
         """
+        # TODO: Add price check
         dog_type_mapping = {
             "small": Q(service_details__is_small_dog=True),
             "medium": Q(service_details__is_medium_dog=True),
             "big": Q(service_details__is_big_dog=True),
         }
-
         size_filter = dog_type_mapping[search_params["dog_size"]]
         filter_ = Q(
             is_petsitter=True,

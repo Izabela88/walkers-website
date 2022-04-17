@@ -10,6 +10,7 @@ from walker_profile.models import (
     PetsitterDetails,
     ServiceDetails,
     ServiceTypes,
+    WalkerUser,
 )
 from walker_profile.utility import geocode, form_handlers
 from walker_profile.forms import (
@@ -42,9 +43,12 @@ def get_delete_walker_user_review_url(user_id=1, review_id=1):
     )
 
 
-def create_user(email, password, address_details_id=None):
+def create_user(email, password, address_details_id=None, is_petsitter=True):
     user = get_user_model().objects.create(
-        email=email, password=password, address_details_id=address_details_id
+        email=email,
+        password=password,
+        address_details_id=address_details_id,
+        is_petsitter=is_petsitter,
     )
     return user
 
@@ -542,3 +546,107 @@ class TestFormHandlers(TestCase):
         self.assertEqual(
             request_stub.session["service_details_errors"], {"error": True}
         )
+
+
+class TestWalkerProfileModel(TestCase):
+    def test_reviews_rating_with_no_reviews(self):
+        user = create_user(email="saruman@gmail.com", password="twotowers123")
+        average_rating, reviews_qty = user.reviews_rating()
+        self.assertEqual(average_rating, 0)
+        self.assertEqual(reviews_qty, 0)
+
+    def test_user_reviews_rating_with_multiple_reviews(self):
+        user = create_user(email="saruman@gmail.com", password="twotowers123")
+        reviewer = create_user(
+            email="orc@gmail.com", password="ilovesauron123"
+        )
+        PetsitterReview.objects.create(
+            stars=5,
+            user=user,
+            reviewer=reviewer,
+            is_visible=True,
+            is_admin_approved=True,
+        )
+        PetsitterReview.objects.create(
+            stars=4,
+            user=user,
+            reviewer=reviewer,
+            is_visible=True,
+            is_admin_approved=True,
+        )
+        PetsitterReview.objects.create(
+            stars=4,
+            user=user,
+            reviewer=reviewer,
+            is_visible=True,
+            is_admin_approved=True,
+        )
+        average_rating, reviews_qty = user.reviews_rating()
+        self.assertEqual(average_rating, 4)
+        self.assertEqual(reviews_qty, 3)
+
+    def test_search_petsitters(self):
+        service_type = ServiceTypes.objects.create(type="walk")
+        user = create_user(
+            email="saruman@gmail.com",
+            password="twotowers123",
+            is_petsitter=True,
+        )
+        create_user(
+            email="orc@gmail.com", password="ilovesauron123", is_petsitter=True
+        )
+        ServiceDetails.objects.create(
+            user=user,
+            service_type=service_type,
+            is_active=True,
+            is_small_dog=True,
+        )
+        search_params = {"dog_size": "small", "care_type": "walk"}
+        search_result = WalkerUser.search_petsitter(search_params)
+
+        self.assertEqual(len(search_result), 1)
+        self.assertEqual(search_result[0], user)
+
+    def test_walker_profile_str_method_return_username(self):
+        user = get_user_model().objects.create(
+            email="orc@gmail.com",
+            password="ilovesauron123",
+            username="mightyorc",
+        )
+
+        self.assertEqual(str(user), "mightyorc")
+
+    def test_service_details_add_only_active_services(self):
+        service_walk = ServiceTypes.objects.create(type="walk")
+        service_petsitter_home = ServiceTypes.objects.create(
+            type="boarding_at_pet_sitter_home"
+        )
+        user = create_user(
+            email="saruman@gmail.com",
+            password="twotowers123",
+            is_petsitter=True,
+        )
+        ServiceDetails.objects.create(
+            user=user,
+            service_type=service_walk,
+            is_active=True,
+            is_small_dog=True,
+            is_medium_dog=True,
+            is_big_dog=True,
+            s_price_hour=10,
+            m_price_hour=15,
+            b_price_hour=20,
+        )
+        ServiceDetails.objects.create(
+            user=user,
+            service_type=service_petsitter_home,
+            is_active=True,
+            is_small_dog=False,
+            is_medium_dog=False,
+            is_big_dog=False,
+        )
+        active_services = user.get_service_details()
+        self.assertEqual(len(active_services), 1)
+        self.assertIn("small", active_services[0]["dog_sizes"])
+        self.assertIn("medium", active_services[0]["dog_sizes"])
+        self.assertIn("big", active_services[0]["dog_sizes"])
