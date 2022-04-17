@@ -15,7 +15,7 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
         try:
             # if user exists, connect the account to the existing account and login
             walker_user = get_user_model().objects.get(email=user.email)
-            sociallogin.state['process'] = 'connect'
-            perform_login(request, walker_user, email_verification='mandatory')
+            sociallogin.state["process"] = "connect"
+            perform_login(request, walker_user, email_verification="mandatory")
         except get_user_model().DoesNotExist:
             pass

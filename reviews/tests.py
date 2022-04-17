@@ -25,19 +25,19 @@ def mock_false(*args, **kwargs):
 class TestReviewPageUserLogIn(TestCase):
     def setUp(self):
         user = get_user_model().objects.create(
-            email='test@email.com', password='test1234'
+            email="test@email.com", password="test1234"
         )
         self.client.force_login(user)
 
     def test_get_reviews_return_200(self):
         res = self.client.get(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'reviews/review.html')
+        self.assertTemplateUsed(res, "reviews/review.html")
 
     def test_user_can_not_self_review(self):
         res = self.client.post(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '403.html')
+        self.assertTemplateUsed(res, "403.html")
 
     @mock.patch("reviews.views.PetsitterReviewForm")
     def test_post_method_create_success_message(self, mock_review_form):
@@ -65,12 +65,12 @@ class TestReviewPageUserLogOut(TestCase):
     def test_post_return_401_template(self):
         res = self.client.post(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
     def test_get_return_401_template(self):
         res = self.client.get(get_review_url(id=1))
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, '401.html')
+        self.assertTemplateUsed(res, "401.html")
 
 
 class TestReviewForm(TestCase):

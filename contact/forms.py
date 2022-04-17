@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.TextInput(
             attrs={
-                'maxlength': '100',
+                "maxlength": "100",
             }
         ),
     )
@@ -18,7 +18,7 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                'maxlength': '100',
+                "maxlength": "100",
             }
         ),
     )
@@ -26,10 +26,10 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.Textarea(
             attrs={
-                'class': 'rev-description',
-                'rows': 4,
-                'maxlength': '1500',
-                'placeholder': 'write your message here...',
+                "class": "rev-description",
+                "rows": 4,
+                "maxlength": "1500",
+                "placeholder": "write your message here...",
             }
         ),
     )
@@ -43,9 +43,9 @@ class ContactForm(forms.Form):
         """
         return send_email(
             [settings.EMAIL_HOST_USER],
-            self.cleaned_data['email'],
+            self.cleaned_data["email"],
             self.format_message(),
-            'You got a mail!',
+            "You got a mail!",
         )
 
     def format_message(self) -> str:
@@ -54,12 +54,12 @@ class ContactForm(forms.Form):
         Returns:
             str: Formatted email message
         """
-        message = '''
+        message = """
             From:\n\t\t{}\n
             Email:\n\t\t{}\n
-            Message:\n\t\t{}\n'''.format(
-            self.cleaned_data['full_name'],
-            self.cleaned_data['email'],
-            self.cleaned_data['message'],
+            Message:\n\t\t{}\n""".format(
+            self.cleaned_data["full_name"],
+            self.cleaned_data["email"],
+            self.cleaned_data["message"],
         )
         return message

@@ -7,9 +7,9 @@ class NewsletterUserForm(forms.ModelForm):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                'maxlength': '100',
-                'placeholder': 'write your email here...',
-                'class': 'newsletter-input',
+                "maxlength": "100",
+                "placeholder": "write your email here...",
+                "class": "newsletter-input",
             }
         ),
     )
@@ -17,5 +17,5 @@ class NewsletterUserForm(forms.ModelForm):
     class Meta:
         model = NewsletterUser
         fields = [
-            'newsletter_email',
+            "newsletter_email",
         ]
