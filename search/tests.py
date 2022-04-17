@@ -51,8 +51,15 @@ class TestPetsitterProfilePage(TestCase):
         )
         self.client.force_login(user)
 
-    # @mock.patch.object(WalkerUser, "get_service_details", return_value=[])
-    # def test_get_petsitter_profile_page_context_data(self, _,  mock_get_service_details):
-    #     mock_get_service_details.return_value = []
-    #     res = self.client.get(get_petsitter_profile_url(id=1))
-    #     self.assertIsInstance(res.context["services"], mock_get_service_details)
+    @mock.patch.object(WalkerUser, "get_service_details")
+    @mock.patch.object(WalkerUser, "reviews_rating")
+    def test_get_petsitter_profile_page_context_data(
+        self, mock_service_details, mock_review_rating
+    ):
+        services = [{"some_service": True}]
+        mock_review_rating.return_value = services
+        mock_service_details.return_value = 5, 3
+        res = self.client.get(get_petsitter_profile_url(id=1))
+        self.assertEqual(res.context["services"], services)
+        self.assertEqual(res.context["reviews_data"]["avg_rating"], 5)
+        self.assertEqual(res.context["reviews_data"]["reviews_qty"], 3)
