@@ -5,8 +5,20 @@ from unittest import mock
 from django.contrib.messages import get_messages
 from reviews.forms import PetsitterReviewForm
 from reviews.models import PetsitterReview
-from walker_profile.models import AddressDetails
-from walker_profile.utility import geocode
+from walker_profile.models import (
+    AddressDetails,
+    PetsitterDetails,
+    ServiceDetails,
+    ServiceTypes,
+)
+from walker_profile.utility import geocode, form_handlers
+from walker_profile.forms import (
+    UpdateWalkerProfileForm,
+    WalkerAddressForm,
+    WalkerUserAvatarForm,
+    PetsitterDescriptionForm,
+    ServiceDetailsForm,
+)
 
 
 def get_user_profile_url(id=1):
@@ -30,6 +42,13 @@ def get_delete_walker_user_review_url(user_id=1, review_id=1):
     )
 
 
+def create_user(email, password, address_details_id=None):
+    user = get_user_model().objects.create(
+        email=email, password=password, address_details_id=address_details_id
+    )
+    return user
+
+
 def mock_true(*args, **kwargs):
     return True
 
@@ -38,11 +57,18 @@ def mock_false(*args, **kwargs):
     return False
 
 
+class ResponseStub:
+    def __init__(self, ok=True, data=None):
+        self.ok = ok
+        self.data = data
+
+    def json(self):
+        return self.data
+
+
 class TestWalkerProfilePageUserLogIn(TestCase):
     def setUp(self):
-        user = get_user_model().objects.create(
-            email='elrond@gmail.com', password='arvena0008'
-        )
+        user = create_user(email='elrond@gmail.com', password='arvena0008')
         self.client.force_login(user)
 
     def test_get_return_403_template(self):
@@ -93,7 +119,7 @@ class TestWalkerUserReviewPageUserLogOut(TestCase):
 
 class TestWalkerUserReviewPageUserLogIn(TestCase):
     def setUp(self):
-        user = get_user_model().objects.create(
+        user = create_user(
             email='legolas@email.com', password='ilovemybow2000'
         )
         self.client.force_login(user)
@@ -197,9 +223,7 @@ class TestWalkerUserReviewPageUserLogIn(TestCase):
 
 class TestWalkerUserReviewListPageUserLogIn(TestCase):
     def setUp(self):
-        user = get_user_model().objects.create(
-            email='gimmly@email.com', password='ilovemyaxe2000'
-        )
+        user = create_user(email='gimmly@email.com', password='ilovemyaxe2000')
         self.client.force_login(user)
 
     def test_get_reviews_list_return_200(self):
@@ -213,15 +237,6 @@ class TestWalkerUserReviewListPageUserLogOut(TestCase):
         res = self.client.get(get_user_profile_reviews_url(user_id=1))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, '401.html')
-
-
-class ResponseStub:
-    def __init__(self, ok=True, data=None):
-        self.ok = ok
-        self.data = data
-
-    def json(self):
-        return self.data
 
 
 class TestGeocodeUtils(TestCase):
@@ -262,12 +277,12 @@ class TestGeocodeUtils(TestCase):
         address_out_radius = AddressDetails.objects.create(
             latitude=66.4854694342929, longitude=25.714669467882725
         )
-        user_in_radius = get_user_model().objects.create(
+        user_in_radius = create_user(
             email='legolas@email.com',
             password='ilovemybow2000',
             address_details_id=address_in_radius.id,
         )
-        user_out_radius = get_user_model().objects.create(
+        user_out_radius = create_user(
             email='orc123@email.com',
             password='123',
             address_details_id=address_out_radius.id,
@@ -278,3 +293,252 @@ class TestGeocodeUtils(TestCase):
         )
         self.assertEqual(len(filtered_users), 1)
         self.assertEqual(filtered_users[0], user_in_radius)
+
+
+class MessagesListStub(list):
+    def add(self, *args):
+        self.append((args))
+        return self
+
+
+class HttpRequestStub:
+    def __init__(self, session=None, post_data=None, files_data=None):
+        self.user = create_user(
+            email='legolas@email.com', password='ilovemybow2000'
+        )
+        self.POST = post_data or None
+        self.FILES = files_data or None
+        self.session = session or {}
+        self._messages = MessagesListStub()
+
+
+class TestFormHandlers(TestCase):
+    """Django messages levels:
+    DEBUG = 10
+    INFO = 20
+    SUCCESS = 25
+    WARNING = 30
+    ERROR = 40
+    """
+
+    @mock.patch("walker_profile.utility.form_handlers.UpdateWalkerProfileForm")
+    def test_profile_form_handler_happy_flow(self, update_profile_mock):
+        update_profile_mock.return_value.is_valid = mock_true
+        update_profile_mock.return_value.save = mock_true
+        update_profile_mock.return_value.has_changed = mock_true
+        request_stub = HttpRequestStub()
+        form_handlers._profile_form_handler(request_stub)
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1],
+            'Your profile is updated successfully',
+        )
+        self.assertEqual(request_stub._messages[0][0], 25)
+
+    @mock.patch("walker_profile.utility.form_handlers.UpdateWalkerProfileForm")
+    def test_profile_form_add_errors_to_session_when_form_is_invalid(
+        self, update_profile_mock
+    ):
+        update_profile_mock.return_value.is_valid = mock_false
+        update_profile_mock.return_value.errors = {"error": True}
+
+        request_stub = HttpRequestStub()
+        form_handlers._profile_form_handler(request_stub)
+
+        self.assertEqual(len(request_stub._messages), 0)
+        self.assertEqual(
+            request_stub.session["profile_form_errors"], {"error": True}
+        )
+
+    @mock.patch(
+        "walker_profile.utility.form_handlers.geocode.get_postcode_coordinates"
+    )
+    @mock.patch("walker_profile.utility.form_handlers.WalkerAddressForm")
+    def test_address_form_handler_happy_flow(
+        self, walker_address_mock, get_postcode_coords_mock
+    ):
+        address_details = AddressDetails.objects.create(
+            latitude=66.4854694342929, longitude=25.714669467882725
+        )
+        get_postcode_coords_mock.return_value = (
+            address_details.longitude,
+            address_details.latitude,
+        )
+        walker_address_mock.return_value.is_valid = mock_true
+        walker_address_mock.return_value.save = mock_true
+        walker_address_mock.return_value.has_changed = mock_true
+        walker_address_mock.return_value.instance = address_details
+
+        request_stub = HttpRequestStub()
+        form_handlers._address_form_handler(request_stub)
+
+        self.assertEqual(
+            request_stub.user.address_details_id, address_details.id
+        )
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1],
+            'Your address is updated successfully',
+        )
+        self.assertEqual(request_stub._messages[0][0], 25)
+
+    @mock.patch("walker_profile.utility.form_handlers.WalkerAddressForm")
+    def test_address_form_handler_add_errors_to_session_when_form_is_invalid(
+        self, walker_address_mock
+    ):
+        walker_address_mock.return_value.is_valid = mock_false
+        walker_address_mock.return_value.errors = {"error": True}
+
+        request_stub = HttpRequestStub()
+        form_handlers._address_form_handler(request_stub)
+
+        self.assertEqual(len(request_stub._messages), 0)
+        self.assertEqual(
+            request_stub.session["address_form_errors"], {"error": True}
+        )
+
+    @mock.patch(
+        "walker_profile.utility.form_handlers.geocode.get_postcode_coordinates"
+    )
+    @mock.patch("walker_profile.utility.form_handlers.WalkerAddressForm")
+    def test_address_form_send_error_message_when_geocode_error_raised(
+        self, walker_address_mock, get_postcode_coords_mock
+    ):
+        get_postcode_coords_mock.side_effect = geocode.GeoCodeError
+        walker_address_mock.return_value.is_valid = mock_true
+        walker_address_mock.return_value.has_changed = mock_true
+
+        request_stub = HttpRequestStub()
+        form_handlers._address_form_handler(request_stub)
+
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1], "We couldn't find your postcode!"
+        )
+        self.assertEqual(request_stub._messages[0][0], 40)
+
+    @mock.patch("walker_profile.utility.form_handlers.WalkerUserAvatarForm")
+    def test_avatar_form_handler_happy_flow(self, user_avatar_mock):
+        user_avatar_mock.return_value.is_valid = mock_true
+        user_avatar_mock.return_value.save = mock_true
+        user_avatar_mock.return_value.has_changed = mock_true
+
+        request_stub = HttpRequestStub()
+        form_handlers._avatar_form_handler(request_stub)
+
+        self.assertEqual(request_stub.session["tab"], "upload_photo")
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1],
+            'Your avatar is updated successfully',
+        )
+        self.assertEqual(request_stub._messages[0][0], 25)
+
+    @mock.patch("walker_profile.utility.form_handlers.WalkerUserAvatarForm")
+    def test_avatar_form_add_errors_to_session_when_form_is_invalid(
+        self, user_avatar_mock
+    ):
+        user_avatar_mock.return_value.is_valid = mock_false
+        user_avatar_mock.return_value.errors = {"error": True}
+
+        request_stub = HttpRequestStub()
+        form_handlers._avatar_form_handler(request_stub)
+
+        self.assertEqual(request_stub.session["tab"], "upload_photo")
+        self.assertEqual(len(request_stub._messages), 0)
+        self.assertEqual(
+            request_stub.session["avatar_form_errors"], {"error": True}
+        )
+
+    @mock.patch(
+        "walker_profile.utility.form_handlers.PetsitterDescriptionForm"
+    )
+    def test_description_form_handler_happy_flow(self, description_mock):
+        petsitter_details = PetsitterDetails.objects.create(
+            description="Dwarfs are good blacksmiths"
+        )
+        description_mock.return_value.is_valid = mock_true
+        description_mock.return_value.save = mock_true
+        description_mock.return_value.has_changed = mock_true
+        description_mock.return_value.instance = petsitter_details
+
+        request_stub = HttpRequestStub()
+        form_handlers._description_handler(request_stub)
+
+        self.assertEqual(request_stub.session["tab"], "petsitter_profile")
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1],
+            'Your description is updated successfully',
+        )
+        self.assertEqual(request_stub._messages[0][0], 25)
+
+    @mock.patch(
+        "walker_profile.utility.form_handlers.PetsitterDescriptionForm"
+    )
+    def test_description_form_add_errors_to_session_when_form_is_invalid(
+        self, description_mock
+    ):
+        description_mock.return_value.is_valid = mock_false
+        description_mock.return_value.errors = {"error": True}
+
+        request_stub = HttpRequestStub()
+        form_handlers._description_handler(request_stub)
+
+        self.assertEqual(request_stub.session["tab"], "petsitter_profile")
+        self.assertEqual(len(request_stub._messages), 0)
+        self.assertEqual(
+            request_stub.session["description_errors"], {"error": True}
+        )
+
+    @mock.patch("walker_profile.utility.form_handlers.ServiceDetailsForm")
+    def test_service_details_form_handler_happy_flow(
+        self, service_details_mock
+    ):
+        request_stub = HttpRequestStub()
+        service_type = ServiceTypes.objects.create(type="walk")
+        petsitter_details = ServiceDetails.objects.create(
+            user=request_stub.user,
+            service_type=service_type,
+            is_active=True,
+        )
+
+        service_details_mock.return_value.is_valid = mock_true
+        service_details_mock.return_value.save = mock_true
+        service_details_mock.return_value.has_changed = mock_true
+
+        form_handlers._service_details_forms_handler(
+            request_stub, petsitter_details.id
+        )
+
+        self.assertEqual(request_stub.session["tab"], "petsitter_profile")
+        self.assertEqual(len(request_stub._messages), 1)
+        self.assertEqual(
+            request_stub._messages[0][1],
+            'Your data is updated successfully',
+        )
+        self.assertEqual(request_stub._messages[0][0], 25)
+
+    @mock.patch("walker_profile.utility.form_handlers.ServiceDetailsForm")
+    def test_service_details_form_add_errors_to_session_when_form_is_invalid(
+        self, service_details_mock
+    ):
+        request_stub = HttpRequestStub()
+        service_type = ServiceTypes.objects.create(type="walk")
+        petsitter_details = ServiceDetails.objects.create(
+            user=request_stub.user,
+            service_type=service_type,
+            is_active=True,
+        )
+        service_details_mock.return_value.is_valid = mock_false
+        service_details_mock.return_value.errors = {"error": True}
+
+        form_handlers._service_details_forms_handler(
+            request_stub, petsitter_details.id
+        )
+
+        self.assertEqual(request_stub.session["tab"], "petsitter_profile")
+        self.assertEqual(len(request_stub._messages), 0)
+        self.assertEqual(
+            request_stub.session["service_details_errors"], {"error": True}
+        )
