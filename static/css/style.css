@@ -61,11 +61,12 @@ label {
 /* scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
- 
+
 }
+
 ::-webkit-scrollbar-track {
   border-radius: 20px;
- 
+
 }
 
 ::-webkit-scrollbar-thumb {
@@ -266,7 +267,8 @@ label {
   outline: none;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 20px;
@@ -338,7 +340,8 @@ input[id="id_password1"] {
   width: 70%;
 }
 
-.social-heading h1, h2 {
+.social-heading h1,
+h2 {
   font-size: 30px;
   margin-bottom: 25px;
 }
@@ -448,6 +451,7 @@ input[id="id_password1"] {
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
+
 #scroll-top-button::after {
   content: "\f077";
   font-family: FontAwesome;
@@ -457,13 +461,16 @@ input[id="id_password1"] {
   line-height: 40px;
   color: #fff;
 }
+
 #scroll-top-button:hover {
   cursor: pointer;
   background-color: #333;
 }
+
 #scroll-top-button:active {
   background-color: #555;
 }
+
 #scroll-top-button.show {
   opacity: 1;
   visibility: visible;
@@ -597,7 +604,7 @@ input[id="id_password1"] {
 }
 
 
-.main-image ,
+.main-image,
 .user_profile-main-image {
   height: 100%;
   width: 60%;
@@ -722,7 +729,8 @@ select {
   outline: none;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
@@ -730,7 +738,7 @@ select {
   font-family: "Hubballi", cursive;
   font-size: 16px;
   font-weight: bold;
-  
+
 }
 
 .form-input select {
@@ -910,7 +918,7 @@ select {
   position: absolute;
   height: 100%;
   bottom: -35%;
-  right:75%;
+  right: 75%;
 }
 
 .safety-box {
@@ -1106,7 +1114,8 @@ select {
   padding: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 20px;
   margin-bottom: 20px;
   text-align: center;
   font-family: "Hubballi", cursive;
@@ -1130,7 +1139,9 @@ label[for="id_is_petsitter"] {
   margin-bottom: 10px;
   margin-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border: none;  height: 65px;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border: none;
+  height: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1141,13 +1152,13 @@ label[for="id_is_petsitter"] {
 
 label[for="id_email"],
 label[for="id_password1"],
-label[for="id_password2"]  {
-font-family: "Architects Daughter", cursive;
-margin-bottom: 10px;
-text-transform: uppercase;
-font-size: 14px;
-letter-spacing: 2px;
-font-weight: bold;
+label[for="id_password2"] {
+  font-family: "Architects Daughter", cursive;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .signup input[type="checkbox"] {
@@ -1191,8 +1202,9 @@ font-weight: bold;
   padding: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  border-radius: 20px;
-    margin-bottom: 20px;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -1238,8 +1250,8 @@ label[for="id_remember"] {
   visibility: hidden;
 }
 
-  label[for="id_login"],
-  label[for="id_password"] {
+label[for="id_login"],
+label[for="id_password"] {
   font-family: "Architects Daughter", cursive;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -1354,6 +1366,7 @@ label[for="id_remember"] {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1505,7 +1518,8 @@ label[for="id_description"] {
   margin-bottom: 25px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  text-align: center;
   border-radius: 20px;
   padding: 10px;
   font-family: "Hubballi", cursive;
@@ -1532,8 +1546,8 @@ label[for="id_description"] {
   resize: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    border-radius: 20px;
-  }
+  border-radius: 20px;
+}
 
 .details-box textarea::placeholder {
   text-transform: lowercase;
@@ -1562,7 +1576,8 @@ label[for="id_description"] {
   margin-bottom: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;}
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
 
 .edit-box input::placeholder {
   text-transform: uppercase;
@@ -1688,7 +1703,8 @@ label[for="id_description"] {
   margin-bottom: 25px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  padding: 10px;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 10px;
   border-radius: 20px;
 }
 
@@ -1761,7 +1777,7 @@ label[for="id_new_password2"] {
   font-weight: bold;
 }
 
-.petsitter-layout input[type="radio"]:checked + .page + label.service-type {
+.petsitter-layout input[type="radio"]:checked+.page+label.service-type {
   background: var(--yellow-color);
   color: #ffffff;
 }
@@ -1772,7 +1788,7 @@ label[for="id_new_password2"] {
   margin-top: 10px;
 }
 
-.petsitter-layout input[type="radio"]:checked + .page + label.service-type svg {
+.petsitter-layout input[type="radio"]:checked+.page+label.service-type svg {
   opacity: 1;
 }
 
@@ -1791,82 +1807,102 @@ label[for="id_new_password2"] {
   padding: 0px 20px;
 }
 
-.page-contents > * {
+.page-contents>* {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.2s, transform 0.2s;
 }
-.page-contents > *:nth-child(1) {
+
+.page-contents>*:nth-child(1) {
   transition-delay: 0.4s;
 }
-.page-contents > *:nth-child(2) {
+
+.page-contents>*:nth-child(2) {
   transition-delay: 0.6s;
 }
-.page-contents > *:nth-child(3) {
+
+.page-contents>*:nth-child(3) {
   transition-delay: 0.8s;
 }
-.page-contents > *:nth-child(4) {
+
+.page-contents>*:nth-child(4) {
   transition-delay: 1s;
 }
-.page-contents > *:nth-child(5) {
+
+.page-contents>*:nth-child(5) {
   transition-delay: 1.2s;
 }
-.page-contents > *:nth-child(6) {
+
+.page-contents>*:nth-child(6) {
   transition-delay: 1.4s;
 }
-.page-contents > *:nth-child(7) {
+
+.page-contents>*:nth-child(7) {
   transition-delay: 1.6s;
 }
-.page-contents > *:nth-child(8) {
+
+.page-contents>*:nth-child(8) {
   transition-delay: 1.8s;
 }
-.page-contents > *:nth-child(9) {
+
+.page-contents>*:nth-child(9) {
   transition-delay: 2s;
 }
-.page-contents > *:nth-child(10) {
+
+.page-contents>*:nth-child(10) {
   transition-delay: 2.2s;
 }
-.page-contents > *:nth-child(11) {
+
+.page-contents>*:nth-child(11) {
   transition-delay: 2.4s;
 }
-.page-contents > *:nth-child(12) {
+
+.page-contents>*:nth-child(12) {
   transition-delay: 2.6s;
 }
-.page-contents > *:nth-child(13) {
+
+.page-contents>*:nth-child(13) {
   transition-delay: 2.8s;
 }
-.page-contents > *:nth-child(14) {
+
+.page-contents>*:nth-child(14) {
   transition-delay: 3s;
 }
-.page-contents > *:nth-child(15) {
+
+.page-contents>*:nth-child(15) {
   transition-delay: 3.2s;
 }
-.page-contents > *:nth-child(16) {
+
+.page-contents>*:nth-child(16) {
   transition-delay: 3.4s;
 }
-.page-contents > *:nth-child(17) {
+
+.page-contents>*:nth-child(17) {
   transition-delay: 3.6s;
 }
-.page-contents > *:nth-child(18) {
+
+.page-contents>*:nth-child(18) {
   transition-delay: 3.8s;
 }
-.page-contents > *:nth-child(19) {
+
+.page-contents>*:nth-child(19) {
   transition-delay: 4s;
 }
-.page-contents > *:nth-child(20) {
+
+.page-contents>*:nth-child(20) {
   transition-delay: 4.2s;
 }
 
-.petsitter-layout input[type="radio"] + .page {
+.petsitter-layout input[type="radio"]+.page {
   transition: transform 0.2s;
   transform: translateX(100%);
 }
 
-.petsitter-layout input[type="radio"]:checked + .page {
+.petsitter-layout input[type="radio"]:checked+.page {
   transform: translateX(0%);
 }
 
-.petsitter-layout input[type="radio"]:checked + .page .page-contents > * {
+.petsitter-layout input[type="radio"]:checked+.page .page-contents>* {
   opacity: 1;
   transform: translateY(0px);
 }
@@ -2010,17 +2046,17 @@ label[for="big_dog"] {
   font-family: "Hubballi", cursive;
 }
 
-.switch-input:checked ~ .switch-label {
+.switch-input:checked~.switch-label {
   background: var(--yellow-color);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
     inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-.switch-input:checked ~ .switch-label:before {
+.switch-input:checked~.switch-label:before {
   opacity: 0;
 }
 
-.switch-input:checked ~ .switch-label:after {
+.switch-input:checked~.switch-label:after {
   opacity: 1;
 }
 
@@ -2050,7 +2086,7 @@ label[for="big_dog"] {
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
 
-.switch-input:checked ~ .switch-handle {
+.switch-input:checked~.switch-handle {
   left: 74px;
   box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -2413,7 +2449,7 @@ label[for="big_dog"] {
   align-items: center;
   justify-content: flex-start;
   overflow: overlay;
-  
+
 
 }
 
@@ -2511,14 +2547,17 @@ label[for="big_dog"] {
   0% {
     left: 0;
   }
+
   100% {
     left: 100%;
   }
 }
+
 @keyframes secondNext {
   0% {
     left: -100%;
   }
+
   100% {
     left: 0;
   }
@@ -2528,6 +2567,7 @@ label[for="big_dog"] {
   0% {
     left: 0;
   }
+
   100% {
     left: -100%;
   }
@@ -2537,6 +2577,7 @@ label[for="big_dog"] {
   0% {
     left: 100%;
   }
+
   100% {
     left: 0;
   }
@@ -2737,14 +2778,17 @@ label[for="big_dog"] {
   0% {
     left: 0;
   }
+
   100% {
     left: 100%;
   }
 }
+
 @keyframes secondPricesNext {
   0% {
     left: -100%;
   }
+
   100% {
     left: 0;
   }
@@ -2754,6 +2798,7 @@ label[for="big_dog"] {
   0% {
     left: 0;
   }
+
   100% {
     left: -100%;
   }
@@ -2763,6 +2808,7 @@ label[for="big_dog"] {
   0% {
     left: 100%;
   }
+
   100% {
     left: 0;
   }
@@ -2777,15 +2823,18 @@ label[for="big_dog"] {
   margin: 50px auto;
   width: 400px;
 }
-.rating > * {
+
+.rating>* {
   float: right;
 }
+
 @-webkit-keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
+
 @keyframes pulse {
   50% {
     color: #5e5e5e;
@@ -2881,7 +2930,8 @@ label[for="id_stars_4"] {
   margin-bottom: 25px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  text-align: center;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  text-align: center;
   border-radius: 20px;
   padding: 20px;
   font-family: "Hubballi", cursive;
@@ -3217,7 +3267,8 @@ label[for="id_stars_4"] {
   outline: none;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 20px;
@@ -3235,7 +3286,8 @@ label[for="id_stars_4"] {
   outline: none;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;  cursor: pointer;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
   border-radius: 20px;
@@ -3454,7 +3506,7 @@ label[for="id_newsletter_email"] {
       height: 90%;
     }
 
-  
+
     .main-txt {
       height: 95%;
     }
@@ -3560,7 +3612,8 @@ label[for="id_newsletter_email"] {
     height: 80px;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 30px;
   }
 
@@ -3667,7 +3720,7 @@ label[for="id_newsletter_email"] {
   .half-home-bg {
     display: none;
   }
- 
+
 
   .puppy-dog-img {
     display: none;
@@ -3741,7 +3794,7 @@ label[for="id_newsletter_email"] {
   .about-box {
     height: 300px;
     width: 400px;
-    
+
   }
 
   .safety-box {
@@ -3777,7 +3830,7 @@ label[for="id_newsletter_email"] {
   .profile-dog-img {
     height: 500px;
     width: 500px;
-}
+  }
 
   .walker-profile-section {
     height: unset;
@@ -3821,7 +3874,7 @@ label[for="id_newsletter_email"] {
     margin: 0;
     border-radius: 20px;
     font-weight: bold;
-}
+  }
 
   .tabs-button {
     margin: 10px auto;
@@ -3860,7 +3913,8 @@ label[for="id_newsletter_email"] {
     margin-top: 50px;
   }
 
-  .next, .prev {
+  .next,
+  .prev {
     top: 82%;
   }
 
@@ -3966,7 +4020,7 @@ label[for="id_newsletter_email"] {
     grid-template-columns: repeat(1, 1fr);
     width: 80%;
   }
-  
+
   .modal-content {
     background: url(/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
   }
@@ -3993,12 +4047,13 @@ label[for="id_newsletter_email"] {
     margin-bottom: 50px;
   }
 
-  .allauth-container{
+  .allauth-container {
     height: 900px;
     width: 95%;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 25px;
   }
 
@@ -4075,8 +4130,10 @@ label[for="id_newsletter_email"] {
     margin-bottom: 50px;
   }
 
-  .error-img, .error-img-403,
-  .error-img-404, .error-img-500 {
+  .error-img,
+  .error-img-403,
+  .error-img-404,
+  .error-img-500 {
     margin-top: 100px;
     margin-bottom: 100px;
     width: 300px;
@@ -4135,9 +4192,9 @@ label[for="id_newsletter_email"] {
   }
 
 
- .profile-dog-img {
-  height: 300px;
-  width: 300px;
+  .profile-dog-img {
+    height: 300px;
+    width: 300px;
   }
 
   .details-box {
@@ -4206,8 +4263,8 @@ label[for="id_newsletter_email"] {
   }
 
   .page-btn {
-  margin: 15px auto;
-  width: 100%;
+    margin: 15px auto;
+    width: 100%;
   }
 
 
@@ -4233,7 +4290,7 @@ label[for="id_newsletter_email"] {
   .prices-slider {
     width: 400px;
   }
-  
+
   .prices-slider-container {
     height: 500px;
   }
@@ -4263,7 +4320,8 @@ label[for="id_newsletter_email"] {
     margin-top: 200px;
   }
 
-  .fb-button, .google-button {
+  .fb-button,
+  .google-button {
     width: 100%;
   }
 
@@ -4295,12 +4353,15 @@ label[for="id_newsletter_email"] {
     font-size: 12px;
   }
 
-  .error-img, .error-img-403, .error-img-404, .error-img-500 {
+  .error-img,
+  .error-img-403,
+  .error-img-404,
+  .error-img-500 {
     width: 250px;
     height: 250px;
-    margin: 0 ;
+    margin: 0;
   }
- 
+
   .logo {
     width: 50px;
     height: 50px;
@@ -4356,7 +4417,8 @@ label[for="id_newsletter_email"] {
     font-size: 15px;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 20px;
   }
 
@@ -4387,8 +4449,8 @@ label[for="id_newsletter_email"] {
     padding: 18px;
   }
 
-  label[for="id_email"], 
-  label[for="id_password1"], 
+  label[for="id_email"],
+  label[for="id_password1"],
   label[for="id_password2"] {
     font-size: 12px;
   }
@@ -4409,7 +4471,10 @@ label[for="id_newsletter_email"] {
     left: 25%;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-size: 15px;
   }
 
@@ -4453,7 +4518,7 @@ label[for="id_newsletter_email"] {
     font-size: 15px;
     margin-top: 90px;
   }
- 
+
 
   .tabs-content h3 {
     font-size: 15px;
@@ -4481,7 +4546,7 @@ label[for="id_newsletter_email"] {
   .petsitter-form {
     width: 205px;
   }
-  
+
   .petsitter-form input[type="text"] {
     width: 195px;
     margin-top: 20px;
@@ -4558,9 +4623,11 @@ label[for="id_newsletter_email"] {
     width: 300px;
   }
 
-  label[for="id_old_password"], label[for="id_new_password1"], label[for="id_new_password2"] {
+  label[for="id_old_password"],
+  label[for="id_new_password1"],
+  label[for="id_new_password2"] {
     font-size: 10px;
-}
+  }
 
   .password-buttons {
     width: 380px;
@@ -4572,12 +4639,12 @@ label[for="id_newsletter_email"] {
 
   .my-reviews-txt {
     font-size: 15px;
-  
-}
 
-.delete-buttons .button {
-  margin-bottom: 10px;
-}
+  }
+
+  .delete-buttons .button {
+    margin-bottom: 10px;
+  }
 
   .petsitter-layout label.switch {
     margin: 0;
@@ -4618,7 +4685,7 @@ label[for="id_newsletter_email"] {
     font-size: 12px;
   }
 
-  .button, 
+  .button,
   .button a {
     font-size: 13px;
   }
@@ -4634,7 +4701,8 @@ label[for="id_newsletter_email"] {
     margin-bottom: 40px;
   }
 
-  .fb-button a, .google-button a {
+  .fb-button a,
+  .google-button a {
     font-size: 13px;
   }
 
@@ -4645,15 +4713,15 @@ label[for="id_newsletter_email"] {
     text-align: center;
   }
 
-  
- .password-buttons {
-  flex-direction: column;
-  margin-bottom: 50px;
+
+  .password-buttons {
+    flex-direction: column;
+    margin-bottom: 50px;
   }
 
   .password-buttons .button {
-  margin-bottom: 20px;
- 
+    margin-bottom: 20px;
+
   }
 
   .change-password-box h2 {
@@ -4668,7 +4736,7 @@ label[for="id_newsletter_email"] {
 
   .my-reviews-heading h2 {
     font-size: 15px;
-}
+  }
 
   .reviews_list__profiles {
     width: 100%;
@@ -4679,11 +4747,12 @@ label[for="id_newsletter_email"] {
     height: 60px;
   }
 
-  .reviews_list__name, .reviews_list__value {
-    font-size: 15px; 
+  .reviews_list__name,
+  .reviews_list__value {
+    font-size: 15px;
   }
 
-  .reviews_list__value_1, 
+  .reviews_list__value_1,
   .reviews_list__value_2 {
     font-size: 11px;
   }
@@ -4761,7 +4830,8 @@ label[for="id_newsletter_email"] {
     font-size: 18px;
   }
 
-  .form-input, select {
+  .form-input,
+  select {
     font-size: 12px;
   }
 
@@ -4808,7 +4878,8 @@ label[for="id_newsletter_email"] {
     font-size: 11px;
   }
 
-  .fb-button, .google-button {
+  .fb-button,
+  .google-button {
     width: 100%;
   }
 
@@ -4820,7 +4891,8 @@ label[for="id_newsletter_email"] {
     left: 30%;
   }
 
-  label[for="id_login"], label[for="id_password"] {
+  label[for="id_login"],
+  label[for="id_password"] {
     font-size: 11px;
   }
 
@@ -4840,7 +4912,7 @@ label[for="id_newsletter_email"] {
     font-size: 20px;
   }
 
- 
+
   .rev-form {
     width: 330px;
   }
@@ -4857,7 +4929,7 @@ label[for="id_newsletter_email"] {
     width: 90%;
   }
 
- 
+
 
   .back-btn a {
     font-size: 13px;
@@ -4875,5 +4947,5 @@ label[for="id_newsletter_email"] {
     font-size: 16px;
   }
 
- 
+
 }
