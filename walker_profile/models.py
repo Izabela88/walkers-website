@@ -60,7 +60,6 @@ class WalkerUser(AbstractUser):
         Returns:
             list: List of Walker Users
         """
-        # TODO: Add price check
         dog_type_mapping = {
             "small": Q(service_details__is_small_dog=True),
             "medium": Q(service_details__is_medium_dog=True),

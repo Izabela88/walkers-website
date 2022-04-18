@@ -14,7 +14,7 @@ class ContactForm(forms.Form):
             }
         ),
     )
-    email = forms.CharField(
+    email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(
             attrs={
