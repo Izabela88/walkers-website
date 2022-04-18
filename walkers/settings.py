@@ -98,7 +98,6 @@ ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 180
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 
 
-
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'METHOD': 'js_sdk',
@@ -113,14 +112,12 @@ SOCIALACCOUNT_PROVIDERS = {
             'name',
             'name_format',
             'picture',
-            'email,'
-            'short_name'
+            'email,' 'short_name',
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'en_US',
         'VERIFIED_EMAIL': False,
         'VERSION': 'v13.0',
-
     },
     'google': {
         'SCOPE': [
@@ -150,8 +147,7 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
-    ACCOUNT_DEFAULT_HTTP_PROTOCOL='https'
-
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 
 MIDDLEWARE = [
