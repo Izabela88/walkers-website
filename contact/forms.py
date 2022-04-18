@@ -4,7 +4,6 @@ from django.conf import settings
 from django.core.validators import RegexValidator
 
 
-
 class ContactForm(forms.Form):
     """App contact message form"""
 

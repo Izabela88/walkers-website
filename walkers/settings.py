@@ -55,8 +55,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.google",
-    "django.contrib.staticfiles",
     "cloudinary_storage",
+    "django.contrib.staticfiles",
     "cloudinary",
     "phonenumber_field",
     "rest_framework",
@@ -257,7 +257,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 if os.getenv("ENV") in ("PRODUCTION", "STAGING"):
     STATICFILES_STORAGE = (
-        "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        # "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
     )
 
 MEDIA_URL = "/media/"
