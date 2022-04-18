@@ -12,7 +12,7 @@ REGISTER_QUESTION_URL = reverse("question")
 
 def create_user(is_petsitter=None):
     user = get_user_model().objects.create(
-        email='test@email.com', password='test1234', is_petsitter=is_petsitter
+        email="test@email.com", password="test1234", is_petsitter=is_petsitter
     )
     return user
 
@@ -22,7 +22,7 @@ class TestHomePage(TestCase):
         self.client.force_login(create_user(is_petsitter=True))
         res = self.client.get(HOME_URL)
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'home/index.html')
+        self.assertTemplateUsed(res, "home/index.html")
 
     def test_user_missing_petsitter_question(self):
         self.client.force_login(create_user())
@@ -37,14 +37,14 @@ class TestHomePage(TestCase):
 class TestRegisterQuestionPage(TestCase):
     def setUp(self):
         user = get_user_model().objects.create(
-            email='test@email.com', password='test1234'
+            email="test@email.com", password="test1234"
         )
         self.client.force_login(user)
 
     def test_get_register_question_return_200(self):
         res = self.client.get(REGISTER_QUESTION_URL)
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'home/question.html')
+        self.assertTemplateUsed(res, "home/question.html")
 
     def test_register_question_includes_correct_form(self):
         res = self.client.get(REGISTER_QUESTION_URL)

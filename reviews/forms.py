@@ -4,21 +4,21 @@ from reviews.models import PetsitterReview
 
 class PetsitterReviewForm(forms.ModelForm):
     TYPE_SELECT = (
-        (1, '☆'),
-        (2, '☆'),
-        (3, '☆'),
-        (4, '☆'),
-        (5, '☆'),
+        (1, "☆"),
+        (2, "☆"),
+        (3, "☆"),
+        (4, "☆"),
+        (5, "☆"),
     )
     description = forms.CharField(
         required=False,
         widget=forms.Textarea(
             attrs={
-                'class': 'rev-description',
-                'rows': 4,
-                'maxlength': '1500',
-                'style': 'resize:none',
-                'placeholder': 'write your review here...',
+                "class": "rev-description",
+                "rows": 4,
+                "maxlength": "1500",
+                "style": "resize:none",
+                "placeholder": "write your review here...",
             }
         ),
     )
@@ -31,4 +31,4 @@ class PetsitterReviewForm(forms.ModelForm):
 
     class Meta:
         model = PetsitterReview
-        fields = ['description', 'stars']
+        fields = ["description", "stars"]

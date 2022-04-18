@@ -3,29 +3,32 @@ from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.exceptions import ValidationError
 from django.db.models import Q
+from django.core.validators import MaxValueValidator
 
 
 class WalkerUser(AbstractUser):
-    # https://stackoverflow.com/questions/6195478/max-image-size-on-file-upload
-    def validate_image(fieldfile_obj):
-        filesize = fieldfile_obj.file.size
+
+    address_details = models.OneToOneField(
+        "AddressDetails", null=True, on_delete=models.CASCADE
+    )
+    petsitter_details = models.OneToOneField(
+        "PetsitterDetails", null=True, on_delete=models.CASCADE
+    )
+    is_petsitter = models.BooleanField(null=True)
+    username = models.CharField(max_length=150, null=True, unique=False)
+    phone_number = PhoneNumberField(null=True, blank=False, unique=True)
+
+    def validate_image(self):
+        # https://stackoverflow.com/questions/6195478/max-image-size-on-file-upload
+        filesize = self.file.size
         megabyte_limit = 0.4
         if filesize > megabyte_limit * 1024 * 1024:
             raise ValidationError(
                 "Image is too big. Max file size is %sMB" % str(megabyte_limit)
             )
 
-    address_details = models.OneToOneField(
-        'AddressDetails', null=True, on_delete=models.CASCADE
-    )
-    petsitter_details = models.OneToOneField(
-        'PetsitterDetails', null=True, on_delete=models.CASCADE
-    )
-    is_petsitter = models.BooleanField(null=True)
-    username = models.CharField(max_length=150, null=True, unique=False)
-    phone_number = PhoneNumberField(null=True, blank=False, unique=True)
     avatar = models.ImageField(
-        upload_to='avatar_images/',
+        upload_to="avatar_images/",
         null=True,
         blank=True,
         validators=[validate_image],
@@ -62,11 +65,10 @@ class WalkerUser(AbstractUser):
             "medium": Q(service_details__is_medium_dog=True),
             "big": Q(service_details__is_big_dog=True),
         }
-
-        size_filter = dog_type_mapping[search_params['dog_size']]
+        size_filter = dog_type_mapping[search_params["dog_size"]]
         filter_ = Q(
             is_petsitter=True,
-            service_details__service_type__type=search_params['care_type'],
+            service_details__service_type__type=search_params["care_type"],
             service_details__is_active=True,
         )
         return cls.objects.filter(filter_ & size_filter).all()
@@ -75,23 +77,24 @@ class WalkerUser(AbstractUser):
         """Get all petsitter active services"""
         active_services = []
         for i in self.service_details.filter(is_active=True).all():
-            service = {'type': i.service_type.type, 'dog_sizes': {}}
-            if i.is_small_dog:
-                service['dog_sizes']['small'] = {
-                    'price_hour': i.s_price_hour,
-                    'price_day': i.s_price_day,
+            service = {"type": i.service_type.type, "dog_sizes": {}}
+            if i.is_small_dog and (i.s_price_hour or i.s_price_day):
+                service["dog_sizes"]["small"] = {
+                    "price_hour": i.s_price_hour,
+                    "price_day": i.s_price_day,
                 }
-            if i.is_medium_dog:
-                service['dog_sizes']['medium'] = {
-                    'price_hour': i.m_price_hour,
-                    'price_day': i.m_price_day,
+            if i.is_medium_dog and (i.m_price_hour or i.m_price_day):
+                service["dog_sizes"]["medium"] = {
+                    "price_hour": i.m_price_hour,
+                    "price_day": i.m_price_day,
                 }
-            if i.is_big_dog:
-                service['dog_sizes']['big'] = {
-                    'price_hour': i.b_price_hour,
-                    'price_day': i.b_price_day,
+            if i.is_big_dog and (i.b_price_hour or i.b_price_day):
+                service["dog_sizes"]["big"] = {
+                    "price_hour": i.b_price_hour,
+                    "price_day": i.b_price_day,
                 }
-            active_services.append(service)
+            if service["dog_sizes"]:
+                active_services.append(service)
         return active_services
 
     def __str__(self):
@@ -100,23 +103,23 @@ class WalkerUser(AbstractUser):
 
 class AddressDetails(models.Model):
     address = models.CharField(
-        verbose_name='Address', max_length=100, null=True
+        verbose_name="Address", max_length=100, null=True
     )
     address_1 = models.CharField(
-        verbose_name='Address 1', max_length=100, null=True
+        verbose_name="Address 1", max_length=100, null=True
     )
     address_2 = models.CharField(
-        verbose_name='Address 2', max_length=100, null=True
+        verbose_name="Address 2", max_length=100, null=True
     )
     town = models.CharField(
-        verbose_name='Town/City', max_length=100, null=True
+        verbose_name="Town/City", max_length=100, null=True
     )
     postcode = models.CharField(
-        verbose_name='Post Code', max_length=8, null=True
+        verbose_name="Post Code", max_length=8, null=True
     )
-    county = models.CharField(verbose_name='County', max_length=100, null=True)
+    county = models.CharField(verbose_name="County", max_length=100, null=True)
     country = models.CharField(
-        verbose_name='Country', max_length=100, null=True
+        verbose_name="Country", max_length=100, null=True
     )
     latitude = models.DecimalField(
         max_digits=9, decimal_places=6, null=True, blank=True
@@ -149,13 +152,25 @@ class ServiceDetails(models.Model):
     )
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
-    s_price_hour = models.CharField(max_length=10, null=True)
-    s_price_day = models.CharField(max_length=10, null=True)
+    s_price_hour = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
+    s_price_day = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
     is_medium_dog = models.BooleanField(null=True)
-    m_price_hour = models.CharField(max_length=10, null=True)
-    m_price_day = models.CharField(max_length=10, null=True)
+    m_price_hour = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
+    m_price_day = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
     is_big_dog = models.BooleanField(null=True)
-    b_price_hour = models.CharField(max_length=10, null=True)
-    b_price_day = models.CharField(max_length=10, null=True)
+    b_price_hour = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
+    b_price_day = models.PositiveIntegerField(
+        null=True, default=0, validators=[MaxValueValidator(10)]
+    )
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True, null=True)

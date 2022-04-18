@@ -13,17 +13,16 @@ from walker_profile.utility import geocode
 class SearchView(View):
     def post(self, request: HttpRequest) -> HttpResponse:
         """Search pet sitters endpoint"""
-        context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():
             try:
                 search_long, search_lat = geocode.get_postcode_coordinates(
-                    petsitter_search_form.cleaned_data['postcode']
+                    petsitter_search_form.cleaned_data["postcode"]
                 )
             except geocode.GeoCodeError:
-                messages.error(request, "Invalid postcode!")
+                messages.error(request, "We couldn't find your postcode!")
                 return HttpResponseRedirect(
-                    reverse('home') + '#searching-section'
+                    reverse("home") + "#searching-section"
                 )
 
             petsitters = WalkerUser.search_petsitter(
@@ -33,40 +32,39 @@ class SearchView(View):
                 search_long,
                 search_lat,
                 petsitters,
-                petsitter_search_form.cleaned_data['area'],
+                petsitter_search_form.cleaned_data["area"],
             )
             # Create tuples pet sitter and review rating for sorting purpose
             search_result = [(i, i.reviews_rating()) for i in petsitters]
             search_result.sort(key=lambda x: x[1], reverse=True)
-            context['search_results'] = search_result
+            context = {"search_results": search_result}
+            return render(
+                request, "search/petsitters_search_results.html", context
+            )
         else:
-            messages.error(request, 'Something went wrong!')
+            messages.error(request, "Something went wrong!")
             request.session[
                 "petsitter_search_form_errors"
             ] = petsitter_search_form.errors
             petsitter_search_form = SearchForm(data=request.POST or None)
-            return redirect(reverse('home') + '#searching-section')
-        return render(
-            request, 'search/petsitters_search_results.html', context
-        )
+            return redirect(reverse("home") + "#searching-section")
 
 
 class PetsitterProfile(View):
     def get(self, request: HttpRequest, id: int) -> HttpResponse:
         """Get petsitter profile"""
         if not request.user.is_authenticated:
-            return render(request, '401.html')
+            return render(request, "401.html")
         context = {}
         user = get_object_or_404(WalkerUser, id=id)
-        context['user'] = user
-        context['services'] = []
-        context['services'] = user.get_service_details()
+        context["user"] = user
+        context["services"] = user.get_service_details()
         avg_rating, reviews_qty = user.reviews_rating()
-        context['reviews_data'] = {
-            'reviews': user.user_reviews.filter(
+        context["reviews_data"] = {
+            "reviews": user.user_reviews.filter(
                 is_admin_approved=True, is_visible=True
             ).all(),
-            'avg_rating': avg_rating,
-            'reviews_qty': reviews_qty,
+            "avg_rating": avg_rating,
+            "reviews_qty": reviews_qty,
         }
-        return render(request, 'search/petsitter_profile.html', context)
+        return render(request, "search/petsitter_profile.html", context)

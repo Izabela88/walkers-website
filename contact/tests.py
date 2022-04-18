@@ -20,7 +20,7 @@ class TestContactPage(TestCase):
     def test_get_contact_page_return_200(self):
         res = self.client.get(CONTACT_URL)
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'contact/contact.html')
+        self.assertTemplateUsed(res, "contact/contact.html")
 
     def test_get_contact_page_context_data(self):
         res = self.client.get(CONTACT_URL)

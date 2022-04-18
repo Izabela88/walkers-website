@@ -26,13 +26,13 @@ class Newsletter(View):
         context = {
             "email_form_errors": session.pop("email_form_errors", None),
         }
-        return render(request, 'home/home.html', context)
+        return render(request, "home/home.html", context)
 
     def post(self, request) -> HttpResponse:
         """Subscribe email address"""
         email_form = NewsletterUserForm(data=request.POST or None)
         if email_form.is_valid():
-            email = email_form.cleaned_data['newsletter_email']
+            email = email_form.cleaned_data["newsletter_email"]
             newsletter = NewsletterUser.objects.filter(email=email).first()
             if newsletter:
                 newsletter.subscribe()
@@ -45,12 +45,12 @@ class Newsletter(View):
             messages.success(
                 request, "Thank You for subscribe to our newsletter!"
             )
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse("home"))
         else:
-            messages.error(request, 'Something went wrong!')
+            messages.error(request, "Something went wrong!")
             request.session["email_form_errors"] = email_form.errors
 
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse("home"))
 
 
 class UpdateSubscription(APIView):
@@ -71,11 +71,11 @@ class UpdateSubscription(APIView):
         if serializer.is_valid():
             data = serializer.data
             subscription = get_object_or_404(
-                NewsletterUser, email=data['data']['email']
+                NewsletterUser, email=data["data"]["email"]
             )
-            if data['type'] == 'unsubscribed':
+            if data["type"] == "unsubscribed":
                 subscription.is_subscribed = False
-                subscription.unsubscribed_at = data['fired_at']
+                subscription.unsubscribed_at = data["fired_at"]
                 subscription.save()
 
             return Response(serializer.data, status=status.HTTP_200_OK)
