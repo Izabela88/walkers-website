@@ -185,17 +185,14 @@ class WalkerUserReview(View):
         if user_id != request.user.id:
             return render(request, "403.html")
 
-        context = {
-            "walker_user_review_form_errors": request.session.pop(
-                "walker_user_review_form_errors", None
-            ),
-        }
-
         review = get_object_or_404(
             PetsitterReview, id=review_id, reviewer_id=user_id
         )
 
         context = {
+            "walker_user_review_form_errors": request.session.pop(
+                "walker_user_review_form_errors", None
+            ),
             "walker_user_review_form": PetsitterReviewForm(instance=review),
             "petsitter_name": review.user.first_name,
             "petsitter_stars": review.stars,

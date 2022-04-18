@@ -20,7 +20,6 @@ class Contact(View):
             HttpResponse: Django http response
         """
         context = {"contact_form": ContactForm()}
-
         return render(request, "contact/contact.html", context)
 
     def post(self, request: HttpRequest) -> HttpResponseRedirect:
@@ -51,5 +50,9 @@ class Contact(View):
                 )
             else:
                 messages.error(request, "Your message couldn't be sent")
-        # TODO: Handle message if form is invalid
+        else:
+            for key, value in contact_form.errors.items():
+                field_name = str(key).replace("_", " ").capitalize()
+                msg = f"{field_name}: {value[0]}"
+                messages.error(request, msg)
         return HttpResponseRedirect(reverse("contact"))

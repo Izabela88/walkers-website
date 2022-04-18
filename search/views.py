@@ -13,7 +13,6 @@ from walker_profile.utility import geocode
 class SearchView(View):
     def post(self, request: HttpRequest) -> HttpResponse:
         """Search pet sitters endpoint"""
-        context = {}
         petsitter_search_form = SearchForm(data=request.POST or None)
         if petsitter_search_form.is_valid():
             try:
@@ -21,7 +20,7 @@ class SearchView(View):
                     petsitter_search_form.cleaned_data["postcode"]
                 )
             except geocode.GeoCodeError:
-                messages.error(request, "Invalid postcode!")
+                messages.error(request, "We couldn't find your postcode!")
                 return HttpResponseRedirect(
                     reverse("home") + "#searching-section"
                 )
@@ -38,7 +37,10 @@ class SearchView(View):
             # Create tuples pet sitter and review rating for sorting purpose
             search_result = [(i, i.reviews_rating()) for i in petsitters]
             search_result.sort(key=lambda x: x[1], reverse=True)
-            context["search_results"] = search_result
+            context = {"search_results": search_result}
+            return render(
+                request, "search/petsitters_search_results.html", context
+            )
         else:
             messages.error(request, "Something went wrong!")
             request.session[
@@ -46,9 +48,6 @@ class SearchView(View):
             ] = petsitter_search_form.errors
             petsitter_search_form = SearchForm(data=request.POST or None)
             return redirect(reverse("home") + "#searching-section")
-        return render(
-            request, "search/petsitters_search_results.html", context
-        )
 
 
 class PetsitterProfile(View):

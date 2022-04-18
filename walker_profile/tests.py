@@ -13,13 +13,6 @@ from walker_profile.models import (
     WalkerUser,
 )
 from walker_profile.utility import geocode, form_handlers
-from walker_profile.forms import (
-    UpdateWalkerProfileForm,
-    WalkerAddressForm,
-    WalkerUserAvatarForm,
-    PetsitterDescriptionForm,
-    ServiceDetailsForm,
-)
 
 
 def get_user_profile_url(id=1):
@@ -145,16 +138,6 @@ class TestWalkerUserReviewPageUserLogIn(TestCase):
         )
         self.client.force_login(user)
 
-    # @mock.patch.object(PetsitterReview, "save", id=1, reviewer_id=1)
-    # @mock.patch(
-    #     "walker_profile.views.get_object_or_404",
-    #     return_value=PetsitterReview(),
-    # )
-    # def test_get_walker_user_review_return_200(self, *args):
-    #     res = self.client.get(get_walker_user_review_url(user_id=1, review_id=1))
-    #     self.assertEqual(res.status_code, 200)
-    #     self.assertTemplateUsed(res, 'user_profile/edit_review.html')
-
     def test_get_return_403_template(self):
         res = self.client.get(
             get_walker_user_review_url(user_id=2, review_id=1)
@@ -222,24 +205,6 @@ class TestWalkerUserReviewPageUserLogIn(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "Something went wrong!")
         self.assertEqual(session["walker_user_review_form_errors"], {})
-
-    # @mock.patch.object(PetsitterReview, "delete", id=1, reviewer_id=1)
-    # @mock.patch(
-    #     "walker_profile.views.get_object_or_404",
-    #     return_value=PetsitterReview(),
-    # )
-    # def test_delete_happy_flow_redirect_to_walker_user_reviews(self, *args):
-    #     data = {
-    #         "id": 1,
-    #         "description": "Smeagol can't cook!",
-    #         "_method": "delete"
-    #     }
-    #     res = self.client.delete(
-    #         get_delete_walker_user_review_url(user_id=1, review_id=1),
-    #         data,
-    #         header={"Content-Type": "application/json"}
-    #     )
-    #     self.assertRedirects(res, get_user_profile_reviews_url(user_id=1))
 
 
 class TestWalkerUserReviewListPageUserLogIn(TestCase):
