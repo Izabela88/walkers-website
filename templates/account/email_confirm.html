@@ -8,11 +8,11 @@
 {% block content %}
 <section class="section">
     {% if messages %}
-      <ul class="info-msg center">
-          {% for message in messages %}
-              <li>{{ message.message }}</li>
-          {% endfor %}
-      </ul>
+        <ul class="info-msg center">
+            {% for message in messages %}
+                <li>{{ message.message }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
     <div class="container center allauth-container">
         <div class="allauth-heading">

@@ -31,7 +31,6 @@ h5 {
   text-transform: uppercase;
 }
 
-
 h2 {
   font-size: 35px;
 }
@@ -304,128 +303,6 @@ label[for="email_radio_1"] {
 input[id="id_password1"] {
   margin-bottom: 40px;
 }
-
-.connect-fieldset {
-  border: none;
-  height: 300px;
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.connect-fieldset label {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.connect-button {
-  margin-top: 40px;
-}
-
-.connect-box p {
-  font-size: 20px;
-  margin-top: 20px;
-  width: 35%;
-}
-
-.social-section {
-  height: 100vh;
-}
-
-.social-heading {
-  width: 70%;
-}
-
-.social-heading h1, h2 {
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-
-.social-heading p {
-  font-size: 20px;
-}
-
-.social-cancelled-box {
-  width: 40%;
-  margin-top: 35px;
-}
-
-.social-cancelled-box p {
-  font-size: 20px;
-}
-
-.social-button {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.return-button {
-  margin-top: 30px;
-}
-
-.social-connect {
-  height: 400px;
-  width: 400px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
-.social-connect p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.social-btns {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  width: 540px;
-  flex-direction: column;
-}
-
-.social-btns p {
-  text-align: center;
-  font-size: 18px;
-  width: 80%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.socialaccount_providers {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 400px;
-}
-
-.social-btns a {
-  color: var(--yellow-color);
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.fb-button {
-  background-color: #475993;
-  height: 55px;
-}
-
-.fb-button a,
-.google-button a {
-  color: var(--white-color);
-  font-size: 15px;
-  padding-top: 20px;
-}
-
-.google-button {
-  background-color: #db4437;
-  height: 55px;
-}
-
-
 
 /* ----SCROLL TO TOP BUTTON */
 #scroll-top-button {
@@ -1065,8 +942,6 @@ select {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 45px;
-  margin-bottom: -50px;
 }
 
 .heading h2 {
@@ -1079,6 +954,28 @@ select {
   font-size: 18px;
 }
 
+.social-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+
+.fb-button {
+  width: 48%;
+  background-color: #475993;
+}
+
+.fb-button a,
+.google-button a {
+  color: var(--white-color);
+  font-size: 15px;
+}
+
+.google-button {
+  width: 48%;
+  background-color: #db4437;
+}
 
 .fb_reset {
   display: none;
@@ -1177,6 +1074,7 @@ font-weight: bold;
 }
 
 /* ------------login page */
+
 .login {
   display: flex;
   flex-direction: column;
@@ -1346,6 +1244,37 @@ label[for="id_remember"] {
   margin-top: 70px;
 }
 
+/* social section templates */
+.social-section {
+  height: 100vh;
+}
+
+.social-heading {
+  width: 40%;
+}
+
+.social-heading h1 {
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+.social-heading p {
+  font-size: 20px;
+}
+
+.social-cancelled-box {
+  width: 40%;
+  margin-top: 35px;
+}
+
+.social-cancelled-box p {
+  font-size: 20px;
+}
+
+.social-button {
+  width: 100%;
+  margin-top: 20px;
+}
 
 /* ------------walker dashboard */
 
@@ -4011,7 +3940,7 @@ label[for="id_newsletter_email"] {
     text-align: center;
   }
 
-  .login {
+  #login {
     height: 100%;
   }
 
@@ -4273,10 +4202,6 @@ label[for="id_newsletter_email"] {
     margin-bottom: 10%;
   }
 
-  .contact-dog-img {
-    display: none;
-  }
-
   .happy-dog-box {
     height: 200px;
     width: 200px;
@@ -4288,17 +4213,6 @@ label[for="id_newsletter_email"] {
 
   .allauth-paragraph p {
     width: 80%;
-  }
-
-
-  p {
-    font-size: 12px;
-  }
-
-  .error-img, .error-img-403, .error-img-404, .error-img-500 {
-    width: 250px;
-    height: 250px;
-    margin: 0 ;
   }
  
   .logo {
@@ -4373,7 +4287,7 @@ label[for="id_newsletter_email"] {
     font-size: 15px;
   }
 
-  .signup {
+  #signup {
     width: 100%;
     height: 100%;
   }
@@ -4491,6 +4405,11 @@ label[for="id_newsletter_email"] {
     text-align: center;
   }
 
+  .error-img {
+    width: 350px;
+    height: 350px;
+  }
+
   .petsitter-heading h2 {
     font-size: 15px;
     width: 80%;
@@ -4538,8 +4457,8 @@ label[for="id_newsletter_email"] {
 
   .img-box,
   .no-user-img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
 
   .avatar-txt {
@@ -4550,8 +4469,16 @@ label[for="id_newsletter_email"] {
     margin: 0 auto;
   }
 
+  .profile-img-form {
+    width: 300px;
+  }
+
   .profile-img-form input[type="file"] {
     margin: 0;
+  }
+
+  #scroll-top-button {
+    right: 15px;
   }
 
   .change-password-form {
@@ -4621,6 +4548,10 @@ label[for="id_newsletter_email"] {
   .button, 
   .button a {
     font-size: 13px;
+  }
+
+  .button a {
+    padding-top: 21px;
   }
 
   .info-msg {
@@ -4708,8 +4639,7 @@ label[for="id_newsletter_email"] {
   }
 
   .review-desc {
-    height: 50%;
-    margin-top: 25px;
+    height: 100%;
   }
 
   .review-desc p {
@@ -4745,9 +4675,23 @@ label[for="id_newsletter_email"] {
     font-size: 15px;
   }
 
+  .social-heading {
+    width: 40%;
+    height: 180px;
+    margin-bottom: 35px;
+  }
+
+  .question-form {
+    height: 70%;
+  }
+
 }
 
 @media screen and (max-width: 380px) {
+
+  .main-txt {
+    width: 90%;
+  }
 
   .main-txt h1 {
     font-size: 20px;
@@ -4772,7 +4716,6 @@ label[for="id_newsletter_email"] {
   #scroll-top-button {
     height: 30px;
     width: 30px;
-    right: 0;
   }
 
   #scroll-top-button::after {
@@ -4874,6 +4817,8 @@ label[for="id_newsletter_email"] {
   .delete-heading p {
     font-size: 16px;
   }
+
+
 
  
 }
