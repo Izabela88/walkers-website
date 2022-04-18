@@ -103,7 +103,7 @@ class TestUpdateSubscriptionAPI(TestCase):
         res = self.client.post(
             UPDATE_SUBSCRIPTION_URL,
             data=json.dumps(payload),
-            content_type='application/json',
+            content_type="application/json",
         )
         updated_use = NewsletterUser.objects.filter(
             email="gandalf@gmail.com"
@@ -122,6 +122,15 @@ class TestUpdateSubscriptionAPI(TestCase):
         res = self.client.post(
             UPDATE_SUBSCRIPTION_URL,
             data=json.dumps(payload),
-            content_type='application/json',
+            content_type="application/json",
         )
         self.assertEqual(res.status_code, 400)
+
+
+class TestNewsletterModel(TestCase):
+    def test_subscribe_method_change_subscribe_state(self):
+        newsletter = NewsletterUser.objects.create(
+            email="gandalf@gmail.com", is_subscribed=False
+        )
+        newsletter.subscribe()
+        self.assertTrue(newsletter.is_subscribed)

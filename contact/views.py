@@ -19,9 +19,8 @@ class Contact(View):
         Returns:
             HttpResponse: Django http response
         """
-        context = {'contact_form': ContactForm()}
-
-        return render(request, 'contact/contact.html', context)
+        context = {"contact_form": ContactForm()}
+        return render(request, "contact/contact.html", context)
 
     def post(self, request: HttpRequest) -> HttpResponseRedirect:
         """Post contact form endpoint
@@ -33,23 +32,27 @@ class Contact(View):
             HttpResponseRedirect: Redirect page to contact GET
         """
         contact_form = ContactForm(request.POST)
-        body = render_to_string('email/body.txt')
+        body = render_to_string("email/body.txt")
 
         if contact_form.is_valid():
             success = False
             if contact_form.submit_email():
                 if send_email(
-                    [contact_form.cleaned_data['email']],
+                    [contact_form.cleaned_data["email"]],
                     settings.EMAIL_HOST_USER,
                     body,
-                    'We have got your email',
+                    "We have got your email",
                 ):
                     success = True
             if success:
                 messages.success(
-                    request, 'Your message has been sent successfully!'
+                    request, "Your message has been sent successfully!"
                 )
             else:
                 messages.error(request, "Your message couldn't be sent")
-        # TODO: Handle message if form is invalid
-        return HttpResponseRedirect(reverse('contact'))
+        else:
+            for key, value in contact_form.errors.items():
+                field_name = str(key).replace("_", " ").capitalize()
+                msg = f"{field_name}: {value[0]}"
+                messages.error(request, msg)
+        return HttpResponseRedirect(reverse("contact"))

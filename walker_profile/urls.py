@@ -8,21 +8,21 @@ from walker_profile.views import (
 
 urlpatterns = [
     path(
-        'user_profile/<int:id>', UserProfileView.as_view(), name='user_profile'
+        "user_profile/<int:id>", UserProfileView.as_view(), name="user_profile"
     ),
     path(
-        'user_profile/<int:id>/reviews',
+        "user_profile/<int:id>/reviews",
         WalkerUserReviewList.as_view(),
-        name='reviews',
+        name="reviews",
     ),
     path(
-        'user_profile/<int:user_id>/reviews/<int:review_id>',
+        "user_profile/<int:user_id>/reviews/<int:review_id>",
         WalkerUserReview.as_view(),
-        name='walker_user_review',
+        name="walker_user_review",
     ),
     path(
-        'user_profile/<int:user_id>/reviews/<int:review_id>/delete',
+        "user_profile/<int:user_id>/reviews/<int:review_id>/delete",
         WalkerUserReview.as_view(),
-        name='delete_review',
+        name="delete_review",
     ),
 ]

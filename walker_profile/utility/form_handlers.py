@@ -22,10 +22,10 @@ def _profile_form_handler(request: HttpRequest, *args):
     profile_form = UpdateWalkerProfileForm(
         instance=request.user, data=request.POST or None
     )
-    request.session['tab'] = "personal_information"
+    request.session["tab"] = "personal_information"
     if profile_form.is_valid() and profile_form.has_changed():
         profile_form.save()
-        messages.success(request, 'Your profile is updated successfully')
+        messages.success(request, "Your profile is updated successfully")
     else:
         request.session["profile_form_errors"] = profile_form.errors
 
@@ -42,7 +42,7 @@ def _address_form_handler(request: HttpRequest, *args):
     address_form = WalkerAddressForm(
         instance=request.user.address_details, data=request.POST or None
     )
-    request.session['tab'] = "address_details"
+    request.session["tab"] = "address_details"
     if address_form.is_valid() and address_form.has_changed():
         # Check if postcode is valid and can be geocoded
         try:
@@ -50,9 +50,8 @@ def _address_form_handler(request: HttpRequest, *args):
                 address_form.cleaned_data["postcode"]
             )
         except geocode.GeoCodeError:
-            messages.error(request, "Invalid postcode!")
+            messages.error(request, "We couldn't find your postcode!")
             return
-
         address_form.instance.longitude = long
         address_form.instance.latitude = lat
         address_form.save()
@@ -60,7 +59,7 @@ def _address_form_handler(request: HttpRequest, *args):
             # Update existed address
             request.user.address_details_id = address_form.instance.id
             request.user.save()
-        messages.success(request, 'Your address is updated successfully')
+        messages.success(request, "Your address is updated successfully")
     else:
         request.session["address_form_errors"] = address_form.errors
 
@@ -76,10 +75,10 @@ def _avatar_form_handler(request: HttpRequest, *args):
         request.POST or None, request.FILES, instance=request.user
     )
     # Add HTML anchor
-    request.session['tab'] = "upload_photo"
+    request.session["tab"] = "upload_photo"
     if avatar_form.is_valid() and avatar_form.has_changed():
         avatar_form.save()
-        messages.success(request, 'Your avatar is updated successfully')
+        messages.success(request, "Your avatar is updated successfully")
     else:
         request.session["avatar_form_errors"] = avatar_form.errors
 
@@ -95,14 +94,14 @@ def _description_handler(request: HttpRequest, *args):
         instance=request.user.petsitter_details, data=request.POST or None
     )
     # Add HTML anchor
-    request.session['tab'] = "petsitter_profile"
+    request.session["tab"] = "petsitter_profile"
     if description.is_valid() and description.has_changed():
         description.save()
         if request.user.petsitter_details_id != description.instance.id:
             # Update existed description
             request.user.petsitter_details_id = description.instance.id
             request.user.save()
-        messages.success(request, 'Your description is updated successfully')
+        messages.success(request, "Your description is updated successfully")
     else:
         request.session["description_errors"] = description.errors
 
@@ -123,7 +122,7 @@ def _service_details_forms_handler(request: HttpRequest, service_type_id: int):
             instance=service_detail, data=request.POST or None
         )
         # Add HTML anchor
-        request.session['tab'] = "petsitter_profile"
+        request.session["tab"] = "petsitter_profile"
         if (
             service_details_form.is_valid()
             and service_details_form.has_changed()  # noqa: W503
@@ -131,7 +130,7 @@ def _service_details_forms_handler(request: HttpRequest, service_type_id: int):
             service_details_form.instance.service_type_id = service_type_id
             service_details_form.instance.user_id = request.user.id
             service_details_form.save()
-            messages.success(request, 'Your data is updated successfully')
+            messages.success(request, "Your data is updated successfully")
         else:
             request.session[
                 "service_details_errors"

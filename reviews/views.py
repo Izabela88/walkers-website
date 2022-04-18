@@ -12,29 +12,29 @@ class Review(View):
     def get(self, request: HttpRequest, id: int) -> HttpResponse:
         """Pet sitter review GET endpoint"""
         if not request.user.is_authenticated:
-            return render(request, '401.html')
+            return render(request, "401.html")
         context = {
-            'review_form_errors': request.session.pop(
+            "review_form_errors": request.session.pop(
                 "review_form_errors", None
             )
         }
         user = get_object_or_404(WalkerUser, id=id)
-        context['user'] = user
-        context['review_description_form'] = PetsitterReviewForm()
-        return render(request, 'reviews/review.html', context)
+        context["user"] = user
+        context["review_description_form"] = PetsitterReviewForm()
+        return render(request, "reviews/review.html", context)
 
     def post(self, request: HttpRequest, id) -> HttpResponse:
         """Submit review form"""
         if not request.user.is_authenticated:
-            return render(request, '401.html')
+            return render(request, "401.html")
         if id == request.user.id:
-            return render(request, '403.html')
+            return render(request, "403.html")
         user_review = PetsitterReview.objects.filter(
             user_id=id, reviewer_id=request.user.id
         ).first()
         if user_review:
             messages.error(
-                request, 'You have already given review to this user !'
+                request, "You have already given review to this user !"
             )
         else:
             review_form = PetsitterReviewForm(data=request.POST or None)
@@ -42,13 +42,13 @@ class Review(View):
                 review_form.instance.user_id = id
                 review_form.instance.reviewer_id = request.user.id
                 review_form.instance.save()
-                messages.success(request, 'Thank you for your review!')
+                messages.success(request, "Thank you for your review!")
             else:
-                messages.error(request, 'Something went wrong!')
+                messages.error(request, "Something went wrong!")
                 request.session["review_form_errors"] = review_form.errors
                 return HttpResponseRedirect(
-                    reverse('review', kwargs={'id': id})
+                    reverse("review", kwargs={"id": id})
                 )
         return HttpResponseRedirect(
-            reverse('petsitter_profile', kwargs={'id': id})
+            reverse("petsitter_profile", kwargs={"id": id})
         )

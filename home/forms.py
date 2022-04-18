@@ -11,8 +11,8 @@ class PetsitterQuestionForm(forms.Form):
     is_petsitter = forms.BooleanField(
         required=False,
         label=(
-            'Mark the field if you want to register as the pet sitter / '
-            ' dog walker. If not, just leave this field blank.'
+            "Mark the field if you want to register as the pet sitter / "
+            " dog walker. If not, just leave this field blank."
         ),
     )
 
@@ -29,7 +29,7 @@ class PetsitterQuestionForm(forms.Form):
             User: Updated user
         """
         if self.is_valid():
-            user.is_petsitter = self.cleaned_data['is_petsitter']
+            user.is_petsitter = self.cleaned_data["is_petsitter"]
             user.save()
             return user
         raise PetsitterFormValidationError
