@@ -4,10 +4,9 @@ from django.dispatch import receiver
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.contrib.auth import get_user_model
 
+
 # https://stackoverflow.com/questions/28897220/django-allauth-social
 # -account-connect-to-existing-account-on-login
-
-
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
         user = sociallogin.user
