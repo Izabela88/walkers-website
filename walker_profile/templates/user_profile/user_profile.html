@@ -297,9 +297,9 @@
 </div>      
 </div>
 </section>
-
-{% block extra_js %}
-<script src="{% static 'user/js/user.js' %}"></script>
 {% endblock %}
 
+{% block extra_js %}
+{{ block.super }}
+<script src="{% static 'user/js/user.js' %}"></script>
 {% endblock %}
