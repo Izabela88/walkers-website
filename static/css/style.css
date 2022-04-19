@@ -58,16 +58,6 @@ label {
   letter-spacing: 1px;
 }
 
-.bg-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.bg-img img {
-  object-fit: cover;
-}
-
 /* scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -396,7 +386,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  width: 540px;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -655,7 +645,8 @@ h2 {
   transform: rotate(27deg);
 }
 
-.home-bg-shape-1 img {
+.home-bg-shape-1 {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304089/static/images/circle2.9a3d9c8c2652.png) no-repeat center center/cover;
   position: absolute;
   height: 1000px;
   width: 1000px;
@@ -663,7 +654,8 @@ h2 {
   top: -12%;
 }
 
-.home-bg-shape-2 img {
+.home-bg-shape-2 {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304078/static/images/circle1.7c89d60e19a8.png) no-repeat center center/cover;
   position: absolute;
   height: 700px;
   width: 700px;
@@ -678,13 +670,15 @@ h2 {
   overflow: hidden;
 }
 
-.searching-bg-shape img {
+.searching-bg-shape {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304089/static/images/circle2.9a3d9c8c2652.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
   right: -5%;
   bottom: 0;
 }
+
 
 .search-form {
   width: 50%;
@@ -851,7 +845,8 @@ select {
   width: 60%;
 }
 
-.join-bg-shape img {
+.join-bg-shape {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304089/static/images/circle2.9a3d9c8c2652.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
@@ -929,20 +924,9 @@ select {
 
 /* -------------------footer */
 #footer {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304091/static/images/footer.ffc78da530f8.jpg) no-repeat center center/cover;
   position: relative;
   overflow: hidden;
-}
-
-.footer-bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-}
-
-.footer-bg img {
-  height: 100%;
-  width: 100%;
 }
 
 #footer p {
@@ -1055,7 +1039,8 @@ select {
   height: 100%;
 }
 
-.register-bg-shape img {
+.register-bg-shape {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304089/static/images/circle2.9a3d9c8c2652.png) no-repeat center center/cover;
   position: absolute;
   height: 900px;
   width: 900px;
@@ -1485,9 +1470,10 @@ label[for="id_avatar"] {
   color: var(--white-color);
 }
 
-.no-user-img img {
+.no-user-img {
   width: 250px;
   height: 250px;
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304073/static/images/user.7964a2ac9bc9.png) no-repeat center center/cover;
   border-radius: 50%;
 }
 
@@ -2118,12 +2104,28 @@ label[for="big_dog"] {
   margin-bottom: 30px;
 }
 
-.error-img img,
-.error-img-404 img,
-.error-img-403 img,
-.error-img-500 img {
+.error-img,
+.error-img-404,
+.error-img-403,
+.error-img-500 {
   width: 500px;
   height: 500px;
+}
+
+.error-img {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304091/static/images/cant.dd6a56444316.gif) no-repeat center center/cover;
+}
+
+.error-img-404 {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650369262/static/images/error404.gif) no-repeat center center/cover;
+}
+
+.error-img-403 {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304077/static/images/errorcat.0c9e1c527d36.gif) no-repeat center center/cover;
+}
+
+.error-img-500 {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650304081/static/images/server-error.af90c0cbc6c8.gif) no-repeat center center/cover;
 }
 
 .not-found img {
@@ -2605,6 +2607,7 @@ label[for="big_dog"] {
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650369242/static/images/bro-dog.jpg) no-repeat center center/cover;
   color: var(--white-color);
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -2622,12 +2625,6 @@ label[for="big_dog"] {
   box-shadow: 1px 1px 36px rgba(0, 0, 0, 0.3);
 }
 
-.card-content img {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-}
 
 .show-prices {
   opacity: 1;
@@ -3108,6 +3105,7 @@ label[for="id_stars_4"] {
 }
 
 .modal-content {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650369249/static/images/dog-bros.jpg) no-repeat center center/cover;
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -3177,6 +3175,7 @@ label[for="id_stars_4"] {
 }
 
 #open-edit-modal {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650369247/static/images/delete.gif) no-repeat center center/cover;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -3196,11 +3195,6 @@ label[for="id_stars_4"] {
   transform: scale(1.1);
 }
 
-.delete-icon img {
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-}
 
 .buttons-box.edit-rev-btns {
   width: 60%;
@@ -3323,6 +3317,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
+  background: url(https://res.cloudinary.com/izak88/image/upload/v1650369268/static/images/hungry-2.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3337,11 +3332,6 @@ label[for="id_stars_4"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.newsletter-modal-content img {
-  position: absolute;
-  z-index: -1;
 }
 
 .newsletter-box {
@@ -3459,6 +3449,7 @@ label[for="id_newsletter_email"] {
 @media screen and (max-width: 1300px) {
   @media screen and (max-height: 805px) {
 
+
     .contact-dog-img {
       height: 90%;
       bottom: -30%;
@@ -3499,6 +3490,11 @@ label[for="id_newsletter_email"] {
       height: 240px;
       top: 0;
     }
+
+    
+  #home-section {
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369265/static/images/footer.jpg) no-repeat center center/cover;
+  }
 
     .join-txt {
       height: 100%;
@@ -3606,6 +3602,14 @@ label[for="id_newsletter_email"] {
 
 @media screen and (max-width: 1150px) {
 
+  .newsletter-modal-content {
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369267/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
+  }
+
+  .modal-content {
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369248/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
+  }
+
   .logo {
     width: 80px;
     height: 80px;
@@ -3627,6 +3631,10 @@ label[for="id_newsletter_email"] {
 
   .edit-rev-section {
     height: 100%;
+  }
+
+  #home-section {
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650304091/static/images/footer.ffc78da530f8.jpg) no-repeat center center/cover;
   }
 
   /* hamburger icon code from https://codepen.io/JoseRosario/pen/BWqMwK*/
@@ -3682,6 +3690,10 @@ label[for="id_newsletter_email"] {
 
   .open .line-menu.end {
     transform: rotate(-90deg) translateX(-3px);
+  }
+
+  .card-content {
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369241/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
   }
 
   /* my code start here */
@@ -3949,7 +3961,7 @@ label[for="id_newsletter_email"] {
   }
 
   .card-content {
-    background: url(/izak88/image/upload/v1/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650304086/static/images/bro-dog-medium.7b1bc3282b32.jpg) no-repeat center center/cover;
   }
 
   .profile-section {
@@ -4013,22 +4025,14 @@ label[for="id_newsletter_email"] {
     height: 827px;
   }
 
-  .newsletter-modal-content {
-    background: url(/izak88/image/upload/v1/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
-  }
-
   .reviews_list__profiles {
     grid-template-columns: repeat(1, 1fr);
     width: 80%;
   }
 
-  .modal-content {
-    background: url(/izak88/image/upload/v1/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
-  }
-
 
   .del-btn-2 a {
-    padding-top: 21px;
+    padding-top: 22px;
   }
 
   .contact-icon {
@@ -4041,6 +4045,10 @@ label[for="id_newsletter_email"] {
     height: 100%;
   }
 
+  #header {
+    height: 0;
+  }
+
   #home-section {
     height: 100%;
   }
@@ -4048,7 +4056,6 @@ label[for="id_newsletter_email"] {
   .home-txt {
     height: 800px;
     margin-bottom: 200px;
-    margin-top: 50px;
   }
 
   .main-image {
@@ -4337,7 +4344,11 @@ label[for="id_newsletter_email"] {
 
   .fb-button,
   .google-button {
-    width: 100%;
+    width: 150px;
+  }
+
+  .social-btns p {
+    margin-bottom: 20px;
   }
 
   .contact-form-box {
@@ -4470,11 +4481,6 @@ label[for="id_newsletter_email"] {
     height: 1000px;
   }
 
-  .google-button a,
-  .fb-button a {
-    padding: 18px;
-  }
-
   label[for="id_email"],
   label[for="id_password1"],
   label[for="id_password2"] {
@@ -4495,13 +4501,6 @@ label[for="id_newsletter_email"] {
 
   #id_remember {
     left: 25%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-size: 15px;
   }
 
   .social-heading h1 {
@@ -4681,15 +4680,15 @@ label[for="id_newsletter_email"] {
   }
 
   .card-content {
-    background: url(/izak88/image/upload/v1/static/images/bro-dog-small.jpg) no-repeat center center/cover;
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369274/static/images/puppy-small.jpg) no-repeat center center/cover;
   }
 
   .newsletter-modal-content {
-    background: url(/izak88/image/upload/v1/static/images/puppy-small.jpg) no-repeat center center/cover;
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369274/static/images/puppy-small.jpg) no-repeat center center/cover;
   }
 
   .modal-content {
-    background: url(/izak88/image/upload/v1/static/images//puppy-small.jpg) no-repeat center center/cover;
+    background: url(https://res.cloudinary.com/izak88/image/upload/v1650369242/static/images/bro-dog-small.jpg) no-repeat center center/cover;
   }
 
   .delete-rev-box {
@@ -4722,10 +4721,9 @@ label[for="id_newsletter_email"] {
 
   .social-btns {
     flex-direction: column;
-    height: 140px;
+    height: 250px;
     margin-top: 40px;
     margin-bottom: 40px;
-    width: 350px;
     
   }
 
@@ -4747,13 +4745,14 @@ label[for="id_newsletter_email"] {
 
   .socialaccount_providers {
     flex-direction: column;
+    justify-content: center;
     width: 300px;
   }
 
   .socialaccount_providers li {
-    width: 200px;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 150px;
   }
 
 

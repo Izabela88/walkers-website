@@ -16,7 +16,7 @@
         <div class="details-image" style="background: url('{{user.avatar.url}}') no-repeat center center/cover"></div>
       {% else %}
         <div class="details-image center">
-            <div class="details-no-avatar" style="background: url('/izak88/image/upload/v1/static/images/user.png') no-repeat center center/cover"></div>
+            <div class="details-no-avatar" style="background: url('https://res.cloudinary.com/izak88/image/upload/v1650304073/static/images/user.7964a2ac9bc9.png') no-repeat center center/cover"></div>
         </div>                        
       {% endif %} 
       <h2>{{user.first_name}}</h2>
@@ -137,8 +137,7 @@
 </section>
 <!----------------- PRICES MODAL-------------- -->
 <div class="prices-wrapper">
-  <div class="card-content bg-img">
-    <img src="{% static 'images/bro-dog.jpg' %}" alt="Dog image">
+  <div class="card-content">
     <div class="close-prices">
       <i class="far fa-times-circle"></i>
     </div>    

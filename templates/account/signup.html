@@ -16,9 +16,7 @@
   <div class="main-image image-shadow">
     <img src="{% static 'images/puppy.png' %}" class="puppy-dog-img" alt="" />
   </div>
-  <div class="register-bg-shape bg-img">
-    <img src="{% static 'images/circle2.png'%}" alt="circle icon">
-  </div>
+  <div class="register-bg-shape bg-img"></div>
   <div class="container">
     <div class="half-bg"></div>
     <div class="form-grid-container">
@@ -29,7 +27,7 @@
       <div class="social-btns">
         {% if socialaccount_providers %}
           <p>{% blocktrans with site.name as site_name %}Please register with one
-          of your existing social accounts, or <a href="{{ login_url }}">LOGIN</a>
+          of your existing social accounts or form below, or <a href="{{ login_url }}">LOGIN</a>
           for a Walkers account {% endblocktrans %}</p>
           <div class="socialaccount_ballot">
             <ul class="socialaccount_providers">

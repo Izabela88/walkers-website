@@ -23,15 +23,15 @@
                         <div class="card__image" style="background: url('{{i.0.avatar.url}}') no-repeat center center/cover"></div>
                     {% else %}
                     <div class="card__image center">
-                        <div class="no-avatar " style="background: url('/izak88/image/upload/v1/static/images/user.png') no-repeat center center/cover"></div>
+                        <div class="no-avatar " style="background: url('https://res.cloudinary.com/izak88/image/upload/v1650304073/static/images/user.7964a2ac9bc9.png') no-repeat center center/cover"></div>
                     </div>                        
                     {% endif %}
                     <div class="card__overlay">
                       <div class="card__header">
                         {% if i.0.avatar %}
-                          <div class="card__thumb" style="background: url('/izak88/image/upload/v1/static/images/track.png') no-repeat center center/cover"></div>
+                          <div class="card__thumb" style="background: url('https://res.cloudinary.com/izak88/image/upload/v1650304090/static/images/track.7187e2cc3d53.png') no-repeat center center/cover"></div>
                         {% else %}
-                            <div class="card__thumb" style="background: url('/izak88/image/upload/v1/static/images/user.png') no-repeat center center/cover"></div>    
+                            <div class="card__thumb" style="background: url('https://res.cloudinary.com/izak88/image/upload/v1650304073/static/images/user.7964a2ac9bc9.png') no-repeat center center/cover"></div>    
                         {% endif %}
                         <div class="card__header-text">
                           <h3 class="card__title">{{i.0.first_name}}</h3>           
@@ -70,7 +70,7 @@
     
             {% else %}
             <div class="center">
-                <div class="not-found center bg-img">
+                <div class="not-found center">
                   <img src="{% static 'images/not-found.gif' %}" alt="Search icon">
                 </div>
             </div>
