@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load account %}
+{% load static %}
+
 
 {% block title %}Error 500{% endblock title %}
 
@@ -8,7 +10,9 @@
         <div class="container center ">
             <div class="error-box center">
                 <h2>oops! server error!</h2>
-                <div class="error-img-500 center"></div>               
+                <div class="error-img-500 center bg-img">
+                    <img src="{% static 'server-error.gif' %}" alt="Error gif">
+                </div>               
             </div>
             <div class="button button-bright center error-button">
                 <a href="{% url 'home' %}">Back to home</a>
