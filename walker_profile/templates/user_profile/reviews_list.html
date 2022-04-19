@@ -24,7 +24,7 @@
                                 style="background: url('{{i.user.avatar.url}}') no-repeat center center/cover"></div>
                             {% else %}
                                 <div class="review-icon" 
-                                style="background:url('/static/images/user.png') no-repeat center center/cover"></div>    
+                                style="background:url('/izak88/image/upload/v1/static/images/user.png') no-repeat center center/cover"></div>    
                             {% endif %}
                             <span class="reviews_list__name">{{i.user.first_name}}</span>
                             <a href="{% url 'walker_user_review' request.user.id i.id %}" class="reviews_list__value">edit review</a>
