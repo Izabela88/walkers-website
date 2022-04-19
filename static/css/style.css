@@ -641,7 +641,7 @@ h2 {
 }
 
 .home-bg-shape-1 {
-  background: url(/static/images/circle2.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 1000px;
   width: 1000px;
@@ -650,7 +650,7 @@ h2 {
 }
 
 .home-bg-shape-2 {
-  background: url(/static/images/circle1.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/circle1.png) no-repeat center center/cover;
   position: absolute;
   height: 700px;
   width: 700px;
@@ -666,7 +666,7 @@ h2 {
 }
 
 .searching-bg-shape {
-  background: url(/static/images/circle2.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
@@ -840,7 +840,7 @@ select {
 }
 
 .join-bg-shape {
-  background: url(/static/images/circle2.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 800px;
   width: 800px;
@@ -849,7 +849,7 @@ select {
 }
 
 .paws-img {
-  background: url(/static/images/paws.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/paws.png) no-repeat center center/cover;
   position: absolute;
   height: 200px;
   width: 200px;
@@ -937,7 +937,7 @@ select {
 
 /* -------------------footer */
 #footer {
-  background: url(/static/images/footer.jpg) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/footer.jpg) no-repeat center center/cover;
   position: relative;
   overflow: hidden;
 }
@@ -1053,7 +1053,7 @@ select {
 }
 
 .register-bg-shape {
-  background: url(/static/images/circle2.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/circle2.png) no-repeat center center/cover;
   position: absolute;
   height: 900px;
   width: 900px;
@@ -1486,7 +1486,7 @@ label[for="id_avatar"] {
 .no-user-img {
   width: 250px;
   height: 250px;
-  background: url(/static/images/user.png) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/user.png) no-repeat center center/cover;
   border-radius: 50%;
 }
 
@@ -2126,23 +2126,23 @@ label[for="big_dog"] {
 }
 
 .error-img {
-  background: url(/static/images/cant.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/cant.gif) no-repeat center center/cover;
 }
 
 .error-img-404 {
-  background: url(/static/images/error404.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/error404.gif) no-repeat center center/cover;
 }
 
 .error-img-403 {
-  background: url(/static/images/errorcat.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/errorcat.gif) no-repeat center center/cover;
 }
 
 .error-img-500 {
-  background: url(/static/images/server-error.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/server-error.gif) no-repeat center center/cover;
 }
 
 .not-found {
-  background: url(/static/images/not-found.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/not-found.gif) no-repeat center center/cover;
   width: 400px;
   height: 400px;
 }
@@ -2621,7 +2621,7 @@ label[for="big_dog"] {
 .card-content {
   background-color: #211f23;
   background-repeat: no-repeat;
-  background: url(/static/images/bro-dog.jpg) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/bro-dog.jpg) no-repeat center center/cover;
   color: var(--white-color);
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3118,7 +3118,7 @@ label[for="id_stars_4"] {
 }
 
 .modal-content {
-  background: url(/static/images/dog-bros.jpg) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/dog-bros.jpg) no-repeat center center/cover;
   font-family: "Hubballi", cursive;
   font-size: 100%;
   min-height: 100%;
@@ -3183,7 +3183,7 @@ label[for="id_stars_4"] {
 }
 
 #open-edit-modal {
-  background: url(/static/images/delete.gif) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/delete.gif) no-repeat center center/cover;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -3324,7 +3324,7 @@ label[for="id_stars_4"] {
 }
 
 .newsletter-modal-content {
-  background: url(/static/images/hungry-2.jpg) no-repeat center center/cover;
+  background: url(/izak88/image/upload/v1/static/images/hungry-2.jpg) no-repeat center center/cover;
   color: #fff;
   font-family: "Hubballi", cursive;
   font-size: 100%;
@@ -3735,7 +3735,7 @@ label[for="id_newsletter_email"] {
   }
 
   #home-section {
-    background: url(/static/images/footer.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/footer.jpg) no-repeat center center/cover;
   }
 
   .search-dog-img {
@@ -3948,7 +3948,7 @@ label[for="id_newsletter_email"] {
   }
 
   .card-content {
-    background: url(/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/bro-dog-medium.jpg) no-repeat center center/cover;
   }
 
   .profile-section {
@@ -4013,7 +4013,7 @@ label[for="id_newsletter_email"] {
   }
 
   .newsletter-modal-content {
-    background: url(/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/hungry-2-medium.jpg) no-repeat center center/cover;
   }
 
   .reviews_list__profiles {
@@ -4022,7 +4022,7 @@ label[for="id_newsletter_email"] {
   }
 
   .modal-content {
-    background: url(/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/dog-bros-medium.jpg) no-repeat center center/cover;
   }
 
 
@@ -4655,15 +4655,15 @@ label[for="id_newsletter_email"] {
   }
 
   .card-content {
-    background: url(/static/images/bro-dog-small.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/bro-dog-small.jpg) no-repeat center center/cover;
   }
 
   .newsletter-modal-content {
-    background: url(/static/images/puppy-small.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images/puppy-small.jpg) no-repeat center center/cover;
   }
 
   .modal-content {
-    background: url(/static/images//puppy-small.jpg) no-repeat center center/cover;
+    background: url(/izak88/image/upload/v1/static/images//puppy-small.jpg) no-repeat center center/cover;
   }
 
   .delete-rev-box {
