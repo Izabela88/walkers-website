@@ -4,173 +4,183 @@
 
 <!-------------------------- HERO SECTION ----------------------------->
 <main id="home-section" class="section">
-{% if messages %}
+  {% if messages %}
   <ul class="info-msg center">
-      {% for message in messages %}
-          <li>{{ message.message }}</li>
-      {% endfor %}
+    {% for message in messages %}
+    <li>{{ message.message }}</li>
+    {% endfor %}
   </ul>
-{% endif %}
-<div class="home-bg-shape-1"></div>
-<div class="home-bg-shape-2"></div>
-<div class="container">
-  <div class="half-home-bg">
-    <img
-      src="{% static 'images/q-mark.png' %}"
-      class="mark-img small-mark small-mark-left"
-      alt="A question mark-img"
-    />
-    <img
-      src="{% static 'images/q-mark.png' %}"
-      class="mark-img big-mark"
-      alt="A question mark"
-    />
-    <img
-      src="{% static 'images/q-mark.png' %}"
-      class="mark-img small-mark small-mark-right"
-      alt="A question mark-img"
-    />
+  {% endif %}
+  <div class="mobile-home-bg bg-img">
+    <img src="{% static 'images/footer.jpg' %}" alt="home background">
   </div>
-  <div class="main-image image-shadow">
-    <img src="{% static 'images/dog1.png' %}" class="home-dog-img" alt="A dog" />
+  <div class="home-bg-shape-1 bg-img">
+    <img src="{% static 'images/circle2.png' %}" alt="circle icon">
   </div>
+  <div class="home-bg-shape-2 bg-img">
+    <img src="{% static 'images/circle1.png' %}" alt="circle icon">
+  </div>
+  <div class="container">
+    <div class="half-home-bg">
+      <img
+        src="{% static 'images/q-mark.png' %}"
+        class="mark-img small-mark small-mark-left"
+        alt="A question mark-img"
+      />
+      <img
+        src="{% static 'images/q-mark.png' %}"
+        class="mark-img big-mark"
+        alt="A question mark"
+      />
+      <img
+        src="{% static 'images/q-mark.png' %}"
+        class="mark-img small-mark small-mark-right"
+        alt="A question mark-img"
+      />
+    </div>
+    <div class="main-image image-shadow">
+      <img src="{% static 'images/dog1.png' %}" class="home-dog-img" alt="A dog" />
+    </div>
 
-  {% if user.is_authenticated and is_petsitter %}
-    <div class="home-txt center">
-      <div class="main-txt center">
-        <h1>are you looking for the best platform for advertising your services ?
-        </h1>
-        <p>Well, you just found it! :-) 
-          We empower you to offer your own services on Walkers and giving you the tools to succeed !</p>
-        <div class="button button-bright center home-button-petsitter">
-          <a href="{% url 'user_profile' user.id %}">
-            Complete your profile
+    {% if user.is_authenticated and is_petsitter %}
+      <div class="home-txt center">
+        <div class="main-txt center">
+          <h1>are you looking for the best platform for advertising your services ?
+          </h1>
+          <p>Well, you just found it! :-) 
+            We empower you to offer your own services on Walkers and giving you the tools to succeed !</p>
+          <div class="button button-bright center home-button-petsitter">
+            <a href="{% url 'user_profile' user.id %}">
+              Complete your profile
+              <span><i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="home-txt center">
+        <div class="main-txt center">
+          <h1>
+            are you looking for professional pet sitter or dog walker ?
+          </h1>
+          <p>we will help you to find the best one in your neighborhood !</p>
+        </div>
+        <div class="button button-bright center home-button">
+          <a href="#searching-section">
+            SEARCH
             <span><i class="fas fa-arrow-right"></i></span>
           </a>
         </div>
       </div>
+    {% endif %}
+  </div>
+  </main>
+
+  {% if not is_petsitter %}
+  <!-------------------- SEARCH SECTION------------------- -->
+  <section id="searching-section" class="section">
+    {% if messages %}
+    <ul class="info-msg center">
+        {% for message in messages %}
+            <li>{{ message.message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="searching-bg-shape bg-img">
+    <img src="{% static 'images/circle2.png' %}" alt="circle icon">
+  </div>
+  <div class="container">
+    <div class="search-form">
+      <h2>
+        let's find the person who will take the best care of your dog !
+      </h2>
+      <p>
+        Please enter the information about you and your dog and start searching ! <br>
+        If you have more than one dog, please contact directly to the pet sitter.
+      </p>
+
+      <form id="form-box" method="post" action="{% url 'petsitter_profiles' %}">
+        {% csrf_token %}
+        {% for key, value in petsitter_search_form_errors.items %}
+          <div class="error-profile center">
+            <strong>{{ key }} : {{ value.0 }}</strong>
+          </div>
+        {% endfor %}
+        <div class="form-input center">
+          <label for="post-code">My Post Code</label>
+          {{search_form.postcode}}
+        </div>
+        <div class="form-input center">
+          <label for="dog-size">Petsitter Location</label>
+          {{search_form.area}}
+        </div>
+        <div class="form-input center">
+          <label for="care-type">Care Type</label>
+          {{search_form.care_type}}
+        </div>
+        <div class="form-input center">
+          <label for="dog-size">My Dog Size</label>
+          {{search_form.dog_size}}
+        </div>     
+        <div class="form-input center">
+          <input class="button button-bright center" type="submit" value="Search">
+        </div>              
+      </form>
     </div>
-  {% else %}
-    <div class="home-txt center">
+    <div class="search-dog-img">
+      <img src="{% static 'images/dog2.png' %}" class="search-dog-image" alt="A dog" />
+    </div>
+    <div class="search-section-box">
+      <img src="{% static 'images/heart.png' %}" class="heart-1" alt="Heart icon" />
+      <img src="{% static 'images/heart.png' %}" class="heart-2" alt="Heart icon" />
+    </div>
+  </div>
+  </section>
+  {% endif %}
+  <!-------------------- JOIN SECTION------------------- -->
+  <section id="join-section" class="section">
+  <div class="join-bg-shape bg-img">
+    <img src="{% static 'images/circle2.png' %}" alt="circle icon">
+  </div>
+  <div class="container">
+    <div class="half-join-bg"></div>
+
+    <div class="main-image image-shadow">
+      <img src="{% static 'images/dog3.png' %}" class="home-dog-img" alt="A dog" />
+    </div>
+    <div class="join-txt center">
       <div class="main-txt center">
         <h1>
-          are you looking for professional pet sitter or dog walker ?
+          get paid to play with pets !
         </h1>
-        <p>we will help you to find the best one in your neighborhood !</p>
-      </div>
-      <div class="button button-bright center home-button">
-        <a href="#searching-section">
-          SEARCH
-          <span><i class="fas fa-arrow-right"></i></span>
-        </a>
-      </div>
-    </div>
-  {% endif %}
-</div>
-</main>
-
-{% if not is_petsitter %}
-<!-------------------- SEARCH SECTION------------------- -->
-<section id="searching-section" class="section">
-  {% if messages %}
-  <ul class="info-msg center">
-      {% for message in messages %}
-          <li>{{ message.message }}</li>
-      {% endfor %}
-  </ul>
-{% endif %}
-<div class="searching-bg-shape"></div>
-<div class="container">
-  <div class="search-form">
-    <h2>
-      let's find the person who will take the best care of your dog !
-    </h2>
-    <p>
-      Please enter the information about you and your dog and start searching ! <br>
-      If you have more than one dog, please contact directly to the pet sitter.
-    </p>
-
-    <form id="form-box" method="post" action="{% url 'petsitter_profiles' %}">
-      {% csrf_token %}
-      {% for key, value in petsitter_search_form_errors.items %}
-        <div class="error-profile center">
-          <strong>{{ key }} : {{ value.0 }}</strong>
-        </div>
-      {% endfor %}
-      <div class="form-input center">
-        <label for="post-code">My Post Code</label>
-        {{search_form.postcode}}
-      </div>
-      <div class="form-input center">
-        <label for="dog-size">Petsitter Location</label>
-        {{search_form.area}}
-      </div>
-      <div class="form-input center">
-        <label for="care-type">Care Type</label>
-        {{search_form.care_type}}
-      </div>
-      <div class="form-input center">
-        <label for="dog-size">My Dog Size</label>
-        {{search_form.dog_size}}
-      </div>     
-      <div class="form-input center">
-        <input class="button button-bright center" type="submit" value="Search">
-      </div>              
-    </form>
-  </div>
-  <div class="search-dog-img">
-    <img src="{% static 'images/dog2.png' %}" class="search-dog-image" alt="A dog" />
-  </div>
-  <div class="search-section-box">
-    <img src="{% static 'images/heart.png' %}" class="heart-1" alt="Heart icon" />
-    <img src="{% static 'images/heart.png' %}" class="heart-2" alt="Heart icon" />
-  </div>
-</div>
-</section>
-{% endif %}
-<!-------------------- JOIN SECTION------------------- -->
-<section id="join-section" class="section">
-<div class="join-bg-shape"></div>
-<div class="container">
-  <div class="half-join-bg"></div>
-  <div class="paws-img paw-1 image-shadow-2"></div>
-  <div class="paws-img paw-2 image-shadow-2"></div>
-  <div class="main-image image-shadow">
-    <img src="{% static 'images/dog3.png' %}" class="home-dog-img" alt="A dog" />
-  </div>
-  <div class="join-txt center">
-    <div class="main-txt center">
-      <h1>
-        get paid to play with pets !
-      </h1>
-      <p>
-        Walkers makes it easy and promotes you to the UK's largest network of
-        pet parents!
-      </p>
-      <h2>
-        How it works ? <br />
-        It's simple !
-      </h2>
-      <div class="join-instructions">
-        <div class="step">
-          <div class="step-no center">1</div>
-          <div class="step-txt"><p>Register As Dog Walker</p></div>
-        </div>
-        <div class="step">
-          <div class="step-no center">2</div>
-          <div class="step-txt"><p>Create Your Profile</p></div>
-        </div>
-        <div class="step">
-          <div class="step-no center">3</div>
-          <div class="step-txt"><p>Accept Requests</p></div>
-        </div>
-        <div class="step">
-          <div class="step-no center">4</div>
-          <div class="step-txt"><p>Get Paid</p></div>
+        <p>
+          Walkers makes it easy and promotes you to the UK's largest network of
+          pet parents!
+        </p>
+        <h2>
+          How it works ? <br />
+          It's simple !
+        </h2>
+        <div class="join-instructions">
+          <div class="step">
+            <div class="step-no center">1</div>
+            <div class="step-txt"><p>Register As Dog Walker</p></div>
+          </div>
+          <div class="step">
+            <div class="step-no center">2</div>
+            <div class="step-txt"><p>Create Your Profile</p></div>
+          </div>
+          <div class="step">
+            <div class="step-no center">3</div>
+            <div class="step-txt"><p>Accept Requests</p></div>
+          </div>
+          <div class="step">
+            <div class="step-no center">4</div>
+            <div class="step-txt"><p>Get Paid</p></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
 </section>
 

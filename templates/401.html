@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load account %}
+{% load static %}
 
 {% block title %}Error 401{% endblock title %}
 
@@ -8,7 +9,9 @@
         <div class="container center ">
             <div class="error-box center">
                 <h2>oops! you are not authorized to proceed... please register or log in.</h2>
-                <div class="error-img center"></div>               
+                <div class="error-img center bg-img">
+                    <img src="{% static 'images/cant.gif' %}" alt="error gif">
+                </div>               
             </div>
             <div class="buttons-box error-buttons">
                 <div class="button button-bright center error-button">
