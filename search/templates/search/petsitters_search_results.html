@@ -70,7 +70,9 @@
     
             {% else %}
             <div class="center">
-                <div class="not-found center"></div>
+                <div class="not-found center bg-img">
+                  <img src="{% static 'images/not-found.gif' %}" alt="Search icon">
+                </div>
             </div>
             {% endif %}
         </div>

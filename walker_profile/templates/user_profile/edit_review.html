@@ -47,7 +47,9 @@
             {{walker_user_review_form.description}}
             <div class="buttons-box edit-rev-btns">
               <input type="submit" class="button button-bright edit-rev-submit-btn" value="submit">
-              <div id="open-edit-modal"></div> 
+              <div id="open-edit-modal" class="delete-icon bg-img">
+                <img src="{% static 'images/delete.gif' %}" alt="delete icon">
+              </div> 
             </div>
          
           </form>
@@ -60,7 +62,8 @@
   </section>
   <!----------------- DELETE REVIEW MODAL-------------- -->
   <div class="delete-rev-wrapper">
-   <div class="modal-content">
+   <div class="modal-content bg-img">
+     <img src="{% static 'images/dog-bros.jpg' %}" alt="">
      <div class="delete-rev-box">
        <div class="close-delete-btn">
          <i class="far fa-times-circle"></i>
