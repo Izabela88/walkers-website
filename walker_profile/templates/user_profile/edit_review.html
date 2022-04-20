@@ -15,8 +15,13 @@
     <div class="rev-container edit-rev-container center">
         <h2>Edit review</h2>
         <form class="rate-form rev-form" method="post"> 
-            {% csrf_token %} 
-            <label class="lab edit-lab">Previously, {{petsitter_name}} received from you:</label>   
+            {% csrf_token %}
+            <label class="lab edit-lab">Review created at: {{created_date}}</label>
+            {% if not petsitter_name %}
+              <label class="lab edit-lab">Previously, this pet sitter received from you:</label>   
+            {% else %}
+              <label class="lab edit-lab">Previously, {{petsitter_name}} received from you:</label>   
+            {% endif %} 
                 <ul class="stars-list">
                     {% if not petsitter_stars %}
                       <li>☆</li>
@@ -39,11 +44,20 @@
                     {% endwith %}      
                     {% endif %}                    
                   </ul>
-                  <label class="lab edit-lab ">How many stars would you like to give {{petsitter_name}} now?</label>
+                  {% if not petsitter_name %}
+                    <label class="lab edit-lab ">How many stars would you like to give this pet sitter now?</label>
+                  {% else %}
+                    <label class="lab edit-lab ">How many stars would you like to give {{petsitter_name}} now?</label>
+                  {% endif %}
                   <div class="stars">
                     {{walker_user_review_form.stars}}
-                </div> 
-            <label class="lab edit-lab">what do you think about {{petsitter_name}}'s services:</label>
+                  </div>
+                  {% if not petsitter_name %}
+                    <label class="lab edit-lab">what do you think about this pet sitter services:</label>
+                  {% else %}
+                    <label class="lab edit-lab">what do you think about {{petsitter_name}}'s services:</label>
+                  {% endif %}
+            
             {{walker_user_review_form.description}}
             <div class="buttons-box edit-rev-btns">
               <input type="submit" class="button button-bright edit-rev-submit-btn" value="submit">
@@ -70,8 +84,8 @@
             {% csrf_token %}
             <div class="delete-buttons">
                 <input type="hidden" name="_method" value="delete">
-                <input class="button button-bright del-btn del-btn-1" type="submit" value="Yes I am">
-                <div class="button button-bright center del-btn del-btn-2">
+                <input class="del-btn-1 button button-bright " type="submit" value="Yes I am">
+                <div class=" del-btn-2 button button-bright center">
                     <a href="{% url 'walker_user_review' user.id review_id %}">Nah..Back to edit</a>
                 </div>
             </div>

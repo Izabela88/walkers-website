@@ -13,12 +13,20 @@
     <div class="rev-container center">
         <h2>Your opinion is extremely important ! It's increases credibility among users !</h2>
         <form class="rate-form rev-form" method="post"> 
-            {% csrf_token %} 
-            <label class="lab">How many stars would you like to give {{user.first_name}} ?</label>         
+            {% csrf_token %}
+            {% if not user.first_name %}
+                <label class="lab">How many stars would you like to give to this pet sitter ?</label>
+            {% else %}
+                <label class="lab">How many stars would you like to give {{user.first_name}} ?</label>          
+            {% endif %}                 
                 <div class="stars">
                     {{review_description_form.stars}}
-                </div>    
-            <label class="lab">what do you think about {{user.first_name}}'s services:</label>
+                </div>
+            {% if not user.first_name %}
+                <label class="lab">what do you think about this pet sitter services ?</label>
+            {% else %}
+                <label class="lab">what do you think about {{user.first_name}}'s services:</label>          
+            {% endif %}    
             {{review_description_form.description}}
             <input type="submit" class="button button-bright">
         </form>

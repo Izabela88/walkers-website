@@ -195,6 +195,7 @@ class WalkerUserReview(View):
             ),
             "walker_user_review_form": PetsitterReviewForm(instance=review),
             "petsitter_name": review.user.first_name,
+            "created_date": review.created_at,
             "petsitter_stars": review.stars,
             "review_id": review_id,
         }
