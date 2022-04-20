@@ -26,7 +26,11 @@
                                 <div class="review-icon" 
                                 style="background:url('https://res.cloudinary.com/izak88/image/upload/v1650304073/static/images/user.7964a2ac9bc9.png') no-repeat center center/cover"></div>    
                             {% endif %}
-                            <span class="reviews_list__name">{{i.user.first_name}}</span>
+                            {% if not i.user.first_name %}
+                                <span class="reviews_list__name">pet sitter</span>
+                            {% else %}
+                                <span class="reviews_list__name">{{i.user.first_name}}</span>
+                            {% endif %}
                             <a href="{% url 'walker_user_review' request.user.id i.id %}" class="reviews_list__value">edit review</a>
                             {% if  i.is_admin_approved and i.is_visible %}
                                 <span class="reviews_list__value_1">approved and visible</span>
