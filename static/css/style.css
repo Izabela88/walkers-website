@@ -336,6 +336,7 @@ input[id="id_password1"] {
   height: 100vh;
 }
 
+
 .social-heading {
   width: 70%;
 }
@@ -4468,9 +4469,46 @@ label[for="id_newsletter_email"] {
 
 @media screen and (max-width: 550px) {
 
+  .social-section {
+    height: 100%;
+  }
+
+  .social-heading {
+    width: 70%;
+    height: 800px;
+}
+
+  .social-connect {
+    position: relative;
+    left: unset;
+    transform: unset;
+    height: 800px;
+  }
+
   .allauth-paragraph p {
     width: 80%;
     font-size: 16px;
+  }
+
+  .about-txt {
+    height: 1400px;
+  }
+
+  .connect-box {
+    height: 1000px;
+  }
+
+  .connect-box h2 {
+    margin-top: -20px;
+  }
+
+  .profile-dog-img {
+    height: 350px;
+    width: 350px;
+  }
+
+  .connect-box p {
+    width: 80%;
   }
 
   .allauth-heading h1 {
@@ -4492,6 +4530,18 @@ label[for="id_newsletter_email"] {
     font-size: 12px;
   }
 
+  .error-box {
+    width: 90%;
+  }
+
+  .question-box {
+    height: 75%;
+  }
+
+  .main-txt {
+    width: 93%;
+  }
+
   .error-img,
   .error-img-403,
   .error-img-404,
@@ -4499,6 +4549,11 @@ label[for="id_newsletter_email"] {
     width: 250px;
     height: 250px;
     margin: 30px auto;
+  }
+
+  .social-connect p {
+    font-size: 18px;
+    width: 70%;
   }
 
   .logo {
@@ -4528,6 +4583,7 @@ label[for="id_newsletter_email"] {
 
   .search-form h2 {
     font-size: 20px;
+    padding: 0;
   }
 
   .join-txt h2 {
@@ -4571,6 +4627,11 @@ label[for="id_newsletter_email"] {
 
   .contact-form-box {
     width: 80%;
+    height: 850px;
+  }
+
+  .contact-form-box h2 {
+    margin-top: 30px;
   }
 
   .contact-form-box p {
@@ -4619,7 +4680,7 @@ label[for="id_newsletter_email"] {
   }
 
   .social-heading p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .home-txt {
@@ -4628,6 +4689,7 @@ label[for="id_newsletter_email"] {
 
   .home-txt p {
     font-size: 16px;
+    padding: 10px;
   }
 
   .home-button a {
@@ -4636,6 +4698,7 @@ label[for="id_newsletter_email"] {
 
   .main-txt h1 {
     font-size: 20px;
+    padding: 10px;
   }
 
   .buttons-box {
@@ -5054,10 +5117,6 @@ label[for="id_newsletter_email"] {
     font-size: 18px;
   }
 
-  .contact-form-box {
-    width: 90%;
-  }
-
   .contact-form label {
     font-size: 11px;
   }
@@ -5144,6 +5203,7 @@ label[for="id_newsletter_email"] {
 
   .contact-form-box {
     height: 800px;
+    width: 90%;
   }
 
   .contact-form-box h2 {
