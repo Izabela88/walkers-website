@@ -336,6 +336,7 @@ input[id="id_password1"] {
   height: 100vh;
 }
 
+
 .social-heading {
   width: 70%;
 }
@@ -4477,16 +4478,17 @@ label[for="id_newsletter_email"] {
     height: 1400px;
   }
 
-  .social-section {
-    height: 1000px
-  }
-
   .connect-box {
     height: 1000px;
   }
 
   .connect-box h2 {
     margin-top: -20px;
+  }
+
+  .profile-dog-img {
+    height: 350px;
+    width: 350px;
   }
 
   .connect-box p {
