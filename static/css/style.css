@@ -4473,9 +4473,17 @@ label[for="id_newsletter_email"] {
     height: 100%;
   }
 
-  .social-connect {
-    height: 850px;
+  .social-heading {
+    width: 70%;
+    height: 800px;
 }
+
+  .social-connect {
+    position: relative;
+    left: unset;
+    transform: unset;
+    height: 800px;
+  }
 
   .allauth-paragraph p {
     width: 80%;
@@ -4667,7 +4675,7 @@ label[for="id_newsletter_email"] {
   }
 
   .social-heading p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .home-txt {
