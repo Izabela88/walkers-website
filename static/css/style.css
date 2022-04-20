@@ -4627,6 +4627,11 @@ label[for="id_newsletter_email"] {
 
   .contact-form-box {
     width: 80%;
+    height: 850px;
+  }
+
+  .contact-form-box h2 {
+    margin-top: 30px;
   }
 
   .contact-form-box p {
@@ -5112,10 +5117,6 @@ label[for="id_newsletter_email"] {
     font-size: 18px;
   }
 
-  .contact-form-box {
-    width: 90%;
-  }
-
   .contact-form label {
     font-size: 11px;
   }
@@ -5202,6 +5203,7 @@ label[for="id_newsletter_email"] {
 
   .contact-form-box {
     height: 800px;
+    width: 90%;
   }
 
   .contact-form-box h2 {
