@@ -4469,6 +4469,14 @@ label[for="id_newsletter_email"] {
 
 @media screen and (max-width: 550px) {
 
+  .social-section {
+    height: 100%;
+  }
+
+  .social-connect {
+    height: 850px;
+}
+
   .allauth-paragraph p {
     width: 80%;
     font-size: 16px;
