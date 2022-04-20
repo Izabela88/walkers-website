@@ -4473,6 +4473,26 @@ label[for="id_newsletter_email"] {
     font-size: 16px;
   }
 
+  .about-txt {
+    height: 1400px;
+  }
+
+  .social-section {
+    height: 100%
+  }
+
+  .connect-box {
+    height: 1000px;
+  }
+
+  .connect-box h2 {
+    margin-top: -20px;
+  }
+
+  .connect-box p {
+    width: 80%;
+  }
+
   .allauth-heading h1 {
     font-size: 20px;
   }
@@ -4492,6 +4512,18 @@ label[for="id_newsletter_email"] {
     font-size: 12px;
   }
 
+  .error-box {
+    width: 90%;
+  }
+
+  .question-box {
+    height: 75%;
+  }
+
+  .main-txt {
+    width: 93%;
+  }
+
   .error-img,
   .error-img-403,
   .error-img-404,
@@ -4499,6 +4531,11 @@ label[for="id_newsletter_email"] {
     width: 250px;
     height: 250px;
     margin: 30px auto;
+  }
+
+  .social-connect p {
+    font-size: 18px;
+    width: 70%;
   }
 
   .logo {
@@ -4528,6 +4565,7 @@ label[for="id_newsletter_email"] {
 
   .search-form h2 {
     font-size: 20px;
+    padding: 0;
   }
 
   .join-txt h2 {
