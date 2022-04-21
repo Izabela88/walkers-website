@@ -158,12 +158,44 @@
           <div class="footer-box">
             <h3>Quick links</h3>
             <ul>
-              <li><a href="{% url 'home' %}#home-section">Home</a></li>
-              <li><a href="{% url 'home' %}#searching-section">Find</a></li>
-              <li><a href="{% url 'home' %}#join-section">Join</a></li>
-              <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="/accounts/signup/">Register</a></li>
-              <li><a href="/accounts/login/">Login</a></li>
+              {% url 'home' as url %}
+              <li 
+              class="{% if request.path == url %}
+              active
+              {% endif %}">
+                <a
+                href="{{ url }}"
+                >Home
+                </a>
+              </li>
+              {% if not request.user or not request.user.is_petsitter %}                       
+                <li><a  
+                  href="{% url 'home' %}#searching-section">Find petsitter
+                  </a>
+                </li>
+              {% endif %}
+              <li><a 
+                href="{% url 'home' %}#join-section">Join Us
+                </a>
+              </li>        
+              <li><a  
+                href="{% url 'about' %}">About
+                </a>
+              </li>
+              <li><a 
+                href="{% url 'contact' %}">Contact</a>
+              </li>
+              {% if user.is_authenticated %}
+              {% else %}
+                <li><a  
+                  href="{% url 'account_signup' %}">Register
+                  </a>
+                </li>
+                <li><a  
+                  href="{% url 'account_login' %}">Log In
+                  </a>
+                </li>
+              {% endif %}
             </ul>
           </div>
           <div class="footer-box">
