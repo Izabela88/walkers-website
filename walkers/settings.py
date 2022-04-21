@@ -91,13 +91,12 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SESSION_REMEMBER = True
 EXCHANGE_TOKEN = True
-SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 
-SOCIALACCOUNT_ADAPTER = "walkers.adapter.SocialAccountAdapter"
 
 # Forms
 ACCOUNT_FORMS = {"signup": "walker_profile.forms.ExtendedSignupForm"}
+SOCIALACCOUNT_ADAPTER = "walkers.adapter.SocialAccountAdapter"
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
