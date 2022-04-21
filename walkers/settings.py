@@ -128,15 +128,11 @@ SOCIALACCOUNT_PROVIDERS = {
         "SCOPE": [
             "profile",
             "email",
-            "https://www.googleapis.com/auth/userinfo.profile",
-            "https://www.googleapis.com/auth/userinfo.email",
             "openid",
         ],
         "AUTH_PARAMS": {
             "access_type": "online",
             "response_type": "code",
-            "redirect_uri": "https://walkers88.herokuapp.com/accounts/google/login/callback/",
-            "client_id": os.environ.get("CLIENT_ID"),
         },
     },
 }
