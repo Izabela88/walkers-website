@@ -204,16 +204,21 @@
       class="tabs-content" 
     {% endif %}>
       <h2 class="sitter-heading">Petsitter profile</h2>
-      <div class="petsitter-layout">
+      <div class="wrapper">
         {% if service_details_errors in service_details_errors %}
             <div class="error-profile">
               <strong>{{service_details_errors.0}}</strong>
             </div>
         {% endif %}
-      {% for key, value in service_details_forms.items %}                 
-        <input name="service-type" type="radio" class="service-type" id={{value.0}} checked="checked" />    
-          <div class="page walk-page">
-            <div class="page-contents">
+        <div class="button-wrapper">
+            {% for key, value in service_details_forms.items %}
+              <button class="tab-button" data-id={{value.0}}>{{value.1}}</button>    
+            {% endfor %}
+            <button class="tab-button" data-id="description">description</button> 
+        </div>                 
+        <div class="content-wrapper">
+        {% for key, value in service_details_forms.items %}
+            <div class="content" id={{value.0}}>
               <h4>
                 {{value.1}}
               </h4>
@@ -249,36 +254,25 @@
                 <input class="button button-bright page-btn" type="submit" value="Save" />
               </form>
             </div>
-          </div>
-          <label class="service-type" for={{value.0}}>
-            <span>
-              {{value.1}}
-            </span>
-          </label>
-      {% endfor %}                 
-        <input name="service-type" type="radio" class="description-radio" id="description" />
-        <div class="page description-page">
-          <div class="page-contents">
-            <h4>Description</h4>                    
-            <p>Describe yourself (max 1500 characters):</p>
-            <form class="details-box center" method="post">
-              {% csrf_token %}
-              {{description_form}}
-              {% if description_errors in description_errors %}
-                <div class="error-profile">
-                  <strong>{{description_errors.0}}</strong>
-                </div>
-              {% endif %}
-                <input type="hidden" name="form_type" value="description_form" />
-                <input class="button button-bright page-btn" type="submit" value="Save" />
-              </form>
-          </div>
-        </div>
-        <label class="service-type" for="description">
-          <span>                   
-          Description
-            </span>                   
-        </label>                 
+            {% endfor %}
+            <div class="content" id="description">
+              <h4>
+                description
+              </h4>
+              <form class="details-box center description-form" method="post">
+                <p>Describe yourself (max 1500 characters):</p>
+                {% csrf_token %}
+                {{description_form}}
+                {% if description_errors in description_errors %}
+                  <div class="error-profile">
+                    <strong>{{description_errors.0}}</strong>
+                  </div>
+                {% endif %}
+                  <input type="hidden" name="form_type" value="description_form" />
+                  <input class="button button-bright page-btn" type="submit" value="Save" />
+                </form>
+            </div>                
+          </div>     
       </div>             
     </div>
     {% else %}
