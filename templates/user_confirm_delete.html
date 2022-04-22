@@ -6,7 +6,7 @@
 {% block content %}
     {% if user.is_authenticated %}
     <section class="section">
-        <div class="container center delete-heading">
+        <div class="container center delete-account-heading">
             <h2>Delete User Account</h2>
             <form class="delete-form center" method="post">
                 {% csrf_token %}
