@@ -8,14 +8,14 @@ CARE_TYPE = [
 
 
 DOG_SIZE = [
-    ("small", "Small (> 10kg)"),
+    ("small", "Small (< 10kg)"),
     ("medium", "Medium (10 - 20kg)"),
-    ("big", "Big  (< 20kg)"),
+    ("big", "Big  (> 20kg)"),
 ]
 
 
 AREA = [
-    (5, "> 5 miles"),
+    (5, "< 5 miles"),
     (10, "10 miles"),
     (15, "15 miles"),
     (20, "20 miles"),

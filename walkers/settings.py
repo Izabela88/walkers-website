@@ -128,9 +128,11 @@ SOCIALACCOUNT_PROVIDERS = {
         "SCOPE": [
             "profile",
             "email",
+            "openid",
         ],
         "AUTH_PARAMS": {
             "access_type": "online",
+            "response_type": "code",
         },
     },
 }
@@ -162,7 +164,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 
