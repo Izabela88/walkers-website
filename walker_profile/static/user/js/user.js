@@ -16,7 +16,7 @@ if (!document.querySelector(".display-content")) {
   displayCurrentTab(0);
 }
 
-// Handle tabs buttons and change their colors on click
+// Handle tab buttons and change their colors on click
 function swapTabs() {
   let tabs = document.querySelector(".tabs");
   let tabsBtns = tabs.querySelectorAll(".tabs-button");
@@ -39,9 +39,12 @@ function swapTabs() {
 
 swapTabs();
 
+// Handle functionality related to pet sitter profile forms
+
 const tabs = document.querySelector(".wrapper");
 const tabButton = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".content");
+const activeContent = document.getElementsByClassName("content active");
 
 tabs.onclick = (e) => {
   const id = e.target.dataset.id;
@@ -58,3 +61,11 @@ tabs.onclick = (e) => {
     element.classList.add("active");
   }
 };
+
+function defaultOpenTab() {
+  if (!activeContent.length) {
+    document.getElementsByClassName("tab-button")[0].click();
+  }
+}
+
+defaultOpenTab();

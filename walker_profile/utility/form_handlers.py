@@ -95,6 +95,7 @@ def _description_handler(request: HttpRequest, *args):
     )
     # Add HTML anchor
     request.session["tab"] = "petsitter_profile"
+    request.session["subtab"] = "description"
     if description.is_valid() and description.has_changed():
         description.save()
         if request.user.petsitter_details_id != description.instance.id:

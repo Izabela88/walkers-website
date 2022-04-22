@@ -212,13 +212,25 @@
         {% endif %}
         <div class="button-wrapper">
             {% for key, value in service_details_forms.items %}
-              <button class="tab-button" data-id={{value.0}}>{{value.1}}</button>    
+              <button class="tab-button
+              {% if subtab == value.0 %}
+                active
+              {% endif %}"
+              data-id={{value.0}}>{{value.1}}</button>    
             {% endfor %}
-            <button class="tab-button" data-id="description">description</button> 
+            <button class="tab-button
+            {% if subtab == "description" %}
+              active
+            {% endif %}" 
+            data-id="description">description</button> 
         </div>                 
         <div class="content-wrapper">
         {% for key, value in service_details_forms.items %}
-            <div class="content" id={{value.0}}>
+            <div class="content
+              {% if subtab == value.0 %}
+                active
+              {% endif %}"
+              id={{value.0}}>
               <h4>
                 {{value.1}}
               </h4>
@@ -255,7 +267,11 @@
               </form>
             </div>
             {% endfor %}
-            <div class="content" id="description">
+            <div class="content
+            {% if subtab == "description" %}
+                active
+              {% endif %}" 
+              id="description">
               <h4>
                 description
               </h4>

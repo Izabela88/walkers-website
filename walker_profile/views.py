@@ -73,9 +73,9 @@ class UserProfileView(View):
                     ServiceDetailsForm(),
                 )
 
-        if "tab" in request.session:
-            # Flag for html anchors
-            context["tab"] = request.session.pop("tab")
+        # Flag for html anchors
+        context["tab"] = request.session.pop("tab", None)
+        context["subtab"] = request.session.pop("subtab", None)
         return render(request, "user_profile/user_profile.html", context)
 
     def post(self, request, id):
@@ -105,6 +105,7 @@ class UserProfileView(View):
                 # Assign service id flag and break loop, at this point we know
                 # already which form was submitted
                 service_type_id = i.id
+                request.session["subtab"] = i.type
                 break
 
         if form_handler_fn := form_handler_mapping.get(form_type):
