@@ -91,7 +91,7 @@
         <h3>Reviews</h3>
         
         <div class="slider-container">
-          <div class="slider">
+          <div class="slider center">
             {% if reviews_data.reviews %}
               {% for i in reviews_data.reviews %}
                 <div class="review-box ">                
@@ -125,14 +125,18 @@
               {% endfor %}
             {% else %}
               <div class="review-desc center">
-                <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
+                {% if not user.first_name %}
+                  <p><span>&#9825;</span>This pet sitter doesn't have a review yet... <span>&#9825;</span></p>
+                {% else %}
+                  <p><span>&#9825;</span> {{user.first_name}} doesn't have a review yet... <span>&#9825;</span></p>
+                {% endif %}
               </div>
             {% endif %}
           </div>  
         </div>
         <div class="reviews-btns">
-          <a class="prev"><span>prev</span></a>
-          <a class="next"><span>next</span></a>
+          <a class="prev"><span>prev <br> review</span></a>
+          <a class="next"><span>next <br> review</span></a>
         </div>
       </div>
     </div>
@@ -153,7 +157,7 @@
      
       <div class="prices-slider">
         {% for i in services %}
-          <div class="prices-box">
+          <div class="prices-box center">
             <h4>
               {% if i.type == 'walk' %}
                 Walk in the client neighborhood
@@ -167,11 +171,11 @@
               <h3>
                 <span class="uppercase">
                   {% if k == 'small' %}
-                    small dog (> 10kg)
+                    small dog (< 10kg)
                   {% elif k == 'medium' %}
                     medium dog (10-20 kg)
                   {% else %}
-                    big dog (< 20kg)
+                    big dog (> 20kg)
                   {% endif %}
                 </span>
               </h3>

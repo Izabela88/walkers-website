@@ -42,9 +42,15 @@ class Review(View):
                 review_form.instance.user_id = id
                 review_form.instance.reviewer_id = request.user.id
                 review_form.instance.save()
-                messages.success(request, "Thank you for your review!")
+                messages.success(
+                    request,
+                    (
+                        "Thank you for your review! Your review will be"
+                        " visible after approval by the website administrator"
+                    ),
+                )
             else:
-                messages.error(request, "Something went wrong!")
+                print(review_form.errors)
                 request.session["review_form_errors"] = review_form.errors
                 return HttpResponseRedirect(
                     reverse("review", kwargs={"id": id})

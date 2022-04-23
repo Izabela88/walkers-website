@@ -43,7 +43,11 @@ class Newsletter(View):
                 data.save()
             subscribe(email)
             messages.success(
-                request, "Thank You for subscribe to our newsletter!"
+                request,
+                (
+                    "Thank you for subscribe to our newsletter!"
+                    " You will soon receive a notification on your e-mail."
+                ),
             )
             return HttpResponseRedirect(reverse("home"))
         else:

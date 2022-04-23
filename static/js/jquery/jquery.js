@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/9737655/django-message-once-logged-in
 // Make messages disappear after 3.5s
 $(document).ready(function () {
-  $(".info-msg").delay(3500).fadeOut();
+  $(".info-msg").delay(5000).fadeOut();
 });
 
 // Show and hide scroll to top button

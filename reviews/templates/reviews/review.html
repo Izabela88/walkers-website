@@ -14,10 +14,11 @@
         <h2 class="review-heading">Your opinion is extremely important ! It's increases credibility among users !</h2>
         <form class="rate-form rev-form" method="post"> 
             {% csrf_token %}
+      
             {% if not user.first_name %}
-                <label class="lab">How many stars would you like to give to this pet sitter ?</label>
+                <label class="lab"> Mark below how many stars would you like to give to this pet sitter ?</label>
             {% else %}
-                <label class="lab">How many stars would you like to give {{user.first_name}} ?</label>          
+                <label class="lab">Mark below how many stars would you like to give {{user.first_name}} ?</label>          
             {% endif %}                 
                 <div class="stars">
                     {{review_description_form.stars}}
