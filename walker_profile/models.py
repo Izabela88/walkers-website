@@ -78,17 +78,17 @@ class WalkerUser(AbstractUser):
         active_services = []
         for i in self.service_details.filter(is_active=True).all():
             service = {"type": i.service_type.type, "dog_sizes": {}}
-            if i.is_small_dog and (i.s_price_hour or i.s_price_day):
+            if i.is_service_active("small"):
                 service["dog_sizes"]["small"] = {
                     "price_hour": i.s_price_hour,
                     "price_day": i.s_price_day,
                 }
-            if i.is_medium_dog and (i.m_price_hour or i.m_price_day):
+            if i.is_service_active("medium"):
                 service["dog_sizes"]["medium"] = {
                     "price_hour": i.m_price_hour,
                     "price_day": i.m_price_day,
                 }
-            if i.is_big_dog and (i.b_price_hour or i.b_price_day):
+            if i.is_service_active("big"):
                 service["dog_sizes"]["big"] = {
                     "price_hour": i.b_price_hour,
                     "price_day": i.b_price_day,
@@ -192,3 +192,16 @@ class ServiceDetails(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    def is_service_active(self, size):
+        if size == "small":
+            return self.is_small_dog and (
+                self.s_price_hour is not None or self.s_price_day is not None
+            )
+        if size == "medium":
+            return self.is_medium_dog and (
+                self.m_price_hour is not None or self.m_price_day is not None
+            )
+        return self.is_big_dog and (
+            self.b_price_hour is not None or self.b_price_day is not None
+        )

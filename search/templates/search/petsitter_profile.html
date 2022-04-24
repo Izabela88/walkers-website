@@ -182,9 +182,13 @@
               <ul>
                 {% if v.price_hour and v.price_hour != '0' %}
                   <li>£ {{v.price_hour}} / h </li>
+                {% else %}
+                  <li> volunteer / h</li>
                 {% endif %}
                 {% if v.price_day and v.price_day != '0' %}
                   <li>£ {{v.price_day}} / day</li>
+                {% else %}
+                  <li> volunteer / day</li>
                 {% endif %}             
               </ul>
             {% endfor %}         
