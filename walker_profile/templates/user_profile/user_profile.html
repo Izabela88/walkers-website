@@ -233,14 +233,14 @@
               </h4>
               <form class="petsitter-form" method="post">
                 {% csrf_token %}
-                <label class="form-title">Select below option to make it active and visible in your add:</label>
+                <label class="form-title">1. First select below option to make it active and visible in your ad:</label>
                 {{value.2.is_small_dog}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
                 {{value.2.is_medium_dog}}
                 <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
                 {{value.2.is_big_dog}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                     
-                <label class="form-title">Enter what amount you expect for your services. <br> Maybe you're a volunteer? Then enter '0'.</label>                
+                <label class="form-title">2. Then enter below what amount you expect for your services. <br> Leave the field blank if the price does not apply to your services. <br> Maybe you want to do charity work? Then enter '0'.</label>                
                 {{value.2.s_price_hour}}
                 {{value.2.s_price_day}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
@@ -250,9 +250,9 @@
                 {{value.2.b_price_hour}}
                 {{value.2.b_price_day}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                         
-                <label class="form-title">If you want to display the above information in your ad,
-                   select "YES".If for some reason you do not want to display it, 
-                   select "NO". All data will be kept in case you wish to display it again. 
+                <label class="form-title">3. Finally if you want to display the above information in your ad,
+                   select "YES". If for some reason you do not want to display it, or you want to temporarily suspend your activities select "NO". 
+                   All data will be kept in case you wish to display it again in the future. 
                 </label>
                 <label class="switch">
                   {{value.2.is_active}}
@@ -260,7 +260,9 @@
                   <span class="switch-handle"></span> 
                 </label>                         
                 <input type="hidden" name="form_type" value={{value.0}} />
-                <input class="button button-bright page-btn" type="submit" value="Save" />
+                <div class="petsitter-form-btn">
+                  <input class="button button-bright" type="submit" value="Save" />
+                </div>
               </form>
             </div>
             {% endfor %}

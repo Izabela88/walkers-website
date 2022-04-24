@@ -155,39 +155,33 @@ class ServiceDetails(models.Model):
     s_price_hour = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     s_price_day = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_medium_dog = models.BooleanField(null=True)
     m_price_hour = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     m_price_day = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_big_dog = models.BooleanField(null=True)
     b_price_hour = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     b_price_day = models.PositiveIntegerField(
         null=True,
         blank=True,
-        default=0,
         validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     created_at = models.DateTimeField(auto_now_add=True, null=False)

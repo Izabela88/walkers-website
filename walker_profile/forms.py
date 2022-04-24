@@ -198,6 +198,7 @@ class ServiceDetailsForm(forms.ModelForm):
         is_big_dog = cleaned_data.get("is_big_dog")
         b_price_hour = cleaned_data.get("b_price_hour")
         b_price_day = cleaned_data.get("b_price_day")
+        is_active = cleaned_data.get("is_active")
 
         if is_small_dog and (s_price_hour is None and s_price_day is None):
             raise forms.ValidationError(
@@ -210,6 +211,16 @@ class ServiceDetailsForm(forms.ModelForm):
         if is_big_dog and (b_price_hour is None and b_price_day is None):
             raise forms.ValidationError(
                 {"is_big_dog": "Please fill at least one price field"}
+            )
+
+        if (
+            is_active
+            and not is_small_dog
+            and not is_medium_dog
+            and not is_big_dog
+        ):
+            raise forms.ValidationError(
+                {"is_active": "Mark at least one dog size"}
             )
         return cleaned_data
 

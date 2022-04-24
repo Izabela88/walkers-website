@@ -594,7 +594,7 @@ h2 {
 
 .home-txt {
   height: 100%;
-  width: 40%;
+  width: 490px;
 }
 
 .home-txt h1 {
@@ -1773,11 +1773,6 @@ label[for="id_new_password2"] {
   text-align: center;
 }
 
-.page-btn {
-  height: 40px;
-  position: relative;
-  margin: 15px 235px;
-}
 
 .page-heading h2 {
   font-size: 18px;
@@ -1791,6 +1786,22 @@ label[for="id_new_password2"] {
   width: 100%;
   height: 20%;
   margin-left: 10%;
+}
+
+.petsitter-form {
+  height: 90%;
+  width: 100%;
+}
+
+.petsitter-form-btn {
+  height: 50px;
+  width: 200px;
+  margin: 30px auto;
+}
+
+.petsitter-form-btn input {
+  height: 100%;
+  width: 100%;
 }
 
 .petsitter-form input[type="text"] {
@@ -1810,6 +1821,10 @@ label[for="id_new_password2"] {
   height: 20px;
   position: relative;
   top: 6px;
+}
+
+.petsitter-form input[type="text"]:disabled::placeholder {
+  color: rgba(59, 59, 59, 0.3);
 }
 
 label[for="small_dog"],
@@ -3932,9 +3947,6 @@ label[for="id_newsletter_email"] {
     width: 80%;
   }
 
-  .page-btn {
-    margin: 15px 144px;
-  }
 
   .tabs-button {
     margin: 10px auto;
@@ -4380,11 +4392,6 @@ label[for="id_newsletter_email"] {
     margin-top: 20px;
   }
 
-  .page-btn {
-    margin: 15px auto;
-    width: 100%;
-  }
-
 
   .petsitter-form {
     width: 350px;
@@ -4503,6 +4510,7 @@ label[for="id_newsletter_email"] {
 
   .about-txt {
     height: 1400px;
+    padding: 10px;
   }
 
   .connect-box {
@@ -4781,10 +4789,20 @@ label[for="id_newsletter_email"] {
   }
 
 
-  .details-box textarea {
-    height: 160px;
-    width:90%;
-    margin-top: -365px;
+  .description-form textarea {
+    width: 300px;
+  }
+
+  .description-form p {
+    font-size: 15px;
+  }
+
+  #description h4 {
+    margin-bottom: -230px;
+  }
+
+  .wrapper {
+    height: 1300px;
   }
 
   .petsitter-form {
@@ -4795,10 +4813,6 @@ label[for="id_newsletter_email"] {
   .petsitter-form input[type="text"] {
     width: 195px;
     margin-top: 20px;
-  }
-
-  .page-btn {
-    margin: 30px auto;
   }
 
   .content-wrapper p {
@@ -4900,13 +4914,14 @@ label[for="id_newsletter_email"] {
     margin-bottom: 10px;
   }
 
-  .wrapper label.switch {
-    margin: 0;
+  .about-box {
+    width: 300px;
   }
 
-  .about-box {
-    width: 240px;
+  .about-txt .about-heading {
+    margin-top: -130px;
   }
+
 
   .card-content {
     background: url(https://res.cloudinary.com/izak88/image/upload/v1650369274/static/images/puppy-small.jpg) no-repeat center center/cover;
@@ -5151,8 +5166,6 @@ label[for="id_newsletter_email"] {
 
   .about-txt {
     padding: 0;
-    margin-top: -5px;
-    height: 1200px;
   }
 
   .about-txt h2 {

@@ -29,7 +29,7 @@
                 <label class="lab">what do you think about {{user.first_name}}'s services:</label>          
             {% endif %}    
             {{review_description_form.description}}
-            <input type="submit" class="button button-bright">
+            <input type="submit" class="button button-bright" value="submit">
         </form>
         <div class="button button-bright center back-btn">
             <a href="{% url 'petsitter_profile' user.id %}">back to profile</a>
