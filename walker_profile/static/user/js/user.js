@@ -37,8 +37,6 @@ function swapTabs() {
   });
 }
 
-swapTabs();
-
 // Handle functionality related to pet sitter profile forms
 
 const tabs = document.querySelector(".wrapper");
@@ -68,4 +66,79 @@ function defaultOpenTab() {
   }
 }
 
+const enableDisablePrice = (isActive, perHour, perDay) => {
+  // Enable and disable price inputs, depends on dog size checkbox
+  if (isActive.checked) {
+    perHour.disabled = false;
+    perDay.disabled = false;
+  } else {
+    perHour.disabled = true;
+    perDay.disabled = true;
+  }
+};
+
+const getPriceInputs = (formId, size) => {
+  // Get price per hour and per day for given dog size
+  perHour = document
+    .getElementById(formId)
+    .querySelector(`#id_${size}_price_hour`);
+  perDay = document
+    .getElementById(formId)
+    .querySelector(`#id_${size}_price_day`);
+  return [perHour, perDay];
+};
+
+const toggleActive = (e) => {
+  // Function disable/enable price inputs
+  let formId = e.currentTarget.parentElement.parentElement.id;
+
+  let isActive = document
+    .getElementById(formId)
+    .querySelector(`#${e.currentTarget.id}`);
+
+  if (e.currentTarget.id === "id_is_small_dog") {
+    [perHour, perDay] = getPriceInputs(formId, "s");
+  } else if (e.currentTarget.id === "id_is_medium_dog") {
+    [perHour, perDay] = getPriceInputs(formId, "m");
+  } else {
+    [perHour, perDay] = getPriceInputs(formId, "b");
+  }
+
+  enableDisablePrice(isActive, perHour, perDay);
+};
+
+const activePrice = () => {
+  // Get all petsitter profile form tabs (excluding `Description`)
+  const petsitterForms = document.querySelectorAll(".petsitter-profile-label");
+  petsitterForms.forEach((form) => {
+    // Get checkboxes for each dog size
+    let isSmallActive = document
+      .getElementById(form.dataset.id)
+      .querySelector("#id_is_small_dog");
+    let isMediumActive = document
+      .getElementById(form.dataset.id)
+      .querySelector("#id_is_medium_dog");
+    let isBigActive = document
+      .getElementById(form.dataset.id)
+      .querySelector("#id_is_big_dog");
+
+    // Add event listener on click to toggle price
+    isSmallActive.addEventListener("click", toggleActive);
+    isMediumActive.addEventListener("click", toggleActive);
+    isBigActive.addEventListener("click", toggleActive);
+
+    // Get price inputs for each size
+    [sPerHour, sPerDay] = getPriceInputs(form.dataset.id, "s");
+    [mPerHour, mPerDay] = getPriceInputs(form.dataset.id, "m");
+    [bPerHour, bPerDay] = getPriceInputs(form.dataset.id, "b");
+
+    // Initial price active/disable state
+    enableDisablePrice(isSmallActive, sPerHour, sPerDay);
+    enableDisablePrice(isMediumActive, mPerHour, mPerDay);
+    enableDisablePrice(isBigActive, bPerHour, bPerDay);
+  });
+};
+
+swapTabs();
+activePrice();
 defaultOpenTab();

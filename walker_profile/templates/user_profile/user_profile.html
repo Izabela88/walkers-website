@@ -205,17 +205,14 @@
     {% endif %}>
       <h2 class="sitter-heading">Petsitter profile</h2>
       <div class="wrapper">
-        {% if service_details_errors in service_details_errors %}
-            <div class="error-profile">
-              <strong>{{service_details_errors.0}}</strong>
-            </div>
-        {% endif %}
         <div class="button-wrapper">
             {% for key, value in service_details_forms.items %}
               <button class="tab-button
               {% if subtab == value.0 %}
                 active
-              {% endif %}"
+              {% endif %}
+              petsitter-profile-label
+              "
               data-id={{value.0}}>{{value.1}}</button>    
             {% endfor %}
             <button class="tab-button
@@ -236,14 +233,14 @@
               </h4>
               <form class="petsitter-form" method="post">
                 {% csrf_token %}
-                <label class="form-title">Mark the size of the dog you can look after:</label>
+                <label class="form-title">Select below option to make it active and visible in your add:</label>
                 {{value.2.is_small_dog}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
                 {{value.2.is_medium_dog}}
                 <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
                 {{value.2.is_big_dog}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                     
-                <label class="form-title">Enter what amount you expect for your services, please fill in all fields. <br> Enter '0' if the amount is not included:</label>                
+                <label class="form-title">Enter what amount you expect for your services. <br> Maybe you're a volunteer? Then enter '0'.</label>                
                 {{value.2.s_price_hour}}
                 {{value.2.s_price_day}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>

@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.exceptions import ValidationError
 from django.db.models import Q
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class WalkerUser(AbstractUser):
@@ -153,24 +153,42 @@ class ServiceDetails(models.Model):
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
     s_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     s_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_medium_dog = models.BooleanField(null=True)
     m_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     m_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_big_dog = models.BooleanField(null=True)
     b_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     b_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True, null=True)

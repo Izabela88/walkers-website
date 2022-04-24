@@ -127,10 +127,6 @@ class UserProfileView(View):
             "profile_form_errors": session.pop("profile_form_errors", None),
             "address_form_errors": session.pop("address_form_errors", None),
             "avatar_form_errors": session.pop("avatar_form_errors", None),
-            "description_errors": session.pop("description_errors", None),
-            "service_details_errors": session.pop(
-                "service_details_errors", None
-            ),
         }
         return context
 

@@ -100,48 +100,118 @@ class ServiceDetailsForm(forms.ModelForm):
         ),
     )
     is_small_dog = forms.BooleanField(
-        required=False, label="Small Dog (< 10kg)"
+        required=False,
+        label="Small Dog (< 10kg)",
+        widget=forms.CheckboxInput(
+            attrs={
+                "class": "small-dog",
+            }
+        ),
     )
     is_medium_dog = forms.BooleanField(
-        required=False, label="Medium Dog (10-20 kg)"
-    )
-    is_big_dog = forms.BooleanField(required=False, label="Big Dog (> 20kg)")
-    s_price_hour = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per hour"}
+        required=False,
+        label="Medium Dog (10-20 kg)",
+        widget=forms.CheckboxInput(
+            attrs={
+                "class": "medium-dog",
+            }
         ),
     )
-    s_price_day = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per day"}
+    is_big_dog = forms.BooleanField(
+        required=False,
+        label="Big Dog (> 20kg)",
+        widget=forms.CheckboxInput(
+            attrs={
+                "class": "big-dog",
+            }
         ),
     )
-    m_price_hour = forms.CharField(
-        required=True,
+    s_price_hour = forms.IntegerField(
+        required=False,
         widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per hour"}
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per hour",
+                "class": "price_hour_s",
+            }
         ),
     )
-    m_price_day = forms.CharField(
-        required=True,
+    s_price_day = forms.IntegerField(
+        required=False,
         widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per day"}
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per day",
+                "class": "price_day_s",
+            }
         ),
     )
-    b_price_hour = forms.CharField(
-        required=True,
+    m_price_hour = forms.IntegerField(
+        required=False,
         widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per hour"}
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per hour",
+                "class": "price_hour_m",
+            }
         ),
     )
-    b_price_day = forms.CharField(
-        required=True,
+    m_price_day = forms.IntegerField(
+        required=False,
         widget=forms.TextInput(
-            attrs={"maxlength": "10", "placeholder": "£ per day"}
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per day",
+                "class": "price_day_m",
+            }
         ),
     )
+    b_price_hour = forms.IntegerField(
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per hour",
+                "class": "price_hour_b",
+            }
+        ),
+    )
+    b_price_day = forms.IntegerField(
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                "maxlength": "10",
+                "placeholder": "£ per day",
+                "class": "price_day_b",
+            }
+        ),
+    )
+
+    def clean(self):
+        cleaned_data = super(ServiceDetailsForm, self).clean()
+        is_small_dog = cleaned_data.get("is_small_dog")
+        s_price_hour = cleaned_data.get("s_price_hour")
+        s_price_day = cleaned_data.get("s_price_day")
+        is_medium_dog = cleaned_data.get("is_medium_dog")
+        m_price_hour = cleaned_data.get("m_price_hour")
+        m_price_day = cleaned_data.get("m_price_day")
+        is_big_dog = cleaned_data.get("is_big_dog")
+        b_price_hour = cleaned_data.get("b_price_hour")
+        b_price_day = cleaned_data.get("b_price_day")
+
+        if is_small_dog and not (s_price_hour is None or s_price_day is None):
+            raise forms.ValidationError(
+                {"is_small_dog": "Please fill at least one price field"}
+            )
+        if is_medium_dog and not (m_price_hour is None or m_price_day is None):
+            raise forms.ValidationError(
+                {"is_medium_dog": "Please fill at least one price field"}
+            )
+        if is_big_dog and not (b_price_hour is None or b_price_day is None):
+            raise forms.ValidationError(
+                {"is_big_dog": "Please fill at least one price field"}
+            )
+        return cleaned_data
 
     class Meta:
         model = ServiceDetails
