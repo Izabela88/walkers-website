@@ -7,14 +7,14 @@
 
 ![mockup](/documents/responsive.png)
 
-Walkers -  a platform and website for people who are both looking for dog carers and for people providing such services in the whole UK.
+Walkers -  a platform for people who are both: looking for dog carers and for people providing such services in the whole UK.
 
 Using the principles of UX design, this fully responsive and interactive website was developed using HTML, CSS, JavaScript and Python as well as Django as a framework.
 
 View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 
 
-## **CHECK SEARCH FORM FUNCTIONALITY** 
+## **CHECKING THE SEARCH FORM FUNCTIONALITY** 
 
 The platform is to operate in the UK, and addresses from the Wolverhampton area were entered into the database.
 
@@ -26,6 +26,13 @@ To check the search form functionality please:
   - Click 'Create random addresses' button
 
 You can use the generated post code for the search form as your own.
+
+## **WALKER PROFILE SERVICE TYPES** 
+
+In case of trying run code locally for the first time it is necessary to enter the data from image below manually into the database in the section: "walker_profile_servicetypes".
+The first two columns must be exact the same as in the photo and the date may be different. 
+
+  ![service types](/documents/db-data.png)
 
 
 ## **TABLE OF CONTENT** 
@@ -56,7 +63,7 @@ You can use the generated post code for the search form as your own.
     - [Testing accessibility and performance](#testing-accessibility-and-performance)
     - [Interesting issues and known bugs](#interesting-issues-and-known-bugs)
   - [Deployment](#deployment)
-    - [Deployment of the page](#deployment-of-the-page)
+    - [Deployment on heroku](#deployment-on-heroku)
     - [How to run the code locally](#how-to-run-the-code-locally)
    - [Credits](#credits)
      - [Code](#code)
@@ -71,11 +78,11 @@ You can use the generated post code for the search form as your own.
    More and more people own dogs. Although dogs are wonderful and undoubtedly important members of our families,
    owners often struggle with the problem of what to do in case they have to leave, 
    and they cannot take the dog with them or they work a lot and the dog is struggling at home alone. 
-   This was the inspiration for creating the Walkers app which will help with find the best solution.
+   This was the inspiration for creating the Walkers platform which will help with find the best solution for all dogs owners.
 
    The website gather users who:
-    - are looking for people who provide services in care of the dog
-    - provides services for the care of dogs
+    - are looking for people who provide services in care of the dogs
+    - provides dog care services and who wants to advertise their own services 
    
    - #### **Site owner goal**
      - To provide an platform where users can easy find proven pet sitters/ dog walkers
@@ -131,41 +138,32 @@ You can use the generated post code for the search form as your own.
 
 
  - ### **Scope**
-  
-     - #### **Feature trade-off**
-
-        ![Attachments_feature trade off]()
-
-        A pdf version of the feature trade-off can been see [here]()
-
-        This website will be developed as a minimal viable product with room for future improvements and releases, incorporating additional features.
-
      - #### **Functional requirements**
-        - To be able to register using email address and secure password
-        - To be able to login and logout
-        - To be able to add/view/edit/delete profile information as pet sitter seeker
-        - To be able to add/view/edit/delete profile information as pet sitter 
-        - To be able to reset password
-        - To be able to change password
-        - To be able to add/view/edit/delete an ad
-        - To be able to add/view/edit/delete reviews
-        - To be able to search pet sitter according to area and set of criteria
-        - To be able to display search results
-        - To be able to store and retrieve avatar image 
-        - To be able to contact the site owner 
-        - To handle errors: page 404 not found, page 500 Internal Server Error and page 403 access denied
+        - To be able to register using email address and secure password.
+        - To be able to login and logout.
+        - To be able to add/view/edit/delete profile information as pet sitter seeker.
+        - To be able to add/view/edit/delete profile information as pet sitter.
+        - To be able to reset password.
+        - To be able to change password.
+        - To be able to add/view/edit/delete an ad.
+        - To be able to add/view/edit/delete reviews.
+        - To be able to search pet sitter according to area and set of criteria.
+        - To be able to display search results.
+        - To be able to store and retrieve avatar image.
+        - To be able to contact the site owner. 
+        - To handle errors: page 404 not found, page 500 Internal Server Error and page 403 access denied, 401 Unauthorized.
 
 	  - #### **Non functional requirements**
-          - Display pet sitter profile and information about him/her in engaging way
-          - Intuitive navigation and structure
+          - Display pet sitter profile and information about him/her in engaging way.
+          - Intuitive navigation and structure.
 
      - #### **Content requirements**
-          - Clear and concise information on how to use the website
-          - Details for the pet sitter
-          - Forms where user input is required
-          - Engaging text and headings throughout to introduce main sections of the website
-          - Icons for interactive and visual elements
-          - Background images to provide visually appealing and engaging interface
+          - Clear and concise information on how to use the website.
+          - Details for the pet sitter.
+          - Forms where user input is required.
+          - Engaging text and headings throughout to introduce main sections of the website.
+          - Icons for interactive and visual elements.
+          - Background images to provide visually appealing and engaging interface.
 
      - #### **Constraints**
     
@@ -176,13 +174,16 @@ You can use the generated post code for the search form as your own.
 
      - #### **Organization of functionality and content**
 
-        - Header: Logo and a collapsible menu with navigational links
-        - Homepage: Question indicating the purpose of the page, button which directs to the search form
-        - Join Us: Information on how to start advertising as a pet sitter
-        - About: Information about the site owner
-        - Contact: The form that allows users to send an inquiry to the owner of the website
-        - Profile page: to display all the relevant information about a user  
-        - Footer: Links to social media, newsletter and site links
+        - Header: Logo and a collapsible menu with navigational links.
+        - Homepage: Question indicating the purpose of the page, button which directs to the search form.
+        - Find Petsitter: contains a form that should be used to search for a pet sitter.
+        - Join Us: Information on how to start advertising as a pet sitter.
+        - About: Information about the site owner.
+        - Contact: The form that allows users to send an inquiry to the owner of the website.
+        - Profile page: to display all the relevant information about a user.
+        - Register: Contains the form for register an account.
+        - Log in: Contains the form for log in into account.
+        - Footer: Links to social media, newsletter and site links.
 
      - #### **Interaction design**
 
@@ -194,41 +195,45 @@ You can use the generated post code for the search form as your own.
 
         The diagram below illustrates the database structure used in this project, first managed using SQLite during the development process, then Postgres in production with Heroku.
 
-        ![Attach db structure](documents/db%20structure.png)
+        ![Attach db structure](/documents/db%20structure.png)
 
-        - **User**
+        - **Walkeruser**
           - The default User model is replaced by custom AbstractUser because:
-            - During authentication, application using an email address to uniquely identify
-            - The model has been extended with additional custom columns: 'is_petsitter', 'avatar', 'phone_number'
-          - Information from the User Model is used to create the UserProfile upon signing up
+            - During authentication, application using an email address for uniquely identify.
+            - The model has been extended with additional custom columns: 'is_petsitter', 'avatar', 'phone_number'.
+          - Information from the User Model is used to create the UserProfile upon signing up.
 
         - **AddressDetails model**
-          - Site users' detailed address information
-          - Address using one-to-one relationship with the user model
-          - This model is used to generate address form in user profile
+          - Stores site users' detailed address information.
+          - Address using one-to-one relationship with the user model.
+          - This model is used to generate address form in user profile.
 
         - **ServiceDetails model**
-          - Stores all service details (dog size, amount for services) which pet sitter can offer
-          - This model is used to generate pet sitter profile form in user profile
+          - Stores all service details (dog size, amount for services) which pet sitter can offer.
+          - This model is used to generate pet sitter profile form in the user profile.
 
         - **ServiceTypes model**
           - Stores detailed information about services types which are :
-            - walking in the neighborhood
-            - boarding ate the pet sitter home
-            - day care at the client home
-          - Related one-to-many  with service details model 
+            - walking in the neighborhood.
+            - boarding ate the pet sitter home.
+            - day care at the client home.
+          - Related one-to-many  with service details model.
         
         - **PetsitterDetails model**
-          - Stores pet sitter description about him/herself
-          - Used to generate 'about description' in the pet sitter profile
-          - Related one-to-one with user model and one-to-many with service details model
+          - Stores pet sitter description about him/herself.
+          - Used to generate 'about description' in the pet sitter profile.
+          - Related one-to-one with user model.
 
-        - **Review model**
-          - Stores review details about the pet sitters such as stars rating, comments etc
-          - Related to user model to verify wether the user is leaving a review for the pet sitter
-          - Related to pet sitter profile to easily retrieved information to be displayed in reviews
-          - Reviews cannot be displayed and visible until approved by the admin
+        - **Petsitterreview model**
+          - Stores review details about the pet sitters such as stars rating and description.
+          - Related to user model to verify wether the user is leaving a review for the pet sitter.
+          - Related to pet sitter profile to easily retrieved information to be displayed in reviews.
+          - Reviews cannot be displayed and visible until approved by the admin.
 
+        - **Newsletteruser model**
+          - Stores users subscribed to the newsletter.
+          - Connected via webhook with "Mailchimp" service.
+          - If the user resigns from receiving the newsletter, "Mailchimp" creates request to the webhook and the endpoint is changing subscription status in database.
 - ### **Skeleton**
     
     - ### **Wireframes**
@@ -244,6 +249,7 @@ You can use the generated post code for the search form as your own.
 - ### **Surface / Design** 
 
      The website feature a simple, modern and engaging design, with bright colors to arouse positive emotions among users.
+     All parts of this website are custom made from the scratch.
 
     - #### **Imagery**
 
@@ -268,13 +274,14 @@ You can use the generated post code for the search form as your own.
         - Horizontal lines to structure and make the content of the website easy to read.
         - Rounded edge borders and buttons for a more user friendly and inviting interface.
         - Some light shadows to add further dimension and depth to the website.
+        - Custom forms.
 
 
 ## **FEATURES**
 
   - ### **Existing features**
   
-    Implemented features can be found in [this document](documents/features/features.md).
+    Implemented features can be found [here](documents/features/features.md).
  
   - ### **Features left to implement**
   	- Pagination on pet sitters when displaying all people
@@ -304,25 +311,30 @@ You can use the generated post code for the search form as your own.
   - ### **Defensive design**
 
     - #### **Delete operations**
-      - Users first need to confirm that they are sure that they want to delete the profile, review, avatar
+      - Users first need to confirm that they are sure that they want to delete:
+       - The user account
+       - The review
 
     - #### **Review status**
-      - Reviews can be written only by the pet sitter seekers
+      - Reviews can be written only by the pet sitter seekers.
       - If review is not approved by admin:
-        - Review will not be displayed in pet sitter profile page
+        - Review will not be displayed in pet sitter profile page.
         - In 'my reviews' section in review box will display information: 
           - 'waiting for approval by admin'
+          ![admin review](/documents/reviews-list.png)
         
 
     - #### **Is active ad**
-      - When user is register as pet sitter he/she can complete his/her profile to display his/her ad
-      - There is  an option to display ad 
-      - If pet sitter will set option to 'ON' information will be displayed 
-      - If pet sitter will set option to 'OFF' information won't be displayed but it won't be delete in case of future mind changing
-      - If pet sitter will off all options the 'check price' button will be disabled in his/her profile
+      - When user is register as pet sitter he/she can complete his/her profile to display his/her ad.
+      - There is  an option to display ad.
+      - If pet sitter will set option to 'ON' information will be displayed.
+      - If pet sitter will set option to 'OFF' information won't be displayed but it won't be delete in case of future mind changing.
+      - Inputs where the pet sitter can enter the price are only active when the user first selects the size of the dog he can care for.
+
+      ![active ad](/documents/active-ad.png)
 
     - #### **Status information**
-      - If any of the fields is left blank, informative texts appear in their place.
+      - If any of the fields is left blank, informative texts appear in their place or in toast message on the top of the site.
       - The short texts describe what is missing in a given place.
 
 
@@ -337,43 +349,46 @@ You can use the generated post code for the search form as your own.
 
   - ### **Databases platform and cloud storage**
 
-    - [SQlite](https://www.sqlite.org/index.html): SQL database engine provided by default as part of Django and used during development
-    - [Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql): SQL database service provided directly by Heroku for storing data
-    - [Cloudinary](https://cloudinary.com/): to store images and static files in production
-    - [Heroku](https://www.heroku.com/): to deploy and run the application in production
+    - [SQlite](https://www.sqlite.org/index.html): SQL database engine provided by default as part of Django and used during development.
+    - [Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql): SQL database service provided directly by Heroku for storing data.
+    - [Cloudinary](https://cloudinary.com/): to store images and static files in production.
+    - [Heroku](https://www.heroku.com/): to deploy and run the application in production.
 
   - ### **Libraries and frameworks**
 
-    - [Django](https://www.djangoproject.com/): Python web framework for rapid development and clean, pragmatic design
-    - [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/0.2a3/): uk phone numbers validation
+    - [Django](https://www.djangoproject.com/): Python web framework for rapid development and clean, pragmatic design.
+    - [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/0.2a3/): uk phone numbers validation.
     - [Pillow](https://pillow.readthedocs.io/en/stable/): This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
-    - [Jquery](https://jquery.com/): to DOM manipulation and event handling
+    - [Jquery](https://jquery.com/): to DOM manipulation and event handling.
     - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html): using for registration, and social account authentication.
     - [Django_case_insensitive_field](https://pypi.org/project/django-case-insensitive-field/): to allow case insensitive comparison for unique fields.
-    - [Django cleanup](https://pypi.org/project/django-cleanup/): to automatically delete images / files when an ImagField is removed / updated or deleted
-    - [Flake8](https://pypi.org/project/flake8-django/): A flake8 plugin to detect bad practices on Django projects
-    - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes the source to identify code that could have been executed but was not.
+    - [Django cleanup](https://pypi.org/project/django-cleanup/): to automatically delete images / files when an ImagField is removed / updated or deleted.
+    - [Flake8](https://pypi.org/project/flake8-django/): A flake8 plugin to detect bad practices on Django projects.
+    - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes. the source to identify code that could have been executed but was not.
+    - [Black](https://pypi.org/project/black/): Black is the uncompromising Python code formatter.
 
   - ### **Other technologies**
 
-    - [Google font](https://fonts.google.com/): used for body and headings font
-    - [Font Awesome](https://fontawesome.com/): used for icons throughout the website
+    - [Google font](https://fonts.google.com/): used for body and headings font.
+    - [Font Awesome](https://fontawesome.com/): used for icons throughout the website.
     - [Postcodes Io](https://api.postcodes.io/): Postcodes & Geolocation API for the UK.
     - [Mailchimp](https://mailchimp.com/): Marketing platform used for newsletter.
-    - [Dbdiagram.io](https://dbdiagram.io/home): to design schema of relational database
-    - [W3C Markup Validation Service](https://validator.w3.org/): to check there's not error in HTML
+    - [Dbdiagram.io](https://dbdiagram.io/home): to design schema of relational database.
+    - [W3C Markup Validation Service](https://validator.w3.org/): to check there's not error in HTML.
     - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): This tool was used to check there's no error in the CSS code.
-    - [PEP8 online](http://pep8online.com/): to validate python syntax
-    - [JSHint](https://jshint.com/): to validate jquery/javascript syntax
+    - [PEP8 online](http://pep8online.com/): to validate python syntax.
+    - [JSHint](https://jshint.com/): to validate jquery/javascript syntax.
     - [Chrome DevTools](https://developer.chrome.com/docs/devtools/): Google inspect was used to test and fix code and page responsiveness.
-    - [Google lighthouse](https://developers.google.com/web/tools/lighthouse): Google lighthouse was used to assess performance of the site
-    - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing code before pulls and merge
-    - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator   
-    - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code
-    - [GitHub](https://github.com/): used to store the code of the project
-    - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects
-    - [Compress](https://compressgif.com/): for compress images
-    - [Realfavicongenerator](https://realfavicongenerator.net/): for favicon
+    - [Google lighthouse](https://developers.google.com/web/tools/lighthouse): Google lighthouse was used to assess performance of the site.
+    - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing code before pulls and merges.
+    - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator.
+    - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code.
+    - [GitHub](https://github.com/): used to store the code of the project.
+    - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects.
+    - [Compress](https://compressgif.com/): for compress images.
+    - [Realfavicongenerator](https://realfavicongenerator.net/): for favicon.
+    - [TablePlus](https://tableplus.com/): for database management.
+    - [TempMail](https://temp-mail.org/en/): for generate fake emails for create account.
 
 
 ## **TESTING**
@@ -383,7 +398,7 @@ You can use the generated post code for the search form as your own.
     - The website was tested as it was developed with the implementation of new features, using:
 
       - console.log() and google developer tools
-      - breakpoint() function and terminal for backend functionalities by printing expected outcome
+      - terminal for backend functionalities by printing expected outcome
       - manual testing
       - automated testing
       - Travis CI for testing code before pull and merge on GitHub:
@@ -394,16 +409,134 @@ You can use the generated post code for the search form as your own.
 
   - ### **Testing User Stories**
   
-    - Testing User Stories can be found in [this document](/documents/features/test_user_stories.md).
+    - Testing User Stories can be found [here](/documents/features/test_user_stories.md).
 
 
   - ### **Automated testing**
 
-    - The developer implemented automated testing all apps.
+    - The developer implemented 81 automated testing.
     - For measuring code coverage developer used Coverage.py tool.
-
-    Coverage.py report can be found in [this document]()
+    - To check coverage in the html format:
+      - Type the command "coverage html" in the terminal.
+      - Open the link that appeared in the terminal.
+      - Display the html code in the browser with the Live Server.
     
+    ![coverage tests](/documents/coverage-tests.png)
+
+    - ### **Testing accessibility and performance**
+
+    - Testing through Lighthouse in Chrome extension:
+
+      - For desktop:
+      
+      Section | Performance |Accessibility | Best Practices | SEO |
+      --- | --- | --- | --- | --- |
+      Home | 95 | 92 | 92 | 90 |
+      About | 97 | 97 | 100 | 90 |
+      Contact | 93 | 98 | 100 | 90 |
+      Find Petsitter | 96 | 87 | 100 | 90 |
+      Join Us | 97 | 87 | 100 | 90 |
+      Register | 91 | 98 | 100 | 90 |
+      Log In | 93 | 98 | 100 | 90 |
+      Error pages | 95 | 100 | 100 | 90 |
+
+      - For mobiles:
+
+      Section | Performance |Accessibility | Best Practices | SEO |
+      --- | --- | --- | --- | --- |
+      Home | 84 | 92 | 10 | 92 |
+      About | 81 | 100 | 100 | 92 |
+      Contact | 85 | 100 | 100 | 92 |
+      Find Petsitter | 82 | 89 | 100 | 92 |
+      Join Us | 84 | 89 | 100 | 92 |
+      Register | 83 | 98 | 100 | 92 |
+      Log In | 80 | 98 | 100 | 92 |
+      Error pages | 76 | 100 | 100 | 92 |
+
+    - ### **Interesting issues and known bugs**
+
+      1. Thanks to the "Allauth" library, I added the ability to register or log in, using social media: Facebook and Google. While testing I discovered a bug in my application.
+
+          - How I discovered bug:
+          
+            - I registered with the Goggle.
+            - Again I tried to register to the same email address but using Facebook.
+            - The same error occurs when I tried to register to an email address that already existed in the database.
+            - This error displayed on the screen:
+
+            ![social media bug](/documents/socialaccount-bug.png)
+
+          - The steps I have taken to solve the problem:
+
+            - I deleted my account.
+            - I tried to register in reverse order.
+            - I was looking for this bug on the internet.
+          
+          - Solution:
+
+            - Override Allauth SocialAccountAdapter class in the adapter.py file.
+            - Method "pre_social_login" checks if the provided e-mail address already exists in the database:
+              - If yes it will proceed to connect the accounts with Allauth template.
+              - If no, it will create the account .
+
+
+      2. I used the newsletter form in base.html because I wanted it to be available on every page.
+
+          - How I discovered bug:
+          
+            - I created a form in the newsletter app and tried to display it in base.html but the form didn't display.
+
+          - The steps I have taken to solve the problem:
+
+            - I was looking for this bug on the internet.
+          
+          - Solution:
+
+            - Create context_processors.py file in the walkers app.
+            - Create global_variable function which return context which can be displayed globally.
+
+
+      3. In order to register via social media, I had to enter information in the admin panel.
+
+          - How I discovered bug:
+          
+            - I'm not sure what I did, probably I accidentally deleted a sample domain of the site in the admin panel and created another one.
+            - This error displayed on the screen:
+
+          ![social media bug](/documents/siteid.png)
+
+          - The steps I have taken to solve the problem:
+
+            - I was looking for this bug on the internet.
+          
+          - Solution:
+
+            - Change SITE_ID in the settings.py from 1 on 2.
+
+
+      4. A known bug that I can't fix.
+
+          - How I discovered the bug:
+          
+            - I have sent myself a link to my page in the Messenger App.
+            - I tried register via Google.
+            - This error displayed on the screen:
+
+            ![social media bug](/documents//403error.png)
+
+            - When I tried register or log in via Facebook nothing happened.
+
+          - The steps I have taken to solve the problem:
+
+            - I was looking for this bug on the internet.
+            - Tried change settings in my Google Platform account and Facebook for developers account and settings.py file.
+
+          - Solution:
+
+            - I discovered that the error: "disallowed_useragent" will occur because the app makes a login request that Google rejects. 
+            The most common reason for this rejection is an unauthorized browser agent (the app is using a deprecated browser agent that Google no longer accepts).
+            - This error does not appear when I tried register or log in using a secure browser.
+
 
 - ### **Code validation**
 
@@ -430,52 +563,139 @@ You can use the generated post code for the search form as your own.
     A large amount of testing was done to ensure that all pages were linking correctly.
     Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
     
-  - ### **Testing accessibility and performance**
-
-    I confirmed that the colors and fonts chosen are easy to read and accessible by running it through Lighthouse in Chrome extension.
-
-      - Accessibility for desktop
-      - Accessibility for mobiles
-
-
 ## **DEPLOYMENT**
-
  
+  - ### **Deployment on Heroku**
+
+    - This project is deployed on Heroku for production, with all static and media files stored on Coudinary. These are steps to deploy on Heroku:
+
+    1. Navigate to Heroku.com, create a new account or login if you already have an account. On the dashboard page, click "Create New App" button. Give the app a name. Set the region closest to you, and click "Create App".   
+    2. On the resources tab, provision a new Heroku Postgres database.  
+    3. Configure variables on Heroku by navigating to Settings, and click on Reveal Config Vars. You may not have all the values yet. Add the others as you progress through the steps.   
+        Varables | Key |
+        ---| ---   
+        CLOUDINARY_URL | generated in Cloudinary account   
+        DATABASE_URL | your database url   
+        EMAIL | your email used for SMTP configuration   
+        EMAIL_PASSWORD | your email password  used for SMTP configuration  
+        ENV | PRODUCTION 
+        MAILCHIMP_API_KEY | generated in Mailchimp account  
+        MAILCHIMP_DATA_CENTER | generated in Mailchimp account   
+        MAILCHIMP_EMAIL_LIST_ID | generated in Mailchimp account 
+        SECRET_KEY | your secret key
+
+    4. install dj_database_url and psycopg2.
+      ```
+      pip3 install dj_database_url
+      pip3 install psycopg2-binary
+      ```
+    5. Set up a new database for the site by going to the project's settings.py and importing dj_database_url. Comment out the database's default configuration, and replace the default database with a call to dj_database_url.   parse and pass it the database URL from Heroku (you can get it from your config variables in your app setting tab)
+      ```
+      DATABASES = {
+        'default': dj_database_url.parse('YOUR_DATABASE_URL_FROM_HEROKU')
+      }
+      ```
+    6. Run migrations
+      ```
+      python3 manage.py migrate
+      ```  
+
+    7. Set up a new superuser, fill out the username, email address, and password.
+      ```
+      python3 manage.py create superuser
+      ```  
+    8. Remove the database config from Heroku and uncomment the original config. Add a conditional statement to define that when the app is running on Heroku. we connect to Postgres, and otherwise, we connect to Sqlite.   
+      ```
+      if os.getenv("ENV") == "PRODUCTION":
+        DATABASES = {
+            "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        }
+      else:
+          DATABASES = {
+              "default": {
+                  "ENGINE": "django.db.backends.sqlite3",
+                  "NAME": BASE_DIR / "db.sqlite3",
+              }
+          }
+      ```  
+    9. Install gunicorn (if you haven't) which will act as the webserver, and put it on the requirements.txt.   
+      ``` 
+      pip3 install gunicorn
+      pip3 freeze > requirements.txt
+      ```
+      Note: you don't have to do this if you've installed all dependencies in the requirements.txt file.  
+    10. Create a Procfile, to tell Heroku to create a web dyno, which will run unicorn and serve the Django app.   
+
+      Inside the Procfile:
+      ```
+      release: python manage.py migrate
+      web: gunicorn walkers.wsgi
+      ```
+    11. Login to Heroku through CLI, using ```heroku login```. Once logged in, disable the collect static temporarily, so that Heroku won't try to collect static files when it deploys.
+      ```
+      heroku config:set DISABLE_COLLECTSTATIC=1 --app walkers88
+      ```
+      And add the hostname of the Heroku app to allowed hosts in the project's settings.py, and also add localhost so that Gitpod will still work as well:  
+      ```
+      ALLOWED_HOSTS = ["walkers88.herokuapp.com", "localhost", "127.0.0.1"]
+      ```   
+    12. Add, commit, and push to Github and then to Heroku. After pushing to Github as usual, initialize git remote first:
+      ```
+      heroku git:remote -a walkers88
+      ``` 
+      Then push to Heroku:
+      ```
+      git push heroku main
+      ```
+    13. Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.  
+    14. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default. 
+      ```
+      SECRET_KEY = os.environ.get('SECRET_KEY', '')
+      ```
+      Set debug to be true only if there's a variable called development in the environment.
+      ```
+      if os.getenv("ENV") == "PRODUCTION":
+        DEBUG = False
+        X_FRAME_OPTIONS = "SAMEORIGIN"
+      else:
+        DEBUG = True
+      ```
+
   - ### **How to run the code locally**
 
-    - ### **Forking the GitHub Repository**
+      - ### **Forking the GitHub Repository**
 
-    By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+      By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
-    1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
-    2. At the top of the Repository (not top of page), just above the "Settings" button on the menu, locate the "Fork" button.
-    3. You should now have a copy of the original repository in your GitHub account.
+      1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
+      2. At the top of the Repository (not top of page), just above the "Settings" button on the menu, locate the "Fork" button.
+      3. You should now have a copy of the original repository in your GitHub account.
 
-    - ### **Making a Local Clone**
+      - ### **Making a Local Clone**
 
-    1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
-    2. Under the repository name, click "Clone or download".
-    3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-    4. Open Git Bash
-    5. Change the current working directory to the location where you want the cloned directory to be made.
-    6. Type `git clone`, and then paste the URL you copied in Step 3.
+      1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Izabela88/walkers-website)
+      2. Under the repository name, click "Clone or download".
+      3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+      4. Open Git Bash
+      5. Change the current working directory to the location where you want the cloned directory to be made.
+      6. Type `git clone`, and then paste the URL you copied in Step 3.
 
-    ```
-    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-    ```
+      ```
+      $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+      ```
 
-    7. Press Enter. Your local clone will be created.
+      7. Press Enter. Your local clone will be created.
 
-    ```
-    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-    > Cloning into `CI-Clone`...
-    > remote: Counting objects: 10, done.
-    > remote: Compressing objects: 100% (8/8), done.
-    > remove: Total 10 (delta 1), reused 10 (delta 1)
-    > Unpacking objects: 100% (10/10), done.
-    ```
+      ```
+      $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+      > Cloning into `CI-Clone`...
+      > remote: Counting objects: 10, done.
+      > remote: Compressing objects: 100% (8/8), done.
+      > remove: Total 10 (delta 1), reused 10 (delta 1)
+      > Unpacking objects: 100% (10/10), done.
+      ```
 
-    Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+      Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 
 ## **CREDITS**
@@ -493,10 +713,12 @@ You can use the generated post code for the search form as your own.
   - ### **Media and content**
 
     - All content was written by the developer.
+
     - [Unsplash](https://unsplash.com/): for images
     - [Lottiefiles](https://lottiefiles.com/): for used animations
     - [Pixlr](https://pixlr.com/pl/): was used to process used photos
     - [CSS Scan](https://getcssscan.com/css-box-shadow-examples): for box shadow example
     - [Free Frontend](https://freefrontend.com/): for CSS and JavaScript inspirations
+    - [Crello](https://create.vista.com/pl/home/): for create the logo
 
 
