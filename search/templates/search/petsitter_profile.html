@@ -158,7 +158,7 @@
       <div class="prices-slider">
         {% for i in services %}
           <div class="prices-box center">
-            <h4>
+            <h2>
               {% if i.type == 'walk' %}
                 Walk in the client neighborhood
               {% elif i.type == 'boarding_at_pet_sitter_home' %}
@@ -166,7 +166,7 @@
               {% else %}
                 Day care at the client home
               {% endif %}
-            </h4>
+            </h2>
             {% for k, v in i.dog_sizes.items %}
               <h3>
                 <span class="uppercase">
@@ -197,8 +197,8 @@
         
       </div>
       <div class="prices-btns">
-        <a class="prices-prev"><span>prev</span></a>
-        <a class="prices-next"><span>next</span></a>
+        <a class="prices-prev"><span>prev prices</span></a>
+        <a class="prices-next"><span>next prices</span></a>
       </div>
     </div>
   </div>

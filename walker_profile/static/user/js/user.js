@@ -16,7 +16,7 @@ if (!document.querySelector(".display-content")) {
   displayCurrentTab(0);
 }
 
-// Handle tab buttons and change their colors on click
+// Handle tabs buttons and change their colors on click
 function swapTabs() {
   let tabs = document.querySelector(".tabs");
   let tabsBtns = tabs.querySelectorAll(".tabs-button");
@@ -36,6 +36,8 @@ function swapTabs() {
     }
   });
 }
+
+swapTabs();
 
 // Handle functionality related to pet sitter profile forms
 
@@ -60,20 +62,14 @@ tabs.onclick = (e) => {
   }
 };
 
-function defaultOpenTab() {
-  if (!activeContent.length) {
-    document.getElementsByClassName("tab-button")[0].click();
-  }
-}
-
 const enableDisablePrice = (isActive, perHour, perDay) => {
   // Enable and disable price inputs, depends on dog size checkbox
   if (isActive.checked) {
-    perHour.disabled = false;
-    perDay.disabled = false;
+    perHour.readOnly = false;
+    perDay.readOnly = false;
   } else {
-    perHour.disabled = true;
-    perDay.disabled = true;
+    perHour.readOnly = true;
+    perDay.readOnly = true;
   }
 };
 
@@ -139,6 +135,12 @@ const activePrice = () => {
   });
 };
 
-swapTabs();
 activePrice();
+
+function defaultOpenTab() {
+  if (!activeContent.length) {
+    document.getElementsByClassName("tab-button")[0].click();
+  }
+}
+
 defaultOpenTab();

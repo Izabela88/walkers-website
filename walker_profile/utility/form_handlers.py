@@ -141,10 +141,10 @@ def _service_details_forms_handler(request: HttpRequest, service_type_id: int):
                 "m_price_day": "Price per day for medium dog",
                 "b_price_hour": "Price per hour for big dog",
                 "b_price_day": "Price per day for big dog",
-                "is_small_dog": "SMALL DOG INPUT",
-                "is_medium_dog": "MEDIUM DOG INPUT",
-                "is_big_dog": "BIG DOG INPUT",
-                "is_active": "DISPLAY AD BUTTON",
+                "is_small_dog": "SMALL DOG OPTION",
+                "is_medium_dog": "MEDIUM DOG OPTION",
+                "is_big_dog": "BIG DOG OPTION",
+                "is_active": "DISPLAY AD",
             }
             for key, value in service_details_form.errors.items():
                 display_key = display_key_map.get(key) or key

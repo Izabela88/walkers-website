@@ -36,6 +36,10 @@ class Review(View):
             messages.error(
                 request, "You have already given review to this user !"
             )
+            return HttpResponseRedirect(
+                reverse("review", kwargs={"id": id})
+            )
+        
         else:
             review_form = PetsitterReviewForm(data=request.POST or None)
             if review_form.is_valid():
