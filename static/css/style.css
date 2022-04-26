@@ -627,9 +627,6 @@ h2 {
 .half-home-bg {
   width: 60%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 
@@ -645,29 +642,23 @@ h2 {
   position: absolute;
   bottom: 0;
   left: -35%;
+  height: 70%;
+}
+
+.qmark-box {
+  position: absolute;
+  height: 300px;
+  width: 300px;
 }
 
 .mark-img {
   position: relative;
-}
-
-.small-mark {
-  height: 180px;
-  top: 20%;
-}
-
-.big-mark {
   height: 300px;
-  top: 5%;
+  width: 300px;
+  bottom: -35px;
+  left: 0;
 }
 
-.small-mark-left {
-  transform: rotate(327deg);
-}
-
-.small-mark-right {
-  transform: rotate(27deg);
-}
 
 .home-bg-shape-1 {
   background: url(https://res.cloudinary.com/izak88/image/upload/v1650304089/static/images/circle2.9a3d9c8c2652.png) no-repeat center center/cover;
@@ -1421,6 +1412,10 @@ label[for="id_password"] {
 
 .profile-dog-img {
   height: 75%;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  left: 0;
 }
 
 .tabs-button {
@@ -3518,16 +3513,6 @@ label[for="id_newsletter_email"] {
       font-size: 25px;
     }
 
-    .small-mark {
-      height: 120px;
-      top: 15%;
-    }
-
-    .big-mark {
-      height: 240px;
-      top: 0;
-    }
-
     .join-txt {
       height: 100%;
       width: 37%;
@@ -4150,12 +4135,11 @@ label[for="id_newsletter_email"] {
   }
 
   #home-section {
-    height: 100%;
+    height: 100vh;
   }
 
   .home-txt {
     height: 800px;
-    margin-bottom: 200px;
     width: 80%;
   }
 
