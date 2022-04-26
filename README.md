@@ -6,7 +6,7 @@
 
 ![mockup](/documents/responsive.png)
 
-Walkers - a platform for people who are both: looking for dog carers and for people providing such services in the whole UK.
+Walkers - a platform for people who are both: looking for dog carers and for people providing such services in the whole Great Britain.
 
 Using the principles of UX design, this fully responsive and interactive website was developed using HTML, CSS, JavaScript and Python as well as Django as a framework.
 
@@ -14,7 +14,8 @@ View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 
 ## **CHECKING THE SEARCH FORM FUNCTIONALITY**
 
-The platform is to operate in the UK, and addresses from the Wolverhampton area were entered into the database.
+The platform is to operate in the UK, and only UK addresses may be entered in all address forms.
+The database contains addresses from the Wolverhampton area only.
 
 To check the search form functionality please:
 
@@ -24,6 +25,9 @@ To check the search form functionality please:
 - Click 'Create random addresses' button
 
 You can use the generated post code for the search form as your own.
+
+The created address can also be used to fill in the address form on the user profile page.
+
 
 ## **WALKER PROFILE SERVICE TYPES**
 

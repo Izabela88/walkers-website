@@ -635,7 +635,7 @@ h2 {
   height: 900px;
   width: 60%;
   position: absolute;
-  bottom: 0;
+
 }
 
 .home-dog-img {
@@ -3452,6 +3452,10 @@ label[for="id_newsletter_email"] {
       font-size: 25px;
     }
 
+    .main-image {
+      height: 800px;
+    }
+
     .heading h2 {
       font-size: 25px;
     }
@@ -3486,7 +3490,7 @@ label[for="id_newsletter_email"] {
     }
 
     .heart-2 {
-      top: 0;
+      top: 45px;
     }
 
     .home-bg-shape-1 {

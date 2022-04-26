@@ -273,3 +273,9 @@
 
     ![prices](/documents/toast.png)
 
+  - ### **Welcome Message:**
+
+    - After logging into the user account, a welcome message appears in the navigation bar.
+    - If the user does not enter their first name, only "hello" without a first name will be displayed.
+
+    ![prices](/documents/welcome-msg.png)
