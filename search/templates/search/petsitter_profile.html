@@ -180,16 +180,16 @@
                 </span>
               </h3>
               <ul>
-                {% if v.price_hour and v.price_hour != '0' %}
+                {% if v.price_hour %}
                   <li>£ {{v.price_hour}} / h </li>
-                {% else %}
+                {% elif v.price_hour == 0 %}
                   <li> volunteer / h</li>
                 {% endif %}
-                {% if v.price_day and v.price_day != '0' %}
+                {% if v.price_day %}
                   <li>£ {{v.price_day}} / day</li>
-                {% else %}
+                {% elif v.price_day == 0 %}
                   <li> volunteer / day</li>
-                {% endif %}             
+                {% endif %}  
               </ul>
             {% endfor %}         
           </div>

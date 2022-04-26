@@ -635,7 +635,7 @@ h2 {
   height: 900px;
   width: 60%;
   position: absolute;
-
+  bottom: 0;
 }
 
 .home-dog-img {
@@ -2090,7 +2090,7 @@ label[for="big_dog"] {
 .not-found-button {
   margin-bottom: 100px;
   margin-top: 60px;
-  width: 40%;
+  width: 300px;
 }
 
 /* -------------------Petsitters list */
