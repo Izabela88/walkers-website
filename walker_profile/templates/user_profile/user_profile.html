@@ -204,29 +204,45 @@
       class="tabs-content" 
     {% endif %}>
       <h2 class="sitter-heading">Petsitter profile</h2>
-      <div class="petsitter-layout">
-        {% if service_details_errors in service_details_errors %}
-            <div class="error-profile">
-              <strong>{{service_details_errors.0}}</strong>
-            </div>
-        {% endif %}
-      {% for key, value in service_details_forms.items %}                 
-        <input name="service-type" type="radio" class="service-type" id={{value.0}} checked="checked" />    
-          <div class="page walk-page">
-            <div class="page-contents">
+      <div class="wrapper">
+        <div class="button-wrapper">
+            {% for key, value in service_details_forms.items %}
+              <button class="tab-button
+              {% if subtab == value.0 %}
+                active
+              {% endif %}
+              petsitter-profile-label
+              "
+              data-id={{value.0}}>{{value.1}}</button>    
+            {% endfor %}
+            <button class="tab-button
+            {% if subtab == "description" %}
+              active
+            {% endif %}" 
+            data-id="description">description</button> 
+        </div>                 
+        <div class="content-wrapper">
+        {% for key, value in service_details_forms.items %}
+            <div class="content
+              {% if subtab == value.0 %}
+                active
+              {% endif %}"
+              id={{value.0}}>
               <h4>
                 {{value.1}}
               </h4>
               <form class="petsitter-form" method="post">
                 {% csrf_token %}
-                <label class="form-title">Mark the size of the dog you can look after:</label>
+                <label class="form-title">1. First, mark what size of dog you can take care of. Please select an option below to make it active and visible in your ad:</label>
                 {{value.2.is_small_dog}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
                 {{value.2.is_medium_dog}}
                 <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
                 {{value.2.is_big_dog}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                     
-                <label class="form-title">Enter what amount you expect for your services, please fill in all fields. <br> Enter '0' if the amount is not included:</label>                
+                <label class="form-title">2. Next enter below, what amount you expect for your services (at least one of two fields must be filled to continue). 
+                  Leave the field blank if the price does not apply to your services. 
+                  Or maybe you want to do charity work? Then enter '0'.</label>                
                 {{value.2.s_price_hour}}
                 {{value.2.s_price_day}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
@@ -236,9 +252,10 @@
                 {{value.2.b_price_hour}}
                 {{value.2.b_price_day}}
                 <label for="big_dog">Big Dog (> 20kg)</label><br><br>                         
-                <label class="form-title">If you want to display the above information in your ad,
-                   select "YES".If for some reason you do not want to display it, 
-                   select "NO". All data will be kept in case you wish to display it again. 
+                <label class="form-title">3. Finally, if you would like to display all of the above information in your ad, select "YES". 
+                  You must select at least one dog size to display your ad. 
+                  If for some reason you do not want to display it or you want to temporarily suspend your activity, select "NO". 
+                  All data will be kept in case you want to display it again in the future. 
                 </label>
                 <label class="switch">
                   {{value.2.is_active}}
@@ -246,39 +263,34 @@
                   <span class="switch-handle"></span> 
                 </label>                         
                 <input type="hidden" name="form_type" value={{value.0}} />
-                <input class="button button-bright page-btn" type="submit" value="Save" />
+                <div class="petsitter-form-btn">
+                  <input class="button button-bright" type="submit" value="Save" />
+                </div>
               </form>
             </div>
-          </div>
-          <label class="service-type" for={{value.0}}>
-            <span>
-              {{value.1}}
-            </span>
-          </label>
-      {% endfor %}                 
-        <input name="service-type" type="radio" class="description-radio" id="description" />
-        <div class="page description-page">
-          <div class="page-contents">
-            <h4>Description</h4>                    
-            <p>Describe yourself (max 1500 characters):</p>
-            <form class="details-box center" method="post">
-              {% csrf_token %}
-              {{description_form}}
-              {% if description_errors in description_errors %}
-                <div class="error-profile">
-                  <strong>{{description_errors.0}}</strong>
-                </div>
-              {% endif %}
-                <input type="hidden" name="form_type" value="description_form" />
-                <input class="button button-bright page-btn" type="submit" value="Save" />
-              </form>
-          </div>
-        </div>
-        <label class="service-type" for="description">
-          <span>                   
-          Description
-            </span>                   
-        </label>                 
+            {% endfor %}
+            <div class="content
+            {% if subtab == "description" %}
+                active
+              {% endif %}" 
+              id="description">
+              <h4>
+                description
+              </h4>
+              <form class="details-box center description-form" method="post">
+                <p>Describe yourself (max 1500 characters):</p>
+                {% csrf_token %}
+                {{description_form}}
+                {% if description_errors in description_errors %}
+                  <div class="error-profile">
+                    <strong>{{description_errors.0}}</strong>
+                  </div>
+                {% endif %}
+                  <input type="hidden" name="form_type" value="description_form" />
+                  <input class="button button-bright page-btn" type="submit" value="Save" />
+                </form>
+            </div>                
+          </div>     
       </div>             
     </div>
     {% else %}

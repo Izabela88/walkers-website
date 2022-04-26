@@ -445,20 +445,16 @@ class TestFormHandlers(TestCase):
     @mock.patch(
         "walker_profile.utility.form_handlers.PetsitterDescriptionForm"
     )
-    def test_description_form_add_errors_to_session_when_form_is_invalid(
+    def test_description_form_add_errors_to_messages_when_form_is_invalid(
         self, description_mock
     ):
-        description_mock.return_value.is_valid = mock_false
-        description_mock.return_value.errors = {"error": True}
 
+        description_mock.return_value.is_valid = mock_false
+        description_mock.return_value.errors = {"error": "test"}
         request_stub = HttpRequestStub()
         form_handlers._description_handler(request_stub)
-
         self.assertEqual(request_stub.session["tab"], "petsitter_profile")
-        self.assertEqual(len(request_stub._messages), 0)
-        self.assertEqual(
-            request_stub.session["description_errors"], {"error": True}
-        )
+        self.assertEqual(len(request_stub._messages), 1)
 
     @mock.patch("walker_profile.utility.form_handlers.ServiceDetailsForm")
     def test_service_details_form_handler_happy_flow(
@@ -489,7 +485,7 @@ class TestFormHandlers(TestCase):
         self.assertEqual(request_stub._messages[0][0], 25)
 
     @mock.patch("walker_profile.utility.form_handlers.ServiceDetailsForm")
-    def test_service_details_form_add_errors_to_session_when_form_is_invalid(
+    def test_service_details_form_add_errors_to_messages_when_form_is_invalid(
         self, service_details_mock
     ):
         request_stub = HttpRequestStub()
@@ -500,17 +496,14 @@ class TestFormHandlers(TestCase):
             is_active=True,
         )
         service_details_mock.return_value.is_valid = mock_false
-        service_details_mock.return_value.errors = {"error": True}
+        service_details_mock.return_value.errors = {"error": "test"}
 
         form_handlers._service_details_forms_handler(
             request_stub, petsitter_details.id
         )
 
         self.assertEqual(request_stub.session["tab"], "petsitter_profile")
-        self.assertEqual(len(request_stub._messages), 0)
-        self.assertEqual(
-            request_stub.session["service_details_errors"], {"error": True}
-        )
+        self.assertEqual(len(request_stub._messages), 1)
 
 
 class TestWalkerProfileModel(TestCase):

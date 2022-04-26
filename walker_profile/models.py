@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.exceptions import ValidationError
 from django.db.models import Q
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class WalkerUser(AbstractUser):
@@ -78,17 +78,17 @@ class WalkerUser(AbstractUser):
         active_services = []
         for i in self.service_details.filter(is_active=True).all():
             service = {"type": i.service_type.type, "dog_sizes": {}}
-            if i.is_small_dog and (i.s_price_hour or i.s_price_day):
+            if i.is_service_active("small"):
                 service["dog_sizes"]["small"] = {
                     "price_hour": i.s_price_hour,
                     "price_day": i.s_price_day,
                 }
-            if i.is_medium_dog and (i.m_price_hour or i.m_price_day):
+            if i.is_service_active("medium"):
                 service["dog_sizes"]["medium"] = {
                     "price_hour": i.m_price_hour,
                     "price_day": i.m_price_day,
                 }
-            if i.is_big_dog and (i.b_price_hour or i.b_price_day):
+            if i.is_service_active("big"):
                 service["dog_sizes"]["big"] = {
                     "price_hour": i.b_price_hour,
                     "price_day": i.b_price_day,
@@ -153,24 +153,49 @@ class ServiceDetails(models.Model):
     is_active = models.BooleanField(null=True)
     is_small_dog = models.BooleanField(null=True)
     s_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     s_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_medium_dog = models.BooleanField(null=True)
     m_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     m_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     is_big_dog = models.BooleanField(null=True)
     b_price_hour = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     b_price_day = models.PositiveIntegerField(
-        null=True, default=0, validators=[MaxValueValidator(10)]
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0), MaxValueValidator(99)],
     )
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    def is_service_active(self, size):
+        if size == "small":
+            return self.is_small_dog and (
+                self.s_price_hour is not None or self.s_price_day is not None
+            )
+        if size == "medium":
+            return self.is_medium_dog and (
+                self.m_price_hour is not None or self.m_price_day is not None
+            )
+        return self.is_big_dog and (
+            self.b_price_hour is not None or self.b_price_day is not None
+        )

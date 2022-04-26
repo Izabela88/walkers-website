@@ -36,15 +36,22 @@ class Review(View):
             messages.error(
                 request, "You have already given review to this user !"
             )
+            return HttpResponseRedirect(reverse("review", kwargs={"id": id}))
+
         else:
             review_form = PetsitterReviewForm(data=request.POST or None)
             if review_form.is_valid():
                 review_form.instance.user_id = id
                 review_form.instance.reviewer_id = request.user.id
                 review_form.instance.save()
-                messages.success(request, "Thank you for your review!")
+                messages.success(
+                    request,
+                    (
+                        "Thank you for your review! Your review will be"
+                        " visible after approval by the website administrator"
+                    ),
+                )
             else:
-                messages.error(request, "Something went wrong!")
                 request.session["review_form_errors"] = review_form.errors
                 return HttpResponseRedirect(
                     reverse("review", kwargs={"id": id})

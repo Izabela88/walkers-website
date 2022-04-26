@@ -65,10 +65,12 @@ class TestNewsletterPage(TestCase):
         }
         res = self.client.post(NEWSLETTER_URL)
         messages = list(get_messages(res.wsgi_request))
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(
-            str(messages[0]), "Thank You for subscribe to our newsletter!"
+        expected_msg = (
+            "Thank you for subscribe to our newsletter! You will soon receive"
+            " a notification on your e-mail."
         )
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), expected_msg)
 
     @mock.patch("newsletter.views.subscribe")
     @mock.patch("newsletter.views.NewsletterUserForm")

@@ -95,6 +95,7 @@ def _description_handler(request: HttpRequest, *args):
     )
     # Add HTML anchor
     request.session["tab"] = "petsitter_profile"
+    request.session["subtab"] = "description"
     if description.is_valid() and description.has_changed():
         description.save()
         if request.user.petsitter_details_id != description.instance.id:
@@ -103,7 +104,8 @@ def _description_handler(request: HttpRequest, *args):
             request.user.save()
         messages.success(request, "Your description is updated successfully")
     else:
-        request.session["description_errors"] = description.errors
+        for key, value in description.errors.items():
+            messages.error(request, f"{key}: {value[0]}")
 
 
 def _service_details_forms_handler(request: HttpRequest, service_type_id: int):
@@ -132,6 +134,18 @@ def _service_details_forms_handler(request: HttpRequest, service_type_id: int):
             service_details_form.save()
             messages.success(request, "Your data is updated successfully")
         else:
-            request.session[
-                "service_details_errors"
-            ] = service_details_form.errors
+            display_key_map = {
+                "s_price_hour": "Price per hour for small dog",
+                "s_price_day": "Price per day for small dog",
+                "m_price_hour": "Price per hour for medium dog",
+                "m_price_day": "Price per day for medium dog",
+                "b_price_hour": "Price per hour for big dog",
+                "b_price_day": "Price per day for big dog",
+                "is_small_dog": "SMALL DOG OPTION",
+                "is_medium_dog": "MEDIUM DOG OPTION",
+                "is_big_dog": "BIG DOG OPTION",
+                "is_active": "DISPLAY AD",
+            }
+            for key, value in service_details_form.errors.items():
+                display_key = display_key_map.get(key) or key
+                messages.error(request, f"{display_key}: {value[0]}")
