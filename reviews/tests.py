@@ -44,18 +44,19 @@ class TestReviewPageUserLogIn(TestCase):
         mock_review_form.return_value.is_valid = mock_true
         res = self.client.post(get_review_url(id=2))
         messages = list(get_messages(res.wsgi_request))
+        expected_msg = (
+            "Thank you for your review! Your review will be visible after"
+            " approval by the website administrator"
+        )
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "Thank you for your review!")
+        self.assertEqual(str(messages[0]), expected_msg)
 
     @mock.patch("reviews.views.PetsitterReviewForm")
     def test_post_method_create_error_message(self, mock_review_form):
         mock_review_form.return_value.is_valid = mock_false
         mock_review_form.return_value.errors = {"Error": "Test Error"}
-        res = self.client.post(get_review_url(id=2))
-        messages = list(get_messages(res.wsgi_request))
+        self.client.post(get_review_url(id=2))
         session = self.client.session
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "Something went wrong!")
         self.assertEqual(
             session["review_form_errors"], {"Error": "Test Error"}
         )

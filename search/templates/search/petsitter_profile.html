@@ -91,7 +91,7 @@
         <h3>Reviews</h3>
         
         <div class="slider-container">
-          <div class="slider">
+          <div class="slider center">
             {% if reviews_data.reviews %}
               {% for i in reviews_data.reviews %}
                 <div class="review-box ">                
@@ -101,7 +101,7 @@
                     <div class="reviewer-image" style="background: url('{{i.reviewer.avatar.url}}') no-repeat center center/cover"></div>
                   {% else %}
                     <div class="reviewer-image center">
-                        <div class="reviewer-no-avatar" style="background: url('/static/images/user.png') no-repeat center center/cover"></div>
+                        <div class="reviewer-no-avatar" style="background: url('https://res.cloudinary.com/izak88/image/upload/v1650369279/static/images/user.png') no-repeat center center/cover"></div>
                     </div>                        
                   {% endif %} 
                   <ul class="stars-list">
@@ -125,14 +125,18 @@
               {% endfor %}
             {% else %}
               <div class="review-desc center">
-                <p>-ˏˋ {{user.first_name}} doesn't have a review yet... ˊˎ</p>
+                {% if not user.first_name %}
+                  <p><span>&#9825;</span>This pet sitter doesn't have a review yet... <span>&#9825;</span></p>
+                {% else %}
+                  <p><span>&#9825;</span> {{user.first_name}} doesn't have a review yet... <span>&#9825;</span></p>
+                {% endif %}
               </div>
             {% endif %}
           </div>  
         </div>
         <div class="reviews-btns">
-          <a class="prev"><span>prev</span></a>
-          <a class="next"><span>next</span></a>
+          <a class="prev"><span>prev <br> review</span></a>
+          <a class="next"><span>next <br> review</span></a>
         </div>
       </div>
     </div>
@@ -153,8 +157,8 @@
      
       <div class="prices-slider">
         {% for i in services %}
-          <div class="prices-box">
-            <h4>
+          <div class="prices-box center">
+            <h2>
               {% if i.type == 'walk' %}
                 Walk in the client neighborhood
               {% elif i.type == 'boarding_at_pet_sitter_home' %}
@@ -162,25 +166,29 @@
               {% else %}
                 Day care at the client home
               {% endif %}
-            </h4>
+            </h2>
             {% for k, v in i.dog_sizes.items %}
               <h3>
                 <span class="uppercase">
                   {% if k == 'small' %}
-                    small dog (> 10kg)
+                    small dog (< 10kg)
                   {% elif k == 'medium' %}
                     medium dog (10-20 kg)
                   {% else %}
-                    big dog (< 20kg)
+                    big dog (> 20kg)
                   {% endif %}
                 </span>
               </h3>
               <ul>
                 {% if v.price_hour and v.price_hour != '0' %}
                   <li>£ {{v.price_hour}} / h </li>
+                {% else %}
+                  <li> volunteer / h</li>
                 {% endif %}
                 {% if v.price_day and v.price_day != '0' %}
                   <li>£ {{v.price_day}} / day</li>
+                {% else %}
+                  <li> volunteer / day</li>
                 {% endif %}             
               </ul>
             {% endfor %}         
@@ -189,8 +197,8 @@
         
       </div>
       <div class="prices-btns">
-        <a class="prices-prev"><span>prev</span></a>
-        <a class="prices-next"><span>next</span></a>
+        <a class="prices-prev"><span>prev prices</span></a>
+        <a class="prices-next"><span>next prices</span></a>
       </div>
     </div>
   </div>

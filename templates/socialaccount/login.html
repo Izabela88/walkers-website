@@ -18,7 +18,7 @@
           <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
           <form method="post">
             {% csrf_token %}
-            <button class="button button-bright" type="submit">{% trans "Continue" %}</button>
+            <button class="button button-bright" value="submit" type="submit">{% trans "Continue" %}</button>
           </form>
         </div>
           {% else %}
@@ -27,7 +27,7 @@
           <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
           <form method="post">
             {% csrf_token %}
-            <button class="button button-bright" type="submit">{% trans "Continue" %}</button>
+            <button class="button button-bright" value="submit" type="submit">{% trans "Continue" %}</button>
           </form>
        </div>   
           {% endif %}        
