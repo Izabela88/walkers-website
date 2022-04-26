@@ -213,10 +213,10 @@ class ServiceDetailsForm(forms.ModelForm):
             )
 
         if (
-            is_active
-            and not is_small_dog
-            and not is_medium_dog
-            and not is_big_dog
+            is_active and not
+            is_small_dog and not
+            is_medium_dog and not
+            is_big_dog
         ):
             raise forms.ValidationError(
                 {"is_active": "You should mark at least one dog size option"}

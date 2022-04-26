@@ -292,6 +292,7 @@ The first two columns must be exact the same as in the photo and the date may be
   - Pagination on pet sitters when displaying all people
   - Checkout and payment system
   - Chat with pet sitters
+  - Complete automate testing
 
 ## **CRUD operations and defensive design**
 
