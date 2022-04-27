@@ -3769,6 +3769,7 @@ label[for="id_newsletter_email"] {
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     background-color: var(--yellow-color);
     transition: all 0.6s ease-in-out;
     box-shadow: rgb(0 0 0 / 35%) 0px -10px 20px;
