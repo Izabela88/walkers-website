@@ -630,10 +630,11 @@ h2 {
 }
 
 
-.main-image,
-.user_profile_main_image {
+.main-image {
+  height: 900px;
   width: 60%;
   position: absolute;
+  bottom: 0;
 }
 
 .home-dog-img {
@@ -1403,7 +1404,6 @@ label[for="id_password"] {
 
 .profile-dog-img {
   height: 75%;
-  width: 100%;
   position: relative;
   z-index: -1;
   left: 0;
@@ -4677,10 +4677,6 @@ label[for="id_newsletter_email"] {
 
   .button a {
     padding-top: 20px;
-  }
-
-  .contact-form-box {
-    margin: auto;
   }
 
 
