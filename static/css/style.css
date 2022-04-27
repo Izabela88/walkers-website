@@ -1570,7 +1570,7 @@ label[for="id_description"] {
 
 .edit-box {
   height: 25%;
-  width: 70%;
+  width: 80%;
 }
 
 .edit-box p {
@@ -1672,7 +1672,7 @@ label[for="id_description"] {
 }
 
 .del-btn {
-  width: 230px;
+  width: 250px;
 }
 
 
@@ -3860,7 +3860,7 @@ label[for="id_newsletter_email"] {
   }
 
   #about-section {
-    height: unset;
+    height: 100%;
   }
 
   .about-dog-img {
@@ -4119,12 +4119,9 @@ label[for="id_newsletter_email"] {
     font-size: 30px;
   }
 
+
   .card-content h1 {
     font-size: 30px;
-  }
-
-  .section {
-    height: 100%;
   }
 
   #header {
@@ -4471,10 +4468,15 @@ label[for="id_newsletter_email"] {
   }
 
   .contact-form-box {
-    height: 700px;
     margin-top: 15%;
     margin-bottom: 10%;
     width: 80%;
+  }
+
+
+  .contact-form label {
+    margin: auto;
+    font-size: 12px;
   }
 
   .contact-dog-img {
@@ -4511,13 +4513,18 @@ label[for="id_newsletter_email"] {
 
 @media screen and (max-width: 550px) {
 
-  .social-section {
-    height: 100%;
-  }
-
   .rev-container .review-heading {
     margin-top: -55px;
     margin-bottom: -120px;
+    font-size: 20px;
+  }
+
+  .info-msg li {
+    font-size: 15px;
+  }
+
+  .connections {
+    height: 100%;
   }
 
   .social-heading {
@@ -4539,7 +4546,6 @@ label[for="id_newsletter_email"] {
   }
 
   .about-txt {
-    height: 1400px;
     padding: 10px;
   }
 
@@ -4588,7 +4594,7 @@ label[for="id_newsletter_email"] {
   }
 
   .main-txt {
-    width: 93%;
+    width: 95%;
   }
 
   .error-img,
@@ -4675,10 +4681,6 @@ label[for="id_newsletter_email"] {
     padding-top: 20px;
   }
 
-  .contact-form-box {
-    width: 80%;
-    height: 850px;
-  }
 
   .contact-form-box h2 {
     margin-top: 20px;
@@ -4696,7 +4698,7 @@ label[for="id_newsletter_email"] {
 
   .form-grid-container {
     width: 85%;
-    height: 1000px;
+    height: 850px;
   }
 
   label[for="id_email"],
@@ -4706,15 +4708,20 @@ label[for="id_newsletter_email"] {
   }
 
   label[for="id_is_petsitter"] {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .heading h2 {
     font-size: 20px;
   }
 
+  #login {
+    height: 100%;
+  }
+
   .login-form-grid-container {
     width: 85%;
+    height: 750px;
   }
 
   #id_remember {
@@ -4782,6 +4789,7 @@ label[for="id_newsletter_email"] {
 
   .tabs-content h2 {
     font-size: 20px;
+    margin-top: 40px;
     text-align: center;
   }
 
@@ -4812,6 +4820,10 @@ label[for="id_newsletter_email"] {
 
   .details-box {
     width: 100%;
+  }
+
+  .description-form {
+    height: 100%;
   }
 
   .edit-box p {
@@ -4914,11 +4926,12 @@ label[for="id_newsletter_email"] {
   }
 
   .profile-img-form input[type="file"] {
-    margin: 0;
+    margin: auto;
   }
 
   .change-password-form {
     width: 300px;
+    height: auto;
   }
 
   label[for="id_old_password"],
@@ -4948,11 +4961,6 @@ label[for="id_newsletter_email"] {
     width: 300px;
   }
 
-  .about-txt .about-heading {
-    margin-top: -130px;
-  }
-
-
   .card-content {
     background: url(https://res.cloudinary.com/izak88/image/upload/v1650369274/static/images/puppy-small.jpg) no-repeat center center/cover;
   }
@@ -4968,6 +4976,7 @@ label[for="id_newsletter_email"] {
   .delete-rev-box {
     padding: 20px;
     width: 90%;
+    height: 400px;
   }
 
 
@@ -5016,9 +5025,9 @@ label[for="id_newsletter_email"] {
   }
 
   .content-wrapper h4 {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
   }
 
@@ -5160,6 +5169,20 @@ label[for="id_newsletter_email"] {
     height: 90%;
   }
 
+  .profile-img-form {
+    width: 300px;
+  }
+
+  
+  .lab.edit-lab {
+    font-size: 18px;
+  }
+
+  .delete-rev-box p {
+    font-size: 18px;
+  }
+
+
 }
 
 @media screen and (max-width: 380px) {
@@ -5167,6 +5190,7 @@ label[for="id_newsletter_email"] {
   h1, h2 {
     font-size: 18px;
   }
+
 
   .main-txt h1 {
     font-size: 18px;
@@ -5243,7 +5267,7 @@ label[for="id_newsletter_email"] {
   }
 
   label[for="id_is_petsitter"] {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .tabs-content {
@@ -5270,10 +5294,6 @@ label[for="id_newsletter_email"] {
 
   .lab {
     font-size: 15px;
-  }
-
-  .lab.edit-lab {
-    font-size: 18px;
   }
 
   .rev-description {
@@ -5306,11 +5326,6 @@ label[for="id_newsletter_email"] {
 
   .close-newsletter-btn {
     left: 77%;
-  }
-
-  .contact-form-box {
-    height: 800px;
-    width: 90%;
   }
 
   .contact-form-box h2 {
