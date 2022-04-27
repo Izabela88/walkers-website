@@ -4787,7 +4787,7 @@ label[for="id_newsletter_email"] {
   }
 
   .description-part p {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .error-box h2 {
@@ -5124,7 +5124,7 @@ label[for="id_newsletter_email"] {
 
   .review-desc p {
     padding: 10px;
-    margin-top: 70px;
+    margin-top: 20px;
     text-align: center;
   }
 
