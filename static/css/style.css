@@ -4117,6 +4117,9 @@ label[for="id_newsletter_email"] {
     font-size: 30px;
   }
 
+  .contact-section {
+    height: 100%;
+  }
 
   .card-content h1 {
     font-size: 30px;
@@ -4469,6 +4472,11 @@ label[for="id_newsletter_email"] {
     margin-top: 15%;
     margin-bottom: 10%;
     width: 80%;
+    height: 800px;
+  }
+
+  .contact-form {
+    height: 70%;
   }
 
 
@@ -4677,10 +4685,6 @@ label[for="id_newsletter_email"] {
 
   .button a {
     padding-top: 20px;
-  }
-
-  .contact-form-box {
-    margin: auto;
   }
 
 
