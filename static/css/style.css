@@ -807,7 +807,7 @@ select {
 
 .join-txt {
   height: 100%;
-  width: 500px;
+  width: 50%;
 }
 
 .join-txt h1 {
@@ -1833,7 +1833,7 @@ label[for="big_dog"] {
 
 .wrapper {
   width: 830px;
-  height: 710px;
+  height: 100%;
   margin: auto;
   background-color: var(--white-color);
   border-radius: 10px;
@@ -4592,7 +4592,7 @@ label[for="id_newsletter_email"] {
   }
 
   .main-txt {
-    width: 95%;
+    width: 97%;
   }
 
   .error-img,
