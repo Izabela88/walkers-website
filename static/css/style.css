@@ -3764,25 +3764,21 @@ label[for="id_newsletter_email"] {
 
   /* my code start here */
   .sidebar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
-    width: 50%;
+    width: 0;
     position: fixed;
-    z-index: 1;
     top: 0;
-    left: 0;
     background-color: var(--yellow-color);
-    overflow-x: hidden;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.6s ease-in-out;
     box-shadow: rgb(0 0 0 / 35%) 0px -10px 20px;
-    margin-left: -50%;
-    opacity: 0;
+    margin-left: -220px;
+    overflow-x: hidden;
+    opacity: 0.5;
   }
 
   .sidebar.open-menu {
-    margin-left: 0px;
+    width: 50%;
+    margin-left: 0;
     opacity: 1;
   }
 
@@ -5238,10 +5234,6 @@ label[for="id_newsletter_email"] {
 
   .step-txt {
     width: 85%;
-  }
-
-  .sidebar {
-    width: 70%;
   }
 
   .about-txt {

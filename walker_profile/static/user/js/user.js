@@ -46,21 +46,23 @@ const tabButton = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".content");
 const activeContent = document.getElementsByClassName("content active");
 
-tabs.onclick = (e) => {
-  const id = e.target.dataset.id;
-  if (id) {
-    tabButton.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    e.target.classList.add("active");
+if (tabs) {
+  tabs.onclick = (e) => {
+    const id = e.target.dataset.id;
+    if (id) {
+      tabButton.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      e.target.classList.add("active");
 
-    contents.forEach((content) => {
-      content.classList.remove("active");
-    });
-    const element = document.getElementById(id);
-    element.classList.add("active");
-  }
-};
+      contents.forEach((content) => {
+        content.classList.remove("active");
+      });
+      const element = document.getElementById(id);
+      element.classList.add("active");
+    }
+  };
+}
 
 const enableDisablePrice = (isActive, perHour, perDay) => {
   // Enable and disable price inputs, depends on dog size checkbox
@@ -138,8 +140,9 @@ const activePrice = () => {
 activePrice();
 
 function defaultOpenTab() {
-  if (!activeContent.length) {
-    document.getElementsByClassName("tab-button")[0].click();
+  let tab = document.getElementsByClassName("tab-button")[0];
+  if (tab && !activeContent.length) {
+    tab.click();
   }
 }
 
