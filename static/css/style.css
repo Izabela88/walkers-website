@@ -631,11 +631,9 @@ h2 {
 
 
 .main-image,
-.user_profile-main-image {
-  height: 900px;
+.user_profile_main_image {
   width: 60%;
   position: absolute;
-  bottom: 0;
 }
 
 .home-dog-img {
@@ -3964,7 +3962,7 @@ label[for="id_newsletter_email"] {
     width: 500px;
   }
 
-  .user_profile-main-image {
+  .user_profile_main_image {
     height: unset;
     position: unset;
     width: 100%;
