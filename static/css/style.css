@@ -3764,7 +3764,7 @@ label[for="id_newsletter_email"] {
 
   /* my code start here */
   .sidebar {
-    height: 100%;
+    height: 0;
     width: 0;
     position: fixed;
     top: 0;
@@ -3778,7 +3778,8 @@ label[for="id_newsletter_email"] {
   }
 
   .sidebar.open-menu {
-    width: 50%;
+    width: 220px;
+    height: 100%;
     margin-left: 0;
     opacity: 1;
   }
