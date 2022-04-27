@@ -4679,6 +4679,10 @@ label[for="id_newsletter_email"] {
     padding-top: 20px;
   }
 
+  .contact-form-box {
+    margin: auto;
+  }
+
 
   .contact-form-box h2 {
     margin-top: 20px;
