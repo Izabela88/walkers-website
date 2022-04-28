@@ -27,7 +27,7 @@
 
   ![back to top button](/documents/back-to-top-button.png)
 
-  ![message](/documents/message.png)
+  ![message](/documents/messages.png)
 
   ![not authorized](/documents/not-authorized.png)
 
