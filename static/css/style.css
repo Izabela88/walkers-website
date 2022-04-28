@@ -2353,7 +2353,6 @@ label[for="big_dog"] {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 80%;
   margin-top: 40px;
 }
 
@@ -3576,10 +3575,6 @@ label[for="id_newsletter_email"] {
       font-size: 25px;
     }
 
-    .reviews-container {
-      height: 45%;
-    }
-
     .reviews-btns {
       margin-bottom: -80px;
     }
@@ -3589,7 +3584,7 @@ label[for="id_newsletter_email"] {
     }
 
     .description-container {
-      height: 130px;
+      height: 195px;
     }
 
     .lab {
