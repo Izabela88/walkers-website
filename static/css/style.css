@@ -4535,6 +4535,10 @@ label[for="id_newsletter_email"] {
     font-size: 20px;
   }
 
+  .question-form label {
+    height: 70px;
+  }
+
   .info-msg li {
     font-size: 15px;
   }
