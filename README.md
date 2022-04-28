@@ -455,7 +455,7 @@ The first two columns must be exact the same as in the photo and the date may be
 
     | Section        | Performance | Accessibility | Best Practices | SEO |
     | -------------- | ----------- | ------------- | -------------- | --- |
-    | Home           | 84          | 92            | 10             | 92  |
+    | Home           | 84          | 92            | 100            | 92  |
     | About          | 81          | 100           | 100            | 92  |
     | Contact        | 85          | 100           | 100            | 92  |
     | Find Petsitter | 82          | 89            | 100            | 92  |
