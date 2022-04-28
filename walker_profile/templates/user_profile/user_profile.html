@@ -73,7 +73,6 @@
       {% csrf_token %}
       <label class="profile-label">Phone number</label>
       {{ profile_form.phone_number }}
-      
       {% if profile_form_errors and 'phone_number' in profile_form_errors %}
         <div class="error-profile">
           <strong>{{profile_form_errors.phone_number.0}}</strong>
