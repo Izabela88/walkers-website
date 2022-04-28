@@ -32,7 +32,7 @@ The created address can also be used to fill in the address form on the user pro
 ## **WALKER PROFILE SERVICE TYPES**
 
 In case of trying run code locally for the first time it is necessary to enter the data from image below manually into the database in the section: "walker_profile_servicetypes".
-The first two columns must be exact the same as in the photo and the date may be different.
+The first two columns must be exact the same as in the photo and the date may be present.
 
 ![service types](/documents/db-data.png)
 
