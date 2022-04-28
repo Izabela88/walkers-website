@@ -4704,6 +4704,10 @@ label[for="id_newsletter_email"] {
     font-size: 15px;
   }
 
+  .contact-form {
+    height: 60%;
+  }
+
   .signup {
     width: 100%;
     height: 100%;

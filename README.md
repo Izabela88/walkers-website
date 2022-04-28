@@ -15,19 +15,19 @@ View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 ## **CHECKING THE SEARCH FORM FUNCTIONALITY**
 
 The platform is to operate in the UK, and only UK addresses may be entered in all address forms.
-The database contains addresses from the Wolverhampton area only.
+The database contains addresses from the Wolverhampton area only. Wolverhampton belong to West Midlands county.
 
 To check the search form functionality please:
 
-- visit this page [Random Addresses Generator](https://www.doogal.co.uk/RandomAddresses.php)
-- to 'Number of addresses required' input enter '1'
-- From 'Generate addresses in this area' option please choose 'WV'
-- Click 'Create random addresses' button
+- Visit this page [Random Addresses Generator](https://www.doogal.co.uk/RandomAddresses.php).
+- In the "Number of Addresses Required" field, enter the number of random addresses you want to print.
+- Check the "Include a randomly generated phone number" option if you also want to generate a randomly generated phone number.
+- From 'Generate addresses in this area' option please choose 'WV'.
+- Click 'Create random addresses' button.
 
 You can use the generated post code for the search form as your own.
 
 The created address can also be used to fill in the address form on the user profile page.
-
 
 ## **WALKER PROFILE SERVICE TYPES**
 
@@ -79,50 +79,50 @@ The first two columns must be exact the same as in the photo and the date may be
   and they cannot take the dog with them or they work a lot and the dog is struggling at home alone.
   This was the inspiration for creating the Walkers platform which will help with find the best solution for all dogs owners.
 
-  The website gather users who:
+  The website gathers users who:
 
-  - are looking for people who provide services in care of the dogs
-  - provides dog care services and who wants to advertise their own services
+  - are looking for people who provide services in the care of the dogs.
+  - provides dog care services and who wants to advertise their own services.
 
   - #### **Site owner goal**
 
-    - To provide an platform where users can easy find proven pet sitters/ dog walkers
-    - To provide an platform that allows users to advertise their services to a large number of recipients
-    - To create a viable product that can be further developed with additional features
+    - To provide an platform where users can easy find proven pet sitters/ dog walkers.
+    - To provide an platform that allows users to advertise their services to a large number of recipients.
+    - To create a viable product that can be further developed with additional features.
 
   - #### **User goals**
-    - To access a user-friendly website across multiple devices
-    - To find and contact a professional dog carer
-    - To find as many customers as possible
+    - To access a user-friendly website across multiple devices.
+    - To find and contact a professional dog carer.
+    - To find as many customers as possible.
 
 - ### **User stories**
 
   1. **Navigation and website experience:**
 
-     - As a site user, I want a responsive website so that I can access it on different devices
-     - As a site user, I want to easily navigate across the site so that I can find the information I need
-     - As a site user, I want to be able to return quickly to the home page so I can navigate the website easily
+     - As a site user, I want a responsive website so that I can access it on different devices.
+     - As a site user, I want to easily navigate across the site so that I can find the information I need.
+     - As a site user, I want to be able to return quickly to the home page so I can navigate the website easily.
      - As a site user, I want to know when I am unauthorized to see some content so I can return to the home page and register.
-     - As a site user, I want to see messages after logging in, logging out, or register so I will know what is happening
+     - As a site user, I want to see messages after logging in, logging out, or register so I will know what is happening.
 
   2. **As a new user:**
 
      - I want to easily understand the main purpose of the website.
-     - I want to know how to join the walkers' community
+     - I want to know how to join the walkers' community.
      - I want to find a section describing the company to find out when it was founded and the rest of the pertinent information about this company.
      - I want to locate social media links to find opinions about the company and check how trusted and known they are.
-     - I want to be able to find a dog walker or pet sitter in my area
-     - I want to be able to log in with social media so I can access my account quickly
+     - I want to be able to find a dog walker or pet sitter in my area.
+     - I want to be able to log in with social media so I can access my account quickly.
      - I want to be sure that my email is correct so I can verify it.
 
   3. **As a returning user:**
 
-     - I want to log in and logout so that I can access my profile safely
-     - I want to be able to delete my profile so my personal information is removed from the website
+     - I want to log in and logout so that I can access my profile safely.
+     - I want to be able to delete my profile so my personal information is removed from the website.
      - I want to be able to add my image to my profile so I can be more trustworthy for others users.
      - I want to register for an account so I can view a profile of dog walkers or pet sitters.
-     - I want to be able to see dog walker or pet sitter profile to check more information about this person
-     - I want to be able to write comments about dog walkers or pet sitters so I can help others users with choosing the best one person
+     - I want to be able to see dog walker or pet sitter profile to check more information about this person.
+     - I want to be able to write comments about dog walkers or pet sitters so I can help others users with choosing the best one person.
      - I want to be able to delete or edit my reviews so I can manage them on my profile.
 
   4. **As a frequent user:**
@@ -131,7 +131,7 @@ The first two columns must be exact the same as in the photo and the date may be
      - I want to have the ability to change my password so I can keep my account safe.
      - I want to edit my profile so that I can update my personal information.
      - I want to be able to contact the platform owner so I can report any problems or ask questions.
-     - I want to verify forgotten password so I can confirm my request on the recovery link
+     - I want to verify forgotten password so I can confirm my request on the recovery link.
      - I want to sign up for the Newsletter to email any major updates and/or changes to the website or organization.
 
 - ### **Scope**
@@ -143,6 +143,7 @@ The first two columns must be exact the same as in the photo and the date may be
     - To be able to add/view/edit/delete profile information as pet sitter seeker.
     - To be able to add/view/edit/delete profile information as pet sitter.
     - To be able to reset password.
+    - To be able to subscribe to the newsletter.
     - To be able to change password.
     - To be able to add/view/edit/delete an ad.
     - To be able to add/view/edit/delete reviews.
@@ -154,7 +155,7 @@ The first two columns must be exact the same as in the photo and the date may be
 
   - #### **Non functional requirements**
 
-    - Display pet sitter profile and information about him/her in engaging way.
+    - Display pet sitter profile and information in an interesting way.
     - Intuitive navigation and structure.
 
   - #### **Content requirements**
@@ -167,8 +168,7 @@ The first two columns must be exact the same as in the photo and the date may be
     - Background images to provide visually appealing and engaging interface.
 
   - #### **Constraints**
-
-    - Technical skills: Developer is still learning Python and is new to Django Framework which may impact on the successful implementation of the planned features.
+    - Technical skills: The developer is still learning Python and is new to Django Framework, which may impact the successful implementation of the planned features.
     - Time: Implementing features using new technical skills will require time and careful planning.
 
 - ### **Structure**
@@ -176,21 +176,21 @@ The first two columns must be exact the same as in the photo and the date may be
   - #### **Organization of functionality and content**
 
     - Header: Logo and a collapsible menu with navigational links.
-    - Homepage: Question indicating the purpose of the page, button which directs to the search form.
+    - Homepage: Question indicating the page's purpose, the button which directs to the search form.
     - Find Petsitter: contains a form that should be used to search for a pet sitter.
     - Join Us: Information on how to start advertising as a pet sitter.
     - About: Information about the site owner.
-    - Contact: The form that allows users to send an inquiry to the owner of the website.
+    - Contact: The form allows users to send an inquiry to the owner of the website.
     - Profile page: to display all the relevant information about a user.
-    - Register: Contains the form for register an account.
-    - Log in: Contains the form for log in into account.
+    - Register: This contains the form for registering an account.
+    - Login: This contains the form for logging in to the account.
     - Footer: Links to social media, newsletter and site links.
 
   - #### **Interaction design**
 
-    - Collapsible menu
-    - Buttons, icons and links with hovering effect
-    - Pop up modal forms
+    - Collapsible menu.
+    - Buttons, icons and links with hovering effect.
+    - Pop up modal forms.
 
   - #### **Database structure**
 
@@ -200,47 +200,47 @@ The first two columns must be exact the same as in the photo and the date may be
 
     - **Walkeruser**
 
-      - The default User model is replaced by custom AbstractUser because:
-        - During authentication, application using an email address for uniquely identify.
+      - The Django default User model is replaced by the custom AbstractUser because:
+        - During authentication, the application uses an email address to identify uniquely.
         - The model has been extended with additional custom columns: 'is_petsitter', 'avatar', 'phone_number'.
       - Information from the User Model is used to create the UserProfile upon signing up.
 
     - **AddressDetails model**
 
       - Stores site users' detailed address information.
-      - Address using one-to-one relationship with the user model.
-      - This model is used to generate address form in user profile.
+      - Address using a one-to-one relationship with the user model.
+      - This model is used to generate an address form in the user profile.
 
     - **ServiceDetails model**
 
-      - Stores all service details (dog size, amount for services) which pet sitter can offer.
-      - This model is used to generate pet sitter profile form in the user profile.
+      - Stores all service details (dog size, amount for provide services) which pet sitter can offer.
+      - This model is used to generate a pet sitter profile form in the user profile.
 
     - **ServiceTypes model**
 
       - Stores detailed information about services types which are :
-        - walking in the neighborhood.
+        - walking in the neighbourhood.
         - boarding ate the pet sitter home.
-        - day care at the client home.
+        - daycare at the client's home.
       - Related one-to-many with service details model.
 
     - **PetsitterDetails model**
 
-      - Stores pet sitter description about him/herself.
-      - Used to generate 'about description' in the pet sitter profile.
-      - Related one-to-one with user model.
+      - Stores pet sitter description about themselves.
+      - Used to generate 'About' in the pet sitter profile.
+      - Related one-to-one with the user model.
 
     - **Petsitterreview model**
 
-      - Stores review details about the pet sitters such as stars rating and description.
-      - Related to user model to verify wether the user is leaving a review for the pet sitter.
-      - Related to pet sitter profile to easily retrieved information to be displayed in reviews.
+      - Stores review details about the pet sitters such as stars rating and review description.
+      - Related to the user model to verify whether the user is leaving a review for the pet sitter.
+      - Related to pet sitter profile to easily retrieve information displayed in reviews.
       - Reviews cannot be displayed and visible until approved by the admin.
 
     - **Newsletteruser model**
       - Stores users subscribed to the newsletter.
       - Connected via webhook with "Mailchimp" service.
-      - If the user resigns from receiving the newsletter, "Mailchimp" creates request to the webhook and the endpoint is changing subscription status in database.
+      - If the user resigns from receiving the newsletter, "Mailchimp" creates a request to the webhook, and the endpoint changes subscription status in the database.
 
 - ### **Skeleton**
 
@@ -273,18 +273,18 @@ The first two columns must be exact the same as in the photo and the date may be
 
     The website will use the following fonts from Google:
 
-    - [Architects Daughter](https://fonts.google.com/specimen/Architects+Daughter?query=Architects+Daughter) for headings
-    - [Hubballi](https://fonts.google.com/specimen/Hubballi?query=Hubballi) for the rest text
+    - [Architects Daughter](https://fonts.google.com/specimen/Architects+Daughter?query=Architects+Daughter) for headings.
+    - [Hubballi](https://fonts.google.com/specimen/Hubballi?query=Hubballi) for the rest text.
 
   - #### **Icons**
 
     Icons by font-awesome used throughout the website to allow users to quickly access functionalities.
 
   - #### **Styling**
-    - Horizontal lines to structure and make the content of the website easy to read.
-    - Rounded edge borders and buttons for a more user friendly and inviting interface.
+    - Horizontal lines to structure and make the website's content easy to read.
+    - Rounded edge borders and buttons for a more user-friendly and inviting interface.
     - Some light shadows to add further dimension and depth to the website.
-    - Custom forms.
+    - Custom created forms.
 
 ## **FEATURES**
 
@@ -293,10 +293,10 @@ The first two columns must be exact the same as in the photo and the date may be
   Implemented features can be found [here](documents/features/features.md).
 
 - ### **Features left to implement**
-  - Pagination on pet sitters when displaying all people
-  - Checkout and payment system
-  - Chat with pet sitters
-  - Complete automate testing
+  - Pagination on search results.
+  - Checkout and payment system.
+  - Pet sitter profile extension: add a calendar, the possibility to chat with the pet sitter, and add the ability to upload documents confirming the petsitter's experience.
+  - Complete automated testing in 100%.
 
 ## **CRUD operations and defensive design**
 
@@ -323,30 +323,33 @@ The first two columns must be exact the same as in the photo and the date may be
   - #### **Delete operations**
 
     - Users first need to confirm that they are sure that they want to delete:
-    - The user account
-    - The review
+    - The user account.
+    - The review.
 
   - #### **Review status**
 
     - Reviews can be written only by the pet sitter seekers.
-    - If review is not approved by admin:
-      - Review will not be displayed in pet sitter profile page.
-      - In 'my reviews' section in review box will display information:
-        - 'waiting for approval by admin'
+    - If the admin does not approve the review:
+      - Review will not be displayed on the pet sitter profile page.
+      - In the 'my reviews' section in the review box will display information:
+        - 'waiting for approval by admin.'
+    - If the admin approve the review:
+      - In the 'my reviews' section in the review box will display information:
+        - 'approved and visible.'
           ![admin review](/documents/reviews-list.png)
 
   - #### **Is active ad**
 
-    - When user is register as pet sitter he/she can complete his/her profile to display his/her ad.
-    - There is an option to display ad.
-    - If pet sitter will set option to 'ON' information will be displayed.
-    - If pet sitter will set option to 'OFF' information won't be displayed but it won't be delete in case of future mind changing.
-    - Inputs where the pet sitter can enter the price are only active when the user first selects the size of the dog he can care for.
+    - When the users are registered as pet sitters, they can complete their profile to display their ad.
+    - There is an option to display an ad.
+    - If the pet sitter sets the option to 'ON', information will be displayed.
+      If the pet sitter sets the option to 'OFF', the information won't be displayed but won't be deleted in case of future mind changes.
+    - Inputs, where the pet sitter can enter the price, are only active when the user first selects the size of the dog he can care for.
 
     ![active ad](/documents/active-ad.png)
 
   - #### **Status information**
-    - If any of the fields is left blank, informative texts appear in their place or in toast message on the top of the site.
+    - If any of the fields are left blank, informative texts appear in their place or toast message on the top of the site.
     - The short texts describe what is missing in a given place.
 
 ## **TECHNOLOGIES USED**
@@ -372,11 +375,10 @@ The first two columns must be exact the same as in the photo and the date may be
   - [Pillow](https://pillow.readthedocs.io/en/stable/): This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
   - [Jquery](https://jquery.com/): to DOM manipulation and event handling.
   - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html): using for registration, and social account authentication.
-  - [Django_case_insensitive_field](https://pypi.org/project/django-case-insensitive-field/): to allow case insensitive comparison for unique fields.
   - [Django cleanup](https://pypi.org/project/django-cleanup/): to automatically delete images / files when an ImagField is removed / updated or deleted.
-  - [Flake8](https://pypi.org/project/flake8-django/): A flake8 plugin to detect bad practices on Django projects.
+  - [Flake8](https://pypi.org/project/flake8-django/): A plugin to detect bad practices on Django projects.
   - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes. the source to identify code that could have been executed but was not.
-  - [Black](https://pypi.org/project/black/): Black is the uncompromising Python code formatter.
+  - [Black](https://pypi.org/project/black/): for the uncompromising Python code formatter.
 
 - ### **Other technologies**
 
@@ -392,14 +394,14 @@ The first two columns must be exact the same as in the photo and the date may be
   - [Chrome DevTools](https://developer.chrome.com/docs/devtools/): Google inspect was used to test and fix code and page responsiveness.
   - [Google lighthouse](https://developers.google.com/web/tools/lighthouse): Google lighthouse was used to assess performance of the site.
   - [Travis CI](https://www.travis-ci.com/): to sync with my GitHub for testing code before pulls and merges.
-  - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random addresses generator.
+  - [Doogal](https://www.doogal.co.uk/RandomAddresses.php): random UK addresses generator.
   - [Visual Studio Code](https://code.visualstudio.com/): was used to create and store code.
   - [GitHub](https://github.com/): used to store the code of the project.
   - [Adobe XD](https://www.adobe.com/products/xd/pricing/free-trial.html): for website projects.
   - [Compress](https://compressgif.com/): for compress images.
   - [Realfavicongenerator](https://realfavicongenerator.net/): for favicon.
   - [TablePlus](https://tableplus.com/): for database management.
-  - [TempMail](https://temp-mail.org/en/): for generate fake emails for create account.
+  - [TempMail](https://temp-mail.org/en/): generates temporary emails for registering an account.
 
 ## **TESTING**
 
@@ -422,12 +424,13 @@ The first two columns must be exact the same as in the photo and the date may be
 
 - ### **Automated testing**
 
-  - The developer implemented 81 automated testing.
-  - For measuring code coverage developer used Coverage.py tool.
-  - To check coverage in the html format:
-    - Type the command "coverage html" in the terminal.
+  - I implemented 81 automated testings.
+  - For measuring code coverage I used the Coverage.py tool.
+  - To check coverage in the HTML format run in the terminal:
+    - "coverage run --source='.' manage.py test
+    - "coverage html"
     - Open the link that appeared in the terminal.
-    - Display the html code in the browser with the Live Server.
+    - Display the HTML code in the browser with the Live Server.
 
   ![coverage tests](/documents/coverage-tests.png)
 
@@ -463,14 +466,14 @@ The first two columns must be exact the same as in the photo and the date may be
 
   - ### **Interesting issues and known bugs**
 
-    1. Thanks to the "Allauth" library, I added the ability to register or log in, using social media: Facebook and Google. While testing I discovered a bug in my application.
+    1. Thanks to the "Allauth" library, I added the ability to register or log in using social media: Facebook and Google. While testing, I discovered a bug in my application.
 
-       - How I discovered bug:
+       - How I discovered the bug:
 
          - I registered with the Goggle.
-         - Again I tried to register to the same email address but using Facebook.
-         - The same error occurs when I tried to register to an email address that already existed in the database.
-         - This error displayed on the screen:
+         - Again, I tried to register to the same email address but using Facebook.
+         - The same error occurred when I tried to register to an email address that already existed in the database.
+         - This error is displayed on the screen:
 
          ![social media bug](/documents/socialaccount-bug.png)
 
@@ -482,16 +485,16 @@ The first two columns must be exact the same as in the photo and the date may be
 
        - Solution:
 
-         - Override Allauth SocialAccountAdapter class in the adapter.py file.
+         - Override the Allauth SocialAccountAdapter class in the adapter.py file.
          - Method "pre_social_login" checks if the provided e-mail address already exists in the database:
-           - If yes it will proceed to connect the accounts with Allauth template.
-           - If no, it will create the account .
+           - If yes, it will connect the accounts with the Allauth template.
+           - If no, it will create the account.
 
     2. I used the newsletter form in base.html because I wanted it to be available on every page.
 
-       - How I discovered bug:
+       - How I discovered the bug:
 
-         - I created a form in the newsletter app and tried to display it in base.html but the form didn't display.
+         - I created a form in the newsletter app and tried to display it in base.html, but the form didn't display.
 
        - The steps I have taken to solve the problem:
 
@@ -499,15 +502,15 @@ The first two columns must be exact the same as in the photo and the date may be
 
        - Solution:
 
-         - Create context_processors.py file in the walkers app.
-         - Create global_variable function which return context which can be displayed globally.
+         - Create a context_processors.py file in the walker's app.
+         - Create a global_variable function which returns context which can display globally.
 
-    3. In order to register via social media, I had to enter information in the admin panel.
+    3. To register via social media, I had to enter information in the admin panel.
 
-       - How I discovered bug:
+       - How I discovered the bug:
 
-         - I'm not sure what I did, probably I accidentally deleted a sample domain of the site in the admin panel and created another one.
-         - This error displayed on the screen:
+         - I'm not sure what I did. Probably I accidentally deleted a sample domain of the site in the admin panel and created another one.
+         - This error is displayed on the screen:
 
        ![social media bug](/documents/siteid.png)
 
@@ -517,37 +520,37 @@ The first two columns must be exact the same as in the photo and the date may be
 
        - Solution:
 
-         - Change SITE_ID in the settings.py from 1 on 2.
+         - Change SITE_ID in the settings.py from 1 to 2.
 
     4. A known bug that I can't fix.
 
        - How I discovered the bug:
 
          - I have sent myself a link to my page in the Messenger App.
-         - I tried register via Google.
-         - This error displayed on the screen:
+         - I tried to register via Google.
+         - This error is displayed on the screen:
 
          ![social media bug](/documents//403error.png)
 
-         - When I tried register or log in via Facebook there wasn't any bug but i couldn't register as well.
+         - When I tried to register or log in via Facebook, there wasn't any bug, but I couldn't continue registering as well.
 
        - The steps I have taken to solve the problem:
 
          - I was looking for this bug on the internet.
-         - Tried change settings in my Google Platform account and Facebook for developers account and settings.py file.
+         - Tried changing settings in my Google Platform account and Facebook for developers account and settings.py file.
 
        - Solution:
 
-         - The error: "disallowed_useragent" will occur because the app makes a login request that Google rejects.
-           The most common reason for this rejection is an unauthorized browser agent (the app is using a deprecated browser agent that Google no longer accepts).
-         - This error does not appear when I tried register or log in using a secure browser.
+         - The error: "disallowed_useragent" will occur because the app makes a login request that Google and Facebook reject.
+           The most common reason for this rejection is an unauthorized browser agent (the app uses a deprecated browser agent that Google no longer accepts).
+         - This error did not appear when I tried to register or log in using a secure browser for example Google Chrome.
 
 - ### **Code validation**
 
   - #### **W3C HTML Code Validator**
 
     Each page for the website was run through the [W3C Markup Validation Service](https://validator.w3.org/) and returned no errors.
-    As all web pages are rendered dynamically using Django template, each page and scenario had to be validated by direct input by copying and pasting the source code for the page.
+    As all web pages are rendered dynamically using the Django template, each page and scenario had to be validated by direct input by copying and pasting the source code for the page.
 
   - #### **W3C CSS Jigsaw Validator**
 
@@ -563,11 +566,11 @@ The first two columns must be exact the same as in the photo and the date may be
 
   - ### **Responsiveness and compatibility**
 
-    The Website was tested on Google Chrome, Mozilla Firefox, Opera and Safari browsers.
-    The Safari browser doesn't support 'smooth' behavior parameter in window.scroll() method.
+    The website was tested on Google Chrome, Mozilla Firefox, Opera and Safari browsers.
+    The Safari browser doesn't support the 'smooth' behaviour parameter in the window.scroll() method.
     The website was viewed on a variety of devices such as Desktop, Laptop (Macbook Pro 16 inch), Mobiles( Huawei P20 Mate, Huawei P30, Samsung S21 ultra).
     A large amount of testing was done to ensure that all pages were linking correctly.
-    Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+    Friends and family members were asked to review the site and documentation to identify bugs and user experience issues.
 
 ## **DEPLOYMENT**
 
@@ -575,29 +578,29 @@ The first two columns must be exact the same as in the photo and the date may be
 
   - This project is deployed on Heroku for production, with all static and media files stored on Coudinary. These are steps to deploy on Heroku:
 
-  1. Navigate to Heroku.com, create a new account or login if you already have an account. On the dashboard page, click "Create New App" button. Give the app a name. Set the region closest to you, and click "Create App".
-  2. On the resources tab, provision a new Heroku Postgres database.
-  3. Configure variables on Heroku by navigating to Settings, and click on Reveal Config Vars. You may not have all the values yet. Add the others as you progress through the steps.  
+  - Navigate to Heroku.com, create a new account or login if you already have an account. On the dashboard page, click "Create New App" button. Give the app a name. Set the region closest to you, and click "Create App".
+  - On the resources tab, provision a new Heroku Postgres database.
+  - Configure variables on Heroku by navigating to Settings, and click on Reveal Config Vars. You may not have all the values yet. Add the others as you progress through the steps.  
      Varables | Key |
-     ---| ---  
+    ---| ---  
      CLOUDINARY_URL | generated in Cloudinary account  
      DATABASE_URL | your database url  
      EMAIL | your email used for SMTP configuration  
      EMAIL_PASSWORD | your email password used for SMTP configuration  
      ENV | PRODUCTION
-     MAILCHIMP_API_KEY | generated in Mailchimp account  
+    MAILCHIMP_API_KEY | generated in Mailchimp account  
      MAILCHIMP_DATA_CENTER | generated in Mailchimp account  
      MAILCHIMP_EMAIL_LIST_ID | generated in Mailchimp account
-     SECRET_KEY | your secret key
+    SECRET_KEY | your secret key
 
-  4. install dj_database_url and psycopg2.
+  - install dj_database_url and psycopg2.
 
   ```
   pip3 install dj_database_url
   pip3 install psycopg2-binary
   ```
 
-  5. Set up a new database for the site by going to the project's settings.py and importing dj_database_url. Comment out the database's default configuration, and replace the default database with a call to dj_database_url. parse and pass it the database URL from Heroku (you can get it from your config variables in your app setting tab)
+  - Set up a new database for the site by going to the project's settings.py and importing dj_database_url. Comment out the database's default configuration, and replace the default database with a call to dj_database_url. parse and pass it the database URL from Heroku (you can get it from your config variables in your app setting tab)
 
   ```
   DATABASES = {
@@ -605,19 +608,19 @@ The first two columns must be exact the same as in the photo and the date may be
   }
   ```
 
-  6. Run migrations
+  - Run migrations
 
   ```
   python3 manage.py migrate
   ```
 
-  7. Set up a new superuser, fill out the username, email address, and password.
+  - Set up a new superuser, fill out the username, email address, and password.
 
   ```
   python3 manage.py create superuser
   ```
 
-  8. Remove the database config from Heroku and uncomment the original config. Add a conditional statement to define that when the app is running on Heroku. we connect to Postgres, and otherwise, we connect to Sqlite.
+  - Remove the database config from Heroku and uncomment the original config. Add a conditional statement to define that when the app is running on Heroku. we connect to Postgres, and otherwise, we connect to Sqlite.
 
   ```
   if os.getenv("ENV") == "PRODUCTION":
@@ -633,15 +636,16 @@ The first two columns must be exact the same as in the photo and the date may be
       }
   ```
 
-  9. Install gunicorn (if you haven't) which will act as the webserver, and put it on the requirements.txt.
+  - Install gunicorn (if you haven't) which will act as the webserver, and put it on the requirements.txt.
 
   ```
   pip3 install gunicorn
   pip3 freeze > requirements.txt
   ```
 
-  Note: you don't have to do this if you've installed all dependencies in the requirements.txt file.  
-  10. Create a Procfile, to tell Heroku to create a web dyno, which will run unicorn and serve the Django app.
+  Note: you don't have to do this if you've installed all dependencies in the requirements.txt file.
+
+  - Create a Procfile, to tell Heroku to create a web dyno, which will run unicorn and serve the Django app.
 
   Inside the Procfile:
 
@@ -650,7 +654,7 @@ The first two columns must be exact the same as in the photo and the date may be
   web: gunicorn walkers.wsgi
   ```
 
-  11. Login to Heroku through CLI, using `heroku login`. Once logged in, disable the collect static temporarily, so that Heroku won't try to collect static files when it deploys.
+  - Login to Heroku through CLI, using `heroku login`. Once logged in, disable the collect static temporarily, so that Heroku won't try to collect static files when it deploys.
 
   ```
   heroku config:set DISABLE_COLLECTSTATIC=1 --app walkers88
@@ -662,7 +666,7 @@ The first two columns must be exact the same as in the photo and the date may be
   ALLOWED_HOSTS = ["walkers88.herokuapp.com", "localhost", "127.0.0.1"]
   ```
 
-  12. Add, commit, and push to Github and then to Heroku. After pushing to Github as usual, initialize git remote first:
+  - Add, commit, and push to Github and then to Heroku. After pushing to Github as usual, initialize git remote first:
 
   ```
   heroku git:remote -a walkers88
@@ -674,8 +678,8 @@ The first two columns must be exact the same as in the photo and the date may be
   git push heroku main
   ```
 
-  13. Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.
-  14. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default.
+  - Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.
+  - Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default.
 
   ```
   SECRET_KEY = os.environ.get('SECRET_KEY', '')
@@ -740,8 +744,7 @@ The first two columns must be exact the same as in the photo and the date may be
 
 - ### **Media and content**
 
-  - All content was written by the developer.
-
+  - [Rover](https://www.rover.com/): for some text and inspiration
   - [Unsplash](https://unsplash.com/): for images
   - [Lottiefiles](https://lottiefiles.com/): for used animations
   - [Pixlr](https://pixlr.com/pl/): was used to process used photos

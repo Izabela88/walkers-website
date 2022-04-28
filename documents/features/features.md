@@ -279,3 +279,27 @@
     - If the user does not enter their first name, only "hello" without a first name will be displayed.
 
     ![prices](/documents/welcome-msg.png)
+
+  - ### **Admin Panel:**
+
+    - The administration panel allows the owner to manage users who:
+      - are signed up for the newsletter
+      - given reviews
+      - have registered an account
+
+    ![prices](/documents/admin-panel.png)
+
+    - The newsletter:
+
+    ![prices](/documents/admin-newsletter.png)
+    ![prices](/documents/admin-newsletter-2.png)
+
+    - The reviews:
+
+    ![reviews](/documents/admin-reviews.png)
+    ![reviews](/documents/admin-reviews-2.png)
+
+    - The users:
+
+    ![users](/documents/admin-users.png)
+    ![users](/documents/admin-users-2.png)
