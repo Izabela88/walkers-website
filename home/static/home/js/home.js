@@ -6,7 +6,7 @@ function addActiveOnScroll() {
 
     for (let [i, section] of sections.entries()) {
       let box = section.getBoundingClientRect();
-      if ( box.top <= 200 && box.bottom >= 300) {
+      if (box.top <= 200 && box.bottom >= 300) {
         links[i].classList.add("active");
       } else {
         links[i].classList.remove("active");
@@ -16,5 +16,3 @@ function addActiveOnScroll() {
 }
 
 addActiveOnScroll();
-
-

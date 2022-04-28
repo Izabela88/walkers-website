@@ -1,4 +1,5 @@
 // Display tabs content
+
 function displayCurrentTab(current) {
   let tabs = document.querySelector(".tabs");
   let tabsContents = tabs.querySelectorAll(".tabs-content");
@@ -77,10 +78,10 @@ const enableDisablePrice = (isActive, perHour, perDay) => {
 
 const getPriceInputs = (formId, size) => {
   // Get price per hour and per day for given dog size
-  perHour = document
+  let perHour = document
     .getElementById(formId)
     .querySelector(`#id_${size}_price_hour`);
-  perDay = document
+  let perDay = document
     .getElementById(formId)
     .querySelector(`#id_${size}_price_day`);
   return [perHour, perDay];
@@ -88,6 +89,7 @@ const getPriceInputs = (formId, size) => {
 
 const toggleActive = (e) => {
   // Function disable/enable price inputs
+  let perHour, perDay;
   let formId = e.currentTarget.parentElement.parentElement.id;
 
   let isActive = document
@@ -106,6 +108,7 @@ const toggleActive = (e) => {
 };
 
 const activePrice = () => {
+  let sPerHour, sPerDay, mPerHour, mPerDay, bPerHour, bPerDay;
   // Get all petsitter profile form tabs (excluding `Description`)
   const petsitterForms = document.querySelectorAll(".petsitter-profile-label");
   petsitterForms.forEach((form) => {

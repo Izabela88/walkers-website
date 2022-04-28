@@ -1551,7 +1551,7 @@ label[for="id_description"] {
   margin-bottom: 25px;
   border: none;
   font-family: "Hubballi", cursive;
-  overflow: overlay;
+  overflow: auto;
   padding: 10px;
   font-size: 20px;
   resize: none;
@@ -2392,7 +2392,7 @@ label[for="big_dog"] {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: overlay;
+  overflow: auto;
 
 
 }
@@ -3258,7 +3258,7 @@ label[for="id_stars_4"] {
   font-size: 16px;
   font-weight: bold;
   resize: none;
-  overflow: overlay;
+  overflow: auto;
   padding: 15px;
   text-align: center;
 }
@@ -3278,7 +3278,7 @@ label[for="id_stars_4"] {
   font-size: 16px;
   font-weight: bold;
   resize: none;
-  overflow: overlay;
+  overflow: auto;
   padding: 15px;
 }
 
