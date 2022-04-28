@@ -28,7 +28,31 @@ class ExtendedSignupForm(SignupForm):
 
 
 class UpdateWalkerProfileForm(forms.ModelForm):
-    only_letters = RegexValidator("^[a-zA-Z ]*$", "You can use only letters!")
+    """
+    Regex validator doesn't allow special characters but it will allow
+    special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
+    Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian, Belarusian 
+    letters.
+    """
+    only_letters = RegexValidator(
+        (
+            "^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
+            "a-zA-ZàâäôéèëêïîçùûüÿæœÀÂÄÔÉÈËÊÏÎŸÇÙÛÜÆŒ"
+            "a-zA-ZäöüßÄÖÜ"
+            "a-zA-ZàèéìíîòóùúÀÈÉÌÍÎÒÓÙÚ"
+            "a-zA-ZáéíñóúüÁÉÍÑÓÚÜ"
+            "a-zA-ZäöåÄÖÅ"
+            "a-zA-ZæøåÆØÅ"
+            "а-яА-ЯёЁ"
+            "а-щА-ЩЬьЮюЯяЇїІіЄєҐґ"
+            "А-ИК-ШЂЈ-ЋЏа-ик-шђј-ћџ"
+            "а-ъьюяА-ЪЬЮЯ"
+            "ёа-зй-шы-яЁА-ЗЙ-ШЫІіЎў"
+            "a-zA-ZĂÂÎȘȚăâîșț]*$"
+        ),
+        "No special characters allowed!",
+    )
+
     phone_number = PhoneNumberField()
     first_name = forms.CharField(
         max_length=100, required=True, validators=[only_letters]
