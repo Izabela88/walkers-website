@@ -13,6 +13,9 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404, render
 from django.contrib.sessions.backends.base import SessionBase
 from django.utils import timezone
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Newsletter(View):
@@ -70,8 +73,11 @@ class UpdateSubscription(APIView):
         """
         Update subscription webhook
         """
+        logger.info("Mailchimp subscription webhook")
         serializer = self.serializer_class(data=request.data)
+        logger.info(request.data)
         if serializer.is_valid():
+            logger.info("Is valid")
             data = serializer.data
             subscription = get_object_or_404(
                 NewsletterUser, email=data["data"]["email"]
@@ -82,4 +88,7 @@ class UpdateSubscription(APIView):
                 subscription.save()
 
             return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            logger.info("Is invalid")
+            logger.info(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
