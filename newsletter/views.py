@@ -90,6 +90,10 @@ class UpdateSubscription(APIView):
                 subscription.is_subscribed = False
                 subscription.unsubscribed_at = data["fired_at"]
                 subscription.save()
+            if data["type"] == "subscribe":
+                subscription.is_subscribed = True
+                subscription.unsubscribed_at = None
+                subscription.save() 
 
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
