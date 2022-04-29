@@ -74,9 +74,10 @@ class UpdateSubscription(APIView):
         """
         Update subscription webhook
         """
-        print("Mailchimp subscription webhook")
-        serializer = self.serializer_class(data=json.loads(request.body))
-        print(request.data)
+        from jquery_unparam import jquery_unparam
+        params = jquery_unparam(str(request.body))
+        print(params)
+        serializer = self.serializer_class(data=params)
         if serializer.is_valid():
             print("Is valid")
             data = serializer.data
