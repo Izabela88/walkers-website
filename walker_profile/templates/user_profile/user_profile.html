@@ -125,7 +125,6 @@
       {% endif %}
       <label class="profile-label">Post Code</label>
       {{ address_form.postcode }}
-      <p>{{address_form_errors.postcode.0}}</p>
       {% if address_form_errors and 'postcode' in address_form_errors %}
         <div class="error-profile">
           <strong>{{address_form_errors.postcode.0}}</strong>
@@ -202,7 +201,7 @@
      {% else %} 
       class="tabs-content" 
     {% endif %}>
-      <h2 class="sitter-heading">Petsitter profile</h2>
+      <h2 class="sitter-heading">Pet sitter profile</h2>
       <div class="wrapper">
         <div class="button-wrapper">
             {% for key, value in service_details_forms.items %}

@@ -48,6 +48,7 @@ The first two columns must be exact the same as in the photo and the date may be
 - [Features](#features)
   - [Existing features](#existing-features)
   - [Features left to implement](#features-left-to-implement)
+- [Data validation](#data-validation)
 - [CRUD operations and defensive design](#crud-operations-and-defensive-design)
   - [CRUD operations](#crud-operations)
   - [Defensive design](#defensive-design)
@@ -297,6 +298,75 @@ The first two columns must be exact the same as in the photo and the date may be
   - Checkout and payment system.
   - Pet sitter profile extension: add a calendar, the possibility to chat with the pet sitter, and add the ability to upload documents confirming the petsitter's experience.
   - Complete automated testing in 100%.
+
+## **DATA VALIDATION**
+
+- #### **Search form**
+
+  - Postcode input only accepts UK postcodes.
+  - Validation is performed using the [postcodes](https://api.postcodes.io/) API, max length: 8.
+  - If the postcode is invalid on the screen, an error message appears.
+  - All fields are required.
+
+  ![invalid post code](/documents/wrong-postcode.png)
+
+- #### **Personal information form**
+
+  - Phone number input validation is performed using [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/0.2a3/) library, required.
+
+  - Email: required, max length: 254, validate with built-in validator from Django.
+  - First and last name : required, max_length: 100, custom Regex validator which allows only letters (also special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
+    Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian letters).
+
+  ![invalid form](/documents/personal-info-validation.png)
+
+- #### **Address form**
+
+  - Post Code validation is performed using the [postcodes](https://api.postcodes.io/) API, max_length=8.
+  - Address 1: max length: 50, required.
+  - Address 2: max length: 100, required.
+  - Town: max length: 85, required.
+  - County: max length: 100, required.
+
+  ![invalid form](/documents/address-errors.png)
+
+- #### **Upload photo**
+
+  - Avatar: required, size validation: max size is 0.4MB.
+
+  ![invalid image](/documents/image-validation.png)
+
+- #### **Newsletter**
+
+  - Email: required, max length: 254, validate with built-in validator from Django.
+
+  ![invalid email](/documents/newsletter-error.png)
+
+- #### **Contact form**
+
+  - Full Name: required, max_length: 100, custom Regex validator which allows only letters and spaces,
+    (also special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
+    Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian letters).
+  - Email: required, max length: 254, validate with built-in validator from Django.
+  - Message: required, max length: 1500.
+
+  ![contact form](/documents/contact-form-errors.png)
+
+- #### **Reviews**
+
+  - Stars: required
+  - Description: max length: 1500.
+  - The user can't write more than one review for the same pet sitter.
+
+  ![stars](/documents/stars-validation.png)
+  ![stars](/documents/double-rev-error.png)
+- #### **Pet Sitter Profile Form**
+
+  - Display add: at least one dog size must be checked to make ad visible.
+  - Price inputs: at least one of two fields must be filled to continue, max price is 99.
+
+  ![ad](/documents/displayad-error.png)
+  ![prices](/documents/prices-errors.png)
 
 ## **CRUD operations and defensive design**
 
@@ -744,7 +814,8 @@ The first two columns must be exact the same as in the photo and the date may be
 
 - ### **Media and content**
 
-  - [Rover](https://www.rover.com/): for some text and inspiration
+  - Text for reviews, about Walkers and about pet sitter was taken from [Rover](https://www.rover.com/) website.
+
   - [Unsplash](https://unsplash.com/): for images
   - [Lottiefiles](https://lottiefiles.com/): for used animations
   - [Pixlr](https://pixlr.com/pl/): was used to process used photos

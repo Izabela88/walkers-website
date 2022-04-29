@@ -2,12 +2,30 @@ from django import forms
 from contact.utility import send_email
 from django.conf import settings
 from django.core.validators import RegexValidator
+from django.core.validators import validate_email
 
 
 class ContactForm(forms.Form):
     """App contact message form"""
 
-    only_letters = RegexValidator("^[a-zA-Z ]*$", "You can use only letters!")
+    only_letters = RegexValidator(
+        (
+            "^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
+            "a-zA-ZàâäôéèëêïîçùûüÿæœÀÂÄÔÉÈËÊÏÎŸÇÙÛÜÆŒ"
+            "a-zA-ZäöüßÄÖÜ"
+            "a-zA-ZàèéìíîòóùúÀÈÉÌÍÎÒÓÙÚ"
+            "a-zA-ZáéíñóúüÁÉÍÑÓÚÜ"
+            "a-zA-ZäöåÄÖÅ"
+            "a-zA-ZæøåÆØÅ"
+            "а-яА-ЯёЁ"
+            "а-щА-ЩЬьЮюЯяЇїІіЄєҐґ"
+            "А-ИК-ШЂЈ-ЋЏа-ик-шђј-ћџ"
+            "а-ъьюяА-ЪЬЮЯ"
+            "ёа-зй-шы-яЁА-ЗЙ-ШЫІіЎў"
+            "a-zA-ZĂÂÎȘȚăâîșț ]*$"
+        ),
+        "No special characters and numbers allowed!",
+    )
 
     full_name = forms.CharField(
         required=True,
@@ -19,10 +37,11 @@ class ContactForm(forms.Form):
         ),
     )
     email = forms.EmailField(
+        validators=[validate_email],
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "maxlength": "100",
+                "maxlength": "254",
             }
         ),
     )

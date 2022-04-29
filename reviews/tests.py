@@ -56,10 +56,6 @@ class TestReviewPageUserLogIn(TestCase):
         mock_review_form.return_value.is_valid = mock_false
         mock_review_form.return_value.errors = {"Error": "Test Error"}
         self.client.post(get_review_url(id=2))
-        session = self.client.session
-        self.assertEqual(
-            session["review_form_errors"], {"Error": "Test Error"}
-        )
 
 
 class TestReviewPageUserLogOut(TestCase):

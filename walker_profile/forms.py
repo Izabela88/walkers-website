@@ -9,6 +9,7 @@ from walker_profile.models import (
     ServiceDetails,
 )
 from django.core.validators import RegexValidator
+from django.core.validators import validate_email
 
 
 class ExtendedSignupForm(SignupForm):
@@ -29,11 +30,12 @@ class ExtendedSignupForm(SignupForm):
 
 class UpdateWalkerProfileForm(forms.ModelForm):
     """
-    Regex validator doesn't allow special characters but it will allow
+    Regex validator doesn't allow special characters but it will allow also
     special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
-    Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian, Belarusian 
+    Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian
     letters.
     """
+
     only_letters = RegexValidator(
         (
             "^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
@@ -50,7 +52,7 @@ class UpdateWalkerProfileForm(forms.ModelForm):
             "ёа-зй-шы-яЁА-ЗЙ-ШЫІіЎў"
             "a-zA-ZĂÂÎȘȚăâîșț]*$"
         ),
-        "No special characters allowed!",
+        "No special characters and numbers allowed!",
     )
 
     phone_number = PhoneNumberField()
@@ -60,7 +62,9 @@ class UpdateWalkerProfileForm(forms.ModelForm):
     last_name = forms.CharField(
         max_length=100, required=True, validators=[only_letters]
     )
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(
+        max_length=254, required=True, validators=[validate_email]
+    )
 
     class Meta:
         model = WalkerUser

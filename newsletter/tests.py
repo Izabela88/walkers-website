@@ -82,10 +82,7 @@ class TestNewsletterPage(TestCase):
         mock_newsletter_form.return_value.errors = {"Error": "Test Error"}
         res = self.client.post(NEWSLETTER_URL)
         messages = list(get_messages(res.wsgi_request))
-        session = self.client.session
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "Something went wrong!")
-        self.assertEqual(session["email_form_errors"], {"Error": "Test Error"})
 
 
 class TestUpdateSubscriptionAPI(TestCase):

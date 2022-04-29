@@ -21,12 +21,8 @@ class Newsletter(View):
 
         Args:
             request (HttpRequest): request 'home' template
-            session (SessionBase): Django session
         """
-        context = {
-            "email_form_errors": session.pop("email_form_errors", None),
-        }
-        return render(request, "home/home.html", context)
+        return render(request, "home/home.html")
 
     def post(self, request) -> HttpResponse:
         """Subscribe email address"""
@@ -51,8 +47,12 @@ class Newsletter(View):
             )
             return HttpResponseRedirect(reverse("home"))
         else:
-            messages.error(request, "Something went wrong!")
-            request.session["email_form_errors"] = email_form.errors
+            display_key_map = {
+                "newsletter_email": "Newsletter Email",
+            }
+            for key, value in email_form.errors.items():
+                display_key = display_key_map.get(key) or key
+                messages.error(request, f"{display_key}: {value[0]}")
 
         return HttpResponseRedirect(reverse("home"))
 

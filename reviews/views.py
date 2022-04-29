@@ -13,11 +13,7 @@ class Review(View):
         """Pet sitter review GET endpoint"""
         if not request.user.is_authenticated:
             return render(request, "401.html")
-        context = {
-            "review_form_errors": request.session.pop(
-                "review_form_errors", None
-            )
-        }
+        context = {}
         user = get_object_or_404(WalkerUser, id=id)
         context["user"] = user
         context["review_description_form"] = PetsitterReviewForm()
@@ -52,10 +48,15 @@ class Review(View):
                     ),
                 )
             else:
-                request.session["review_form_errors"] = review_form.errors
-                return HttpResponseRedirect(
-                    reverse("review", kwargs={"id": id})
-                )
+                display_key_map = {
+                    "stars": "Stars",
+                }
+                for key, value in review_form.errors.items():
+                    display_key = display_key_map.get(key) or key
+                    messages.error(request, f"{display_key}: {value[0]}")
+                    return HttpResponseRedirect(
+                        reverse("review", kwargs={"id": id})
+                    )
         return HttpResponseRedirect(
             reverse("petsitter_profile", kwargs={"id": id})
         )

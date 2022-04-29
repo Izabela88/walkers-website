@@ -25,11 +25,15 @@ AREA = [
 class SearchForm(forms.Form):
     postcode = forms.CharField(max_length=8, required=True)
     care_type = forms.CharField(
-        label="Care Type:", widget=forms.Select(choices=CARE_TYPE)
+        required=True,
+        label="Care Type:",
+        widget=forms.Select(choices=CARE_TYPE),
     )
     dog_size = forms.CharField(
-        label="My Dog Size:", widget=forms.Select(choices=DOG_SIZE)
+        required=True,
+        label="My Dog Size:",
+        widget=forms.Select(choices=DOG_SIZE),
     )
     area = forms.CharField(
-        label="Location:", widget=forms.Select(choices=AREA)
+        required=True, label="Location:", widget=forms.Select(choices=AREA)
     )

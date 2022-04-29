@@ -235,7 +235,7 @@
               </div>
               <h2>hungry for news ?</h2>          
               <p>well...subscribe to our newsletter !</p>
-               <form class="newsletter-form center" action="{% url 'newsletter' %}" method="post">
+              <form class="newsletter-form center" action="{% url 'newsletter' %}" method="post">
                    {% csrf_token %}
                    <div class="center">
                       {{newsletter_email}}
