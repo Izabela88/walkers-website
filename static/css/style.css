@@ -942,10 +942,8 @@ select {
 /* -------------------footer */
 #footer {
   background: url(https://res.cloudinary.com/izak88/image/upload/v1650304091/static/images/footer.ffc78da530f8.jpg) no-repeat center center/cover;
-  position: absolute;
+  position: relative;
   overflow: hidden;
-  bottom: 0;
-  width: 100%;
 }
 
 #footer p {
