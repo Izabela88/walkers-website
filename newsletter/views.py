@@ -70,14 +70,13 @@ class UpdateSubscription(APIView):
         """
         Update subscription webhook
         """
-
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             data = serializer.data
             subscription = get_object_or_404(
                 NewsletterUser, email=data["data"]["email"]
             )
-            if data["type"] == "unsubscribed":
+            if data["type"] == "unsubscribe":
                 subscription.is_subscribed = False
                 subscription.unsubscribed_at = data["fired_at"]
                 subscription.save()

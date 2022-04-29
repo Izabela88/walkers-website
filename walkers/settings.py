@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "phonenumber_field",
     "rest_framework",
+    "rest_framework_xml",
     "home",
     "about",
     "walker_profile",
@@ -274,3 +275,7 @@ SILENCED_SYSTEM_CHECKS = ["auth.W004"]
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 BASE_COUNTRY = "UK"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PARSER_CLASSES": ("rest_framework_xml.parsers.XMLParser",)
+}
