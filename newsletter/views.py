@@ -73,11 +73,11 @@ class UpdateSubscription(APIView):
         """
         Update subscription webhook
         """
-        logger.info("Mailchimp subscription webhook")
+        print("Mailchimp subscription webhook")
         serializer = self.serializer_class(data=request.data)
-        logger.info(request.data)
+        print(request.data)
         if serializer.is_valid():
-            logger.info("Is valid")
+            print("Is valid")
             data = serializer.data
             subscription = get_object_or_404(
                 NewsletterUser, email=data["data"]["email"]
@@ -89,6 +89,6 @@ class UpdateSubscription(APIView):
 
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            logger.info("Is invalid")
-            logger.info(serializer.errors)
+            print("Is invalid")
+            print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
