@@ -13,10 +13,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404, render
 from django.contrib.sessions.backends.base import SessionBase
 from django.utils import timezone
-import logging
-import json
-
-logger = logging.getLogger(__name__)
+from jquery_unparam import jquery_unparam
 
 
 class Newsletter(View):
@@ -74,11 +71,11 @@ class UpdateSubscription(APIView):
         """
         Update subscription webhook
         """
-        from jquery_unparam import jquery_unparam
         params = jquery_unparam(str(request.body))
+        # Mailchimp sends nested urlencoded dictionary and it does change key
+        # to `b'type`
         if isinstance(params, dict) and "b'type" in params:
             params["type"] = params.pop("b'type")
-        print(params)
         serializer = self.serializer_class(data=params)
         if serializer.is_valid():
             print("Is valid")
@@ -93,10 +90,7 @@ class UpdateSubscription(APIView):
             if data["type"] == "subscribe":
                 subscription.is_subscribed = True
                 subscription.unsubscribed_at = None
-                subscription.save() 
+                subscription.save()
 
             return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            print("Is invalid")
-            print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

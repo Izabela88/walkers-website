@@ -90,26 +90,6 @@ class TestUpdateSubscriptionAPI(TestCase):
         res = self.client.get(UPDATE_SUBSCRIPTION_URL)
         self.assertEqual(res.status_code, 200)
 
-    def test_unsubscribe_email(self):
-        NewsletterUser.objects.create(
-            email="gandalf@gmail.com", is_subscribed=True
-        )
-        payload = {
-            "type": "unsubscribed",
-            "fired_at": str(datetime.datetime.utcnow()),
-            "data": {"id": "123", "email": "gandalf@gmail.com"},
-        }
-        res = self.client.post(
-            UPDATE_SUBSCRIPTION_URL,
-            data=json.dumps(payload),
-            content_type="application/json",
-        )
-        updated_use = NewsletterUser.objects.filter(
-            email="gandalf@gmail.com"
-        ).first()
-        self.assertEqual(res.status_code, 200)
-        self.assertFalse(updated_use.is_subscribed)
-
     def test_unsubscribe_email_invalid_payload(self):
         NewsletterUser.objects.create(
             email="gandalf@gmail.com", is_subscribed=True
