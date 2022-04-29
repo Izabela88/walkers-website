@@ -449,6 +449,7 @@ The first two columns must be exact the same as in the photo and the date may be
   - [Flake8](https://pypi.org/project/flake8-django/): A plugin to detect bad practices on Django projects.
   - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes. the source to identify code that could have been executed but was not.
   - [Black](https://pypi.org/project/black/): for the uncompromising Python code formatter.
+  - [Django REST](https://www.django-rest-framework.org/): for Mailchimp webhook
 
 - ### **Other technologies**
 
