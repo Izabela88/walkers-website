@@ -76,6 +76,8 @@ class UpdateSubscription(APIView):
         """
         from jquery_unparam import jquery_unparam
         params = jquery_unparam(str(request.body))
+        if isinstance(params, dict) and "b'type" in params:
+            params["type"] = params.pop("b'type")
         print(params)
         serializer = self.serializer_class(data=params)
         if serializer.is_valid():
