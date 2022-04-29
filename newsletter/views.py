@@ -14,6 +14,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.sessions.backends.base import SessionBase
 from django.utils import timezone
 import logging
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -74,7 +75,7 @@ class UpdateSubscription(APIView):
         Update subscription webhook
         """
         print("Mailchimp subscription webhook")
-        serializer = self.serializer_class(data=request.data)
+        serializer = self.serializer_class(data=json.loads(request.body))
         print(request.data)
         if serializer.is_valid():
             print("Is valid")
