@@ -40,7 +40,7 @@
     > - I want to find a section describing the company to find out when it was founded and the rest of the pertinent information about this company.
     > - I want to locate social media links to find opinions about the company and check how trusted and known they are.
     > - I want to be able to find a dog walker or pet sitter in my area.
-    > - I want to be able to register / log in with social media so I can access my account quickly.
+    > - I want to be able to register/log in with social media so I can access my account quickly.
     > - I want to be sure that my email is correct so I can verify it.
 
   - Featured at the top of the page is the company logo
@@ -51,7 +51,7 @@
   - In the footer, the user can find social media icons that link to the company's social media websites
   - In the 'search' section, users can find the searching form. After completing it and pressing the button, 'search' results will be displayed.
   - In the 'register'/ 'login' section, the user can choose to register/login via social media: Google or Facebook.
-  - After registering, the user receives a message to their e-mail with a verification link that allows verifying whether the e-mail is correct.
+  - After registering, the user receives a message to their email with a verification link that allows verifying whether the email is correct.
 
   ![home](/documents/home.png)
 
@@ -71,7 +71,7 @@
 
 - ## **As a returning user:**
 
-  > - I want to log in and logout so that I can access my profile safely.
+  > - I want to log in and log out so that I can access my profile safely.
 
   - The menu contains the 'login' option, which leads to the login form when pressed.
   - After entering their data, the user can log in to his profile.
@@ -79,7 +79,7 @@
 
   ![log out icon](/documents/log-out-icon.png)
 
-  - Before the users logs off, they are asked if they are sure they want to log out.
+  - Before the users log off, they are asked if they are sure they want to log out.
 
   ![log out question](/documents/log-out-q.png)
 
@@ -93,14 +93,14 @@
 
   > - I want to be able to add my image to my profile so I can be more trustworthy for others users.
 
-  - In the user's profile is an 'upload photo' option where the user can upload a photo.
+  - In the user's profile is an 'upload photo' option where the user can upload an avatar.
 
   ![upload photo](/documents/upload-photo.png)
 
   > - I want to register for an account so I can view a profile of dog walkers or pet sitters.
 
-  - When registering, the users must indicate whether they are pet sitters or not. For this, a query is highlighted in red and a box that should be checked if the user is a pet sitter.
-  - When a users registers via social media, the same query appears. The user must indicate whether they are a pet sitter or not.
+  - When registering, the users must indicate whether they are pet sitters or not. A query is highlighted in red, and a box should be checked if the user is a pet sitter.
+  - When a user registers via social media, the same query appears. The user must indicate whether they are a pet sitter or not.
   - Once completed, the user is redirected to a home page.
 
   ![register page](/documents/register.png)
@@ -123,7 +123,7 @@
 
   > - I want to be able to see dog walker or pet sitter profile to check more information about this person.
 
-  - 'Pet sitter profile' show all the information about a particular pet sitter:
+  - 'Pet sitter profile' shows all the information about a particular pet sitter:
 
     - pet sitter image/avatar
     - contact details
@@ -161,14 +161,14 @@
 
   - ### **User stories**
 
-    > - I want to be able to create my profile so I can advertise my services as dog walker/pet sitter.
+    > - I want to be able to create my profile so I can advertise my services as a dog walker/pet sitter.
 
     - The profile page contains an extra 'Petsitter profile' section that includes forms to be filled in by the pet sitter, which appear later on on the pet sitter profile page.
 
       - The form is divided into four categories:
         - walk
         - boarding at pet sitter home
-        - daycare at the client home
+        - daycare at the client's home
         - description
       - Each category also has a button that should be marked 'ON' or 'OFF' depending on whether the information should be displayed in the ad.
       - Category 'walk', 'boarding at pet sitter home', and 'daycare at client home' are related to the type of care provided by the pet sitter.
@@ -179,7 +179,7 @@
 
     > - I want to have the ability to change my password so I can keep my account safe.
 
-    - In the 'edit account' section user can change password.
+    - In the 'edit account' section user can change the password.
 
     ![edit account](/documents/edit-account.png)
 
@@ -187,7 +187,7 @@
 
     > - I want to edit my profile so that I can update my personal information.
 
-    - Profile page features the user's personal information, address details, upload photo, account settings. The user is able to update each section. The page will be updated upon submitting the new information.
+    - Profile page features the user's personal information, address details, upload photo, and account settings. The user is able to update each section. The page will be updated upon submitting the new information.
 
     ![pet sitter profile](/documents/petsitter-profile.png)
 
@@ -197,7 +197,7 @@
 
     ![contact form](/documents/contact-form.png)
 
-    > - I want to verify forgotten password so I can confirm my request on the recovery link.
+    > - I want to verify the forgotten password so I can confirm my request on the recovery link.
 
     - The user can recover the forgotten password in the 'login' section.
     - The user will be asked for their email, and a reset link with a token will be sent to the email address provided should it exist in the database.
@@ -210,6 +210,6 @@
     > - I want to sign up for the Newsletter to email any major updates and/or changes to the website or organization
 
     - The newsletter window appears after pressing the 'subscribe' button in the footer.
-    - After clicking the 'subscribe' button appears, a message with thanks for subscribing to the newsletter disappears by itself after a while.
+    - After clicking the 'subscribe' button appears, a message with thanks for subscribing to the Newsletter disappears by itself after a while.
 
     ![newsletter](/documents/newsletter.png)

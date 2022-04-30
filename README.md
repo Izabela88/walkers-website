@@ -6,33 +6,33 @@
 
 ![mockup](/documents/responsive.png)
 
-Walkers - a platform for people who are both: looking for dog carers and for people providing such services in the whole Great Britain.
+Walkers - a platform for people who are both: looking for dog carers and people providing such services in the whole Great Britain.
 
-Using the principles of UX design, this fully responsive and interactive website was developed using HTML, CSS, JavaScript and Python as well as Django as a framework.
+Using the principles of UX design, this fully responsive and interactive website was developed using HTML, CSS, JavaScript and Python, and Django as a framework.
 
 View live project here [link to deployed link](https://walkers88.herokuapp.com/)
 
 ## **CHECKING THE SEARCH FORM FUNCTIONALITY**
 
 The platform is to operate in the UK, and only UK addresses may be entered in all address forms.
-The database contains addresses from the Wolverhampton area only. Wolverhampton belong to West Midlands county.
+The database contains addresses from the Wolverhampton area only. Wolverhampton belongs to West Midlands county.
 
-To check the search form functionality please:
+To check the search form functionality, please:
 
 - Visit this page [Random Addresses Generator](https://www.doogal.co.uk/RandomAddresses.php).
 - In the "Number of Addresses Required" field, enter the number of random addresses you want to print.
 - Check the "Include a randomly generated phone number" option if you also want to generate a randomly generated phone number.
-- From 'Generate addresses in this area' option please choose 'WV'.
-- Click 'Create random addresses' button.
+- From the 'Generate addresses in this area' option, please choose 'WV'.
+- Click the 'Create random addresses' button.
 
-You can use the generated post code for the search form as your own.
+You can use the generated postcode for the search form as your own.
 
 The created address can also be used to fill in the address form on the user profile page.
 
 ## **WALKER PROFILE SERVICE TYPES**
 
-In case of trying run code locally for the first time it is necessary to enter the data from image below manually into the database in the section: "walker_profile_servicetypes".
-The first two columns must be exact the same as in the photo and the date may be present.
+In case of trying run code locally for the first time, it is necessary to enter the data from the image below manually into the database in the section: "walker_profile_servicetypes".
+The first two columns must be exactly the same as in the photo, and the date may be present.
 
 ![service types](/documents/db-data.png)
 
@@ -75,20 +75,20 @@ The first two columns must be exact the same as in the photo and the date may be
 
 - ### **Strategy**
 
-  More and more people own dogs. Although dogs are wonderful and undoubtedly important members of our families,
+  More and more people own dogs. Although dogs are lovely and undoubtedly essential members of our families,
   owners often struggle with the problem of what to do in case they have to leave,
-  and they cannot take the dog with them or they work a lot and the dog is struggling at home alone.
-  This was the inspiration for creating the Walkers platform which will help with find the best solution for all dogs owners.
+  and they cannot take the dog with them or work a lot, and the dog is struggling at home alone.
+  That was the inspiration for creating the Walkers platform, which will help find the best solution for all dog owners.
 
   The website gathers users who:
 
   - are looking for people who provide services in the care of the dogs.
-  - provides dog care services and who wants to advertise their own services.
+  - provides dog care services and who wants to advertise their services.
 
   - #### **Site owner goal**
 
-    - To provide an platform where users can easy find proven pet sitters/ dog walkers.
-    - To provide an platform that allows users to advertise their services to a large number of recipients.
+    - To provide a platform where users can easily find proven pet sitters/ dog walkers.
+    - To provide a platform that allows users to advertise their services to a large number of recipients.
     - To create a viable product that can be further developed with additional features.
 
   - #### **User goals**
@@ -164,9 +164,9 @@ The first two columns must be exact the same as in the photo and the date may be
     - Clear and concise information on how to use the website.
     - Details for the pet sitter.
     - Forms where user input is required.
-    - Engaging text and headings throughout to introduce main sections of the website.
+    - Engaging text and headings throughout to introduce the website's main sections.
     - Icons for interactive and visual elements.
-    - Background images to provide visually appealing and engaging interface.
+    - Background images to provide a visually appealing and engaging interface.
 
   - #### **Constraints**
     - Technical skills: The developer is still learning Python and is new to Django Framework, which may impact the successful implementation of the planned features.
@@ -181,7 +181,7 @@ The first two columns must be exact the same as in the photo and the date may be
     - Find Petsitter: contains a form that should be used to search for a pet sitter.
     - Join Us: Information on how to start advertising as a pet sitter.
     - About: Information about the site owner.
-    - Contact: The form allows users to send an inquiry to the owner of the website.
+    - Contact: The form allows users to send an inquiry to the website owner.
     - Profile page: to display all the relevant information about a user.
     - Register: This contains the form for registering an account.
     - Login: This contains the form for logging in to the account.
@@ -298,6 +298,7 @@ The first two columns must be exact the same as in the photo and the date may be
   - Checkout and payment system.
   - Pet sitter profile extension: add a calendar, the possibility to chat with the pet sitter, and add the ability to upload documents confirming the petsitter's experience.
   - Complete automated testing in 100%.
+  -
 
 ## **DATA VALIDATION**
 
@@ -315,14 +316,14 @@ The first two columns must be exact the same as in the photo and the date may be
   - Phone number input validation is performed using [Django Phonenumber Field](https://pypi.org/project/django-phonenumber-field/0.2a3/) library, required.
 
   - Email: required, max length: 254, validate with built-in validator from Django.
-  - First and last name : required, max_length: 100, custom Regex validator which allows only letters (also special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
+  - First and last name: required, max_length: 100, custom Regex validator which allows only letters (also special French, German, Polish, Italian, Spanish, Swedish, Norvegian,
     Danish, Russian, Ukrainian, Serbian, Bulgarian, Belarusian letters).
 
   ![invalid form](/documents/personal-info-validation.png)
 
 - #### **Address form**
 
-  - Post Code validation is performed using the [postcodes](https://api.postcodes.io/) API, max_length=8.
+  - Post Code validation is performed using the [postcodes](https://api.postcodes.io/) API, max_length: 8, required.
   - Address 1: max length: 50, required.
   - Address 2: max length: 100, required.
   - Town: max length: 85, required.
@@ -360,6 +361,7 @@ The first two columns must be exact the same as in the photo and the date may be
 
   ![stars](/documents/stars-validation.png)
   ![stars](/documents/double-rev-error.png)
+
 - #### **Pet Sitter Profile Form**
 
   - Display add: at least one dog size must be checked to make ad visible.
@@ -368,6 +370,12 @@ The first two columns must be exact the same as in the photo and the date may be
   ![ad](/documents/displayad-error.png)
   ![prices](/documents/prices-errors.png)
 
+- #### **Register Form**
+
+  - If the given e-mail address already exists in the database, such information will appear in the form. 
+
+  ![register form](/documents/register-validation.png)
+  
 ## **CRUD operations and defensive design**
 
 - ### **CRUD operations**
@@ -403,7 +411,7 @@ The first two columns must be exact the same as in the photo and the date may be
       - Review will not be displayed on the pet sitter profile page.
       - In the 'my reviews' section in the review box will display information:
         - 'waiting for approval by admin.'
-    - If the admin approve the review:
+    - If the admin approves the review:
       - In the 'my reviews' section in the review box will display information:
         - 'approved and visible.'
           ![admin review](/documents/reviews-list.png)
@@ -449,7 +457,8 @@ The first two columns must be exact the same as in the photo and the date may be
   - [Flake8](https://pypi.org/project/flake8-django/): A plugin to detect bad practices on Django projects.
   - [Coverage.py](https://coverage.readthedocs.io/en/6.3.2/): Coverage.py is a tool for measuring code coverage of Python programs. It monitors your program, noting which parts of the code have been executed, then analyzes. the source to identify code that could have been executed but was not.
   - [Black](https://pypi.org/project/black/): for the uncompromising Python code formatter.
-  - [Django REST](https://www.django-rest-framework.org/): for Mailchimp webhook
+  - [Django REST](https://www.django-rest-framework.org/): for Mailchimp webhook.
+  - [Jquery Unparam](https://pypi.org/project/jquery-unparam/): to parse jquery.param() string.
 
 - ### **Other technologies**
 
@@ -472,7 +481,7 @@ The first two columns must be exact the same as in the photo and the date may be
   - [Compress](https://compressgif.com/): for compress images.
   - [Realfavicongenerator](https://realfavicongenerator.net/): for favicon.
   - [TablePlus](https://tableplus.com/): for database management.
-  - [TempMail](https://temp-mail.org/en/): generates temporary emails for registering an account.
+  - [TempMail](https://temp-mail.org/en/): generates temporary emails, used for registering an walkers accounts.
 
 ## **TESTING**
 
@@ -484,7 +493,7 @@ The first two columns must be exact the same as in the photo and the date may be
     - terminal for backend functionalities by printing expected outcome
     - manual testing
     - automated testing
-    - Travis CI for testing code before pull and merge on GitHub:
+    - Travis CI for testing and check code before pull and merge on GitHub:
 
       ![travis](/documents/travis-ci-merge-check.png)
       ![travis](/documents/travis-ci-merge-complete.png)
@@ -495,11 +504,11 @@ The first two columns must be exact the same as in the photo and the date may be
 
 - ### **Automated testing**
 
-  - I implemented 81 automated testings.
+  - Developer implemented 80 automated testings.
   - For measuring code coverage I used the Coverage.py tool.
   - To check coverage in the HTML format run in the terminal:
-    - "coverage run --source='.' manage.py test
-    - "coverage html"
+    - coverage run --source='.' manage.py test
+    - coverage html
     - Open the link that appeared in the terminal.
     - Display the HTML code in the browser with the Live Server.
 
@@ -537,84 +546,84 @@ The first two columns must be exact the same as in the photo and the date may be
 
   - ### **Interesting issues and known bugs**
 
-    1. Thanks to the "Allauth" library, I added the ability to register or log in using social media: Facebook and Google. While testing, I discovered a bug in my application.
+    - Thanks to the "Allauth" library, I added the ability to register or log in using social media: Facebook and Google. While testing, I discovered a bug in my application.
 
-       - How I discovered the bug:
+      - How I discovered the bug:
 
-         - I registered with the Goggle.
-         - Again, I tried to register to the same email address but using Facebook.
-         - The same error occurred when I tried to register to an email address that already existed in the database.
-         - This error is displayed on the screen:
+        - I registered with the Goggle.
+        - Again, I tried to register to the same email address but using Facebook.
+        - The same error occurred when I tried to register to an email address that already existed in the database.
+        - This error is displayed on the screen:
 
-         ![social media bug](/documents/socialaccount-bug.png)
+        ![social media bug](/documents/socialaccount-bug.png)
 
-       - The steps I have taken to solve the problem:
+      - The steps I have taken to solve the problem:
 
-         - I deleted my account.
-         - I tried to register in reverse order.
-         - I was looking for this bug on the internet.
+        - I deleted my account.
+        - I tried to register in reverse order.
+        - I was looking for this bug on the internet.
 
-       - Solution:
+      - Solution:
 
-         - Override the Allauth SocialAccountAdapter class in the adapter.py file.
-         - Method "pre_social_login" checks if the provided e-mail address already exists in the database:
-           - If yes, it will connect the accounts with the Allauth template.
-           - If no, it will create the account.
+        - Override the Allauth SocialAccountAdapter class in the adapter.py file.
+        - Method "pre_social_login" checks if the provided e-mail address already exists in the database:
+          - If yes, it will connect the accounts with the Allauth template.
+          - If no, it will create the account.
 
-    2. I used the newsletter form in base.html because I wanted it to be available on every page.
+    - I used the newsletter form in base.html because I wanted it to be available on every page.
 
-       - How I discovered the bug:
+      - How I discovered the bug:
 
-         - I created a form in the newsletter app and tried to display it in base.html, but the form didn't display.
+        - I created a form in the newsletter app and tried to display it in base.html, but the form didn't display.
 
-       - The steps I have taken to solve the problem:
+      - The steps I have taken to solve the problem:
 
-         - I was looking for this bug on the internet.
+        - I was looking for this bug on the internet.
 
-       - Solution:
+      - Solution:
 
-         - Create a context_processors.py file in the walker's app.
-         - Create a global_variable function which returns context which can display globally.
+        - Create a context_processors.py file in the walker's app.
+        - Create a global_variable function which returns context which can display globally.
 
-    3. To register via social media, I had to enter information in the admin panel.
+    - To register via social media, I had to enter information in the admin panel.
 
-       - How I discovered the bug:
+      - How I discovered the bug:
 
-         - I'm not sure what I did. Probably I accidentally deleted a sample domain of the site in the admin panel and created another one.
-         - This error is displayed on the screen:
+        - I'm not sure what I did. Probably I accidentally deleted a sample domain of the site in the admin panel and created another one.
+        - This error is displayed on the screen:
 
-       ![social media bug](/documents/siteid.png)
+      ![social media bug](/documents/siteid.png)
 
-       - The steps I have taken to solve the problem:
+      - The steps I have taken to solve the problem:
 
-         - I was looking for this bug on the internet.
+        - I was looking for this bug on the internet.
 
-       - Solution:
+      - Solution:
 
-         - Change SITE_ID in the settings.py from 1 to 2.
+        - Change SITE_ID in the settings.py from 1 to 2.
 
-    4. A known bug that I can't fix.
+    - A KNOWN BUGS:
 
-       - How I discovered the bug:
+      - How I discovered the bug:
 
-         - I have sent myself a link to my page in the Messenger App.
-         - I tried to register via Google.
-         - This error is displayed on the screen:
+        - I have sent myself a link to my page in the Messenger App.
+        - I tried to register via Google and Facebook.
+        - This error is displayed on the screen:
 
-         ![social media bug](/documents//403error.png)
+        ![social media bug](/documents//403error.png)
 
-         - When I tried to register or log in via Facebook, there wasn't any bug, but I couldn't continue registering as well.
+        - When I tried to register or log in via Facebook, there wasn't any bug, but I couldn't continue registering as well.
 
-       - The steps I have taken to solve the problem:
+      - The steps I have taken to solve the problem:
 
-         - I was looking for this bug on the internet.
-         - Tried changing settings in my Google Platform account and Facebook for developers account and settings.py file.
+        - I was looking for this bug on the internet.
+        - Tried changing settings in my Google Platform account and Facebook for developers account and settings.py file.
 
-       - Solution:
+      - Solution:
 
-         - The error: "disallowed_useragent" will occur because the app makes a login request that Google and Facebook reject.
-           The most common reason for this rejection is an unauthorized browser agent (the app uses a deprecated browser agent that Google no longer accepts).
-         - This error did not appear when I tried to register or log in using a secure browser for example Google Chrome.
+        - The error: "disallowed_useragent" will occur because the app makes a login request that Google reject.
+        - The most common reason for this rejection is an unauthorized browser agent (the app uses a deprecated browser agent that Google no longer accepts).
+        - I can register an account via Google or Facebook only when I open my website in secure browser for example Google Chrome.
 
 - ### **Code validation**
 
