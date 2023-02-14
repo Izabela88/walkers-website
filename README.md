@@ -10,7 +10,7 @@ Walkers - a platform for people who are both: looking for dog carers and people 
 
 Using the principles of UX design, this fully responsive and interactive website was developed using HTML, CSS, JavaScript and Python, and Django as a framework.
 
-View live project here [link to deployed link](https://walkers88.herokuapp.com/)
+View live project here [link to deployed link](https://walkers-website.up.railway.app/)
 
 ## **CHECKING THE SEARCH FORM FUNCTIONALITY**
 
