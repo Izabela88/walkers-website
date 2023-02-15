@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn walkers.wsgi
+web: python manage.py collectstatic --noinput; gunicorn walkers.wsgi
