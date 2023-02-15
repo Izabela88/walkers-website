@@ -1104,7 +1104,7 @@ select {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   width: 50%;
-  height: 80%;
+  height: 68%;
 }
 
 .signup {
@@ -1244,7 +1244,7 @@ label[for="id_remember"] {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   width: 50%;
-  height: 65%;
+  height: 50%;
 }
 
 
@@ -4192,13 +4192,13 @@ label[for="id_newsletter_email"] {
   }
 
   .form-grid-container {
-    height: 800px;
+    height: 670px;
     margin-top: 15%;
     margin-bottom: 15%;
   }
 
   .login-form-grid-container {
-    height: 700px;
+    height: 500px;
     margin-top: 15%;
     margin-bottom: 15%;
   }
@@ -4718,7 +4718,7 @@ label[for="id_newsletter_email"] {
 
   .form-grid-container {
     width: 85%;
-    height: 850px;
+    height: 600px;
   }
 
   label[for="id_email"],
@@ -4741,7 +4741,7 @@ label[for="id_newsletter_email"] {
 
   .login-form-grid-container {
     width: 85%;
-    height: 750px;
+    height: 400px;
   }
 
   #id_remember {
