@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% load i18n socialaccount %}
+<!-- {% load i18n socialaccount %} -->
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -24,7 +24,7 @@
         <div class="heading">
           <h2>Log In to your account!</h2>
         </div>
-        {% get_providers as socialaccount_providers %}
+        <!-- {% get_providers as socialaccount_providers %}
           <div class="social-btns">
             {% if socialaccount_providers %}
               <p>{% blocktrans with site.name as site_name %}Please log in with one
@@ -40,10 +40,10 @@
               <p>{% blocktrans %}If you have not created an account yet, then please
               <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
             {% endif %}
-          </div>
+          </div> -->
         <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %} 
-          {{ form }} 
+          {% csrf_token %}
+          {{ form }}
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
           {% endif %}

@@ -52,9 +52,9 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "allauth",
     "allauth.account",
-#     "allauth.socialaccount",
-#     "allauth.socialaccount.providers.facebook",
-#     "allauth.socialaccount.providers.google",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.google",
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
@@ -104,38 +104,38 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    "facebook": {
-        "METHOD": "js_sdk",
-        "SCOPE": ["email", "public_profile"],
-        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
-        "INIT_PARAMS": {"cookie": True},
-        "FIELDS": [
-            "id",
-            "first_name",
-            "last_name",
-            "middle_name",
-            "name",
-            "name_format",
-            "email",
-        ],
-        "EXCHANGE_TOKEN": True,
-        "LOCALE_FUNC": lambda request: "en_US",
-        "VERIFIED_EMAIL": False,
-        "VERSION": "v13.0",
-    },
-    "google": {
-        "SCOPE": [
-            "profile",
-            "email",
-            "openid",
-        ],
-        "AUTH_PARAMS": {
-            "access_type": "online",
-            "response_type": "code",
-        },
-    },
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     "facebook": {
+#         "METHOD": "js_sdk",
+#         "SCOPE": ["email", "public_profile"],
+#         "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+#         "INIT_PARAMS": {"cookie": True},
+#         "FIELDS": [
+#             "id",
+#             "first_name",
+#             "last_name",
+#             "middle_name",
+#             "name",
+#             "name_format",
+#             "email",
+#         ],
+#         "EXCHANGE_TOKEN": True,
+#         "LOCALE_FUNC": lambda request: "en_US",
+#         "VERIFIED_EMAIL": False,
+#         "VERSION": "v13.0",
+#     },
+#     "google": {
+#         "SCOPE": [
+#             "profile",
+#             "email",
+#             "openid",
+#         ],
+#         "AUTH_PARAMS": {
+#             "access_type": "online",
+#             "response_type": "code",
+#         },
+#     },
+# }
 
 
 # MAILCHIMP CREDENTIALS
