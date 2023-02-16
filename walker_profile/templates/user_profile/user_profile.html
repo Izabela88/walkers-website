@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 {% block content %}
-{% load socialaccount %}
 
 <section class="walker-profile-section">
 
@@ -18,42 +17,42 @@
   <div class="tabs">
     <div class="tabs-sidebar center">
     <!---------------------BUTTONS---------------------->
-    <button class="tabs-button blind-btn"></button> 
-    <button 
+    <button class="tabs-button blind-btn"></button>
+    <button
       {% if tab == 'personal_information' %}
         class="tabs-button button display-tab-white"
-      {% else %} 
+      {% else %}
         class="tabs-button button"
       {% endif %}
       >Personal Information</button>
     <button
       {% if tab == 'address_details' %}
         class="tabs-button button display-tab-white"
-      {% else %} 
+      {% else %}
         class="tabs-button button"
       {% endif %}
-      >Address Details</button>     
+      >Address Details</button>
     <button class="tabs-button button"> Edit account</button>
     <button
       {% if tab == 'upload_photo' %}
       class="tabs-button button display-tab-white"
-      {% else %} 
+      {% else %}
         class="tabs-button button"
       {% endif %}
       class="tabs-button button ">Upload Photo</button>
-    {% if is_petsitter %}     
+    {% if is_petsitter %}
       <button
         {% if tab == 'petsitter_profile' %}
         class="tabs-button button display-tab-white"
-        {% else %} 
+        {% else %}
           class="tabs-button button"
         {% endif %}
       class="tabs-button button"> Petsitter profile</button>
     {% else %}
-    <button 
+    <button
       {% if tab == 'my_reviews' %}
         class="tabs-button button display-tab-white"
-      {% else %} 
+      {% else %}
         class="tabs-button button"
       {% endif %}
       >My rewiews</button>
@@ -99,7 +98,7 @@
           <strong>{{profile_form_errors.last_name.0}}</strong>
         </div>
       {% endif %}
-      <input type="hidden" name="form_type" value="profile_form" /> 
+      <input type="hidden" name="form_type" value="profile_form" />
       <input class="button button-bright update-profil" type="submit" value="Update" />
     </form>
   </div>
@@ -143,8 +142,8 @@
         <div class="error-profile">
           <strong>{{address_form_errors.county.0}}</strong>
         </div>
-      {% endif %}     
-      <input type="hidden" name="form_type" value="address_form" /> 
+      {% endif %}
+      <input type="hidden" name="form_type" value="address_form" />
       <input class="button button-bright" type="submit" value="Update" />
     </form>
   </div>
@@ -155,7 +154,7 @@
       <h2 class="change-heading">Change password</h2>
       <form class="center" action="post">
       {% csrf_token %}
-        <p>To change the current password, click on this 
+        <p>To change the current password, click on this
           <a class="password-link" href="{% url 'password_change' %}">link</a> <br>
         </p>
       </form>
@@ -172,10 +171,10 @@
       <h2 class="upload-heading">Upload Your Photo</h2>
     <form class="profile-img-form" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {% if user.avatar %}           
+      {% if user.avatar %}
         <div class="img-box center">
           <div class="user-img center" style="background: url('{{request.user.avatar.url}}') no-repeat center center/cover"></div>
-        </div>                        
+        </div>
       {% else %}
         <div class="img-box center">
           <div class="no-user-img"></div>
@@ -189,7 +188,7 @@
           <strong>{{value.0}}</strong>
         </div>
       {% endfor %}
-      <input type="hidden" name="form_type" value="avatar_form" /> 
+      <input type="hidden" name="form_type" value="avatar_form" />
       <input class="button button-bright" type="submit" value="Upload" />
     </form>
     </div>
@@ -197,9 +196,9 @@
     {% if is_petsitter %}
     <div
     {% if tab == 'petsitter_profile' %}
-     class="tabs-content display-content" 
-     {% else %} 
-      class="tabs-content" 
+     class="tabs-content display-content"
+     {% else %}
+      class="tabs-content"
     {% endif %}>
       <h2 class="sitter-heading">Pet sitter profile</h2>
       <div class="wrapper">
@@ -211,14 +210,14 @@
               {% endif %}
               petsitter-profile-label
               "
-              data-id={{value.0}}>{{value.1}}</button>    
+              data-id={{value.0}}>{{value.1}}</button>
             {% endfor %}
             <button class="tab-button
             {% if subtab == "description" %}
               active
-            {% endif %}" 
-            data-id="description">description</button> 
-        </div>                 
+            {% endif %}"
+            data-id="description">description</button>
+        </div>
         <div class="content-wrapper">
         {% for key, value in service_details_forms.items %}
             <div class="content
@@ -237,10 +236,10 @@
                 {{value.2.is_medium_dog}}
                 <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
                 {{value.2.is_big_dog}}
-                <label for="big_dog">Big Dog (> 20kg)</label><br><br>                     
-                <label class="form-title">2. Next enter below, what amount you expect for your services (at least one of two fields must be filled to continue). 
-                  Leave the field blank if the price does not apply to your services. 
-                  Or maybe you want to do charity work? Then enter '0'.</label>                
+                <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                <label class="form-title">2. Next enter below, what amount you expect for your services (at least one of two fields must be filled to continue).
+                  Leave the field blank if the price does not apply to your services.
+                  Or maybe you want to do charity work? Then enter '0'.</label>
                 {{value.2.s_price_hour}}
                 {{value.2.s_price_day}}
                 <label for="small_dog"> Small Dog (< 10kg)</label><br>
@@ -249,17 +248,17 @@
                 <label for="medium_dog">Medium Dog (10-20 kg)</label><br>
                 {{value.2.b_price_hour}}
                 {{value.2.b_price_day}}
-                <label for="big_dog">Big Dog (> 20kg)</label><br><br>                         
-                <label class="form-title">3. Finally, if you would like to display all of the above information in your ad, select "YES". 
-                  You must select at least one dog size to display your ad. 
-                  If for some reason you do not want to display it or you want to temporarily suspend your activity, select "NO". 
-                  All data will be kept in case you want to display it again in the future. 
+                <label for="big_dog">Big Dog (> 20kg)</label><br><br>
+                <label class="form-title">3. Finally, if you would like to display all of the above information in your ad, select "YES".
+                  You must select at least one dog size to display your ad.
+                  If for some reason you do not want to display it or you want to temporarily suspend your activity, select "NO".
+                  All data will be kept in case you want to display it again in the future.
                 </label>
                 <label class="switch">
                   {{value.2.is_active}}
-                  <span class="switch-label" data-on="Yes" data-off="No"></span> 
-                  <span class="switch-handle"></span> 
-                </label>                         
+                  <span class="switch-label" data-on="Yes" data-off="No"></span>
+                  <span class="switch-handle"></span>
+                </label>
                 <input type="hidden" name="form_type" value={{value.0}} />
                 <div class="petsitter-form-btn">
                   <input class="button button-bright" type="submit" value="Save" />
@@ -270,7 +269,7 @@
             <div class="content
             {% if subtab == "description" %}
                 active
-              {% endif %}" 
+              {% endif %}"
               id="description">
               <h4>
                 description
@@ -287,24 +286,24 @@
                   <input type="hidden" name="form_type" value="description_form" />
                   <input class="button button-bright page-btn" type="submit" value="Save" />
                 </form>
-            </div>                
-          </div>     
-      </div>             
+            </div>
+          </div>
+      </div>
     </div>
     {% else %}
       <div
         {% if tab == 'my_reviews' %}
-          class="tabs-content display-content" 
-        {% else %} 
-          class="tabs-content" 
+          class="tabs-content display-content"
+        {% else %}
+          class="tabs-content"
         {% endif %}>
         <h2 class="myreviews-heading">My Reviews</h2>
-        <p class="my-reviews-txt">To see yours reviews, click on this 
+        <p class="my-reviews-txt">To see yours reviews, click on this
           <a class="password-link" href="{% url 'reviews' user.id %}">link</a> <br>
         </p>
-      </div>          
-    {% endif %}     
-</div>      
+      </div>
+    {% endif %}
+</div>
 </div>
 </section>
 {% endblock %}
