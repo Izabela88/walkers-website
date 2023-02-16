@@ -52,9 +52,9 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.facebook",
-    "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount",
+    # "allauth.socialaccount.providers.facebook",
+    # "allauth.socialaccount.providers.google",
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
@@ -96,7 +96,7 @@ SOCIALACCOUNT_EMAIL_REQUIRED = True
 
 # Forms
 ACCOUNT_FORMS = {"signup": "walker_profile.forms.ExtendedSignupForm"}
-SOCIALACCOUNT_ADAPTER = "walkers.adapter.SocialAccountAdapter"
+# SOCIALACCOUNT_ADAPTER = "walkers.adapter.SocialAccountAdapter"
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
