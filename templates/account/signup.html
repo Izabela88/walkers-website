@@ -23,8 +23,7 @@
         <h2>Register your account!</h2>
       </div>
       <div class="social-btns">
-          <p>{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
       </div>
 
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
