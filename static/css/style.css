@@ -4718,7 +4718,7 @@ label[for="id_newsletter_email"] {
 
   .form-grid-container {
     width: 85%;
-    height: 600px;
+    height: auto;
   }
 
   label[for="id_email"],
@@ -4741,7 +4741,7 @@ label[for="id_newsletter_email"] {
 
   .login-form-grid-container {
     width: 85%;
-    height: 400px;
+    height: auto;
   }
 
   #id_remember {
@@ -5029,7 +5029,6 @@ label[for="id_newsletter_email"] {
 
   .social-btns {
     flex-direction: column;
-    height: 250px;
     margin-top: 40px;
     margin-bottom: 40px;
 
