@@ -27,9 +27,9 @@
     {% if user.is_authenticated and is_petsitter %}
       <div class="home-txt center">
         <div class="main-txt center">
-          <h1><span>Welcome {% if user.first_name %}{{request.user.first_name}}{% endif %}!</span> <br> are you looking for the best platform for advertising your services ?
+          <h1>{% if user.is_authenticated %}<span>Welcome {% if user.first_name %}{{request.user.first_name}}{% endif %}!</span> <br>{% endif %} are you looking for the best platform for advertising your services ?
           </h1>
-          <p>Well, you just found it! :-)
+          <p>Well, you just found it!
             We empower you to offer your own services on Walkers and giving you the tools to succeed !</p>
           <div class="button button-bright center home-button-petsitter">
             <a href="{% url 'user_profile' user.id %}">
@@ -43,7 +43,7 @@
       <div class="home-txt center">
         <div class="main-txt center">
           <h1>
-            <span>Welcome {% if user.first_name %}{{request.user.first_name}}{% endif %}!</span> <br> are you looking for professional pet sitter or dog walker ?
+            {% if user.is_authenticated %}<span>Welcome {% if user.first_name %}{{request.user.first_name}}{% endif %}!</span> <br>{% endif %} are you looking for professional pet sitter or dog walker ?
           </h1>
           <p>we will help you to find the best one in your neighborhood !</p>
         </div>
