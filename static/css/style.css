@@ -3221,9 +3221,10 @@ label[for="id_stars_4"] {
 }
 
 .contact-dog-img {
-   height: 67%;
-   bottom: 0;
-   right: 64%;
+  position: absolute;
+  height: 67%;
+  bottom: 0;
+  right: 64%;
 }
 
 .contact-form-box p {
