@@ -38,11 +38,6 @@
         </div>
         <div id="my-sidebar" class="sidebar">
           <ul id="menu-list" class="nav-list">
-            {% if user.is_authenticated %}
-            <li class="welcome-msg">
-              <span>Welcome {{request.user.first_name}}!</span>
-            </li>
-            {% endif %}
             {% url 'home' as url %}
             <li
             class="{% if request.path == url %}
