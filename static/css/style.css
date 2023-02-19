@@ -565,7 +565,7 @@ h2 {
 
 .welcome-msg {
   font-family: "Hubballi", cursive;
-  text-transform: lowercase;
+  text-transform: uppercase;
   color: var(--black-color);
   letter-spacing: 1px;
 }
