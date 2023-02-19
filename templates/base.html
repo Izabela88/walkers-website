@@ -22,7 +22,7 @@
     <!---------------HEADER--------------->
     <header id="header">
       {% url 'home' as url %}
-      <div class="logo 
+      <div class="logo
         {% if request.path == url %}
         active
         {% endif %}">
@@ -30,7 +30,7 @@
           <img src="{% static 'images/logo.png' %}" alt="Logo"/>
         </a>
       </div>
-      <nav id="nav">    
+      <nav id="nav">
         <div class="wrapper-menu">
           <div class="line-menu half start"></div>
           <div class="line-menu"></div>
@@ -38,65 +38,62 @@
         </div>
         <div id="my-sidebar" class="sidebar">
           <ul id="menu-list" class="nav-list">
+            {% if user.is_authenticated %}
+            <li class="welcome-msg">
+              <span>Welcome {{request.user.first_name}}!</span>
+            </li>
+            {% endif %}
             {% url 'home' as url %}
-            <li 
+            <li
             class="{% if request.path == url %}
             active
             {% endif %}">
-              {% if user.is_authenticated %}
-              <li class="welcome-msg">
-                <span>Hello {{request.user.first_name}}! ♥</span>
-              </li>
-              {% endif %}
-              <a
-              class="close-sidebar" 
-              href="{{ url }}"
-              >Home
-              </a>
+              <a class="close-sidebar"
+              href="{{ url }}">Home</a>
             </li>
-            {% if not request.user or not request.user.is_petsitter %}                       
-              <li><a 
-                class="close-sidebar" 
+            {% if not request.user or not request.user.is_petsitter %}
+              <li><a
+                class="close-sidebar"
                 href="{% url 'home' %}#searching-section">Find petsitter
                 </a>
               </li>
             {% endif %}
-            <li><a 
-              class="close-sidebar" 
+            <li><a
+              class="close-sidebar"
               href="{% url 'home' %}#join-section">Join Us
               </a>
-            </li>        
-            <li><a  
-              class="close-sidebar" 
+            </li>
+            <li><a
+              class="close-sidebar"
               href="{% url 'about' %}">About
               </a>
             </li>
-            <li><a 
-              class="close-sidebar" 
+            <li><a
+              class="close-sidebar"
               href="{% url 'contact' %}">Contact</a>
             </li>
             {% if user.is_authenticated %}
-              <li><a 
-                id="user-profile-link" 
-                class="close-sidebar" 
+              <li><a
+                id="user-profile-link"
+                class="close-sidebar"
                 href="{% url 'user_profile' request.user.id %}">
                 Your Profile
                 </a>
               </li>
-              <li><a 
-                class="close-sidebar" 
+              <li><a
+                class="close-sidebar"
                 href="{% url 'account_logout' %}">
                 Log Out
                 </a>
               </li>
             {% else %}
-              <li><a 
-                class="close-sidebar" 
+              <li><a
+                class="close-sidebar"
                 href="{% url 'account_signup' %}">Register
                 </a>
               </li>
-              <li><a 
-                class="close-sidebar" 
+              <li><a
+                class="close-sidebar"
                 href="{% url 'account_login' %}">Log In
                 </a>
               </li>
@@ -160,7 +157,7 @@
             <h3>Quick links</h3>
             <ul>
               {% url 'home' as url %}
-              <li 
+              <li
               class="{% if request.path == url %}
               active
               {% endif %}">
@@ -169,30 +166,30 @@
                 >Home
                 </a>
               </li>
-              {% if not request.user or not request.user.is_petsitter %}                       
-                <li><a  
+              {% if not request.user or not request.user.is_petsitter %}
+                <li><a
                   href="{% url 'home' %}#searching-section">Find petsitter
                   </a>
                 </li>
               {% endif %}
-              <li><a 
+              <li><a
                 href="{% url 'home' %}#join-section">Join Us
                 </a>
-              </li>        
-              <li><a  
+              </li>
+              <li><a
                 href="{% url 'about' %}">About
                 </a>
               </li>
-              <li><a 
+              <li><a
                 href="{% url 'contact' %}">Contact</a>
               </li>
               {% if user.is_authenticated %}
               {% else %}
-                <li><a  
+                <li><a
                   href="{% url 'account_signup' %}">Register
                   </a>
                 </li>
-                <li><a  
+                <li><a
                   href="{% url 'account_login' %}">Log In
                   </a>
                 </li>
@@ -234,7 +231,7 @@
               <div class="close-newsletter-btn">
                 <i class="far fa-times-circle"></i>
               </div>
-              <h2>hungry for news ?</h2>          
+              <h2>hungry for news ?</h2>
               <p>well...subscribe to our newsletter !</p>
               <form class="newsletter-form center" action="{% url 'newsletter' %}" method="post">
                    {% csrf_token %}
@@ -243,7 +240,7 @@
                       <input class="button button-bright newsletter-btn" type="submit" value="subscribe">
                    </div>
                </form>
-            </div>    
+            </div>
         </div>
       </div>
 
@@ -258,6 +255,6 @@
 
     {% block extra_js %}
     {% endblock %}
-    
+
   </body>
 </html>
