@@ -43,6 +43,11 @@
             class="{% if request.path == url %}
             active
             {% endif %}">
+              {% if user.is_authenticated %}
+              <li class="welcome-msg">
+                <span>Hello {{request.user.first_name}}! ♥</span>
+              </li>
+              {% endif %}
               <a
               class="close-sidebar" 
               href="{{ url }}"
@@ -71,10 +76,6 @@
               href="{% url 'contact' %}">Contact</a>
             </li>
             {% if user.is_authenticated %}
-              <li 
-              class="welcome-msg">
-                <span>HELLO {{request.user.first_name}}! ♥</span>
-              </li>
               <li><a 
                 id="user-profile-link" 
                 class="close-sidebar" 
