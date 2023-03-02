@@ -4,7 +4,7 @@
 
 ## **INTRODUCTION**
 
-View live project here [link to deployed link](https://walkers-website-production.up.railway.app/)
+View live project here [link to deployed website](https://walkers-website-production.up.railway.app/)
 
 ![mockup](/documents/responsive.png)
 
